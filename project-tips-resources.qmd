@@ -8,6 +8,10 @@ library(knitr)
 library(broom)
 ```
 
+::: callout-important
+Project data options are still being finalized, and will be completed by June 22, 2026.
+:::
+
 ## List of Data Options for the Project
 
 ### Pew Research Data

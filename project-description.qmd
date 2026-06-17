@@ -2,6 +2,10 @@
 title: "Project description"
 ---
 
+::: callout-important
+Project information is still being finalized, and will be completed by June 22, 2026.
+:::
+
 ## Timeline
 
 [Project Proposal](#topic-ideas) due Sun, June 28
