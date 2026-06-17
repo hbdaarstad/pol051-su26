@@ -32,8 +32,8 @@ website:
     pinned: true
     align: center
     tools:
-      - icon: {{< mi assignment >}}
-        href: https://github.com/pol051-su26
+      - icon: clipboard-check
+        href: https://login.canvas.ucdavis.edu/
         text: "Canvas"
       - icon: code-square
         href: https://posit.cloud
