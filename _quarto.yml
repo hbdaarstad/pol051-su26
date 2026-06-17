@@ -14,9 +14,9 @@ website:
   page-navigation: true
   title: "POL 051 - Summer 2026"
   description: "Homepage for POL 051 - The Scientific Study of Politics at UC Davis, Summer 2026."
-  site-url: "https://pol051-su26.github.io/website/"
+  site-url: "http://haleydaarstad.com/pol051-su26/"
 
-  repo-url: https://github.com/pol051-su26/website
+  repo-url: http://haleydaarstad.com/pol051-su26/
   repo-actions: [edit, issue]
 
   open-graph: true
