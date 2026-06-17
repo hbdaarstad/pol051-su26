@@ -4,526 +4,355 @@ title: "Project description"
 
 ## Timeline
 
-[Topic ideas](#topic-ideas) due Fri, Feb 18
+[Project Proposal](#topic-ideas) due Sun, June 28
 
-[Proposal](#project-proposal) due Fri, Mar 18
+[Draft report](#draft-report) due Fri, July 17
 
-[Draft report](#draft-report) due Fri, Apr 8
+[Peer review](#peer-review) due Wed, July 22
 
-[Peer review](#peer-review) due Fri, Apr 15
+[Final report](#written-report) due Wed, July 29
 
-[Final report](#written-report) due Mon, Apr 25
-
-[Video presentation + slides](#video-presentation--slides) and [final GitHub repo](#reproducibility---organization) due Thu, Apr 28
-
-[Presentation comments](#presentation-comments) due Sat, Apr 30
+[Presentation](#video-presentation--slides) on Thu, July 30
 
 ## Introduction
 
-**TL;DR**: *Pick a data set and do a regression analysis. That is your final project.*
+*Make a Research Question, Pick a data set, and do analysis. That is your final project.*
 
-The goal of the final project is for you to use regression analysis to analyze a data set of your own choosing.
-The data set may already exist or you may collect your own data by scraping the web.
+The goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.
 
-Choose the data based on your group's interests or work you all have done in other courses or research projects.
-The goal of this project is for you to demonstrate proficiency in the techniques we have covered in this class (and beyond, if you like!) and apply them to a data set to analyze it in a meaningful way.
+The data will come from a pre-curated list of data from various different sources including public research institutions and survey firms. As a group you will select a data set based on a research question that you have made. Remember the goal of this project is for you to demonstrate the skills we have covered in this class and apply them to the selected data set to analyze it in a meaningful way.
 
-All analyses must be done in RStudio, and all components of the project **must be reproducible** (with the exception of the presentation).
+YOU DO NOT NEED TO GO BEYOND THE SKILLS IN THIS CLASS. There should not be any reason to use AI in this course, because you will be provided all the code and information to do the analysis that you need to do. If anyone in your group is caught using AI you will receive a 0 on this project.
+
+All analyses must be done in RStudio, and all components of the project **must be reproducible**. This means that when I run the code, I do not get any errors.
 
 ### Logistics
 
-You will work on the project with your lab groups.
+You will work on the project with your assigned team.
 
-The four primary deliverables for the final project are
+The pieces for the final project are the following:
 
--   A written, reproducible report detailing your analysis
--   A GitHub repository corresponding to your report
--   Slides + a video presentation
--   Formal peer review on another team's project
+-   A submitted written, reproducible report detailing your analysis.
+-   The presentation for the project.
+-   A summary of the edits made following the draft.
+-   A summary of each contribution, written by each member of the group
+-   The orginal quarto file with the code
 
 ## Topic ideas {#topic-ideas}
 
-Identify 2-3 data sets you're interested in potentially using for the final project.
-If you're unsure where to find data, you can use the list of potential data sources in the [Tips + Resources](#tips--resources) section as a starting point.
-It may also help to think of topics you're interested in investigating and find data sets on those topics.
+I have curated a list of data sets from the following sources:
 
-The purpose of submitting project ideas is to give you time to find data for the project and to make sure you have a data set that can help you be successful in the project.
-**Therefore, you must use one of the data sets submitted as a topic idea, unless otherwise notified by the teaching team.**
+1.  United Nations Data: <https://data.un.org/>
+2.  Pew Research: <https://www.pewresearch.org/datasets/>
+3.  Election Studies: <https://electionstudies.org//>
+4.  Latin American Statistics:
 
-The data sets should meet the following criteria:
+As a group select a data set that you are interested in, and relates to your research question. You will be required to submit your groups research question and the selected data set.
 
--   At least 500 observations
+Find the data sets [here](project-tips-resources.qmd).
 
--   At least 10 columns
+### Project Proposal submission
 
--   At least 6 of the columns must be useful and unique predictor variables.
+Your Project Proposal submission should be no more than half a page and will be graded on completion. This means that as long as you attempt, show that you tried, and included all requirments then you will receive full credit.
 
-    -   Identifier variables such as "name", "social security number", etc. are not useful predictor variables.
-    -   If you have multiple columns with the same information (e.g. "state abbreviation" and "state name"), then they are not unique predictors.
+The proposal should include the following:
 
--   At least one variable that can be identified as a reasonable response variable.
+#### Introduction and data (1 paragraph)
 
-    -   The response variable can be quantitative or categorical.
-
--   A mix of quantitative and categorical variables that can be used as predictors.
-
--   Observations should reasonably meet the independence condition.
-    Therefore, avoid data with repeated measures, data collected over time, etc.
-
--   You may not use data that has previously been used in any course materials, or any derivation of data that has been used in course materials.
-
-**Please ask a member of the teaching team if you're unsure whether your data set meets the criteria.**
-
-For each data set, include the following:
-
-#### Introduction and data
-
--   State the source of the data set.
--   Describe when and how it was originally collected (by the original data curator, not necessarily how you found the data)
+-   State the source of the data set: who made the data?
+    -   Remember to provide a citation for the dataset
 -   Describe the observations and the general characteristics being measured in the data
+    -   What questions is your team thinking they will be using?
+    -   Use the code book to find what variables were collected and how they are measured.
 
-#### Research question
+#### Research question (1 paragraph)
 
--   Describe a research question you're interested in answering using this data.
+-   State the research question your team wants to answer
+-   Tell me why your team is interested in answering using this data
+    -   What motivated your team to ask this question
 
 #### Glimpse of data
 
--   Use the `glimpse` function to provide an overview of each data set
+-   Use the `head` function to provide an overview of each data set
+    -   `head()`
 
-Submit the PDF of the topic ideas to Gradescope.
-Mark all pages associated with each data set.
+Download the template [here](files/project-proposal-template.qmd){download="project-proposal-template.qmd"}. Render as a word docx and submit to canvas.
 
-## Project proposal {#project-proposal}
-
-The purpose of the project proposal is to help you think about your analysis strategy early.
-
-Include the following in the proposal:
-
-### Section 1 - Introduction
-
-The introduction section includes
-
--   an introduction to the subject matter you're investigating
--   the motivation for your research question (citing any relevant literature)
--   the general research question you wish to explore
--   your hypotheses regarding the research question of interest.
-
-### Section 2 - Data description
-
-In this section, you will describe the data set you wish to explore.
-This includes
-
--   description of the observations in the data set,
--   description of how the data was originally collected (not how you found the data but how the original curator of the data collected it).
-
-### Section 3 - Analysis approach
-
-In this section, you will provide a brief overview of your analysis approach.
-This includes:
-
--   Description of the response variable.
--   Visualization and summary statistics for the response variable.
--   List of variables that will be considered as predictors
--   Regression model technique (multiple linear regression and logistic regression)
-
-### Data dictionary (aka code book)
-
-Submit a data dictionary for all the variables in your data set in the `README` of your project repo, in the `data` folder.
-Link to this file from your proposal writeup.
-
-### Submission
-
-Push all of your final changes to the GitHub repo, and submit the PDF of your proposal to Gradescope.
-
-### Proposal grading
-
-| Total                | 10 pts |
-|----------------------|--------|
-| **Introduction**     | 3 pts  |
-| **Data description** | 2 pts  |
-| **Analysis plan**    | 4 pts  |
-| **Data dictionary**  | 1 pts  |
-
-Each component will be graded as follows:
-
--   **Meets expectations (full credit)**: All required elements are completed and are accurate.
-    The narrative is written clearly, all tables and visualizations are nicely formatted, and the work would be presentable in a professional setting.
-
--   **Close to expectations (half credit)**: There are some elements missing and/or inaccurate.
-    There are some issues with formatting.
-
--   **Does not meet expectations (no credit)**: Major elements missing.
-    Work is not neatly formatted and would not be presentable in a professional setting.
+## Project Report Draft #1 {#project-proposal}
 
 ## Draft report {#draft-report}
 
-The purpose of the draft and peer review is to give you an opportunity to get early feedback on your analysis.
-Therefore, the draft and peer review will focus primarily on the exploratory data analysis, modeling, and initial interpretations.
+The purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion as long as all parts are included then your group will receive full credit.
 
-Write the draft in the **written-report.qmd** file in your project repo.
-You do not need to submit the draft on Gradescope.
+Include the following in the draft:
 
-Below is a brief description of the sections to focus on in the draft:
+### Section 1 - Introduction
 
-### Introduction and data
+The introduction should include the following (1 page):
 
-This section includes an introduction to the project motivation, data, and research question.
-Describe the data and definitions of key variables.
-It should also include some exploratory data analysis.
-All of the EDA won't fit in the paper, so focus on the EDA for the response variable and a few other interesting variables and relationships.
+-   You should state the motivation of the research question
+    -   Focus these two key elements:
+        -   What is the observed problem
+        -   What does this contribute to?
+            -   Does this contribute to more knoweldge? (Intellectual)
+            -   Does this contribute to policy? (Broader)
+    -   In your introduction section, you should be focused on discussing what the problem is that you are seeing and why this needs to be addressed. Is there a current problem in the world; did something happen?
+    -   <https://www.sjsu.edu/writingcenter/docs/handouts/Introduction%20of%20Research%20Papers.pdf>
+    -   Example:
+        -   “The number of women running for political office has skyrocket since the introduction of gender quota laws and revisions were introduced to reduce the loopholes of the laws. The most recent election in Mexico during 2024 was the largest election in its history and saw the most women running for office. However, while the number of women entering political office is increasing, so is the level of criminal violence, especially against political leaders. The 2024 election was one of the most violent elections in recent history (Data Cívica, México Evalúa y Animal Político, 2024A). Yet, little research has examined the impact of criminal violence on the candidate selection process and how this impacts women, and as violence increases it is critical to analyze the relationship between criminal violence and candidate selection.” (Daarstad, N.D.)
+        -   “While previously polarization was primarily seen only in issue-based terms, a new type of division has emerged in the mass public in recent years: Ordinary Americans increasingly dislike and distrust those from the other party. Democrats and Republicans both say that the other party's members are hypocritical, selfish, and closed-minded, and they are unwilling to socialize across party lines. This phenomenon of animosity between the parties is known as affective polarization. We trace its origins to the power of partisanship as a social identity, and explain the factors that intensify partisan animus.” (Iyenger, et. al, 2019)
 
-### Methodology
+### Section 2 - Literature Review
 
-This section includes a brief description of your modeling process.
-Explain the reasoning for the type of model you're fitting, predictor variables considered for the model including any interactions.
-Additionally, show how you arrived at the final model by describing the model selection process, any variable transformations (if needed), and any other relevant considerations that were part of the model fitting process.
+-   Should be a "comprehensive" review and analysis of the current academic research (1 - 2 pages)
 
-### Results
+-   The key piece is addressing what gap exists; the gap you are trying to address.
 
-In this section, you will output the final model and include a brief discussion of the model assumptions, diagnostics, and any relevant model fit statistics.
+-   Tell me what your project adds!!
 
-This section also includes initial interpretations and conclusions drawn from the model.
+    -   Sources on Lit Reviews:
+
+        -   <https://libguides.wustl.edu/our?p=302677#:~:text=From%20The%20Writing%20Center%20%2D%20The,emphasis%20is%20on%20the%20argument.>
+
+        -   <https://www.tandfonline.com/doi/full/10.1080/02642069.2022.2047941>
+
+        -   <https://owl.purdue.edu/owl/research_and_citation/conducting_research/writing_a_literature_review.html>
+
+        -   <https://writingcenter.unc.edu/tips-and-tools/literature-reviews/>
+
+        -   <https://www.sjsu.edu/writingcenter/docs/handouts/Literature%20Reviews.pdf>
+
+### Section 3 - Hypotheses (1/2 page)
+
+In this section, you will tell me your hypotheses!
+
+### Section 4 - Data Description (1/2 page)
+
+In this section, you will describe the data. This includes
+
+-   description of the observations in the data set,
+    -   What is your independent variable?
+    -   What is your dependent variable?
+    -   How was it measured?
+    -   How was it collected?
+
+### Section 5 - Data Summary + Regression Model (1-2 pages)
+
+In this section, you will provide basic summary stats, visualizations, and a simple regression model of your data. This includes:
+
+-   Visualization and summary statistics for the response variable.
+-   Simple Regression model
+
+### Section 6 - Conclusion (1 pages)
+
+-   Tell me what you found, does it support your conclusions?
+
+### Submission
+
+Submit as a word document on canvas.
+
+### Project Draft grading
+
+| Total                         | 100 pts |
+|-------------------------------|---------|
+| **Introduction**              | 20 pts  |
+| **Lit Review**                | 20 pts  |
+| **Hypotheses**                | 10 pts  |
+| **Data Description**          | 10 pts  |
+| **Data Summary + Regression** | 20 pts  |
+| **Conclusion**                | 20 pts  |
 
 ## Peer review {#peer-review}
 
-Critically reviewing others' work is a crucial part of the scientific process, and STA 210 is no exception.
-Each lab team will be assigned two other teams's projects to review.
-Each team should push their draft to their GitHub repo by the due date.
-One lab in the following week will be dedicated to the peer review, and all reviews will be due by the end of that lab session.
+Critically reviewing others' work is a crucial part of the scientific process. Each team will be assigned two other teams's projects to review. You will be randomly assigned two other team's drafts and will need to provide detailed comments by Wed. July 22
 
-During the peer review process, you will be provided read-only access to your partner teams' GitHub repos.
-Provide your review in the form of GitHub issues to your partner team's GitHub repo using the issue template provided.
 The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.
 
 ### Pairings
 
-#### Section 1 - M 1:45PM - 3:00PM
-
-| Team being reviewed | Reviewer 1     | Reviewer 2     |
-|---------------------|----------------|----------------|
-| chaa_chaa_chaa      | yay_stats      | stat_over_flow |
-| dekk                | chaa_chaa_chaa | yay_stats      |
-| eight               | dekk           | chaa_chaa_chaa |
-| housecats           | eight          | dekk           |
-| krafthouse          | housecats      | eight          |
-| rrawr               | krafthouse     | housecats      |
-| stat_over_flow      | rrawr          | krafthouse     |
-| yay_stats           | stat_over_flow | rrawr          |
-
-#### Section 2 - M 3:30PM - 4:45PM
-
-| Team being reviewed | Reviewer 1       | Reviewer 2       |
-|---------------------|------------------|------------------|
-| a_plus_plus_plus    | we_r             | tina             |
-| predictors          | a_plus_plus_plus | we_r             |
-| sixers              | predictors       | a_plus_plus_plus |
-| soy_nuggets         | sixers           | predictors       |
-| tina                | soy_nuggets      | sixers           |
-| we_r                | tina             | soy_nuggets      |
-
-#### Section 3 - M 5:15PM - 6:30PM
-
-| Team being reviewed              | Reviewer 1                       | Reviewer 2                       |
-|------------------------|------------------------|------------------------|
-| down_to_earth_goats              | the_three_musketeers             | team_five                        |
-| ginger_and_stats                 | down_to_earth_goats              | the_three_musketeers             |
-| pineapple_wedge_and_diced_papaya | ginger_and_stats                 | down_to_earth_goats              |
-| statchelorettes                  | pineapple_wedge_and_diced_papaya | ginger_and_stats                 |
-| statisix                         | statchelorettes                  | pineapple_wedge_and_diced_papaya |
-| stats_squad                      | statisix                         | statchelorettes                  |
-| team_five                        | stats_squad                      | statisix                         |
-| the_three_musketeers             | team_five                        | stats_squad                      |
+| Team being reviewed | Reviewer 1 | Reviewer 2 |
+|---------------------|------------|------------|
+| Team #1             |            |            |
+| Team #2             |            |            |
+| Team #3             |            |            |
+| Team #4             |            |            |
+| Team #5             |            |            |
+| Team #6             |            |            |
 
 ### Process and questions
 
 Spend \~30 mins to review each team's project.
 
 -   Find your team name on the **Reviewer 1** and **Reviewer 2** columns.
--   For each of the columns, find the name of the team to review in the **Team being reviewed** column. You should already have access to this team's repo.
--   Open the repo of the team you're reviewing, read their project draft, and browser around the rest of their repo.
--   Then, go to the Issues tab in that repo, click on New issue, and click on Get started for the Peer review issue. Fill out this issue, answering the following questions:
+-   For each of the columns, find the name of the team to review in the **Team being reviewed** column. You will
+-   As a team you will submit the following document (1-2 pages)
     -   Peer review by: \[NAME OF TEAM DOING THE REVIEW\]
 
     -   Names of team members that participated in this review: \[FULL NAMES OF TEAM MEMBERS DOING THE REVIEW\]
 
-    -   Describe the goal of the project.
+    -   State the research question and hypothesis.
 
-    -   Describe the data used or collected, if any.
-        If the proposal does not include the use of a specific dataset, comment on whether the project would be strengthened by the inclusion of a dataset.
-
-    -   Describe the approaches, tools, and methods that will be used.
+    -   Describe the data used.
 
     -   Is there anything that is unclear from the proposal?
 
-    -   Provide constructive feedback on how the team might be able to improve their project.
-        Make sure your feedback includes at least one comment on the statistical modeling aspect of the project, but do feel free to comment on aspects beyond the modeling.
+    -   Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on data summary and regression section of the project.
 
     -   What aspect of this project are you most interested in and would like to see highlighted in the presentation.
 
-    -   Provide constructive feedback on any issues with file and/or code organization.
+## Final Project Report {#written-report}
 
-    -   (Optional) Any further comments or feedback?
+Your final project report must include the following files to be considered complete:
 
-## Written report {#written-report}
+-   final_report_team-name.docx
 
-Your written report must be completed in the `written-report.qmd` file and must be reproducible.
-All team members should contribute to the GitHub repository, with regular meaningful commits.
+-   final_pres_team-name.docx
 
-Before you finalize your write up, make sure the printing of code chunks is off with the option `echo = FALSE`.
+-   team_contributions_team-name.docx
 
-**You will submit the PDF of your final report on Gradescope.**
+-   final_edits_team-name.docx
 
-The PDF you submit must match the files in your GitHub repository *exactly*.
-The mandatory components of the report are below.
-You are free to add additional sections as necessary.
-The report, including visualizations, should be **no more than 10 pages long.** is no minimum page requirement; however, you should comprehensively address all of the analysis and report.
+-   final_project_team-name.qmd
 
-Be selective in what you include in your final write-up.
-The goal is to write a cohesive narrative that demonstrates a thorough and comprehensive analysis rather than explain every step of the analysis.
+**You will submit these files of your final report on canvas.**
 
-You are welcome to include an appendix with additional work at the end of the written report document; however, grading will largely be based on the content in the main body of the report.
-You should assume the reader will not see the material in the appendix unless prompted to view it in the main body of the report.
-The appendix should be neatly formatted and easy for the reader to navigate.
-It is not included in the 10-page limit.
+Each piece is worth the following points, broken down as follows
 
-The written report is worth 40 points, broken down as follows
+| Total                  | 200 pts |
+|------------------------|---------|
+| **Final Report**       | 100 pts |
+| **Presentation**       | 25 pts  |
+| **Team Contributions** | 25 pts  |
+| **Final Edits**        | 25 pts  |
+| **Final Report Code**  | 25 pts  |
 
-| Total                         | 40 pts |
-|-------------------------------|--------|
-| **Introduction/data**         | 6 pts  |
-| **Methodology**               | 10 pts |
-| **Results**                   | 14 pts |
-| **Discussion + conclusion**   | 6 pts  |
-| **Organization + formatting** | 4 pts  |
+### Final Report
 
-[Click here](/documents/project-report-rubric.pdf "Project rubric") for a PDF of the written report rubric.
+The final report will follow the same format as the draft report, but will be the final version.
 
-### Introduction and data
+#### Introduction (20 points)
 
-This section includes an introduction to the project motivation, data, and research question.
-Describe the data and definitions of key variables.
-It should also include some exploratory data analysis.
-All of the EDA won't fit in the paper, so focus on the EDA for the response variable and a few other interesting variables and relationships.
+The introduction will be worth 20 points and needs to include the following:
 
-#### Grading criteria
+-   The Motivation/Significance (10 points)
 
-The research question and motivation are clearly stated in the introduction, including citations for the data source and any external research.
-The data are clearly described, including a description about how the data were originally collected and a concise definition of the variables relevant to understanding the report.
-The data cleaning process is clearly described, including any decisions made in the process (e.g., creating new variables, removing observations, etc.) The explanatory data analysis helps the reader better understand the observations in the data along with interesting and relevant relationships between the variables.
-It incorporates appropriate visualizations and summary statistics.
+    -   What is the observed problem
 
-### Methodology
+    -   What does this contribute to?
 
-This section includes a brief description of your modeling process.
-Explain the reasoning for the type of model you're fitting, predictor variables considered for the model including any interactions.
-Additionally, show how you arrived at the final model by describing the model selection process, interactions considered, variable transformations (if needed), assessment of conditions and diagnostics, and any other relevant considerations that were part of the model fitting process.
+-   Research Question (10 points)
 
-#### Grading criteria
+#### Lit Review (20 points)
 
-The analysis steps are appropriate for the data and research question.
-The group used a thorough and careful approach to select the final model; the approach is clearly described in the report.
-The model selection process took into account potential interaction effects and addressed any violations in model conditions.
-The model conditions and diagnostics are thoroughly and accurately assessed for their model.
-If violations of model conditions are still present, there was a reasonable attempt to address the violations based on the course content.
+The lit review will be worth 20 points and needs to include the following:
 
-### Results
+-   A comprehensive review of the lit based on your topic (10 points)
 
-This is where you will output the final model with any relevant model fit statistics.
+    -   You need to cite a minimum of 5 academic articles
 
-Describe the key results from the model.
-The goal is not to interpret every single variable in the model but rather to show that you are proficient in using the model output to address the research questions, using the interpretations to support your conclusions.
-Focus on the variables that help you answer the research question and that provide relevant context for the reader.
+        -   You will lose 2 points for every article below the minimum
 
-#### Grading criteria
+-   You need to address the gap: where does your question settle in the literature? (10 points)
 
-The model fit is clearly assessed, and interesting findings from the model are clearly described.
-Interpretations of model coefficients are used to support the key findings and conclusions, rather than merely listing the interpretation of every model coefficient.
-If the primary modeling objective is prediction, the model's predictive power is thoroughly assessed.
+    -   You do not need to provide a huge or original contribution, but what just think what does answering your question add that you think is missing?
 
-### Discussion + Conclusion
+#### Hypotheses (10 points)
 
-In this section you'll include a summary of what you have learned about your research question along with statistical arguments supporting your conclusions.
-In addition, discuss the limitations of your analysis and provide suggestions on ways the analysis could be improved.
-Any potential issues pertaining to the reliability and validity of your data and appropriateness of the statistical analysis should also be discussed here.
-Lastly, this section will include ideas for future work.
+-   You need to include at least 1 hypothesis and it needs to be testable with the data you have selected
 
-#### Grading criteria
+#### Data Description (10 points)
 
-Overall conclusions from analysis are clearly described, and the model results are put into the larger context of the subject matter and original research question.
-There is thoughtful consideration of potential limitations of the data and/or analysis, and ideas for future work are clearly described.
+-   description of the observations in the data set,
 
-### Organization + formatting
+    -   What is your independent variable? (3 points)
+        -   How was it measured? (1 points)
+        -   How was it collected? (1 points)
+    -   What is your dependent variable? (3 points)
+        -   How was it measured? (1 points)
 
-This is an assessment of the overall presentation and formatting of the written report.
+        -   How was it collected? (1 points)
 
-#### Grading criteria
+#### Data Summary + Regression (20 points)
 
-The report neatly written and organized with clear section headers and appropriately sized figures with informative labels.
-Numerical results are displayed with a reasonable number of digits, and all visualizations are neatly formatted.
-All citations and links are properly formatted.
-If there is an appendix, it is reasonably organized and easy for the reader to find relevant information.
-All code, warnings, and messages are suppressed.
-The main body of the written report (not including the appendix) is no longer than 10 pages.
+-   Data Summarization (10 points)
 
-## Video presentation + slides
+    -   Two different data visualizations (5 points/2.5 points each)
+
+    -   Description of averages, medians, etc. (5 points)
+
+-   Regression Model (10 points)
+
+    -   One simple regression model (5 points)
+
+    -   One mulitivariate regression model (5 points)
+
+#### Conclusion (20 points)
+
+-   Discussion of the results (10 points)
+
+    -   Provides a detailed and accurate discussion of the results from the models.
+
+-   Summary of everything (10 points)
+
+    -   Provides a summary of the full report
+
+    -   Essentially, put a nice bow and wrap up the paper
+
+| Total                         | 100 pts |
+|-------------------------------|---------|
+| **Introduction**              | 20 pts  |
+| **Lit Review**                | 20 pts  |
+| **Hypotheses**                | 10 pts  |
+| **Data Description**          | 10 pts  |
+| **Data Summary + Regression** | 20 pts  |
+| **Conclusion**                | 20 pts  |
+
+### Slides (25 points)
+
+The final report will include a pdf version of the teams presentation of the project.
+
+This will be graded for completion, so if submitted completed full points will be awarded.
+
+### Team Contributions (25 points)
+
+The final report will include a summarization of all the team contributions to the project. Each member is required to submit a paragraph on their contributions to the overall project.
+
+IMPORTANT: NO TEAM MEMEBER CAN BE SOLEY RESPONSIBLE FOR THE CODING
+
+This will be graded for completion, so if submitted completed full points will be awarded.
+
+### Edit Report (25 points)
+
+The final report will include a summarization of all the edits team made to the final project. this should be about a page no more.
+
+This will be graded for completion, so if submitted completed full points will be awarded.
+
+### Final Report Code (25 points)
+
+The final report will include a reproducible document of your code, submit the `.qmd` file with the code
+
+This will be graded for completion and reproduceability, so if submitted completed and runs with no errors, full points will be awarded. If submitted completed and runs with errors are found, half points will be awarded.
+
+[Click here](/documents/project-report-rubric.pdf "Project rubric") for a PDF of the full Final Project Report rubric.
+
+### Presentation
 
 ### Slides
 
-In addition to the written report, your team will also create presentation slides and record a video presentation that summarize and showcase your project.
-Introduce your research question and data set, showcase visualizations, and discuss the primary conclusions.
-These slides should serve as a brief visual addition to your written report and will be graded for content and quality.
+In addition to the written report, your team will required to create presentation and present in class to summarize and showcase your project. You will need to introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. The presentation should be around 10 - 12 minutes long. Every group member needs to speak at least once. If there is a complication with this, please come to me as soon as possible.
 
-**For submission, convert these slides to a .pdf document, and submit the PDF of the slides on Gradescope.**
+**For submission, convert these slides to a .pdf document, and submit the `PDF` of the slides on canvas.**
 
-The slide deck should have no more than 6 content slides + 1 title slide.
-Here is a *suggested* outline as you think through the slides; you [**do not**]{.underline} have to use this exact format for the 6 slides.
+The slide deck should have no more than 6 content slides + 1 title slide. Here is a *suggested* outline as you think through the slides; you [**do not**]{.underline} have to use this exact format for the 6 slides.
 
 -   Title Slide
 -   Slide 1: Introduce the topic and motivation
 -   Slide 2: Introduce the data
--   Slide 3: Highlights from EDA
+-   Slide 3: Summary of Data
 -   Slide 4: Final model
 -   Slide 5: Interesting findings from the model
--   Slide 6: Conclusions + future work
-
-### Video presentation
-
-For the video presentation, you can speak over your slide deck, similar to the lecture content videos.
-**The video presentation must be no longer than 8 minutes.** It is fine if the video is shorter than 8 minutes, but it cannot exceed 8 minutes.
-You may use can use any platform that works best for your group to record your presentation.
-Below are a few resources on recording videos:
-
--   [Recording presentations in Zoom](https://kb.siue.edu/61721)
--   [Apple Quicktime for screen recording](https://support.apple.com/en-gb/guide/quicktime-player/qtp97b08e666/mac)
--   [Windows 10 built-in screen recording functionality](https://www.youtube.com/watch?v=OfPbr1mRDuo)
--   [Kap for screen recording](https://getkap.co/)
-
-Once your video is ready, upload the video to Warpwire, then embed the video in an new discussion post on Conversations.
-
-#### To upload your video to Warpwire:
-
--   Click the Warpwire tab in the course Sakai site.
--   Click the "+" and select "Upload files".
--   Locate the video on your computer and click to upload.
--   Once you've uploaded the video to Warpwire, click to share the video and copy the video's URL. You will need this when you post the video in the discussion forum.
-
-#### To post the video to the discussion forum
-
--   Click the Presentations tab in the course Sakai site.
--   Click the Presentations topic.
--   Click "Start a new conversation".
--   Make the title "Your Team Name: Project Title". For example, "Teaching Team: Our Awesome Presentation".
--   Click the Warpwire icon (between the table and shopping cart icons).
--   Select your video, then click "Insert 1 item." This will embed your video in the conversation.
--   Under the video, paste the URL to your video.
--   You're done!
-
-## Presentation comments {#presentation-comments}
-
-Each student will be assigned 2 presentations to watch.
-Your viewing assignments will be posted later in the semester.
-
-Watch the group's video, then click "Reply" to post a question for the group.
-You may not post a question that's already been asked on the discussion thread.
-Additionally, the question should be (i) substantive (i.e. it shouldn't be "Why did you use a bar plot instead of a pie chart"?), (ii) demonstrate your understanding of the content from the course, and (iii) relevant to that group's specific presentation, i.e demonstrating that you've watched the presentation.
-
-*This portion of the project will be assessed individually.*
-
-### Pairings
-
-Find your team name in the first column, watch videos from teams in the second column and leave comments.
-
-| Reviewer                         | First video to review            | Second video to review           |
-|:-----------------------|:-----------------------|:-----------------------|
-| Ginger and Stats                 | Eight                            | We R                             |
-| Krafthouse                       | Ginger and Stats                 | Eight                            |
-| Soy Nuggets                      | Krafthouse                       | Ginger and Stats                 |
-| Down To Earth Goats              | Soy Nuggets                      | Krafthouse                       |
-| A+++                             | Down To Earth Goats              | Soy Nuggets                      |
-| Team Five                        | A+++                             | Down To Earth Goats              |
-| Rrawr                            | Team Five                        | A+++                             |
-| Housecats                        | Rrawr                            | Team Five                        |
-| Dekk                             | Housecats                        | Rrawr                            |
-| Stat OverFlow                    | Dekk                             | Housecats                        |
-| The Three Musketeers             | Stat OverFlow                    | Dekk                             |
-| Predictors                       | The Three Musketeers             | Stat OverFlow                    |
-| Stats Squad                      | Predictors                       | The Three Musketeers             |
-| Statisix                         | Stats Squad                      | Predictors                       |
-| Sixers                           | Statisix                         | Stats Squad                      |
-| Yay Stats                        | Sixers                           | Statisix                         |
-| TINA                             | Yay Stats                        | Sixers                           |
-| Statchelorettes                  | TINA                             | Yay Stats                        |
-| Pineapple Wedge and Diced Papaya | Statchelorettes                  | TINA                             |
-| Chaa Chaa Chaa                   | Pineapple Wedge and Diced Papaya | Statchelorettes                  |
-| We R                             | Chaa Chaa Chaa                   | Pineapple Wedge and Diced Papaya |
-| Eight                            | We R                             | Chaa Chaa Chaa                   |
-
-## Reproducibility + organization
-
-All written work (with exception of presentation slides) should be reproducible, and the GitHub repo should be neatly organized.
-
-The GitHub repo should have the following structure:
-
--   `README`: Short project description and data dictionary
-
--   `written-report.qmd` & `written-report.pdf`: Final written report
-
--   `/data`: Folder that contains the data set for the final project.
-
--   `/previous-work`: Folder that contains the `topic-ideas` and `project-proposal` files.
-
--   `/presentation`: Folder with the presentation slides.
-
-    -   If your presentation slides are online, you can put a link to the slides in a `README.md` file in the `presentation` folder.
-
-Points for reproducibility + organization will be based on the reproducibility of the written report and the organization of the project GitHub repo.
-The repo should be neatly organized as described above, there should be no extraneous files, all text in the README should be easily readable.
-
-## Peer teamwork evaluation
-
-You will be asked to fill out a survey where you rate the contribution and teamwork of each team member by assigning a contribution percentage for each team member.
-Filling out the survey is a prerequisite for getting credit on the team member evaluation.
-If you are suggesting that an individual did less than half the expected contribution given your team size (e.g., for a team of four students, if a student contributed less than 12.5% of the total effort), please provide some explanation.
-If any individual gets an average peer score indicating that this was the case, their grade will be assessed accordingly.
-
-If you have concerns with the teamwork and/or contribution from any team members, please email me by the project video deadline.
-**You only need to email me if you have concerns**.
-Otherwise, I will assume everyone on the team equally contributed and will receive full credit for the teamwork portion of the grade.
-
-## Overall grading
-
-The grade breakdown is as follows:
-
-| Total                              | 100 pts |
-|------------------------------------|---------|
-| **Topic ideas**                    | 5 pts   |
-| **Project proposal**               | 10 pts  |
-| **Peer review**                    | 10 pts  |
-| **Written report**                 | 40 pts  |
-| **Slides + video presentation**    | 20 pts  |
-| **Reproducibility + organization** | 5 pts   |
-| **Video comments**                 | 5 pts   |
-| **Peer teamwork evaluation**       | 5 pts   |
-
-*Note: No late project reports or videos are accepted.*
-
-### Grading summary
-
-Grading of the project will take into account the following:
-
--   Content - What is the quality of research and/or policy question and relevancy of data to those questions?
--   Correctness - Are statistical procedures carried out and explained correctly?
--   Writing and Presentation - What is the quality of the statistical presentation, writing, and explanations?
--   Creativity and Critical Thought - Is the project carefully thought out? Are the limitations carefully considered? Does it appear that time and effort went into the planning and implementation of the project?
-
-A general breakdown of scoring is as follows:
-
--   *90%-100%*: Outstanding effort. Student understands how to apply all statistical concepts, can put the results into a cogent argument, can identify weaknesses in the argument, and can clearly communicate the results to others.
--   *80%-89%*: Good effort. Student understands most of the concepts, puts together an adequate argument, identifies some weaknesses of their argument, and communicates most results clearly to others.
--   *70%-79%*: Passing effort. Student has misunderstanding of concepts in several areas, has some trouble putting results together in a cogent argument, and communication of results is sometimes unclear.
--   *60%-69%*: Struggling effort. Student is making some effort, but has misunderstanding of many concepts and is unable to put together a cogent argument. Communication of results is unclear.
--   *Below 60%*: Student is not making a sufficient effort.
+-   Slide 6: Conclusions
 
 ### Late work policy
 
-**There is no late work accepted on this project.** Be sure to turn in your work early to avoid any technological mishaps.
+**There is no late work accepted on the final project report.** Be sure to turn in your work early to avoid any technological mishaps.

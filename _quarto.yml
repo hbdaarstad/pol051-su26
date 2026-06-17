@@ -1,24 +1,29 @@
 project:
+  output-dir: docs
   type: website
+  render:
+    - "**/*.qmd"
+    - "!files/**"
+    - "!ae/files/**"
+  resources:
+    - data/
+    - files/
+    - ae/files/
 
 website:
   page-navigation: true
-  title: "STA 210 - Spring 2022"
-  description: "Homepage for STA 210 - Regression Analysis at Duke University, Spring 2022."
-  site-url: "https://sta210-s22.github.io/website/"
+  title: "POL 051 - Summer 2026"
+  description: "Homepage for POL 051 - The Scientific Study of Politics at UC Davis, Summer 2026."
+  site-url: "https://pol051-su26.github.io/website/"
 
-  repo-url: https://github.com/sta210-s22/website
+  repo-url: https://github.com/pol051-su26/website
   repo-actions: [edit, issue]
 
   open-graph: true
 
-  twitter-card:
-    creator: "@minebocek"
-    image: "images/twitter-card.png"
-
   page-footer:
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2022, Mine Çetinkaya-Rundel"
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2026, Haley Daarstad"
     background: "#D9E3E4"
 
   sidebar:
@@ -27,21 +32,21 @@ website:
     pinned: true
     align: center
     tools:
-      - icon: github
-        href: https://github.com/sta210-s22
-        text: "GitHub organization"
+      - icon: {{< mi assignment >}}
+        href: https://github.com/pol051-su26
+        text: "Canvas"
       - icon: code-square
-        href: https://cmgr.oit.duke.edu/containers
-        text: "RStudio Containers"
+        href: https://posit.cloud
+        text: "Posit Cloud"
       - icon: person-fill
-        text: "Sakai"
+        text: "Course books"
         menu:
-          - text: Discussion forum
-            url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b
-          - text: Gradescope
-            url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889
-          - text: Gradebook
-            url: https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/69078433-67a6-4054-a2e7-9e6c202ecdc3/
+          - text: R for Data Sceince
+            url: https://r4ds.hadley.nz/
+          - text: ModernDive
+            url: https://moderndive.com/v2/index.html
+          - text: The Mixtape
+            url: https://mixtape.scunning.com/
 
     style: "docked"
     search: true
@@ -53,28 +58,16 @@ website:
             text: Overview
           - href: course-syllabus.qmd
             text: Syllabus
-          - href: course-support.qmd
-            text: Support
-          - href: course-team.qmd
-            text: Teaching team
           - href: index.qmd
             text: Schedule
-          - href: course-links.qmd
-            text: Useful links
           - href: course-faq.qmd
             text: FAQ
-      - section: "Computing"
-        contents:
-          - href: computing-access.qmd
-            text: Access
-          - href: computing-troubleshooting.qmd
-            text: Troubleshooting
       - section: "Project"
         contents:
           - href: project-description.qmd
             text: Description
           - href: project-tips-resources.qmd
-            text: Tips + resources
+            text: Data Options
       - section: "Weekly materials"
         contents:
           - href: weeks/week-1.qmd
@@ -89,36 +82,20 @@ website:
             text: "Week 5"
           - href: weeks/week-6.qmd
             text: "Week 6"
-          - href: weeks/week-7.qmd
-            text: "Week 7"
-          - href: weeks/week-8.qmd
-            text: "Week 8"
-          - href: weeks/week-9.qmd
-            text: "Week 9"
-          - href: weeks/week-10.qmd
-            text: "Week 10"
-          - href: weeks/week-11.qmd
-            text: "Week 11"
-          - href: weeks/week-12.qmd
-            text: "Week 12"
-          - href: weeks/week-13.qmd
-            text: "Week 13"
-          - href: weeks/week-14.qmd
-            text: "Week 14"
-          - href: weeks/week-15.qmd
-            text: "Week 15"
-      - section: "Supplemental notes"
+      - section: "Code Examples"
         contents:
-          - href: supplemental/slr-derivations.qmd
-            text: SLR derivations
-          - href: supplemental/model-diagnostics-matrix.qmd
-            text: Model diagnostics
-          - href: supplemental/mlr-matrix.qmd
-            text: MLR matrix notation
-          - href: supplemental/log-transformations.qmd
-            text: Log transformations
-          - href: supplemental/model-selection-criteria.qmd
-            text: Model selection criteria
+          - href: supplemental/r-basics.qmd
+            text: R Basics
+          - href: supplemental/data-vis.qmd
+            text: Data Visualization (ggplot2)
+          - href: supplemental/data-wrangling.qmd
+            text: Data Wrangling (ggplot2)
+          - href: supplemental/models.qmd
+            text: Linear Regression Models
+          - href: supplemental/hypothesis-tests.qmd
+            text: t-tests and Correlations
+          - href: supplemental/data-gen.qmd
+            text: Random Data Generation
 
 format:
   html:

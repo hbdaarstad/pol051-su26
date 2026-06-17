@@ -1,35 +1,30 @@
 ---
 title: "Week 2"
-subtitle: "Simple linear regression"
+subtitle: "Data Wrangling and Relationships"
 editor: visual
 ---
 
-::: callout-important
--   Classes are virtual this week. Find Zoom links [here](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/d5eef508-07a4-4c6d-b7bd-4614a9631562 "Sakai - Zoom meetings").
--   Due dates:
-    -   Lab 1: Fri, Jan 14, 5pm ET
-    -   AE 1: Sun, Jan 16, 11:59pm ET
-:::
-
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Chp 7: [Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr.html)
+📖 Read [Ch. 3 in ModernDive](https://moderndive.com/v2/wrangling.html)
 
-## Participate
+📖 Read [Ch. 3 in R for Data Science](https://r4ds.hadley.nz/data-transform.html)
 
-🖥️ [Lab 1 - Meet the toolkit](/slides/lab-1.html)
+## Lectures
 
-🖥️ [Lecture 2 - Simple linear regression](/slides/lec-2.html)
+🖥️ [Lecture 4 -](not-available-lec.html)[Data Wrangling I](not-avaliable-lec.html)[I](not-available-lec.html)
 
-🖥️ [Lecture 3 - Model fitting in R with tidymodels](/slides/lec-3.html)
+🖥️ [Lecture 5 - Relationships I](not-avaliable-lec.html)
 
-## Practice
+🖥️ [Lecture 6 - Relationships II](not-avaliable-lec.html)
 
-📋 [Application Exercise 1 - Bike rentals in DC](/ae/ae-1-dcbikeshare.html) *(Post-class note: complete only Part 1 - Daily counts and temperature)*
+## Participation
 
-## Perform
+📋
 
-⌨️ [Lab 1 - Meet the toolkit](/labs/lab-1.html "Lab instructions")
+## Lab
+
+⌨️ [Lab 2 - Data Wrangling II + Relationships](not-available.html)
 
 <br><br>
 

@@ -1,22 +1,26 @@
 ---
 title: "Week 6"
-subtitle: "MLR: Model building and comparison"
+subtitle: "Experiments v Natural Experiments"
 editor: visual
 ---
 
 ::: callout-important
-Due dates: Exam 1 - Mon, Feb 7 at 11:59pm
+PROJECT DUE - Wed, July 29
+
+PRESENTIATION - Thu, July 30
 :::
 
 ## Prepare
 
-No reading (take a break after the exam! 😴)
+📖 Read *Natural experiments in the social sciences: A design-based approach*. Thad Dunning (2012).
 
 ## Participate
 
-🖥️ [Lecture 10 - MLR: Types of predictors](/slides/lec-10.html)
+🖥️ [Lecture 14 - Experiments](not-avaliable-lec.html)
 
-🖥️ [Lecture 11 - MLR: Model comparison](/slides/lec-11.html)
+🖥️ [Lecture 15 - Natural Experiments I](not-avaliable-lec.html)
+
+🖥️ [Lecture 16 -](not-avaliable-lec.html) [Natural Experiments II](not-avaliable-lec.html)
 
 ## Practice
 
@@ -26,7 +30,9 @@ No application exercises
 
 No lab
 
-✅ [Exam 1](/exams/exam-1.html)
+# We made it!!
+
+![](/weeks/images/pwhl-montreal-maureen-murphy.gif)
 
 <br><br>
 

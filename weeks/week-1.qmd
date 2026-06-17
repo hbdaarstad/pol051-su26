@@ -1,33 +1,38 @@
 ---
 title: "Week 1"
-subtitle: "Welcome to STA 210"
+subtitle: "Welcome to POL 051"
 editor: visual
 ---
 
 ::: callout-important
-Classes are virtual this week.
-Find Zoom links [here](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/d5eef508-07a4-4c6d-b7bd-4614a9631562 "Sakai - Zoom meetings").
+Classes begin this week on Monday June 22.
+
+Project Idea due - Fri, June 28
 :::
 
 ## Prepare
 
 📖 Read the [syllabus](/course-syllabus.html)
 
-📖 Read the [support](/course-support.html) resources
+📖 Read [Ch.2 in ModernDive on Data Visualization](https://moderndive.com/v2/viz.html)
 
-## Participate
+📖 Read [Ch.1 in R for Data Science](https://r4ds.hadley.nz/data-visualize.html)
 
-🖥️ [Lab 0 -](/_slides/lab-0.html)[Meet](/slides/lab-0.html)[+ greet](/_slides/lab-0.html)
+## Lectures
 
-🖥️ [Lecture 1 - Welcome to STA 210](/slides/lec-1.html)
+🖥️ [Lecture 1 -](/_slides/lab-0.html) [Meet](/slides/lab-0.html) [+ greet; Welcome to POL 051](/_slides/lab-0.html)
 
-## Practice
+🖥️ [Lecture 2 - Data Visualization I + II](not-available-lec.html)
 
-📋 [AE 0 - Movies](/ae/ae-0-movies.html)
+🖥️ [Lecture 3 - Data Wrangling I](not-available-lec.html)
 
-## Perform
+## Participation
 
-⌨️ [Lab 0 - Meet + greet](/labs/lab-0.html)
+📋 [AE 1 - R Basics](/ae/files/ae-1-rbasics.qmd){download="ae-1-rbasics.qmd"}
+
+## Lab
+
+⌨️ [Lab 1 - Data Visualization + Data Wrangling I](not-available.html)
 
 <br><br>
 

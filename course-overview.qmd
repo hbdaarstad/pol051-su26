@@ -1,10 +1,48 @@
 ---
-title: "STA 210: Regression Analysis"
+title: "POL 051: The Scientific Study of Politics"
 ---
 
-Learn approaches for analyzing multivariate data sets, emphasizing analysis of variance, linear regression, and logistic regression.
-Learn techniques for checking the appropriateness of proposed models, such as residual analyses and case influence diagnostics, and techniques for selecting models.
-Gain experience dealing with the challenges that arise in practice through assignments that utilize real-world data.
-This class emphasizes data analysis over mathematical theory.
+### Welcome to The Scientific Study of Politics!
 
-![](images/background-bikeshare.png){fig-alt="A series of six, generic data visualizations: a scatterplot, a density plot, a contour plot, a line plot, a box plot, and another scatterplot." width="700"}
+Data is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.
+
+This undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.
+
+:::::::: columns
+::: {.column width="50%"}
+![](images/pic01.jpg){width="308"}
+:::
+
+:::::: {.column width="50%"}
+#### Instructor:
+
+::: {style="padding-left: 2rem;"}
+| Ms. Haley Daarstad
+| 569 Kerr Hall
+| hbdaarstad\@ucdavis.edu
+| Office Hours: Tue 2:00 - 4:00 PM
+:::
+
+#### Lecture:
+
+::: {style="padding-left: 2rem;"}
+| Monday - Wednesday
+| 12:10 pm - 1:50 pm
+| Hoagland Hall 168
+:::
+
+#### Discussion/Lab:
+
+::: {style="padding-left: 2rem;"}
+| Thursday
+| 12:10 pm - 1:50 pm
+| Teaching and Learning Complex 2212
+:::
+::::::
+::::::::
+
+<br><br>
+
+{{< video https://youtu.be/ogeGJS0GEF4?si=9goHMz6Bf03nPhWO >}}
+
+These course materials have been inspired by

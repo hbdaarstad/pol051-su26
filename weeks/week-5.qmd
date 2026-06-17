@@ -5,35 +5,30 @@ editor: visual
 ---
 
 ::: callout-important
--   Due date: Lab 2 - Fri, Feb 4, 5pm ET
--   Exam 1 released on Fri, Feb 4, due Mon, Feb 7 at 11:59pm
+-   Peer Review Due - Wed. July 22
 :::
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Sec 8.1: [Indicator and categorical predictors](https://openintro-ims.netlify.app/model-mlr.html#ind-and-cat-predictors)
+📖 Read [CH.6 in ModernDive](https://moderndive.com/v2/multiple-regression.html), but ignore the stuff on interactions
 
-📖 Read Introduction to Modern Statistics, Sec 8.2: [Many predictors in a model](https://openintro-ims.netlify.app/model-mlr.html#many-predictors-in-a-model)
+📖 Read [Chapter 9 in ModernDive](https://moderndive.com/v2/hypothesis-testing.html)
 
-📖 Read Introduction to Modern Statistics, Sec 8.3: [Adjusted R-squared](https://openintro-ims.netlify.app/model-mlr.html#adjusted-r-squared)
+## Lectures
 
-## Participate
+🖥️ [Lecture 13 - Hypothesis testing I](not-available-lec.html)
 
-🖥️ [Lab 3 - Coffee ratings](/slides/lab-3.html)
+🖥️ [Lecture 14 - Hypothesis Testing II](not-avaliable-lec.html)
 
-🖥️ [Lecture 8 - Multiple linear regression (MLR)](/slides/lec-8.html)
+🖥️ [Lecture 15 - Prediction](not-avaliable-lec.html)
 
-🖥️ [Lecture 9 - Exam 1 review](/slides/lec-9.html)
+## Participation
 
-## Practice
+📋
 
-📋 [Application Exercise 4 - Exam 1 Review](/ae/ae-4-exam-1-review.html)
+## Lab
 
-## Perform
-
-⌨️ [Lab 3 - Coffee ratings](labs/lab-3.html)
-
-✅ [Exam 1](/exams/exam-1.html)
+⌨️ [Lab 5 - Hypothesis Testing and Prediction](not-available.html)
 
 <br><br>
 

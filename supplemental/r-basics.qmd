@@ -1,0 +1,7 @@
+---
+title: "R Basics"
+---
+
+Sadly, we have not gotten to this code yet.
+
+![](/supplemental/images/IMG_6761.JPG){width="376"}

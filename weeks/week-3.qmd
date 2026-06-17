@@ -1,36 +1,30 @@
 ---
 title: "Week 3"
-subtitle: "TBA"
+subtitle: "Modeling + Causality I"
 editor: visual
 ---
 
-::: callout-important
--   We're back to in person classes this week! See [here](/course-syllabus.html#course-info) for class locations. And don't forget to wear your mask! 😷
--   Due dates:
-    -   AE 2: Fri, Jan 21, 11:59pm ET
-:::
-
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Sec 24.1: [Case study: Sandwich store](https://openintro-ims.netlify.app/inf-model-slr.html#case-study-sandwich-store)
+📖 Read [CH.5 in ModernDive](https://moderndive.com/v2/regression.html)
 
-📖 Read Introduction to Modern Statistics, Sec 24.2: [Randomization test for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#randslope)
+📖 Read [Introduction in Causal Inference: The Mixtape](https://mixtape.scunning.com/)^[1](https://quantpol.juanftellez.com/content/07-content.html#fn1)^
 
-📖 Read Introduction to Modern Statistics, Sec 24.3: [Bootstrap confidence interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#bootbeta1)
+## Lectures
 
-## Participate
+🖥️ [Lecture 7 - Modeling I](not-available-lec.html)
 
-🖥️ [Lecture 4 - SLR: Prediction + model evaluation](/slides/lec-4.html)
+🖥️ [Lecture 8 - Modeling II](not-available-lec.html)
 
-🖥️ [Lecture 5 - SLR: Simulation-based inference](/slides/lec-5.html)
+🖥️ [Lecture 9 - Causality I](not-avaliable-lec.html)
 
-## Practice
+## Participation
 
-📋 [Application Exercise 2 - Bike rentals in DC](/ae/ae-2-dcbikeshare.html)
+📋
 
-## Perform
+## Lab
 
-None.
+⌨️ [Lab 3 - Modeling I + II](not-available.html)
 
 <br><br>
 

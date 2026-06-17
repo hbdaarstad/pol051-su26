@@ -1,13 +1,13 @@
 ---
-title: "Welcome to STA 210!"
-subtitle: "STA 210 - Spring 2022"
-author: "Dr. Mine Çetinkaya-Rundel"
-footer:  "[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)"
+title: "Welcome to POL 051!"
+subtitle: "POL 051 - Summer Session 1 2026"
+author: "Haley Daarstad"
+footer:  "[pol051-su26.github.io/website](https://pol051-su26.github.io/website/)"
 logo: "images/logo.png"
 format: 
   revealjs: 
     theme: slides.scss
-    multiplex: true
+    multiplex: false
     transition: fade
     slide-number: true
 editor: visual
@@ -24,110 +24,81 @@ library(countdown)
 
 ## Meet the professor
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
-![Dr. Mine Çetinkaya-Rundel (she/her)](images/lec-1/mine.png){fig-alt="Headshot of Dr. Mine Çetinkaya-Rundel" fig-align="center" width="200"}
+![Haley Daarstad (she/her)](images/lec-1/mine.png){fig-alt="Headshot of Dr. Mine Çetinkaya-Rundel" fig-align="center" width="200"}
 :::
 
-::: {.column width="50%"}
--   Professor of the Practice & Director of Undergraduate Studies, Department of Statistical Science
--   Affiliated Faculty, Computational Media, Arts & Cultures
--   Find out more at [mine-cr.com](https://mine-cr.com)
+::: {.column width="50%" style="font-size: 75%;"}
+-   Political Science PhD Candidate
+    -   Comparative Politics and Methodology
+    -   Crime, Violence, Behavior, and Gender
+-   My Summer Ins:
+    -   Hockey, Hiking, Iced Tea
+-   My Summer Outs:
+    -   California Heat, Fires, Allergies
 :::
-:::
+:::::
 
-## Meet the TAs
+## Tell Me About you!
 
--   Martha Aboagye (she/her, UG)
--   Rich Fremgen (he/him, MS)
--   Emily Gentles (she/her, MS)
--   Sara Mehta (she/her, UG)
--   Rick Presman (he/him, PhD)
--   Shari Tian (she/her, UG)
--   Aaditya Warrier (he/him, UG)
-
-## Check out Conversations
-
--   Go to [Conversations 💬](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b)
--   Answer the discussion question: How are you doing?
-
-# Regression analysis
-
-## What is regression analysis
-
-::: {style="font-size: 0.8em;"}
-> "In statistical modeling, regression analysis is a set of statistical processes for estimating the relationships among variables. It includes many techniques for modeling and analyzing several variables, when **the focus is on the relationship between a dependent variable and one or more independent variables (or predictors)**. More specifically, regression analysis helps one understand how the typical value of the dependent variable (or 'criterion variable') changes when any one of the independent variables is varied, while the other independent variables are held fixed."
-:::
-
-Source: [Wikipedia](https://en.wikipedia.org/wiki/Regression_analysis)
-
-## Course FAQ
-
-::: incremental
--   **What background is assumed for the course?** Introductory statistics or probability course.
--   **Will we be doing computing?** Yes. We will use R.
--   **Will we learn the mathematical theory of regression?** Yes and No. The course is primarily focused on application; however, we will discuss some of the mathematics of simple linear regression. The 1-credit course [STA 211: Mathematics of Regression](https://stat.duke.edu/courses/mathematics-regression) you can take simultaneously / after dives into more of the mathematics.
-:::
+-   What is your name?
+-   What is your major?
+-   What year are you?
+-   What is one summer in for you and what is one summer out?
 
 ## Course learning objectives
 
--   Analyze real-world data to answer questions about multivariable relationships.
--   Fit and evaluate linear and logistic regression models.
--   Assess whether a proposed model is appropriate and describe its limitations.
--   Use [Quarto](https://quarto.org/) to write reproducible reports and GitHub for version control and collaboration.
--   Communicate results from statistical analyses to a general audience.
+-   By the end of this course you will be able to...
+    -   Analyze real-world data to answer questions about different relationships.
+    -   Feel comfortable manipulating data in R
+    -   Craft effective visualizations of patterns in data
+    -   Draw causal diagrams and identify obstacles to causal claims
+    -   Understand the basics of regression and uncertainty
 
-## Examples of regression in practice
+# Course info
 
-::: incremental
--   [New Yorkers Will Pay \$56 A Month To Trim A Minute Off Their Commute](https://fivethirtyeight.com/features/new-yorkers-will-pay-56-a-month-to-trim-a-minute-off-their-commute/)
--   [How FiveThirtyEight's 2020 Presidential Forecast Works --- And What's Different Because Of COVID-19](https://fivethirtyeight.com/features/how-fivethirtyeights-2020-presidential-forecast-works-and-whats-different-because-of-covid-19/)
--   [Effect of Forensic Evidence on Criminal Justice Case Processing](https://onlinelibrary.wiley.com/doi/10.1111/1556-4029.12020)
--   [Why it's so freaking hard to make a good COVID-19 model](https://fivethirtyeight.com/features/why-its-so-freaking-hard-to-make-a-good-covid-19-model/)
-:::
+|   | Day | Time | Location |
+|------------------|------------------|------------------|-------------------|
+| Lectures | Mon, Tue & Wed. | 12:10 pm - 1:50 pm | Hoagland Hall 168 |
+| Discussion/Lab | Thu | 12:10 pm - 1:50 pm | Teaching and Learning Complex 2212 |
+| Office Hours | Tue | 2:00 - 4:00 PM | Kerr Hall 569 |
 
-# Course overview
+# Course toolkit
 
-## Homepage
+-   All materials for this course are **free and online.** You will do all of your analysis with the open source (and free) programming language R and RStudio.
 
-[sta210-s22.github.io/website](https://sta210-s22.github.io/website/)
+-   Textbook: Sumner, Jane L. *R for Political Science Research : An Introduction for Absolute Beginners*. 1st ed. 2024., Springer Nature Switzerland, 2024, <https://doi.org/10.1007/978-3-031-75853-9>.
 
--   All course materials
--   Links to Sakai, GitHub, RStudio containers, etc.
--   Let's take a tour!
+-   R and R Studio:
 
-## Course toolkit
-
-All linked from the course website:
-
--   GitHub organization: [github.com/sta210-s22](https://github.com/sta210-s22)
--   RStudio containers: [cmgr.oit.duke.edu/containers](https://cmgr.oit.duke.edu/containers)
--   Discussion forum: [Conversations](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/tool/13b6446a-a6c6-4222-8cfb-c36d1f70802b)
--   Assignment submission and feedback: [Gradescope](https://sakai.duke.edu/portal/site/779c3ebe-3b88-4bcc-bd01-1813e8396a23/page/aec742dc-2972-4f02-a35b-1dd3315af889)
-
-::: callout-important
-Reserve an RStudio Container (titled STA 210) before lab on Monday!
-:::
+-   Course Website:
 
 ## Activities: Prepare, Participate, Practice, Perform {.smaller}
 
 -   **Prepare:** Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)
+
 -   **Participate:** Attend and actively participate in lectures and labs, office hours, team meetings
+
 -   **Practice:** Practice applying statistical concepts and computing with application exercises during lecture, graded for completion
+
 -   **Perform:** Put together what you've learned to analyze real-world data
-    -   Lab assignments x 7 (first individual, later team-based)
-    -   Homework assignments x 5 (individual)
-    -   Three take-home exams
-    -   Term project presented during the final exam period
 
-## Cadence
+    | Category                             | Percentage   |
+    |--------------------------------------|--------------|
+    | Application Exercises (Particpation) | 15%          |
+    | Labs                                 | 35% (7% x 5) |
+    | Final Project                        | 50%          |
 
-::: incremental
--   **Labs:** Start and make large progress on Monday in lab section, finish up by Friday 5pm of that week
--   **HWs:** Posted Friday morning, due following Friday 5pm
--   **Exams:** Exam review Thursday in class, exam posted Friday morning, no lab on Monday of following week, due Monday 11:59pm
--   **Project:** Deadlines throughout the semester, with some lab and lecture time dedicated to working on them, and most work done in teams outside of class
-:::
+## Final Project
+
+-   *Make a Research Question, Pick a data set, and do analysis. That is your final project.*
+
+-   The goal of the final project is for you to apply the skills you have been learning throuhg out the quarter and apply to real life data to answer a question YOU HAVE MADE.
+
+-   You will be split into teams, I recommend sitting with these teams during lecture and labs.
+
+-   Learn More on the [Project Description](project-description.qmd) page on the course website.
 
 ## Teams
 
@@ -140,133 +111,355 @@ Reserve an RStudio Container (titled STA 210) before lab on Monday!
     -   Everyone is expected to understand *all* code turned in
     -   Individual contribution evaluated by peer evaluation, commits, etc.
 
-## Grading {.smaller}
-
-| Category              | Percentage   |
-|-----------------------|--------------|
-| Application exercises | 3%           |
-| Homework              | 35% (7% x 5) |
-| Project               | 15%          |
-| Lab                   | 14% (2% x 7) |
-| Exam 01               | 10%          |
-| Exam 02               | 10%          |
-| Exam 03               | 10%          |
-| Teamwork              | 3%           |
-
-See [course syllabus](https://sta210-s22.github.io/website/course-syllabus.html) for how the final letter grade will be determined.
-
 ## Support
 
 -   Attend office hours
 -   Ask and answer questions on the discussion forum
--   Reserve email for questions on personal matters and/or grades
--   Read the [course support](https://sta210-s22.github.io/website/course-support.html) page
-
-## Announcements
-
--   Posted on Sakai (Announcements tool) and sent via email, be sure to check both regularly
--   I'll assume that you've read an announcement by the next "business" day
--   I'll (try my best to) send a weekly update announcement each Friday, outlining the plan for the following week and reminding you what you need to do to prepare, practice, and perform
+-   Reserve email for questions that can be answered quickly and timely
 
 ## Diversity + inclusion {.smaller}
 
 It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
 
 ::: incremental
--   If you have a name that differs from those that appear in your official Duke records, please let me know!
--   Please let me know your preferred pronouns. You'll also be able to note this in the Getting to know you survey.
--   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
--   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.
+-   This is a political science course, and as such we will be discussing political issues. As each of us comes into the section with unique opinions about political issues, there may be disagreements. I insist we discuss our differences with respect, civility, and empathy. Please do your best to keep an open mind about your peers’ perspectives as your peers will expect the same of you.
+-   This does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully)
+    -   *If I believe any of the discussion is becoming disrespectful or includes hateful or inappropriate speech, I hold the right to end the discussion.*
 :::
 
 ## Accessibility
 
--   The [Student Disability Access Office (SDAO)](https://access.duke.edu/students) is available to ensure that students are able to engage with their courses and related assignments.
+-   If you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at [sdc.ucdavis.edu](sdc.ucdavis.edu).
 
--   I am committed to making all course materials accessible and I'm always learning how to do this better.
-    If any course component is not accessible to you in any way, please don't hesitate to let me know.
+-   Students must contact me about any accommodations.
+
+-   Outside Resources - The Student Academic Success Center is a campus wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics
 
 # Course policies
 
-## COVID policies
-
--   Wear a mask at all times!
-
--   Read and follow university guidance
-
 ## Late work, waivers, regrades policy
 
--   We have policies!
--   Read about them on the [course syllabus](https://sta210-s22.github.io/website/course-syllabus.html) and refer back to them when you need it
-
-## Collaboration policy
-
--   Only work that is clearly assigned as team work should be completed collaboratively.
-
--   Homeworks must be completed individually.
-    You may **not** directly share answers / code with others, however you are welcome to discuss the problems in general and ask for advice.
-
--   Exams must be completed individually.
-    You may **not** discuss any aspect of the exam with peers.
-    If you have questions, post as private questions on the course forum, only the teaching team will see and answer.
+-   If there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty
+    -   FINAL PROJECT IS EXCLUDED FROM THIS
+-   Labs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late.
 
 ## Sharing / reusing code policy
 
--   We are aware that a huge volume of code is available on the web, and many tasks may have solutions posted
+-   I am aware that there is a large amount of code is available online, and many tasks may have solutions posted
 
 -   Unless explicitly stated otherwise, this course's policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow, etc.) but you must explicitly cite where you obtained any code you directly use or use as inspiration in your solution(s).
 
--   Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source
+-   Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source.
 
-## Academic integrity
+## Policy on AI
 
-> To uphold the Duke Community Standard:
->
-> -   I will not lie, cheat, or steal in my academic endeavors;
->
-> -   I will conduct myself honorably in all my endeavors; and
->
-> -   I will act if the Standard is compromised.
+**AI is NOT allowed for usage in this classroom.**
+
+-   You may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work
+
+    -   The Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: <https://ossja.ucdavis.edu/code-academic-conduct).>
+
+## Academic Integrity
+
+-   Cheating and plagiarism will be evaluated and disciplined according to University policy.
+
+-   For information on academic integrity, please read: <http://cai.ucdavis.edu/aip.html.>
+
+-   You are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse.
 
 ## Most importantly!
 
 Ask if you're not sure if something violates a policy!
 
-# Making STA 210 a success
-
-## Five tips for success
-
-1.  Complete all the preparation work before class.
-2.  Ask questions.
-3.  Do the readings.
-4.  Do the homework and lab.
-5.  Don't procrastinate and don't let a week pass by with lingering questions.
-
-## Learning during a pandemic
-
-I want to make sure that you learn everything you were hoping to learn from this class.
-If this requires flexibility, please don't hesitate to ask.
-
-::: incremental
--   You never owe me personal information about your health (mental or physical) but you're always welcome to talk to me. If I can't help, I likely know someone who can.
--   I want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded during this crisis.
-:::
-
 ## This week's tasks
 
--   Get a GitHub account if you don't have one (some advice for choosing a username [here](https://happygitwithr.com/github-acct.html#username-advice "Happy Git with R"))
--   Complete the Getting to know you survey if you haven't yet done so!
--   Read the syllabus
--   Watch out for next week's announcement email, in your inbox sometime tomorrow
+-   Download R and Rstudio
+-   R Basics
+-   Assign Teams
+-   Data Visualization I and II
+-   Project Topic Idea Submission
+-   Complete Lab 1
 
-## Midori says...
+# Downloading R
 
-[![](images/lec-1/midori.jpeg){fig-alt="Picture of my cat, Midori, with a speech bubble that says \"Read the syllabus and make Mine happy!\"" fig-align="center" width="700"}](https://sta210-s22.github.io/website/course-syllabus.html)
+## Why R? {.smaller}
+
+::: incremental
+-   R is a coding language language and environment built for statistical computing and graphics that includes a large variety in statistical and graphical techniques.
+
+-   As political scientists R is an effective way to store and handle data, and a large selection of data analysis tools including graphing tools in a coherent and effective language.
+
+-   The majority of users will use Rstudio an IDE or integrated development environment to write the code and see outputs.
+
+    -   **Rstudio** is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location.
+:::
+
+## R as a language {.smaller}
+
+::: incremental
+-   Think of R as a language it has: vocabulary, punctuation, grammar, and syntax
+
+-   R is a language you can use to speak to your computer to tell it how to manage and visual data
+:::
+
+## What is R?
+
+-   R is freely maintained by an international team of developers and is available through *The Comprehensive R Archive Network*.
+
+-   Follow the instructions to download R.
+
+-   If you are using an older computer or iPad, go to **Using Posit Cloud for R in the FAQ page**.
+
+## Instructions for Downloading R
+
+-   Go to The Comprehensive R Archive Network webpage:
+
+    -   <https://cran.r-project.org>
+
+-   To install R on Windows, click the "Download R for Windows" link.
+
+-   To install R on a Mac, click the "Download R for Mac" link.
+
+# Downloading RStudio
+
+## What is Rstudio?
+
+-   One way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents.
+
+-   RStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.
+
+## Instructions for Downloading Rstudio
+
+-   Go to the [Posit RStudio Desktop page](https://posit.co/download/rstudio-desktop/).
+
+-   To install for Mac:
+
+-   Scroll to the button that says "Install R on a Mac," and click the “Download R for Mac OS 13+” link.
+
+    -   If you're using an older version, click the "Previous Versions" link to find a version that works with your computer.
+
+-   To install for Windows:
+
+    -   Scroll to the button that says "Install R on Windows 10/11," and click the link to download.
+
+# R Basics
+
+## R Layout
+
+There are four primary quadrants in RStudio:
+
+-   **Source pane**
+-   **Console pane**
+-   **Environment pane**
+-   **Output pane**
+
+## R Layout
+
+![RStudio Layout](images/layout.png)
+
+## Writing "Text"
+
+-   Writing text in R is called a script, a strong of letters connected by the use of " " or ' '.
+
+```{r}
+#| eval: true
+
+"Hello World!"
+'Hello World!' 
+
+```
+
+## Writing Numbers
+
+-   To output numbers you just type out the number. Also, note that I do not use a comma when writing out my four-digit number:
+
+```{r}
+#| eval: true
+
+5
+75
+1000
+
+```
+
+## Basic Calculations {.smaller}
+
+R at its core is a gigantic calculator, so let's practice doing basic calculations.
+
+```{r}
+#| echo: true
+#| eval: false
+
+# addition
+10 + 2
+
+# subtraction
+10 - 2
+
+# multipilication
+10 * 2
+
+# division
+10/2
+
+# exponent
+10^2
+
+```
+
+## Basic Calculations {.smaller}
+
+R at its core is a gigantic calculator, so let's practice doing basic calculations.
+
+```{r}
+#| echo: true
+
+# addition
+10 + 2
+
+# subtraction
+10 - 2
+
+# multipilication
+10 * 2
+
+# division
+10/2
+
+# exponent
+10^2
+```
+
+## Comments
+
+It's also important to annotate your code. It will help you write notes and explain what you are doing. To annotate your code, you will use the number sign #:
+
+```{r}
+#| echo: true
+
+# addition
+10 + 2
+# the answer is 12
+```
+
+## Creating Objects {.smaller}
+
+In R, we save our data in what we call objects! Objects store information about different types of elements. If you know any other coding languages, they typically call these variables.
+
+-   `print()` is a function that 'prints' out an output from an object.
+
+-   **R functions** are like the verbs of the R coding language, they tell your computer what action to make with sets of information.
+
+    -   A function is usually defined by a keyword and then parenthesis.
+
+```{r}
+#| echo: true
+
+# The <- saves the caculation as math
+math <- 10 + 2
+#print()
+print(math)
+
+```
+
+```{r}
+#| echo: true
+
+# The = saves the caculation as math
+math = 10 + 2
+# print() will print out what is saved in the object math
+print(math)
+```
+
+## Data Types
+
+There are 6 types of data in R that are important to know, but the essential ones are logical, numeric, and character.
+
+In this class we are going to focus on only three: Logical, Numeric, and Characters.
+
+1.  **Logical** Also known as boolean data, logical data is shown as TRUE or FALSE values:
+
+```{r}
+#| echo: true
+
+logical1 <- TRUE
+logical2 <- FALSE
+
+# The class() function outputs the data type of the object
+class(logical1)
+
+
+print(logical2)
+print(class(logical2))
+
+```
+
+## Data Types
+
+2.  **Numeric** represents all data types that are real numbers with or with out decimal points.
+
+```{r}
+#| echo: true
+
+
+height <- 5.5
+acres <- 1000
+
+class(height)
+
+
+print(acres)
+print(class(acres))
+```
+
+## Data Types
+
+3.  **Character** specifies character or string values in a variable such as a singular character 'A' or a string of characters in 'Apple'.
+
+```{r}
+#| echo: true
+
+# Use '' or "" to show it's a string of characters
+motorsports <- "formula1"
+
+print(motorsports)
+print(class(motorsports))
+```
+
+# Packages
+
+## What is a Package?
+
+-   **Packages** are collections of R functions, data, and code compiled in a well-defined format
+
+-   Some packages come pre-installed in R.
+
+-   However, the majority do not, so you need to install them first using the r function `install.packages`
+
+```{r}
+#| echo: true
+#| eval: false
+
+install.packages("tidyverse") # install this package
+```
+
+## Using a Package
+
+-   After installing the packages we need to "attach" the package.
+
+    -   This means telling your computer that you want to use that package during this working session
+
+-   You can do this by using the function `library()` and the name of the package.
+
+```{r}
+#| echo: true
+#| eval: false
+
+library("tidyverse")
+```
 
 # Application exercise
 
 ::: appex
-Or more like demo for today...
-
-📋 [github.com/sta210-s22/ae-0-movies](https://github.com/sta210-s22/ae-0-movies)
+Submit a screenshot or photo of RStudio running on your computer with the code from class today on your computer.
 :::

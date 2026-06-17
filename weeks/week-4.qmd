@@ -1,43 +1,34 @@
 ---
 title: "Week 4"
-subtitle: "TBA"
+subtitle: "Causality II, DAGs, and Uncertainty"
 editor: visual
 ---
 
 ::: callout-important
--   If you can't be in class for the lectures, you can watch the live stream or watch the recording later on [Panopto](https://duke.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx#folderID=%22d6c1d58a-cb6d-4732-9d4b-ae0c011bf767%22).
--   Due dates:
-    -   HW 1: Fri, Jan 28, 5pm ET
-    -   Lab 1: Fri, Jan 28, 5pm ET
+-   Project Draft Due Fri. July 17
 :::
 
 ## Prepare
 
-📖 Read Introduction to Modern Statistics, Sec 24.4: [Mathematical model for testing the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathslope)
+📖 Read [Chapter 7 in ModernDive](https://moderndive.com/v2/sampling.html)
 
-📖 Read Introduction to Modern Statistics, Sec 24.5: [Mathematical model, interval for the slope](https://openintro-ims.netlify.app/inf-model-slr.html#mathematical-model-interval-for-the-slope)
+📖 Read [Directed Acyclical Graphs in Causal Inference: The Mixtape](https://mixtape.scunning.com/)^[2](https://quantpol.juanftellez.com/content/08-content.html#fn2)^
 
-📖 Read Introduction to Modern Statistics, Sec 24.6: [Checking model conditions](https://openintro-ims.netlify.app/inf-model-slr.html#tech-cond-linmod)
+## Lectures
 
-📖 Read Introduction to Modern Statistics, Sec 24.7: [Chapter review](https://openintro-ims.netlify.app/inf-model-slr.html#chp24-review)
+🖥️ [Lecture 10 -](not-available-lec.html)[Causality II](not-avaliable-lec.html)
 
-## Participate
+🖥️ [Lecture 11 - DAGs](not-avaliable-lec.html)
 
-🖥️ [Lab 2 - College scorecard](/slides/lab-1.html)
+🖥️ [Lecture 12 - Uncertainty](not-avaliable-lec.html)
 
-🖥️ [Lecture 6 - SLR: Mathematical models for inference](/slides/lec-6.html)
+## Participation
 
-🖥️ [Lecture 7 - SLR: Model diagnostics](/slides/lec-7.html)
+📋
 
-## Practice
+## Lab
 
-📋 [Application Exercise 3 - Checking model conditions](/ae/ae-3-duke-forest.html)
-
-## Perform
-
-⌨️ [Lab 2 - College scorecard](/labs/lab-2.html "Lab instructions")
-
-✍️ [HW 1 - In-person voting trends](/hw/hw-1.html)
+⌨️ [Lab 4 - Causality + DAGs](not-available.html)
 
 <br><br>
 

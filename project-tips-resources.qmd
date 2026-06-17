@@ -1,5 +1,5 @@
 ---
-title: "Project tips + resources"
+title: "Project Data Options"
 ---
 
 ```{r include = F}
@@ -8,177 +8,104 @@ library(knitr)
 library(broom)
 ```
 
-## Data sources
+## List of Data Options for the Project
 
-### Some resources that may be helpful as you find data:
+### Pew Research Data
 
--   [R Data Sources for Regression Analysis](https://rfun.library.duke.edu/blog/data-sources-for-regression-analysis/)
--   [FiveThirtyEight data](https://data.fivethirtyeight.com/)
--   [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+#### US Trends Data
 
-### Other data repositories
+This data was collected by the Pew Research center in August and asks US respondents questions related to political identity, tipping, and sports.
 
--   [World Health Organization](https://www.who.int/gho/database/en/)
--   [The National Bureau of Economic Research](https://data.nber.org/data/)
--   [International Monetary Fund](https://data.imf.org/?sk=388DFA60-1D26-4ADE-B505-A05A558D9A42&sId=1479329328660)
--   [General Social Survey](http://gss.norc.org/)
--   [United Nations Data](http://data.un.org/)
--   [United Nations Statistics Division](https://unstats.un.org/home/)
--   [U.K. Data](https://data.gov.uk/)
--   [U.S. Data](https://www.data.gov/)
--   [U.S. Census Data](https://www.census.gov/data.html)
--   [European Statistics](https://ec.europa.eu/eurostat/)
--   [Statistics Canada](https://www.statcan.gc.ca/eng/start)
--   [Pew Research](https://www.pewresearch.org/download-datasets/)
--   [UNICEF](https://data.unicef.org/)
--   [CDC](https://www.cdc.gov/datastatistics/index.html)
--   [World Bank](https://datacatalog.worldbank.org/)
--   [Election Studies](https://electionstudies.org//)
+-   Download [CSV](data/01_data/pewresearch_ustrends.csv){download="pewresearch_ustrends.csv"}
 
-## Tips
+-   Download [Codebook](data/02_codebooks/pewresearch_ustrends_codebook.docx){download="pewresearch_ustrends_codebook.docx"}
 
--   Ask questions if any of the expectations are unclear.
+#### Global Atttidues Data
 
--   **Code:** In your write up your code should be hidden (`echo = FALSE`) so that your document is neat and easy to read.
-    However your document should include all your code such that if I re-knit your qmd file I should be able to obtain the results you presented.
+This data was collected by the Pew Research center in and includes respondents from 23 countries that asks questions related to politics, AI, and climate.
 
-    -   **Exception:** If you want to highlight something specific about a piece of code, you're welcome to show that portion.
+-   Download [CSV](data/01_data/pewresearch_globalattitudes.csv){download="pewresearch_globalattitudes.csv"}
 
--   Merge conflicts will happen, issues will arise, and that's fine!
-    Commit and push often, and ask questions when stuck.
+-   Download [Codebook](data/02_codebooks/pewresearch_globalattitudes_codebook.docx){download="pewresearch_globalattitudes_codebook.docx"}
 
--   Make sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).
+### LAPOP Data
 
--   All team members are expected to contribute equally to the completion of this assignment and group assessments will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized.
-    While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in the assignment works.
+The LAPOP data is from the 2004 - 2023 LAPOP waves.
 
-## Formatting + communication tips
+#### Politics and Exposure to Violence
 
-### Suppress Code, Warnings, & Messages
+This data includes questions on demographics, political engagement, government trust, violence, and gender specific questions for the following countries in Latin America: Mexico, Nicaragua, Haiti, Peru, Chile, Brazil, and Colombia, and Paraguay.
 
--   Include the following code in a code chunk at the top of your .qmd file to suppress all code, warnings, and other messages. Use the code chunk header `{r set-up, include = FALSE}` to suppress this set up code.
+#### Mexico
 
-``` r
-knitr::opts_chunk$set(echo = FALSE,
-                      warning = FALSE, 
-                      message = FALSE)
-```
+-   Download [Mexico CSV](data/01_data/lapop_mexico.csv){download="lapop_mexico.csv"}
 
-### Headers
+-   Download [Mexico codebook](data/02_codebooks/LAPOP_Codebook_Mexico.docx){download="LAPOP_Mexico.docx"}
 
--   Use headers to clearly label each section.
--   Inspect the document outline to review your headers and sub-headers.
+#### Nicaragua
 
-### References
+-   Download [Nicaragua CSV](data/01_data/lapop_nicaragua.csv){download="lapop_nicaragua.csv"}
 
--   Include all references in a section called "References" at the end of the report.
--   This course does not have specific requirements for formatting citations and references.
+-   Download [Nicaragua codebook](data/02_codebooks/LAPOP_Codebook_Nicaragua.docx){download="LAPOP_Nicaragua.docx"}
 
-### Appendix
+#### Haiti
 
--   If you have additional work that does not fit or does not belong in the body of the report, you may put it at the end of the document in section called "Appendix".
--   The items in the appendix should be properly labeled.
--   The appendix should only be for additional material. The reader should be able to fully understand your report without viewing content in the appendix.
+-   Download [Haiti CSV](data/01_data/lapop_haiti.csv){download="lapop_haiti.csv"}
 
-### Resize figures
+-   Download [Haiti codebook](data/02_codebooks/LAPOP_Codebook_Haiti.docx){download="LAPOP_Haiti.docx"}
 
-Resize plots and figures, so you have more space for the narrative.
+#### Chile
 
-### Arranging plots
+-   Download [Chile CSV](data/01_data/lapop_chile.csv){download="lapop_chile.csv"}
 
-Arrange plots in a grid, instead of one after the other.
-This is especially useful when displaying plots for exploratory data analysis and to check assumptions.
+-   Download [Chile codebook](data/02_codebooks/LAPOP_Codebook_Chile.docx){download="LAPOP_Chile.docx"}
 
-If you're using ggplot2 functions, the `patchwork` package makes it easy to arrange plots in a grid.
-See the documentation and examples [here](https://patchwork.data-imaginist.com/).
+#### Brazil
 
-### Plot titles and axis labels
+-   Download [Brazil CSV](data/01_data/lapop_brazil.csv){download="lapop_brazil.csv"}
 
-Be sure all plot titles and axis labels are visible and easy to read.
+-   Download [Brazil codebook](data/02_codebooks/LAPOP_Codebook_Brazil.docx){download="LAPOP_Brazil.docx"}
 
--   Use informative titles, *not* variable names, for titles and axis labels.
+#### Colombia
 
-❌ **NO! The x-axis is hard to read because the names overlap.**
+-   Download [Colombia CSV](data/01_data/lapop_colombia.csv){download="lapop_colombia.csv"}
 
-```{r}
-ggplot(data = mpg, aes(x = manufacturer)) +
-  geom_bar()
-```
+-   Download [Colombia codebook](data/02_codebooks/LAPOP_Codebook_Colombia.docx){download="LAPOP_Colombia.docx"}
 
-✅ **YES! Names are readable**
+#### Paraguay
 
-```{r}
-ggplot(data = mpg, aes(y = manufacturer)) +
-  geom_bar()
-```
+-   Download [Paraguay CSV](data/01_data/lapop_paraguay.csv){download="lapop_paraguay.csv"}
 
-### Do a little more to make the plot look professional!
+-   Download [Paraguay codebook](data/02_codebooks/LAPOP_Codebook_Paraguay.docx){download="LAPOP_Paraguay.docx"}
 
--   Informative title and axis labels
--   Flipped coordinates to make names readable
--   Arranged bars based on count
--   Capitalized manufacturer names
--   *Optional: Added color - Use a coordinated color scheme throughout paper / presentation*
--   *Optional: Applied a theme - Use same theme throughout paper / presentation*
+### US Election Data
 
-```{r}
-mpg %>%
-  count(manufacturer) %>%
-  mutate(manufacturer = str_to_title(manufacturer)) %>%
-  ggplot(aes(y = fct_reorder(manufacturer,n), x = n)) +
-  geom_bar(stat = "identity", fill = "steelblue") +
-  labs(x = "Manufacturer", 
-       y = "Count", 
-       title = "The most common manufacturer is Dodge") +
-  theme_minimal() 
-```
+#### 2008 Election
 
-### Tables and model output
+This data includes questions on demographics, ....
 
--   Use the `kable` function from the knitr package to neatly output all tables and model output.
-    This will also ensure all model coefficients are displayed.
+-   Download CSV
 
-    -   Use the `digits` argument to display only 3 or 4 significant digits.
-    -   Use the `caption` argument to add captions to your table.
+-   Download Codebook
 
-```{r}
-model <- lm(mpg ~ hp, data = mtcars)
-tidy(model) %>%
-  kable(digits = 3)
-```
+#### 2020 Election
 
-### Guidelines for communicating results
+This data includes questions on demographics, ....
 
--   **Don't use variable names in your narrative!** Use descriptive terms, so the reader understands your narrative without relying on the data dictionary.
+-   Download CSV
 
-    -   ❌ There is a negative linear relationship between mpg and hp.
-    -   ✅ There is a negative linear relationship between a car's fuel economy (in miles per gallon) and its horsepower.
+-   Download Codebook
 
--   **Know your audience:** Your report should be written for a general audience who has an understanding of statistics at the level of STA 210.
+#### 2024 Election
 
--   **Avoid subject matter jargon:** Don't assume the audience knows all of the specific terminology related to your subject area.
-    If you must use jargon, include a brief definition the first time you introduce a term.
+This data includes questions on demographics, ....
 
--   **Tell the "so what":** Your report and presentation should be more than a list of interpretations and technical definitions.
-    Focus on what the results mean, i.e. what you want the audience to know about your topic after reading your report or viewing your presentation.
+-   Download CSV
 
-    -   ❌ For every one unit increase in horsepower, we expect the miles per gallon to decrease by 0.068 units, on average.
-    -   ✅ If the priority is to have good fuel economy, then one should choose a car with lower horsepower. Based on our model, the fuel economy is expected to decrease, on average, by 0.68 miles per gallon for every 10 additional horsepower.
+-   Download Codebook
 
--   **Tell a story:** All visualizations, tables, model output, and narrative should tell a cohesive story!
+### US Migration Data
 
--   **Use one voice:** Though multiple people are writing the report, it should read as if it's from a single author.
-    At least one team member should read through the report before submission to ensure it reads like a cohesive document.
+-   Download [CSV](data/01_data/immigration.csv){download="immigration.csv"}
 
-## Additional resources
-
--   [R for Data Science](https://r4ds.had.co.nz/)
-
--   [Quarto Documentation](https://quarto.org/)
-
--   Data visualization
-
-    -   [ggplot2 Reference](https://ggplot2.tidyverse.org/reference/index.html)
-    -   [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
-    -   [Data Visualization: A Practice Introduction](https://socviz.co/index.html)
-    -   [Patchwork R Package](https://patchwork.data-imaginist.com/index.html)
+-   Download [Codebook](data/02_codebooks/immigration_codebook.docx){download="immigration_codebook.docx"}

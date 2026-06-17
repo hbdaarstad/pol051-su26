@@ -1,0 +1,7 @@
+---
+title: "Linear Regression Modeling"
+---
+
+Sadly, we have not gotten to this code yet.
+
+![](/supplemental/images/IMG_6760.JPG){width="363"}
