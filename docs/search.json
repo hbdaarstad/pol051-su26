@@ -461,11 +461,11 @@
     ]
   },
   {
-    "objectID": "project-tips-resources.html#list-of-data-options-for-the-project",
-    "href": "project-tips-resources.html#list-of-data-options-for-the-project",
+    "objectID": "project-tips-resources.html#data-options-for-the-project",
+    "href": "project-tips-resources.html#data-options-for-the-project",
     "title": "Project Data Options",
-    "section": "List of Data Options for the Project",
-    "text": "List of Data Options for the Project\n\nPew Research Data\n\nUS Trends Data\nThis data was collected by the Pew Research center in August and asks US respondents questions related to political identity, tipping, and sports.\n\nDownload CSV\nDownload Codebook\n\n\n\nGlobal Atttidues Data\nThis data was collected by the Pew Research center in and includes respondents from 23 countries that asks questions related to politics, AI, and climate.\n\nDownload CSV\nDownload Codebook\n\n\n\n\nLAPOP Data\nThe LAPOP data is from the 2004 - 2023 LAPOP waves.\n\nPolitics and Exposure to Violence\nThis data includes questions on demographics, political engagement, government trust, violence, and gender specific questions for the following countries in Latin America: Mexico, Nicaragua, Haiti, Peru, Chile, Brazil, and Colombia, and Paraguay.\n\n\nMexico\n\nDownload Mexico CSV\nDownload Mexico codebook\n\n\n\nNicaragua\n\nDownload Nicaragua CSV\nDownload Nicaragua codebook\n\n\n\nHaiti\n\nDownload Haiti CSV\nDownload Haiti codebook\n\n\n\nChile\n\nDownload Chile CSV\nDownload Chile codebook\n\n\n\nBrazil\n\nDownload Brazil CSV\nDownload Brazil codebook\n\n\n\nColombia\n\nDownload Colombia CSV\nDownload Colombia codebook\n\n\n\nParaguay\n\nDownload Paraguay CSV\nDownload Paraguay codebook\n\n\n\n\nUS Election Data\n\nANES 1948 - 2024 Social Groups Data\n\nDownload CSV\nDownload Codebook\n\n\n\nANES 1948 - 2024 Media Data\nThis data includes questions on demographics, ….\n\nDownload CSV\nDownload Codebook\n\n\n\nANES 1948 - 2024 Environmental Issues Data\nThis data includes questions on demographics, ….\n\nDownload CSV\nDownload Codebook\n\n\n\nANES 1948 - 2024 Foreign Relations Data\nThis data includes questions on demographics, ….\n\nDownload CSV\nDownload Codebook\n\n\n\nANES 1948 - 2024 Attitudes Towards Parties Data\nThis data includes questions on demographics, ….\n\nDownload CSV\nDownload Codebook\n\n\n\n\nUS Migration Data\n\nDownload CSV\nDownload Codebook",
+    "section": "Data Options for the Project",
+    "text": "Data Options for the Project\nFor your project you will need to find a data set that answers your question of interest! I have pre curated some data sets for you.\nBefore selecting a data set I recommend reading this: https://www.icpsr.umich.edu/sites/icpsr/teaching-learning/build-your-data-skills/how-to-find-a-dataset\n\nUN Data (2000-2025)\nUN Data (2000-2025) includes various measures by country per year such as population, education, women in government, CO2 admissions.\n\nDownload CSV\nDownload Codebook\n\nData collected from: UN Data (https://data.un.org)\n\n\nANES (1948 - 2024)\nAmerican National Election Survey includes responses from individuals in the US on various feeling thermamaters for parties and social groups and includes demographic questions.\n\nDownload CSV\nDownload Codebook\n\nData collected from: ANES (https://electionstudies.org)\n\n\nUS Migration Data\nThe US migration data includes data on migrants, deportations, and migrant deaths at the US-Mexican border.\n\nDownload CSV\nDownload Codebook\n\nData collected from: DHS Office of Immigration Statistics (removals/apprehensions), TRAC Immigration (deportation reasons by criminality), ICE Arrest Data (monthly, 2008–2018)\n\n\nViolence and Democracy Data\nThe Violence and Democracy Data includes data on different forms of violence such as conflicts and protests and democracy index scores.\nAfrica\n\nDownload CSV\nDownload Codebook\n\nAsia\n\nDownload CSV\nDownload Codebook\n\nEurope\n\nDownload CSV\nDownload Codebook\n\nLatin America\n\nDownload CSV\nDownload Codebook\n\nUS and Canada\n\nDownload CSV\nDownload Codebook\n\nData collected from: ACLED (https://acleddata.com), and VDEM (https://v-dem.net)",
     "crumbs": [
       "Project",
       "Data Options"
@@ -476,7 +476,7 @@
     "href": "index.html",
     "title": "POL 051: The Scientific Study of Politics",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the summer session. Note that this schedule will be updated as the summer progresses, with all changes documented here.\n\n\n\n\n\n\n\n\nInstructor:\nLecture:\nDiscussion/Lab:\n\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nPrepare\nSlides\nAE\nLab\nExam\nProject\n\n\n\n\n1\nMon, June 22\nLecture 1 - Meet + greet, Welcome to POL 051\n📖\n🖥️\n📋\n\n\nTeams created + list of project ideas 📂\n\n\n\nTue, June 23\nLecture 2 - Data Visualization I & II\n\n🖥️\n\n\n\n\n\n\n\nWed, June 24\nLecture 3 - Data Wrangling I\n\n🖥️\n\n\n\n\n\n\n\nThu, June 25\nLab 1\n\n🖥️\n\n💻\n\nChosen Topic is Due June 28 📂\n\n\n2\nMon, June 29\nLecture 4 - Data Wrangling II\n📖\n🖥️\n\n\n\n\n\n\n\nTue, June 30\nLecture 5 - Relationships I\n\n🖥️\n\n\n\n\n\n\n\nWed, July 1\nLecture 6 - Relationships II\n\n🖥️\n\n\n\n\n\n\n\nThu, July 2\nLab 2\n\n\n\n💻\n\n\n\n\n3\nMon, July 6\nLecture 7 - Modeling I\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 7\nLecture 8 - Modeling II\n\n🖥️\n\n\n\n\n\n\n\nWed, July 8\nLecture 9 - Causality I\n\n\n\n\n\n\n\n\n\nThu, July 9\nLab 3\n\n🖥️\n\n💻\n\n\n\n\n4\nMon, July 13\nLecture 10 - Causality II\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 14\nLecture 11 - DAGs\n\n🖥️\n\n\n\n\n\n\n\nWed, July 15\nLecture 12 - Uncertainty\n\n\n\n\n\n\n\n\n\nThu, July 16\nLab 4\n\n🖥️\n\n💻\n\nProject Draft Due Fri. July 17 📂\n\n\n5\nMon, July 20\nLecture 13 - Hypothesis Testing I\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 21\nLecture 14 - Hypothesis Testing II\n\n🖥️\n\n\n\n\n\n\n\nWed, July 22\nLecture 15 - Prediction\n\n🖥️\n\n\n\nPeer Review is Due 📂\n\n\n\nThu, July 23\nLab 5\n\n\n\n💻\n\n\n\n\n6\nMon, July 27\nLecture 16 - Experiments\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 28\nLecture 17 - Natural Experiments I\n\n🖥️\n\n\n\n\n\n\n\nWed, July 29\nLecture 18 - Natural Experiments II\n\n🖥️\n\n\n\nFinal Project Due\n\n\n\nThu, July 30\nFinal Project Presentation\n\n\n\n\n\nFinal Project Presentation 📂",
+    "text": "This page contains an outline of the topics, content, and assignments for the summer session. Note that this schedule will be updated as the summer progresses, with all changes documented here.\n\n\n\n\n\n\n\n\nInstructor:\nLecture:\nDiscussion/Lab:\n\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nPrepare\nSlides\nAE\nLab\nExam\nProject\n\n\n\n\n1\nMon, June 22\nLecture 1 - Meet + greet, Welcome to POL 051\n📖\n🖥️ | 📋 | | | Teams created + list of project ideas 📂 |\n\n\n\n\n\n\n\nTue, June 23\nLecture 2 - Data Visualization I & II\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nWed, June 24\nLecture 3 - Data Wrangling I\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nThu, June 25\nLab 1\n\n🖥️ | | 💻 | | Chosen Topic is Due June 28 📂 |\n\n\n\n\n\n\n2\nMon, June 29\nLecture 4 - Data Wrangling II\n📖\n🖥️ | | | | |\n\n\n\n\n\n\n\nTue, June 30\nLecture 5 - Relationships I\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nWed, July 1\nLecture 6 - Relationships II\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nThu, July 2\nLab 2\n\n\n\n💻\n\n\n\n\n3\nMon, July 6\nLecture 7 - Modeling I\n📖\n🖥️ | | | | |\n\n\n\n\n\n\n\nTue, July 7\nLecture 8 - Modeling II\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nWed, July 8\nLecture 9 - Causality I\n\n\n\n\n\n\n\n\n\nThu, July 9\nLab 3\n\n🖥️ | | 💻 | | |\n\n\n\n\n\n\n4\nMon, July 13\nLecture 10 - Causality II\n📖\n🖥️ | | | | |\n\n\n\n\n\n\n\nTue, July 14\nLecture 11 - DAGs\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nWed, July 15\nLecture 12 - Uncertainty\n\n\n\n\n\n\n\n\n\nThu, July 16\nLab 4\n\n🖥️ | | 💻 | | Project Draft Due Fri. July 17 📂 |\n\n\n\n\n\n\n5\nMon, July 20\nLecture 13 - Hypothesis Testing I\n📖\n🖥️ | | | | |\n\n\n\n\n\n\n\nTue, July 21\nLecture 14 - Hypothesis Testing II\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nWed, July 22\nLecture 15 - Prediction\n\n🖥️ | | | | Peer Review is Due 📂 |\n\n\n\n\n\n\n\nThu, July 23\nLab 5\n\n\n\n💻\n\n\n\n\n6\nMon, July 27\nLecture 16 - Experiments\n📖\n🖥️ | | | | |\n\n\n\n\n\n\n\nTue, July 28\nLecture 17 - Natural Experiments I\n\n🖥️ | | | | |\n\n\n\n\n\n\n\nWed, July 29\nLecture 18 - Natural Experiments II\n\n🖥️ | | | | Final Project Due |\n\n\n\n\n\n\n\nThu, July 30\nFinal Project Presentation\n\n\n\n\n\nFinal Project Presentation 📂",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -747,17 +747,6 @@
     ]
   },
   {
-    "objectID": "project-description.html#draft-report",
-    "href": "project-description.html#draft-report",
-    "title": "Project description",
-    "section": "Draft report",
-    "text": "Draft report\nThe purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion as long as all parts are included then your group will receive full credit.\nInclude the following in the draft:\n\nSection 1 - Introduction\nThe introduction should include the following (1 page):\n\nYou should state the motivation of the research question\n\nFocus these two key elements:\n\nWhat is the observed problem\nWhat does this contribute to?\n\nDoes this contribute to more knoweldge? (Intellectual)\nDoes this contribute to policy? (Broader)\n\n\nIn your introduction section, you should be focused on discussing what the problem is that you are seeing and why this needs to be addressed. Is there a current problem in the world; did something happen?\nhttps://www.sjsu.edu/writingcenter/docs/handouts/Introduction%20of%20Research%20Papers.pdf\nExample:\n\n“The number of women running for political office has skyrocket since the introduction of gender quota laws and revisions were introduced to reduce the loopholes of the laws. The most recent election in Mexico during 2024 was the largest election in its history and saw the most women running for office. However, while the number of women entering political office is increasing, so is the level of criminal violence, especially against political leaders. The 2024 election was one of the most violent elections in recent history (Data Cívica, México Evalúa y Animal Político, 2024A). Yet, little research has examined the impact of criminal violence on the candidate selection process and how this impacts women, and as violence increases it is critical to analyze the relationship between criminal violence and candidate selection.” (Daarstad, N.D.)\n“While previously polarization was primarily seen only in issue-based terms, a new type of division has emerged in the mass public in recent years: Ordinary Americans increasingly dislike and distrust those from the other party. Democrats and Republicans both say that the other party’s members are hypocritical, selfish, and closed-minded, and they are unwilling to socialize across party lines. This phenomenon of animosity between the parties is known as affective polarization. We trace its origins to the power of partisanship as a social identity, and explain the factors that intensify partisan animus.” (Iyenger, et. al, 2019)\n\n\n\n\n\nSection 2 - Literature Review\n\nShould be a “comprehensive” review and analysis of the current academic research (1 - 2 pages)\nThe key piece is addressing what gap exists; the gap you are trying to address.\nTell me what your project adds!!\n\nSources on Lit Reviews:\n\nhttps://libguides.wustl.edu/our?p=302677#:~:text=From%20The%20Writing%20Center%20%2D%20The,emphasis%20is%20on%20the%20argument.\nhttps://www.tandfonline.com/doi/full/10.1080/02642069.2022.2047941\nhttps://owl.purdue.edu/owl/research_and_citation/conducting_research/writing_a_literature_review.html\nhttps://writingcenter.unc.edu/tips-and-tools/literature-reviews/\nhttps://www.sjsu.edu/writingcenter/docs/handouts/Literature%20Reviews.pdf\n\n\n\n\n\nSection 3 - Hypotheses (1/2 page)\nIn this section, you will tell me your hypotheses!\n\n\nSection 4 - Data Description (1/2 page)\nIn this section, you will describe the data. This includes\n\ndescription of the observations in the data set,\n\nWhat is your independent variable?\nWhat is your dependent variable?\nHow was it measured?\nHow was it collected?\n\n\n\n\nSection 5 - Data Summary + Regression Model (1-2 pages)\nIn this section, you will provide basic summary stats, visualizations, and a simple regression model of your data. This includes:\n\nVisualization and summary statistics for the response variable.\nSimple Regression model\n\n\n\nSection 6 - Conclusion (1 pages)\n\nTell me what you found, does it support your conclusions?\n\n\n\nSubmission\nSubmit as a word document on canvas.\n\n\nProject Draft grading\n\n\n\nTotal\n100 pts\n\n\n\n\nIntroduction\n20 pts\n\n\nLit Review\n20 pts\n\n\nHypotheses\n10 pts\n\n\nData Description\n10 pts\n\n\nData Summary + Regression\n20 pts\n\n\nConclusion\n20 pts",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
     "objectID": "project-description.html#peer-review",
     "href": "project-description.html#peer-review",
     "title": "Project description",
@@ -819,7 +808,7 @@
     "href": "slides/lec-1.html#teams",
     "title": "Welcome to POL 051!",
     "section": "Teams",
-    "text": "Teams\n\nTeam assignments\n\nApplication exercises, labs, and project\nPeer evaluation during teamwork and after completion\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
+    "text": "Teams\n\nTeam assignments\n\nApplication exercises, labs, and project\nAnonymous Peer evaluation after completion of Final Project\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
   },
   {
     "objectID": "slides/lec-1.html#team-assignment",
@@ -833,7 +822,7 @@
     "href": "slides/lec-1.html#support",
     "title": "Welcome to POL 051!",
     "section": "Support",
-    "text": "Support\n\nAttend office hours\nAsk and answer questions on the discussion forum\nReserve email for questions that can be answered quickly and timely"
+    "text": "Support\n\nAttend office hours\nReserve email for questions that can be answered quickly and timely"
   },
   {
     "objectID": "slides/lec-1.html#diversity-inclusion",
@@ -854,7 +843,7 @@
     "href": "slides/lec-1.html#late-work-waivers-regrades-policy",
     "title": "Welcome to POL 051!",
     "section": "Late work, waivers, regrades policy",
-    "text": "Late work, waivers, regrades policy\n\nIf there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty\n\nFINAL PROJECT IS EXCLUDED FROM THIS\n\nLabs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late."
+    "text": "Late work, waivers, regrades policy\n\nIf there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty\n\nFINAL PROJECT REPORT IS EXCLUDED FROM THIS\n\nLabs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late."
   },
   {
     "objectID": "slides/lec-1.html#sharing-reusing-code-policy",
@@ -889,7 +878,7 @@
     "href": "slides/lec-1.html#this-weeks-tasks",
     "title": "Welcome to POL 051!",
     "section": "This week’s tasks",
-    "text": "This week’s tasks\n\nDownload R and Rstudio\nR Basics\nData Visualization I and II\nProject Topic Idea Submission\nComplete Lab 1"
+    "text": "This week’s tasks\n\nDownload R and Rstudio\nR Basics\nData Visualization I and II\nProject Topic Idea Submission Due Sunday\nLab 1 Due Sunday"
   },
   {
     "objectID": "slides/lec-1.html#why-r",
@@ -946,6 +935,34 @@
     "title": "Welcome to POL 051!",
     "section": "R Layout",
     "text": "R Layout\n\nRStudio Layout"
+  },
+  {
+    "objectID": "slides/lec-1.html#what-is-a-working-directory",
+    "href": "slides/lec-1.html#what-is-a-working-directory",
+    "title": "Welcome to POL 051!",
+    "section": "What is a working directory?",
+    "text": "What is a working directory?\nThe working directory is the folder in your computer that you have set to save files to during your working session on R.\nEssentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder."
+  },
+  {
+    "objectID": "slides/lec-1.html#step-1-make-a-folder",
+    "href": "slides/lec-1.html#step-1-make-a-folder",
+    "title": "Welcome to POL 051!",
+    "section": "Step 1: Make a Folder",
+    "text": "Step 1: Make a Folder\n\nMac\n\nOpen Finder and click Desktop on the left side\n\nOn the top of your screen got to File and click New Folder\n\nName this folder POL 051 - SU26\n\n\n\nWindows\n\nOpen File Explorer and go to Desktop\n\nClick/tap on New on the command bar, and click/tap on Folder in the drop menu.\n\nName this folder POL 051 - SU26"
+  },
+  {
+    "objectID": "slides/lec-1.html#step-2-create-the-working-directory.",
+    "href": "slides/lec-1.html#step-2-create-the-working-directory.",
+    "title": "Welcome to POL 051!",
+    "section": "Step 2: Create the Working Directory.",
+    "text": "Step 2: Create the Working Directory.\nTo create a new working directory in RStudio:\n\nUse File → New Project or use the New Project button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).\nThis will open the “New Project Wizard” popup.\nClick “New Directory”."
+  },
+  {
+    "objectID": "slides/lec-1.html#step-3-set-the-working-directory.",
+    "href": "slides/lec-1.html#step-3-set-the-working-directory.",
+    "title": "Welcome to POL 051!",
+    "section": "Step 3: Set the Working Directory.",
+    "text": "Step 3: Set the Working Directory.\n\n# Set working directory (replace this with your own)\n\n# Mac Users\nsetwd(\"/Users/yourname/Desktop/filename/filename\")\n\n# Windows Users\nsetwd(\"C:/Users/YourName/Documents/MyFolder\")\n\n# To check if the working directory is set correctly, use the following code:\n\n# Returns the filepath of the current working directory\ngetwd()"
   },
   {
     "objectID": "slides/lec-1.html#writing-text",
@@ -1084,7 +1101,7 @@
     "href": "weeks/week-1.html#lectures",
     "title": "Week 1",
     "section": "Lectures",
-    "text": "Lectures\n🖥️ Lecture 1 - Meet + greet; Welcome to POL 051\n🖥️ Lecture 2 - Data Visualization I + II\n🖥️ Lecture 3 - Data Wrangling I",
+    "text": "Lectures\n🖥️ Lecture 1 - Meet + greet;Welcometo POL 051\n🖥️ Lecture 2 - Data Visualization I + II\n🖥️ Lecture 3 - Data Wrangling I",
     "crumbs": [
       "Weekly materials",
       "Week 1"
@@ -1223,59 +1240,10 @@
     ]
   },
   {
-    "objectID": "slides/lec-1.html#lets-make-a-folder-for-this-class.",
-    "href": "slides/lec-1.html#lets-make-a-folder-for-this-class.",
+    "objectID": "slides/lec-1.html#r",
+    "href": "slides/lec-1.html#r",
     "title": "Welcome to POL 051!",
-    "section": "Lets make a folder for this class.",
-    "text": "Lets make a folder for this class.\n\nMac\n\nOpen Finder andclick Desktop on the left side\n\nOn the top of your screen got to File and click New Folder\n\nName this folder POL 051 - SU26\n\n\n\nWindows\n\nOpen File Explorer andgo to Desktop\n\nClick/tap on New on the command bar, and click/tap on Folder in the drop menu.\n\nName this folder POL 051 - SU26"
-  },
-  {
-    "objectID": "slides/lec-1.html#what-is-a-working-directory",
-    "href": "slides/lec-1.html#what-is-a-working-directory",
-    "title": "Welcome to POL 051!",
-    "section": "What is a working directory?",
-    "text": "What is a working directory?\nThe working directory is the folder in your computer that you have set to save files to during your working session on R.\nEssentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder."
-  },
-  {
-    "objectID": "slides/lec-1.html#step-1-make-a-folder",
-    "href": "slides/lec-1.html#step-1-make-a-folder",
-    "title": "Welcome to POL 051!",
-    "section": "Step 1: Make a Folder",
-    "text": "Step 1: Make a Folder\n\nMac\n\nOpen Finder and click Desktop on the left side\n\nOn the top of your screen got to File and click New Folder\n\nName this folder POL 051 - SU26\n\n\n\nWindows\n\nOpen File Explorer and go to Desktop\n\nClick/tap on New on the command bar, and click/tap on Folder in the drop menu.\n\nName this folder POL 051 - SU26"
-  },
-  {
-    "objectID": "slides/lec-1.html#now-lets-set-up-a-working-directory.",
-    "href": "slides/lec-1.html#now-lets-set-up-a-working-directory.",
-    "title": "Welcome to POL 051!",
-    "section": "Now let’s set up a Working Directory.",
-    "text": "Now let’s set up a Working Directory.\nWhat is a working directory?"
-  },
-  {
-    "objectID": "slides/lec-1.html#step-2-set-the-working-directory.",
-    "href": "slides/lec-1.html#step-2-set-the-working-directory.",
-    "title": "Welcome to POL 051!",
-    "section": "Step 2: Set the Working Directory.",
-    "text": "Step 2: Set the Working Directory.\nW"
-  },
-  {
-    "objectID": "slides/lec-1.html#step-2-create-the-working-directory.",
-    "href": "slides/lec-1.html#step-2-create-the-working-directory.",
-    "title": "Welcome to POL 051!",
-    "section": "Step 2: Create the Working Directory.",
-    "text": "Step 2: Create the Working Directory.\nTo create a new working directory in RStudio:\n\nUse File → New Project or use the New Project button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).\nThis will open the “New Project Wizard” popup.\nClick “New Directory”."
-  },
-  {
-    "objectID": "slides/lec-1.html#step-3-set-the-working-directory.",
-    "href": "slides/lec-1.html#step-3-set-the-working-directory.",
-    "title": "Welcome to POL 051!",
-    "section": "Step 3: Set the Working Directory.",
-    "text": "Step 3: Set the Working Directory.\n\n# Set working directory (replace this with your own)\n\n# Mac Users\nsetwd(\"/Users/yourname/Desktop/filename/filename\")\n\n# Windows Users\nsetwd(\"C:/Users/YourName/Documents/MyFolder\")\n\n# To check if the working directory is set correctly, use the following code:\n\n# Returns the filepath of the current working directory\ngetwd()"
-  },
-  {
-    "objectID": "slides/lec-1.html#data-types-echo-true",
-    "href": "slides/lec-1.html#data-types-echo-true",
-    "title": "Welcome to POL 051!",
-    "section": "Data Types #| echo: True",
-    "text": "Data Types #| echo: True\nThere are 6 types of data in R that are important to know, but the essential ones are logical, numeric, and character.\nIn this class we are going to focus on only three: Logical, Numeric, and Characters.\n\nLogical Also known as boolean data, logical data is shown as TRUE or FALSE values:\n\n\nlogical1 &lt;- TRUE\nlogical2 &lt;- FALSE\n\n# The class() function outputs the data type of the object\nclass(logical1)\n\n[1] \"logical\"\n\nprint(logical2)\n\n[1] FALSE\n\nprint(class(logical2))\n\n[1] \"logical\""
+    "section": "R",
+    "text": "R\n\nR is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network.\nFollow the instructions to download R.\nIf you are using an older computer or iPad, go to Using Posit Cloud for R in the FAQ page."
   }
 ]

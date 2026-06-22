@@ -104,7 +104,7 @@ library(countdown)
 
 -   Team assignments
     -   Application exercises, labs, and project
-    -   Peer evaluation during teamwork and after completion
+    -   Anonymous Peer evaluation after completion of Final Project
 -   Expectations and roles
     -   Everyone is expected to contribute equal *effort*
     -   Everyone is expected to understand *all* code turned in
@@ -133,7 +133,6 @@ library(countdown)
 ## Support
 
 -   Attend office hours
--   Ask and answer questions on the discussion forum
 -   Reserve email for questions that can be answered quickly and timely
 
 ## Diversity + inclusion {.smaller}
@@ -159,7 +158,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 ## Late work, waivers, regrades policy
 
 -   If there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty
-    -   FINAL PROJECT IS EXCLUDED FROM THIS
+    -   FINAL PROJECT REPORT IS EXCLUDED FROM THIS
 -   Labs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late.
 
 ## Sharing / reusing code policy
@@ -195,8 +194,8 @@ Ask if you're not sure if something violates a policy!
 -   Download R and Rstudio
 -   R Basics
 -   Data Visualization I and II
--   Project Topic Idea Submission
--   Complete Lab 1
+-   Project Topic Idea Submission Due Sunday
+-   Lab 1 Due Sunday
 
 # What is Political Science? {.smaller}
 
@@ -224,15 +223,7 @@ First and foremost what is political science?
     -   **Rstudio** is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location.
 :::
 
-## R as a language
-
-::: incremental
--   Think of R as a language it has: vocabulary, punctuation, grammar, and syntax
-
--   R is a language you can use to speak to your computer to tell it how to manage and visual data
-:::
-
-## What is R?
+## R
 
 -   R is freely maintained by an international team of developers and is available through *The Comprehensive R Archive Network*.
 
@@ -275,6 +266,14 @@ First and foremost what is political science?
     -   Scroll to the button that says "Install R on Windows 10/11," and click the link to download.
 
 # R Basics
+
+## R as a language
+
+::: incremental
+-   Think of R as a language it has: vocabulary, punctuation, grammar, and syntax
+
+-   R is a language you can use to speak to your computer to tell it how to manage and visual data
+:::
 
 ## R Layout
 

@@ -9,7 +9,7 @@ The syllabus is subject to changes and updates.
 ## Course info
 
 |   | Day | Time | Location |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | Lectures | Mon, Tue & Wed. | 12:10 pm - 1:50 pm | Hoagland Hall 168 |
 | Discussion/Lab | Thu | 12:10 pm - 1:50 pm | Teaching and Learning Complex 2212 |
 | Office Hours | Tue | 2:00 - 4:00 PM | Kerr Hall 569 |
