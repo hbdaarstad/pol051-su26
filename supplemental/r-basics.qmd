@@ -64,7 +64,6 @@ setwd("/Users/yourname/Desktop/filename/filename")
 To check if the working directory is set correctly, use the following code:
 
 ```{r}
-
 #| eval: false
 #| include: true
 
