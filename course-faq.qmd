@@ -107,6 +107,6 @@ getwd()
 
 If you feel like this still ⤸
 
-![](/images/sergio perez.jpg){width="368"}
+![](/images/sergio%20perez.jpg){width="368"}
 
 PLEASE PLEASE PLEASE come to office hours or email me!

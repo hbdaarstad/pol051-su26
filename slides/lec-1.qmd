@@ -2,7 +2,7 @@
 title: "Welcome to POL 051!"
 subtitle: "POL 051 - Summer Session 1 2026"
 author: "Haley Daarstad"
-footer:  "[pol051-su26.github.io/website](https://pol051-su26.github.io/website/)"
+footer:  "[haleydaarstad.com/pol051-su26/](http://haleydaarstad.com/pol051-su26/)"
 logo: "images/logo.png"
 format: 
   revealjs: 
@@ -26,7 +26,7 @@ library(countdown)
 
 ::::: columns
 ::: {.column width="50%"}
-![Haley Daarstad (she/her)](images/lec-1/mine.png){fig-alt="Headshot of Dr. Mine Çetinkaya-Rundel" fig-align="center" width="200"}
+![Haley Daarstad (she/her)](images/pic01.jpg){fig-alt="Headshot of Dr. Mine Çetinkaya-Rundel" fig-align="center" width="278"}
 :::
 
 ::: {.column width="50%" style="font-size: 75%;"}
@@ -36,7 +36,7 @@ library(countdown)
 -   My Summer Ins:
     -   Hockey, Hiking, Iced Tea
 -   My Summer Outs:
-    -   California Heat, Fires, Allergies
+    -   Humidity, Fires, Allergies
 :::
 :::::
 
@@ -56,10 +56,10 @@ library(countdown)
     -   Draw causal diagrams and identify obstacles to causal claims
     -   Understand the basics of regression and uncertainty
 
-# Course info
+# Course info {.smaller}
 
 |   | Day | Time | Location |
-|------------------|------------------|------------------|-------------------|
+|----|----|----|----|
 | Lectures | Mon, Tue & Wed. | 12:10 pm - 1:50 pm | Hoagland Hall 168 |
 | Discussion/Lab | Thu | 12:10 pm - 1:50 pm | Teaching and Learning Complex 2212 |
 | Office Hours | Tue | 2:00 - 4:00 PM | Kerr Hall 569 |
@@ -68,11 +68,7 @@ library(countdown)
 
 -   All materials for this course are **free and online.** You will do all of your analysis with the open source (and free) programming language R and RStudio.
 
--   Textbook: Sumner, Jane L. *R for Political Science Research : An Introduction for Absolute Beginners*. 1st ed. 2024., Springer Nature Switzerland, 2024, <https://doi.org/10.1007/978-3-031-75853-9>.
-
--   R and R Studio:
-
--   Course Website:
+    -   Lets walk through the course website: <http://haleydaarstad.com/pol051-su26/>
 
 ## Activities: Prepare, Participate, Practice, Perform {.smaller}
 
@@ -84,32 +80,55 @@ library(countdown)
 
 -   **Perform:** Put together what you've learned to analyze real-world data
 
-    | Category                             | Percentage   |
-    |--------------------------------------|--------------|
-    | Application Exercises (Particpation) | 15%          |
-    | Labs                                 | 35% (7% x 5) |
-    | Final Project                        | 50%          |
+    | Category                              | Percentage   |
+    |---------------------------------------|--------------|
+    | Application Exercises (Participation) | 15%          |
+    | Labs                                  | 35% (7% x 5) |
+    | Final Project                         | 50%          |
 
-## Final Project
+## Final Project {.smaller}
 
--   *Make a Research Question, Pick a data set, and do analysis. That is your final project.*
+-   *Make a Research Question, pick a data set, and do analysis. That is your final project.*
 
--   The goal of the final project is for you to apply the skills you have been learning throuhg out the quarter and apply to real life data to answer a question YOU HAVE MADE.
+-   The goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.
 
 -   You will be split into teams, I recommend sitting with these teams during lecture and labs.
 
+-   You will have time during lab this Thursday (about 30 minutes) to discuss and write up your project proposal for your group.
+
+    -   The project proposal will be due **Sunday June 28**
+
 -   Learn More on the [Project Description](project-description.qmd) page on the course website.
 
-## Teams
+## Teams {.smaller}
 
 -   Team assignments
-    -   Assigned by me
     -   Application exercises, labs, and project
     -   Peer evaluation during teamwork and after completion
 -   Expectations and roles
     -   Everyone is expected to contribute equal *effort*
     -   Everyone is expected to understand *all* code turned in
     -   Individual contribution evaluated by peer evaluation, commits, etc.
+
+## Team Assignment {.smaller}
+
+-   **What’s the category?**
+
+    -   I have written down different words that fit under a category. Based on the word you have find the other members of your category.
+
+        -   Colors
+
+        -   Food
+
+        -   Sports
+
+        -   Animals
+
+        -   Classic Books
+
+    -   Introduce yourself to your team and choose a team name and a "team captain" (5 minutes)
+
+        -   The "team captain" will be in charge of submitting everything, they are not the leader!!
 
 ## Support
 
@@ -147,7 +166,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 -   I am aware that there is a large amount of code is available online, and many tasks may have solutions posted
 
--   Unless explicitly stated otherwise, this course's policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow, etc.) but you must explicitly cite where you obtained any code you directly use or use as inspiration in your solution(s).
+-   Unless explicitly stated otherwise, this course's policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow, etc.) but you must explicitly state where you obtained any code you directly use or use as inspiration in your solution(s).
 
 -   Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source.
 
@@ -175,10 +194,21 @@ Ask if you're not sure if something violates a policy!
 
 -   Download R and Rstudio
 -   R Basics
--   Assign Teams
 -   Data Visualization I and II
 -   Project Topic Idea Submission
 -   Complete Lab 1
+
+# What is Political Science? {.smaller}
+
+First and foremost what is political science?
+
+::: incremental
+-   **Political science** is the scientific study of political phenomena.
+
+    -   Depending on the year you are, you have probably read at the minimum one academic article, and in these pieces you probably have seen a section on the methodology.
+        -   **Methodology** is the approach used by political scientists to provide information on events with the goal to make a causal identification.
+    -   In this class, you will learn the various approaches political scientists use to understand politics and how we are able to make the claims we make, such as using R!
+:::
 
 # Downloading R
 
@@ -194,7 +224,7 @@ Ask if you're not sure if something violates a policy!
     -   **Rstudio** is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location.
 :::
 
-## R as a language {.smaller}
+## R as a language
 
 ::: incremental
 -   Think of R as a language it has: vocabulary, punctuation, grammar, and syntax
@@ -228,7 +258,9 @@ Ask if you're not sure if something violates a policy!
 
 -   RStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.
 
-## Instructions for Downloading Rstudio
+    -   In more complex terms Rstudio is an IDE for R
+
+## Instructions for Downloading Rstudio {.smaller}
 
 -   Go to the [Posit RStudio Desktop page](https://posit.co/download/rstudio-desktop/).
 
@@ -257,11 +289,74 @@ There are four primary quadrants in RStudio:
 
 ![RStudio Layout](images/layout.png)
 
+# Working Directory
+
+## What is a working directory?
+
+The working directory is the folder in your computer that you have set to save files to during your working session on R.
+
+Essentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder.
+
+## Step 1: Make a Folder {.smaller}
+
+-   Mac
+
+    -   Open **Finder** and click **Desktop** on the left side
+
+        -   On the top of your screen got to **File** and click **New Folder**
+
+            -   Name this folder POL 051 - SU26
+
+-   Windows
+
+    -   Open **File Explorer** and go to **Desktop**
+
+        -   Click/tap on **New** on the command bar, and click/tap on **Folder** in the drop menu.
+
+            -   Name this folder POL 051 - SU26
+
+## Step 2: Create the Working Directory. {.smaller}
+
+To create a new working directory in RStudio:
+
+1.  Use **File → New Project** or use the **New Project** button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).
+2.  This will open the “New Project Wizard” popup.
+3.  Click "New Directory".
+
+## Step 3: Set the Working Directory.
+
+```{r}
+#| echo: True
+#| eval: false
+
+# Set working directory (replace this with your own)
+
+# Mac Users
+setwd("/Users/yourname/Desktop/filename/filename")
+
+# Windows Users
+setwd("C:/Users/YourName/Documents/MyFolder")
+
+# To check if the working directory is set correctly, use the following code:
+
+# Returns the filepath of the current working directory
+getwd()
+```
+
+# Application exercise
+
+::: appex
+Submit a .qmd file of the code from class today. The template can be found on Week 1 on our course website.
+:::
+
+# R Coding Basics
+
 ## Writing "Text"
 
 -   Writing text in R is called a script, a strong of letters connected by the use of " " or ' '.
 
 ```{r}
+#| echo: True
 #| eval: true
 
 "Hello World!"
@@ -274,6 +369,7 @@ There are four primary quadrants in RStudio:
 -   To output numbers you just type out the number. Also, note that I do not use a comma when writing out my four-digit number:
 
 ```{r}
+#| echo: True
 #| eval: true
 
 5
@@ -371,7 +467,7 @@ math = 10 + 2
 print(math)
 ```
 
-## Data Types
+## Data Types {.smaller}
 
 There are 6 types of data in R that are important to know, but the essential ones are logical, numeric, and character.
 
@@ -457,9 +553,3 @@ install.packages("tidyverse") # install this package
 
 library("tidyverse")
 ```
-
-# Application exercise
-
-::: appex
-Submit a screenshot or photo of RStudio running on your computer with the code from class today on your computer.
-:::

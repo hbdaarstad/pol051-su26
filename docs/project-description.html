@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -302,13 +336,13 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
   </ul></li>
-  <li><a href="#topic-ideas" id="toc-topic-ideas" class="nav-link" data-scroll-target="#topic-ideas">Topic ideas</a>
+  <li><a href="#topic-ideas" id="toc-topic-ideas" class="nav-link" data-scroll-target="#topic-ideas">Project Proposal</a>
   <ul class="collapse">
   <li><a href="#project-proposal-submission" id="toc-project-proposal-submission" class="nav-link" data-scroll-target="#project-proposal-submission">Project Proposal submission</a></li>
   </ul></li>
-  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Project Report Draft #1</a></li>
-  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a>
+  <li><a href="#project-proposal" id="toc-project-proposal" class="nav-link" data-scroll-target="#project-proposal">Project Report Draft #1</a>
   <ul class="collapse">
+  <li><a href="#draft-report" id="toc-draft-report" class="nav-link" data-scroll-target="#draft-report">Draft report</a></li>
   <li><a href="#section-1---introduction" id="toc-section-1---introduction" class="nav-link" data-scroll-target="#section-1---introduction">Section 1 - Introduction</a></li>
   <li><a href="#section-2---literature-review" id="toc-section-2---literature-review" class="nav-link" data-scroll-target="#section-2---literature-review">Section 2 - Literature Review</a></li>
   <li><a href="#section-3---hypotheses-12-page" id="toc-section-3---hypotheses-12-page" class="nav-link" data-scroll-target="#section-3---hypotheses-12-page">Section 3 - Hypotheses (1/2 page)</a></li>
@@ -396,31 +430,26 @@ Important
 <li>The presentation for the project.</li>
 <li>A summary of the edits made following the draft.</li>
 <li>A summary of each contribution, written by each member of the group</li>
-<li>The orginal quarto file with the code</li>
+<li>The original quarto file with the code</li>
 </ul>
 </section>
 </section>
 <section id="topic-ideas" class="level2">
-<h2 class="anchored" data-anchor-id="topic-ideas">Topic ideas</h2>
-<p>I have curated a list of data sets from the following sources:</p>
-<ol type="1">
-<li>United Nations Data: <a href="https://data.un.org/" class="uri">https://data.un.org/</a></li>
-<li>Pew Research: <a href="https://www.pewresearch.org/datasets/" class="uri">https://www.pewresearch.org/datasets/</a></li>
-<li>Election Studies: <a href="https://electionstudies.org//" class="uri">https://electionstudies.org//</a></li>
-<li>Latin American Statistics:</li>
-</ol>
+<h2 class="anchored" data-anchor-id="topic-ideas">Project Proposal</h2>
+<p>I have curated a list of data sets on a range of topics including sports, tipping, exposure to violence, gender, environmental topics, global attitudes, and more.</p>
 <p>As a group select a data set that you are interested in, and relates to your research question. You will be required to submit your groups research question and the selected data set.</p>
 <p>Find the data sets <a href="./project-tips-resources.html">here</a>.</p>
 <section id="project-proposal-submission" class="level3">
 <h3 class="anchored" data-anchor-id="project-proposal-submission">Project Proposal submission</h3>
-<p>Your Project Proposal submission should be no more than half a page and will be graded on completion. This means that as long as you attempt, show that you tried, and included all requirments then you will receive full credit.</p>
+<p>Your Project Proposal submission should be no more than half a page and will be graded on completion. This means that as long as you attempt, show that you tried, and included all requirements then you will receive full credit.</p>
+<p>Download the template <a href="files/project-proposal-template.qmd" download="project-proposal-template.qmd">here</a>. Render as a word docx and submit to canvas.</p>
 <p>The proposal should include the following:</p>
 <section id="introduction-and-data-1-paragraph" class="level4">
 <h4 class="anchored" data-anchor-id="introduction-and-data-1-paragraph">Introduction and data (1 paragraph)</h4>
 <ul>
 <li>State the source of the data set: who made the data?
 <ul>
-<li>Remember to provide a citation for the dataset</li>
+<li>Remember to provide a citation for the data set</li>
 </ul></li>
 <li>Describe the observations and the general characteristics being measured in the data
 <ul>
@@ -442,22 +471,47 @@ Important
 <section id="glimpse-of-data" class="level4">
 <h4 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h4>
 <ul>
-<li>Use the <code>head</code> function to provide an overview of each data set
+<li><p>In the template to show a glimpse of the selected variables that relate to your research question.</p>
+<ul>
+<li>Use the <code>read.csv()</code> to import the selected data set, make sure the selected data set is in your POL 051 folder.</li>
+<li>Then use the <code>select()</code> to select the specific variables you would like to use to answer your question
+<ul>
+<li>Doesn’t need to be your final selection but should be related to your question.</li>
+</ul></li>
+</ul></li>
+<li><p>Use the <code>head</code> function to provide an overview of each data set</p>
 <ul>
 <li><code>head()</code></li>
-</ul></li>
 </ul>
-<p>Download the template <a href="files/project-proposal-template.qmd" download="project-proposal-template.qmd">here</a>. Render as a word docx and submit to canvas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("tidyverse") if you have not installed tidyverse yet</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set your working directory - make sure the dataset is in this folder</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#stwd(filepath/pol51)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># upload the dataset using read.csv</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># read.csv(dataset_name.csv)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(data_set_name.csv)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variable1, variable2, variable3, variable4 .... ) <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
 </section>
 </section>
 </section>
 <section id="project-proposal" class="level2">
 <h2 class="anchored" data-anchor-id="project-proposal">Project Report Draft #1</h2>
-</section>
-<section id="draft-report" class="level2">
-<h2 class="anchored" data-anchor-id="draft-report">Draft report</h2>
+<section id="draft-report" class="level3">
+<h3 class="anchored" data-anchor-id="draft-report">Draft report</h3>
 <p>The purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion as long as all parts are included then your group will receive full credit.</p>
+<p>Click here for the <a href="files/project-template.qmd" download="project-template.qmd">project report template</a>.</p>
+<p>You will render this as a word docx before submitting to canvas.</p>
 <p>Include the following in the draft:</p>
+</section>
 <section id="section-1---introduction" class="level3">
 <h3 class="anchored" data-anchor-id="section-1---introduction">Section 1 - Introduction</h3>
 <p>The introduction should include the following (1 page):</p>
@@ -645,11 +699,17 @@ Important
 <h2 class="anchored" data-anchor-id="written-report">Final Project Report</h2>
 <p>Your final project report must include the following files to be considered complete:</p>
 <ul>
-<li><p>final_report_team-name.docx</p></li>
-<li><p>final_pres_team-name.docx</p></li>
+<li><p>final_report_team-name.docx</p>
+<ul>
+<li>click here for the <a href="files/project-template.qmd" download="project-template.qmd">template</a>.</li>
+</ul></li>
+<li><p>final_pres_team-name (in what ever format works for you!)</p></li>
 <li><p>team_contributions_team-name.docx</p></li>
 <li><p>final_edits_team-name.docx</p></li>
-<li><p>final_project_team-name.qmd</p></li>
+<li><p>final_project_team-name.qmd</p>
+<ul>
+<li>The unrendered version of your project.</li>
+</ul></li>
 </ul>
 <p><strong>You will submit these files of your final report on canvas.</strong></p>
 <p>Each piece is worth the following points, broken down as follows</p>
@@ -686,43 +746,43 @@ Important
 <section id="final-report" class="level3">
 <h3 class="anchored" data-anchor-id="final-report">Final Report</h3>
 <p>The final report will follow the same format as the draft report, but will be the final version.</p>
-<section id="introduction-20-points" class="level4">
-<h4 class="anchored" data-anchor-id="introduction-20-points">Introduction (20 points)</h4>
-<p>The introduction will be worth 20 points and needs to include the following:</p>
+<section id="introduction-10-points-12---1-page" class="level4">
+<h4 class="anchored" data-anchor-id="introduction-10-points-12---1-page">Introduction (10 points) (1/2 - 1 page)</h4>
+<p>The introduction will be worth 10 points and needs to include the following:</p>
 <ul>
-<li><p>The Motivation/Significance (10 points)</p>
+<li><p>The Motivation/Significance (5 points)</p>
 <ul>
 <li><p>What is the observed problem</p></li>
 <li><p>What does this contribute to?</p></li>
 </ul></li>
-<li><p>Research Question (10 points)</p></li>
+<li><p>Research Question (5 points)</p></li>
 </ul>
 </section>
-<section id="lit-review-20-points" class="level4">
-<h4 class="anchored" data-anchor-id="lit-review-20-points">Lit Review (20 points)</h4>
-<p>The lit review will be worth 20 points and needs to include the following:</p>
+<section id="lit-review-10-points-1-2-pages" class="level4">
+<h4 class="anchored" data-anchor-id="lit-review-10-points-1-2-pages">Lit Review (10 points) (1-2 pages)</h4>
+<p>The lit review will be worth 10 points and needs to include the following:</p>
 <ul>
-<li><p>A comprehensive review of the lit based on your topic (10 points)</p>
+<li><p>A comprehensive review of the lit based on your topic (5 points)</p>
 <ul>
 <li><p>You need to cite a minimum of 5 academic articles</p>
 <ul>
-<li>You will lose 2 points for every article below the minimum</li>
+<li>You will lose 1 points for every article below the minimum</li>
 </ul></li>
 </ul></li>
-<li><p>You need to address the gap: where does your question settle in the literature? (10 points)</p>
+<li><p>You need to address the gap: where does your question settle in the literature? (5 points)</p>
 <ul>
 <li>You do not need to provide a huge or original contribution, but what just think what does answering your question add that you think is missing?</li>
 </ul></li>
 </ul>
 </section>
-<section id="hypotheses-10-points" class="level4">
-<h4 class="anchored" data-anchor-id="hypotheses-10-points">Hypotheses (10 points)</h4>
+<section id="hypotheses-10-points-12-page" class="level4">
+<h4 class="anchored" data-anchor-id="hypotheses-10-points-12-page">Hypotheses (10 points) (1/2 page)</h4>
 <ul>
 <li>You need to include at least 1 hypothesis and it needs to be testable with the data you have selected</li>
 </ul>
 </section>
-<section id="data-description-10-points" class="level4">
-<h4 class="anchored" data-anchor-id="data-description-10-points">Data Description (10 points)</h4>
+<section id="data-description-10-points-12-page" class="level4">
+<h4 class="anchored" data-anchor-id="data-description-10-points-12-page">Data Description (10 points) (1/2 page)</h4>
 <ul>
 <li><p>description of the observations in the data set,</p>
 <ul>
@@ -739,28 +799,41 @@ Important
 </ul></li>
 </ul>
 </section>
-<section id="data-summary-regression-20-points" class="level4">
-<h4 class="anchored" data-anchor-id="data-summary-regression-20-points">Data Summary + Regression (20 points)</h4>
+<section id="data-summary-regression-50-points" class="level4">
+<h4 class="anchored" data-anchor-id="data-summary-regression-50-points">Data Summary + Regression (50 points)</h4>
 <ul>
-<li><p>Data Summarization (10 points)</p>
+<li><p>Data Summarization (15 points)</p>
 <ul>
-<li><p>Two different data visualizations (5 points/2.5 points each)</p></li>
+<li><p>Show and describe two different data visualizations (10 points/5 points each)</p>
+<ul>
+<li><p>Need to include titles, etc.</p></li>
+<li><p>Make it look nice</p></li>
+<li><p>Needs to make sense with the data being used.</p></li>
+</ul></li>
 <li><p>Description of averages, medians, etc. (5 points)</p></li>
 </ul></li>
-<li><p>Regression Model (10 points)</p>
+<li><p>Regression Model (20 points)</p>
 <ul>
-<li><p>One simple regression model (5 points)</p></li>
-<li><p>One mulitivariate regression model (5 points)</p></li>
+<li><p>One simple regression model (10 points)</p>
+<ul>
+<li><p>One outcome and one independent variable</p></li>
+<li><p>A table of these results</p></li>
+</ul></li>
+<li><p>One mulitivariate regression model (10 points)</p>
+<ul>
+<li><p>One outcome, one independent variable, and controls (at least two)</p></li>
+<li><p>A table of these results</p></li>
+</ul></li>
+</ul></li>
+<li><p>Discussion of the results (10 points)</p>
+<ul>
+<li>Provides a detailed and accurate discussion of the results from the models</li>
 </ul></li>
 </ul>
 </section>
-<section id="conclusion-20-points" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-20-points">Conclusion (20 points)</h4>
+<section id="conclusion-10-points-12-page" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion-10-points-12-page">Conclusion (10 points) (1/2 page)</h4>
 <ul>
-<li><p>Discussion of the results (10 points)</p>
-<ul>
-<li>Provides a detailed and accurate discussion of the results from the models.</li>
-</ul></li>
 <li><p>Summary of everything (10 points)</p>
 <ul>
 <li><p>Provides a summary of the full report</p></li>
@@ -777,11 +850,11 @@ Important
 <tbody>
 <tr class="odd">
 <td><strong>Introduction</strong></td>
-<td>20 pts</td>
+<td>10 pts</td>
 </tr>
 <tr class="even">
 <td><strong>Lit Review</strong></td>
-<td>20 pts</td>
+<td>10 pts</td>
 </tr>
 <tr class="odd">
 <td><strong>Hypotheses</strong></td>
@@ -793,11 +866,11 @@ Important
 </tr>
 <tr class="odd">
 <td><strong>Data Summary + Regression</strong></td>
-<td>20 pts</td>
+<td>50 pts</td>
 </tr>
 <tr class="even">
 <td><strong>Conclusion</strong></td>
-<td>20 pts</td>
+<td>10 pts</td>
 </tr>
 </tbody>
 </table>
@@ -805,7 +878,7 @@ Important
 </section>
 <section id="slides-25-points" class="level3">
 <h3 class="anchored" data-anchor-id="slides-25-points">Slides (25 points)</h3>
-<p>The final report will include a pdf version of the teams presentation of the project.</p>
+<p>The final report will include a pdf version of the teams presentation of the project. For more information on the format for the presentation got to <a href="#presentation">Presentation</a>.</p>
 <p>This will be graded for completion, so if submitted completed full points will be awarded.</p>
 </section>
 <section id="team-contributions-25-points" class="level3">
@@ -823,7 +896,6 @@ Important
 <h3 class="anchored" data-anchor-id="final-report-code-25-points">Final Report Code (25 points)</h3>
 <p>The final report will include a reproducible document of your code, submit the <code>.qmd</code> file with the code</p>
 <p>This will be graded for completion and reproduceability, so if submitted completed and runs with no errors, full points will be awarded. If submitted completed and runs with errors are found, half points will be awarded.</p>
-<p><a href="./documents/project-report-rubric.pdf" title="Project rubric">Click here</a> for a PDF of the full Final Project Report rubric.</p>
 </section>
 <section id="presentation" class="level3">
 <h3 class="anchored" data-anchor-id="presentation">Presentation</h3>
