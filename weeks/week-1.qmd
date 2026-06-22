@@ -20,7 +20,7 @@ Project Idea due - Fri, June 28
 
 ## Lectures
 
-🖥️ [Lecture 1 -](/_slides/lab-0.html) [Meet](/slides/lab-0.html) [+ greet;](/_slides/lec-1.html)[Welcome](slides/lec-1.html)[to POL 051](/_slides/lec-1.html)
+🖥️[Lecture 1 - Meet + greet; Welcome to POL 051](slides/lec-1.html)
 
 🖥️ [Lecture 2 - Data Visualization I + II](not-available-lec.html)
 
