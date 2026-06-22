@@ -2,6 +2,198 @@
 title: "R Basics"
 ---
 
-Sadly, we have not gotten to this code yet.
+R is a coding language language and environment built for statistical computing and graphics that includes a large variety in statistical and graphical techniques.
 
-![](/supplemental/images/IMG_6761.JPG){width="376"}
+Essentially, R gives us as political scientists an effective way to store and handle data, and a large selection of data analysis tools including graphing tools in a coherent and effective language.
+
+R has its own "enviornment," an area for us to write the code and see outputs, but the majority of users will use Rstudio and IDE or integrated development environment.
+
+Rstudio is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location. Furthermore, in order to use R and Rstudio you will need to download both.
+
+There are four primary quadrants in RStudio:
+
+-   **Source pane**
+-   **Console pane**
+-   **Environment pane**
+-   **Output pane**
+
+![](images/layout.png)
+
+The **source pane** allows us to edit and view various code-related files, such as `.R`, `.rmd`, `.qmd`, `.py`, `.css`, or general text files such as `.txt` or `.md`.
+
+-   To open an existing file, use either the **File → Open File...** menu or the **Recent Files** menu to select from recently opened files.
+-   You can create a new file via the **File → New File** menu.
+
+The **console pane** provides an area to interactively execute code.
+
+The **environment pane** includes the Environment, History, Connections, Build, and Version Control System (VCS) tabs and displays any currently saved objects.
+
+The **output pane** displays various outputs, such as plots, and contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs.
+
+## Setting up a Working Directory
+
+It is important to keep all the files associated with a given project, such as data, scripts, analytical results, and figures, together. To do this we need to make a working directory.
+
+### To create a new working directory in RStudio:
+
+1.  Use **File → New Project** or use the **New Project** button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).
+2.  This will open the “New Project Wizard” popup.
+3.  Click "New Directory".
+
+### To set the working directory, there are two possible ways, using code or using RStudio directly:
+
+#### Option 1: Using R Code
+
+```{r}
+#| eval: false
+#| include: true
+
+# Set working directory (replace this with your own)
+setwd("/Users/yourname/Desktop/filename/filename")
+
+```
+
+#### Option 2: Using RStudio Interface
+
+1.  On the top of the RStudio menu, click on **Session**.
+
+2.  Click **Set Working Directory**.
+
+3.  Then click **To Source File Location**.
+
+To check if the working directory is set correctly, use the following code:
+
+```{r}
+
+#| eval: false
+#| include: true
+
+# Returns the filepath of the current working directory
+getwd()
+
+```
+
+# Writing out Text vs. Numbers
+
+In R, to output text you will use single or double quotes:
+
+```{r}
+
+"Hello World!"
+'Hello World!' 
+
+```
+
+# Calculations
+
+R at its core is a gigantic calculator, so let's practice doing basic calculations.
+
+```{r}
+
+# addition
+10 + 2
+
+# subtraction
+10 - 2
+
+# multipilication
+10 * 2
+
+# division
+10/2
+
+# exponent
+10^2
+
+
+```
+
+# Comments
+
+It's also important to annotate your code. It will help you write notes and explain what you are doing. To annotate your code, you will use the number sign #:
+
+```{r}
+
+# addition
+10 + 2
+# the answer is 12
+```
+
+# Creating Objects
+
+To output numbers you just type out the number. Also, note that I do not use a comma when writing out my four-digit number:
+
+```{r}
+
+5
+75
+1000
+```
+
+In R, we save our data in what we call objects! Objects store information about different types of elements. If you know any other coding languages, they typically call these variables.
+
+```{r}
+
+# The <- saves the caculation as math
+math <- 10 + 2
+#print()
+print(math)
+
+```
+
+```{r}
+
+# The = saves the caculation as math
+math = 10 + 2
+# print() will print out what is saved in the object math
+print(math)
+
+```
+
+# Data Types in R {#data-types}
+
+There are 6 types of data in R that are important to know, but the essential ones are logical, numeric, and character. We will focus on three!
+
+**Logical** Also known as boolean data, logical data is shown as TRUE or FALSE values:
+
+```{r}
+logical1 <- TRUE
+logical2 <- FALSE
+
+# The class() function outputs the data type of the object
+class(logical1)
+
+
+print(logical2)
+print(class(logical2))
+
+```
+
+**Numeric** represents all data types that are real numbers with or with out decimal points.
+
+```{r}
+
+height <- 5.5
+acres <- 1000
+
+class(height)
+
+
+print(acres)
+print(class(acres))
+
+
+```
+
+**Character** specifies character or string values in a variable such as a singular character 'A' or a string of characters in 'Apple'.
+
+```{r}
+
+# Use '' or "" to show it's a string of characters
+motorsports <- "formula1"
+
+print(motorsports)
+print(class(motorsports))
+
+
+```
