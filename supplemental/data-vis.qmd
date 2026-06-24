@@ -42,10 +42,10 @@ In the following example, we will plot the qualifying position for the 20 driver
 ```{r}
 #| echo: true
 
-scatterplot <- race_stats |>
+vegas_gp <- race_stats |>
   filter(circuit == "Las Vegas Strip Street Circuit" & year == "2023")
 
-ggplot(scatterplot, aes(quali_position, points)) + 
+ggplot(data = vegas_gp, aes(x = quali_position, y = points)) + 
         geom_point()
 
 ```
@@ -55,7 +55,7 @@ Let's add a main title and adjust the x and y labels.
 ```{r}
 #| echo: true
 
-ggplot(scatterplot, aes(quali_position, points)) + 
+ggplot(data = vegas_gp, aes(x = quali_position, y = points)) + 
         geom_point() +
         labs(
           x = "Qualifying Position",
@@ -64,18 +64,71 @@ ggplot(scatterplot, aes(quali_position, points)) +
         )
 ```
 
-If we wanted to add a smoother line we would use the `geom_smooth()` and we will be fitting a linear regression line, thus inside `geom_smooth()` we `method = "lm"`.
+If we wanted to identify the constructors of each team we would add `color = constructor` in the `aes()`.
+
+::: callout-note
+Change the name of the legend by changing the name of the grouping, in this case color, in `labs()`.
+:::
 
 ```{r}
 #| echo: true
 
-ggplot(scatterplot, aes(quali_position, points)) + 
+ggplot(data = vegas_gp, aes(x = quali_position, y = points, color = constructor)) + 
         geom_point() +
         labs(
           x = "Qualifying Position",
           y = "Points Awarded",
-          title = "Qualifying Position vs. Points Awarded at Las Vegas GP 2023"
+          title = "Qualifying Position vs. Points Awarded at Las Vegas GP 2023",
+          color = "F1 Team"
+        )
+```
+
+Let's change the colors for the teams now. We can assign our own colors or we can make our own pallet.
+
+```{r}
+f1_colors <- c(
+  "Mercedes"     = "#00A19C",
+  "Ferrari"      = "#DC0000",
+  "Red Bull"     = "#0600EF",
+  "McLaren"      = "#FF8700",
+  "Aston Martin" = "#005F73",
+  "Alpine"       = "#FF87B2",
+  "Williams"     = "#005A9C",
+  "Haas"         = "#B6B1A8",
+  "Alfa Romeo"   = "#C80000",
+  "AlphaTauri"   = "#2B4562"
+)
+
+
+ggplot(data = vegas_gp, aes(x = quali_position, y = points, color = constructor)) + 
+        geom_point() +
+        labs(
+          x = "Qualifying Position",
+          y = "Points Awarded",
+          title = "Qualifying Position vs. Points Awarded at Las Vegas GP 2023",
+          color = "F1 Team"
+        )  +
+       scale_color_manual(values = f1_colors)
+```
+
+If we wanted to add a smoother line we would use the `geom_smooth()` and we will be fitting a linear regression line, thus inside `geom_smooth()` we `method = "lm"`.
+
+::: callout-caution
+When using `geom_smooth()` move any groupings, like color or shape, into the `geom_point()` by applying the aesthetics in that part of the function.
+:::
+
+```{r}
+#| echo: true
+
+ggplot(data = vegas_gp, aes(x = quali_position, y = points)) + 
+        geom_point(aes(color = constructor)) +
+        labs(
+          x = "Qualifying Position",
+          y = "Points Awarded",
+          title = "Qualifying Position vs. Points Awarded at Las Vegas GP 2023",
+          color = "F1 Team"
         ) +
+       scale_color_manual(values = f1_colors) +
         geom_smooth(method = "lm")
 
 ```
@@ -95,7 +148,7 @@ ferrari_wins <- constructors_stats |>
   group_by(year) |> 
   summarize(total_wins = sum(max(constructor_wins)))
 
-ggplot(ferrari_wins, aes(x = year, y = total_wins)) +
+ggplot(data = ferrari_wins, aes(x = year, y = total_wins)) +
   geom_line(color = "red", linewidth = 1.2) +  # Creates a red line plot
   labs(title = "Ferrari Wins 1958 to 2024 (Before the Summer Break)", 
        x = "Year", 
@@ -283,6 +336,134 @@ ggplot(McLarenStandings_2023, aes(x = surname, y = final_position_numeric, fill 
 -   **`geom_boxplot()`**: Creates a boxplot to show the distribution of race positions.
 
 The **box and whiskey plot** represents the middle 50% of race finishes for each driver, while the **horizontal line inside the box** is the **median race position**, the **whiskers** show the range of most race finishes (excluding outliers), and any **dots outside the whiskers** indicate o**utliers**.
+
+## Class Examples
+
+```{r setup, include=FALSE}
+# set knit options
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=5, 
+  fig.retina=3,
+  fig.align="center",
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE
+)
+```
+
+### Presidential elections code-through
+
+We're working with `elections_historic` from the `{socviz}` package. This code loads `{socviz}`, `{tidyverse}` (where `ggplot()` lives) and the dataset:
+
+```{r}
+library(tidyverse)
+library(socviz)
+elections_historic
+```
+
+We start with `ggplot()`:
+
+```{r}
+ggplot()
+```
+
+Tell it what data we are plotting:
+
+```{r}
+ggplot(data = elections_historic)
+```
+
+Map the x and y-axis within `aes()`:
+
+```{r}
+ggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct))
+```
+
+Add a point geometry:
+
+```{r}
+ggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct)) + geom_point()
+```
+
+Go back and map color and shape aesthetics:
+
+```{r}
+ggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct,
+                               color = win_party, shape = two_term)) + geom_point()
+```
+
+Add labels by mapping the label aesthetic and adding a `geom_text` geometry:
+
+```{r}
+ggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct,
+                               color = win_party, shape = two_term,
+                               label = winner_label)) +
+  geom_point() +
+  geom_text()
+```
+
+Here's the final code, all put together, changing the axis titles using `labs()`:
+
+```{r echo=TRUE, eval = TRUE}
+# load libraries
+library(tidyverse)
+library(socviz)
+
+# make plot
+ggplot(elections_historic, aes(x = popular_pct, y = ec_pct, color = win_party,
+                               shape = two_term, label = winner_label)) +
+  geom_point() + geom_text() + labs(x = "Percent of popular vote",
+                                    y = "Percent of Electoral College vote",
+                                    title = "Presidential Elections (1824-2016)",
+                                    color = NULL, size = NULL)
+```
+
+### Bells and whistles
+
+Here's some other stuff I'm adding to make this graph better (that you're not responsible for):
+
+```{r}
+# load libraries
+library(tidyverse)
+library(socviz)
+library(ggrepel)
+
+ggplot(elections_historic, aes(x = popular_pct, y = ec_pct,
+                               color = win_party, shape = two_term,
+                               label = winner_label)) +
+  geom_point() +
+  geom_text_repel() +
+  labs(x = "Percent of popular vote",
+                                    y = "Percent of Electoral College vote",
+                                    title = "Presidential Elections (1824-2016)",
+                                    color = NULL, size = NULL) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_continuous(labels = scales::percent) +
+  scale_color_manual(values = c("yellow", "red", "blue", "gray")) +
+  geom_hline(yintercept = 0.5, size = 1.4, color = "gray80") +
+    geom_vline(xintercept = 0.5, size = 1.4, color = "gray80") +  theme(legend.position = "none")
+```
+
+### Recessions
+
+The recession graph from class:
+
+```{r, echo. = TRUE}
+ggplot(data = economics, aes(x = date, y = unemploy)) +
+  geom_line()
+```
+
+### Organs
+
+The organ data plot:
+
+```{r, echo = TRUE}
+ggplot(data = organdata, aes(x = donors, fill = opt)) +
+  geom_histogram()
+```
 
 ## ggplot2 Resources:
 
