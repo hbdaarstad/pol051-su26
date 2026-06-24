@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,11 +104,42 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Data Wrangling – POL 051 - Summer 2026">
 <meta property="og:description" content="Homepage for POL 051 - The Scientific Study of Politics at UC Davis, Summer 2026.">
-<meta property="og:image" content="http://haleydaarstad.com/pol051-su26/supplemental/images/IMG_6761.JPG">
+<meta property="og:image" content="http://haleydaarstad.com/pol051-su26/supplemental/images/logical_operators.png">
 <meta property="og:site_name" content="POL 051 - Summer 2026">
+<meta property="og:image:height" content="304">
+<meta property="og:image:width" content="499">
 </head>
 
 <body class="nav-sidebar docked">
@@ -293,8 +358,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pipes-or" id="toc-pipes-or" class="nav-link active" data-scroll-target="#pipes-or">Pipes (%&gt;% or |&gt;)</a></li>
+  <li><a href="#filter-and-select" id="toc-filter-and-select" class="nav-link" data-scroll-target="#filter-and-select">Filter() and Select()</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">Logical Operators</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/supplemental/data-wrangling.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -318,10 +391,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Sadly, we have not gotten to this code yet.</p>
-<p><img src="../supplemental/images/IMG_6761.JPG" class="img-fluid" width="380"></p>
+<p>In the following coding examples, you will see three important functions, a <code>pipe</code>, <code>select()</code>, and <code>filter()</code>.</p>
+<section id="pipes-or" class="level2">
+<h2 class="anchored" data-anchor-id="pipes-or">Pipes (%&gt;% or |&gt;)</h2>
+<p>First, a pipe is written as a <code>%&gt;%</code> or <code>|&gt;</code>. Pipes are a powerful tool that help us clearly expressing a sequence of functions. Pipes tell R that you want to use a designated set for a chain of functions that build off of each other. A way to think about is in math terms.</p>
+<p>$$</p>
+<p><span class="math display">\[ F(G(H(X))), X=Data\]</span></p>
+<p>$$</p>
+<p>In this series of functions, the first step is you solve <span class="math inline">\(H(X)\)</span>, then using that solution you solve <span class="math inline">\(G()\)</span>, then after you solve <span class="math inline">\(F()\)</span>. The final output is the solution of those chain of events with the information of <span class="math inline">\(X\)</span>. This is how pipes work! Pipes use a set of information, typically a data frame, and then apply it to a series of functions that build off each other.</p>
+</section>
+<section id="filter-and-select" class="level2">
+<h2 class="anchored" data-anchor-id="filter-and-select">Filter() and Select()</h2>
+<p>In the following example, I use the <code>select()</code> and <code>filter()</code> to simplify the data. The <code>select()</code> allows me to select certain variables from the data and eliminate the rest. <code>filter()</code> does something similar but instead of variables, it allows me to simplify the data based on values based on a set of programmed logical operators. In my first example, I select for the <code>circuit</code>, <code>year</code>, <code>constructor</code>, <code>surname</code> of the driver, and the number of <code>points</code> awarded during that race. I use the <code>unique()</code> to remove duplicates, and then I filter for the race information for the constructor McLaren during the 2023 season.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.3     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RandomData)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>race_stats <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"McLaren"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2023</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                         year constructor surname points
+   &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt;
+ 1 Bahrain International Circuit   2023 McLaren     Norris       0
+ 2 Jeddah Corniche Circuit         2023 McLaren     Norris       0
+ 3 Jeddah Corniche Circuit         2023 McLaren     Piastri      0
+ 4 Albert Park Grand Prix Circuit  2023 McLaren     Norris       8
+ 5 Albert Park Grand Prix Circuit  2023 McLaren     Piastri      4
+ 6 Baku City Circuit               2023 McLaren     Norris       2
+ 7 Baku City Circuit               2023 McLaren     Piastri      0
+ 8 Miami International Autodrome   2023 McLaren     Norris       0
+ 9 Miami International Autodrome   2023 McLaren     Piastri      0
+10 Circuit de Monaco               2023 McLaren     Norris       2
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>What if we wanted two different constructors? Then we want to use the logical operator for <code>|</code> and also differentiate it from the next instruction for filter by using a <code>,</code> or <code>()</code>. In the example bellow, I filter for the race information for the constructor <code>Mercades</code> and <code>Red Bull</code> during the <code>2021</code> season.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>race_stats <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercades"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                             year constructor surname    points
+   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
+ 1 Losail International Circuit        2021 Red Bull    Pérez          12
+ 2 Losail International Circuit        2021 Red Bull    Verstappen     19
+ 3 Bahrain International Circuit       2021 Red Bull    Pérez          10
+ 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18
+ 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0
+ 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25
+ 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12
+ 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18
+ 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10
+10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>However, if we wanted to use the modified data, we could not because it is not saved. If we want to use this data we need to save it as a new object!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>season_2021 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercades"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                             year constructor surname    points
+   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
+ 1 Losail International Circuit        2021 Red Bull    Pérez          12
+ 2 Losail International Circuit        2021 Red Bull    Verstappen     19
+ 3 Bahrain International Circuit       2021 Red Bull    Pérez          10
+ 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18
+ 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0
+ 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25
+ 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12
+ 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18
+ 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10
+10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>Now, we can use this information!</p>
+</section>
+<section id="logical-operators" class="level2">
+<h2 class="anchored" data-anchor-id="logical-operators">Logical Operators</h2>
+<p><img src="images/logical_operators.png" class="img-fluid"></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -905,7 +1083,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/supplemental/data-wrangling.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/supplemental/data-wrangling.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

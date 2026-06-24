@@ -2,6 +2,67 @@
 title: "Data Wrangling"
 ---
 
-Sadly, we have not gotten to this code yet.
+In the following coding examples, you will see three important functions, a `pipe`, `select()`, and `filter()`.
 
-![](/supplemental/images/IMG_6761.JPG){width="380"}
+## Pipes (%\>% or \|\>)
+
+First, a pipe is written as a `%>%` or `|>`. Pipes are a powerful tool that help us clearly expressing a sequence of functions. Pipes tell R that you want to use a designated set for a chain of functions that build off of each other. A way to think about is in math terms.
+
+\$\$
+
+$$ F(G(H(X))), X=Data$$
+
+\$\$
+
+In this series of functions, the first step is you solve $H(X)$, then using that solution you solve $G()$, then after you solve $F()$. The final output is the solution of those chain of events with the information of $X$. This is how pipes work! Pipes use a set of information, typically a data frame, and then apply it to a series of functions that build off each other.
+
+## Filter() and Select()
+
+In the following example, I use the `select()` and `filter()` to simplify the data. The `select()` allows me to select certain variables from the data and eliminate the rest. `filter()` does something similar but instead of variables, it allows me to simplify the data based on values based on a set of programmed logical operators. In my first example, I select for the `circuit`, `year`, `constructor`, `surname` of the driver, and the number of `points` awarded during that race. I use the `unique()` to remove duplicates, and then I filter for the race information for the constructor McLaren during the 2023 season.
+
+```{r}
+
+library(tidyverse)
+library(RandomData)
+
+
+race_stats |>
+  select(circuit, year, constructor, surname, points) |>
+  # remove duplicates
+  unique() |>
+  filter(constructor == "McLaren" & year == 2023)
+
+
+```
+
+What if we wanted two different constructors? Then we want to use the logical operator for `|` and also differentiate it from the next instruction for filter by using a `,` or `()`. In the example bellow, I filter for the race information for the constructor `Mercades` and `Red Bull` during the `2021` season.
+
+```{r}
+
+race_stats |>
+  select(circuit, year, constructor, surname, points) |>
+  # remove duplicates
+    unique() |>
+    filter(constructor == "Mercades" |  constructor == "Red Bull", year == 2021) |>
+    print()
+
+```
+
+However, if we wanted to use the modified data, we could not because it is not saved. If we want to use this data we need to save it as a new object!
+
+```{r}
+
+season_2021 <- race_stats |>
+  select(circuit, year, constructor, surname, points) |>
+  # remove duplicates
+    unique() |>
+    filter(constructor == "Mercades" |  constructor == "Red Bull", year == 2021) |>
+    print()
+
+```
+
+Now, we can use this information!
+
+## Logical Operators
+
+![](images/logical_operators.png)

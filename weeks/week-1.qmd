@@ -24,7 +24,7 @@ Project Idea due - Fri, June 28
 
 🖥️[Lecture 2 - Data Visualization I + II](/slides/lec-2.html)
 
-🖥️ [Lecture 3 - Data Wrangling I](not-available-lec.html)
+🖥️ [Lecture 3 - Data Wrangling I](/slides/lec-3.html)
 
 ## Participation
 

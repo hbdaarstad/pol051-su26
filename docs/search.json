@@ -1068,7 +1068,7 @@
     "href": "supplemental/data-wrangling.html",
     "title": "Data Wrangling",
     "section": "",
-    "text": "Sadly, we have not gotten to this code yet.",
+    "text": "In the following coding examples, you will see three important functions, a pipe, select(), and filter().",
     "crumbs": [
       "Code Examples",
       "Data Wrangling (ggplot2)"
@@ -1829,7 +1829,7 @@
     "href": "supplemental/data-vis.html#class-examples",
     "title": "Data Visualization",
     "section": "Class Examples",
-    "text": "Class Examples",
+    "text": "Class Examples\n\nPresidential elections code-through\nWe’re working with elections_historic from the {socviz} package. This code loads {socviz}, {tidyverse} (where ggplot() lives) and the dataset:\n\nlibrary(tidyverse)\nlibrary(socviz)\nelections_historic\n\n# A tibble: 49 × 19\n   election  year winner      win_party ec_pct popular_pct popular_margin  votes\n      &lt;int&gt; &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;  &lt;int&gt;\n 1       10  1824 John Quinc… D.-R.      0.322       0.309        -0.104  1.13e5\n 2       11  1828 Andrew Jac… Dem.       0.682       0.559         0.122  6.43e5\n 3       12  1832 Andrew Jac… Dem.       0.766       0.547         0.178  7.03e5\n 4       13  1836 Martin Van… Dem.       0.578       0.508         0.142  7.63e5\n 5       14  1840 William He… Whig       0.796       0.529         0.0605 1.28e6\n 6       15  1844 James Polk  Dem.       0.618       0.495         0.0145 1.34e6\n 7       16  1848 Zachary Ta… Whig       0.562       0.473         0.0479 1.36e6\n 8       17  1852 Franklin P… Dem.       0.858       0.508         0.0695 1.61e6\n 9       18  1856 James Buch… Dem.       0.588       0.453         0.122  1.84e6\n10       19  1860 Abraham Li… Rep.       0.594       0.396         0.101  1.86e6\n# ℹ 39 more rows\n# ℹ 11 more variables: margin &lt;int&gt;, runner_up &lt;chr&gt;, ru_part &lt;chr&gt;,\n#   turnout_pct &lt;dbl&gt;, winner_lname &lt;chr&gt;, winner_label &lt;chr&gt;, ru_lname &lt;chr&gt;,\n#   ru_label &lt;chr&gt;, two_term &lt;lgl&gt;, ec_votes &lt;dbl&gt;, ec_denom &lt;dbl&gt;\n\n\nWe start with ggplot():\n\nggplot()\n\n\n\n\n\n\n\n\nTell it what data we are plotting:\n\nggplot(data = elections_historic)\n\n\n\n\n\n\n\n\nMap the x and y-axis within aes():\n\nggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct))\n\n\n\n\n\n\n\n\nAdd a point geometry:\n\nggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct)) + geom_point()\n\n\n\n\n\n\n\n\nGo back and map color and shape aesthetics:\n\nggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct,\n                               color = win_party, shape = two_term)) + geom_point()\n\n\n\n\n\n\n\n\nAdd labels by mapping the label aesthetic and adding a geom_text geometry:\n\nggplot(data = elections_historic, aes(x = popular_pct, y = ec_pct,\n                               color = win_party, shape = two_term,\n                               label = winner_label)) +\n  geom_point() +\n  geom_text()\n\n\n\n\n\n\n\n\nHere’s the final code, all put together, changing the axis titles using labs():\n\n# load libraries\nlibrary(tidyverse)\nlibrary(socviz)\n\n# make plot\nggplot(elections_historic, aes(x = popular_pct, y = ec_pct, color = win_party,\n                               shape = two_term, label = winner_label)) +\n  geom_point() + geom_text() + labs(x = \"Percent of popular vote\",\n                                    y = \"Percent of Electoral College vote\",\n                                    title = \"Presidential Elections (1824-2016)\",\n                                    color = NULL, size = NULL)\n\n\n\n\n\n\n\n\n\n\nBells and whistles\nHere’s some other stuff I’m adding to make this graph better (that you’re not responsible for):\n\n# load libraries\nlibrary(tidyverse)\nlibrary(socviz)\nlibrary(ggrepel)\n\nggplot(elections_historic, aes(x = popular_pct, y = ec_pct,\n                               color = win_party, shape = two_term,\n                               label = winner_label)) +\n  geom_point() +\n  geom_text_repel() +\n  labs(x = \"Percent of popular vote\",\n                                    y = \"Percent of Electoral College vote\",\n                                    title = \"Presidential Elections (1824-2016)\",\n                                    color = NULL, size = NULL) +\n  scale_y_continuous(labels = scales::percent) +\n  scale_x_continuous(labels = scales::percent) +\n  scale_color_manual(values = c(\"yellow\", \"red\", \"blue\", \"gray\")) +\n  geom_hline(yintercept = 0.5, size = 1.4, color = \"gray80\") +\n    geom_vline(xintercept = 0.5, size = 1.4, color = \"gray80\") +  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nRecessions\nThe recession graph from class:\n\nggplot(data = economics, aes(x = date, y = unemploy)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\nOrgans\nThe organ data plot:\n\nggplot(data = organdata, aes(x = donors, fill = opt)) +\n  geom_histogram()",
     "crumbs": [
       "Code Examples",
       "Data Visualization (ggplot2)"
@@ -1844,6 +1844,270 @@
     "crumbs": [
       "Code Examples",
       "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "slides/lec-3.html#what-is-data-wrangling",
+    "href": "slides/lec-3.html#what-is-data-wrangling",
+    "title": "Data wrangling I",
+    "section": "What is data-wrangling?",
+    "text": "What is data-wrangling?\n\n\n…the process of transforming and mapping data from one “raw” data form into another format with the intent of making it more appropriate and valuable for a variety of downstream purposes such as analytics… Data analysts typically spend the majority of their time in the process of data wrangling compared to the actual analysis of the data. – Wikipedia\n\n\n\nMost of your time working with data will be spent wrangling it into a usable form for analysis"
+  },
+  {
+    "objectID": "slides/lec-3.html#pipes-connecting-data-to-functions",
+    "href": "slides/lec-3.html#pipes-connecting-data-to-functions",
+    "title": "Data wrangling I",
+    "section": "Pipes: connecting data to functions",
+    "text": "Pipes: connecting data to functions\n\ndirectors_profit = movies |&gt; \n  # only look at horror movies\n  filter(genre1 == \"Horror\" | genre2 == \"Horror\" | genre3 == \"Horror\") |&gt; \n  # calculate profit\n  mutate(profit = gross - budget)\n\n\nYou’ve seen these before…"
+  },
+  {
+    "objectID": "slides/lec-3.html#what-are-pipes",
+    "href": "slides/lec-3.html#what-are-pipes",
+    "title": "Data wrangling I",
+    "section": "What are pipes?",
+    "text": "What are pipes?\n\n\n\nPipes link data to functions\nThey look like this %&gt;%, or |&gt;\nDefinitely use keyboard shortcuts\n\nOSX: Cmd + Shift + M\nWindows: Ctrl + Shift + M"
+  },
+  {
+    "objectID": "slides/lec-3.html#why-pipes",
+    "href": "slides/lec-3.html#why-pipes",
+    "title": "Data wrangling I",
+    "section": "Why pipes?",
+    "text": "Why pipes?\n\nWith pipes: 😍\n\npenguins %&gt;% \n  filter(species == \"Adelie\") %&gt;% \n  mutate(body_mass_kg = body_mass_g / 1000) %&gt;% \n  select(body_mass_kg)\n\n\n\nWithout pipes: 🤢\n\nselect(mutate(filter(penguins, species == \"Adelie\"), body_mass_kg = body_mass_g / 1000), body_mass_kg)\n\n\n\n\nBoth produce the same output, but pipes make code more legible"
+  },
+  {
+    "objectID": "slides/lec-3.html#making-sense-of-pipes-and-then",
+    "href": "slides/lec-3.html#making-sense-of-pipes-and-then",
+    "title": "Data wrangling I",
+    "section": "Making sense of pipes: “and then…”",
+    "text": "Making sense of pipes: “and then…”\n\ndirectors_profit = movies %&gt;% \n  # only look at horror movies\n  filter(genre1 == \"Horror\" | genre2 == \"Horror\" | genre3 == \"Horror\") %&gt;% \n  # calculate profit\n  mutate(profit = gross - budget)\n\n\n\nYou can read the pipe as if it said “and then”…\n\n\n\nTake the data object movies, AND THEN\nfilter so genre1, genre2, or genre3 equal HORROR, AND THEN\nmutate so that…"
+  },
+  {
+    "objectID": "slides/lec-3.html#our-first-wrangling-function-filter",
+    "href": "slides/lec-3.html#our-first-wrangling-function-filter",
+    "title": "Data wrangling I",
+    "section": "Our first wrangling function: filter()",
+    "text": "Our first wrangling function: filter()\n\nfilter() subsets data objects based on rules\n\n\n\n\n\n\n\n\n\n\n\n\nbaby_subset &lt;- babynames %&gt;%\n  filter(name == \"Angel\")\n\nSubset babynames to only babies named Angel"
+  },
+  {
+    "objectID": "slides/lec-3.html#why-filter-1",
+    "href": "slides/lec-3.html#why-filter-1",
+    "title": "Data wrangling I",
+    "section": "Why filter?",
+    "text": "Why filter?\n\nLots of real-world applications: finding flights, addresses, IDs, etc.\n\n\nSometimes we want to focus on a specific subset of data: the South, Latin America, etc.\n\n\nUseful to deal with common problems: outliers, missing data, strange responses"
+  },
+  {
+    "objectID": "slides/lec-3.html#the-earned-income-tax-credit-eitc",
+    "href": "slides/lec-3.html#the-earned-income-tax-credit-eitc",
+    "title": "Data wrangling I",
+    "section": "The Earned Income Tax Credit (EITC)",
+    "text": "The Earned Income Tax Credit (EITC)\n\n\nThird largest welfare program in the US\nOnly people who meet certain criteria receive it\nEffects of program and its design are hotly debated\n\n\n\n\nWhat does this graph tell us about the criteria?"
+  },
+  {
+    "objectID": "slides/lec-3.html#identifying-beneficiaries",
+    "href": "slides/lec-3.html#identifying-beneficiaries",
+    "title": "Data wrangling I",
+    "section": "Identifying beneficiaries",
+    "text": "Identifying beneficiaries\nImagine you are the IRS, and have data on all 360+ million Americans:\n\n\n\n\n\n\nSex\nRace\nAge\nIncome\nMarital\nChildren\n\n\n\n\nMale\nWhite\n67\n17643\nMarried\n1\n\n\nFemale\nWhite\n39\n24689\nNot married\n1\n\n\nFemale\nWhite\n76\n121239\nNot married\n1\n\n\nFemale\nWhite\n54\n41001\nMarried\n0\n\n\nMale\nWhite\n72\n92432\nNot married\n1\n\n\nFemale\nWhite\n77\n64430\nNot married\n1\n\n\nFemale\nWhite\n78\n580\nNot married\n1\n\n\n\n\n\n\n\n\n\nHow could use use these variables to identify what benefits they should receive?"
+  },
+  {
+    "objectID": "slides/lec-3.html#identifying-beneficiaries-1",
+    "href": "slides/lec-3.html#identifying-beneficiaries-1",
+    "title": "Data wrangling I",
+    "section": "Identifying beneficiaries",
+    "text": "Identifying beneficiaries\nSay we wanted to identify people in the flat part of the blue line\n\n\n\n\n\n\n\nIncome\nMarital\nChildren\n\n\n\n\n17642.88\nMarried\n1\n\n\n24688.98\nNot married\n1\n\n\n121239.34\nNot married\n1\n\n\n41001.08\nMarried\n0\n\n\n92431.88\nNot married\n1\n\n\n64430.12\nNot married\n1\n\n\n580.02\nNot married\n1"
+  },
+  {
+    "objectID": "slides/lec-3.html#using-filter",
+    "href": "slides/lec-3.html#using-filter",
+    "title": "Data wrangling I",
+    "section": "Using filter()",
+    "text": "Using filter()\nTo use filter(), we need to tell R which observations we want to include (or exclude) using rules\n\n\n\ngap_africa = gapminder |&gt; \n  filter(region == \"Africa\")\n\nRule: return all observations from gapminder where the region variable is equal to “Africa”"
+  },
+  {
+    "objectID": "slides/lec-3.html#making-the-rules-logical-operators",
+    "href": "slides/lec-3.html#making-the-rules-logical-operators",
+    "title": "Data wrangling I",
+    "section": "Making the rules: logical operators",
+    "text": "Making the rules: logical operators\n\n\n\nRules filter data based on whether variables meet certain criteria\nRules rely on logical operators:\n\nEqual to, not equal to, less than, more than, included in, etc.\nObservations that meet the rule are returned; those that are not are dropped"
+  },
+  {
+    "objectID": "slides/lec-3.html#the-logical-operators",
+    "href": "slides/lec-3.html#the-logical-operators",
+    "title": "Data wrangling I",
+    "section": "The logical operators",
+    "text": "The logical operators\n\n\n\n\n\nOperator\nmeaning\n\n\n\n\n==\nequal to\n\n\n!=\nnot equal to\n\n\n&gt;\ngreater than\n\n\n&lt;\nless than\n\n\n&gt;=\ngreater than or equal to\n\n\n&lt;=\nless than or equal to\n\n\n&\nAND (both conditions true)\n\n\n|\nOR (either condition is true)\n\n\n%in%\nIN (in the set of)\n\n\n\n\n\n\nWhy double equal sign?"
+  },
+  {
+    "objectID": "slides/lec-3.html#using-filter-1",
+    "href": "slides/lec-3.html#using-filter-1",
+    "title": "Data wrangling I",
+    "section": "Using filter()",
+    "text": "Using filter()\nSay we have some data on 🍎\n\n\n\n\n\nname\ncolor\npounds\nsweet\n\n\n\n\nFuji\nred\n2\nTRUE\n\n\nGala\ngreen\n4\nTRUE\n\n\nMacintosh\ngreen\n8\nFALSE\n\n\nGranny Smith\nred\n3\nFALSE"
+  },
+  {
+    "objectID": "slides/lec-3.html#apples",
+    "href": "slides/lec-3.html#apples",
+    "title": "Data wrangling I",
+    "section": "Apples",
+    "text": "Apples\n\napples\n\n# A tibble: 4 × 4\n  name         color pounds sweet\n  &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Fuji         red        2 TRUE \n2 Gala         green      4 TRUE \n3 Macintosh    green      8 FALSE\n4 Granny Smith red        3 FALSE\n\n\n\n\n\n\n\n\nNote\n\n\nThe output reports how many rows and columns our dataset has (4 rows x 4 columns)"
+  },
+  {
+    "objectID": "slides/lec-3.html#green-apples",
+    "href": "slides/lec-3.html#green-apples",
+    "title": "Data wrangling I",
+    "section": "Green apples",
+    "text": "Green apples\n\napples |&gt; \n  filter(color == \"green\")\n\n# A tibble: 2 × 4\n  name      color pounds sweet\n  &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Gala      green      4 TRUE \n2 Macintosh green      8 FALSE\n\n\n\nNotice words are in quotations!\n\n\nNotice that the number of rows has decreased: 2 x 4"
+  },
+  {
+    "objectID": "slides/lec-3.html#green-and-unsweet-apples",
+    "href": "slides/lec-3.html#green-and-unsweet-apples",
+    "title": "Data wrangling I",
+    "section": "Green and unsweet apples",
+    "text": "Green and unsweet apples\n\napples |&gt; \n  filter(color == \"green\") |&gt; \n  filter(sweet == FALSE)\n\n# A tibble: 1 × 4\n  name      color pounds sweet\n  &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Macintosh green      8 FALSE\n\n\nNotice TRUE/FALSE are all-caps!"
+  },
+  {
+    "objectID": "slides/lec-3.html#apples-that-arent-green",
+    "href": "slides/lec-3.html#apples-that-arent-green",
+    "title": "Data wrangling I",
+    "section": "Apples that aren’t green",
+    "text": "Apples that aren’t green\n\napples |&gt; \n  filter(color != \"green\")\n\n# A tibble: 2 × 4\n  name         color pounds sweet\n  &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Fuji         red        2 TRUE \n2 Granny Smith red        3 FALSE\n\n\nThe ! symbol negates: not equal to"
+  },
+  {
+    "objectID": "slides/lec-3.html#at-least-4-pounds-but-less-than-6",
+    "href": "slides/lec-3.html#at-least-4-pounds-but-less-than-6",
+    "title": "Data wrangling I",
+    "section": "At least 4 pounds but less than 6",
+    "text": "At least 4 pounds but less than 6\n\napples |&gt; \n  filter(pounds &gt;= 4, pounds &lt; 6)\n\n# A tibble: 1 × 4\n  name  color pounds sweet\n  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Gala  green      4 TRUE \n\n\nNotice: at least implies greater than or equal to\n\nI could also split this up over multiple filter calls\n\napples |&gt; \n  filter(pounds &gt;= 4) |&gt; \n  filter(pounds &lt; 6)\n\n# A tibble: 1 × 4\n  name  color pounds sweet\n  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Gala  green      4 TRUE"
+  },
+  {
+    "objectID": "slides/lec-3.html#combinations-the-or-operator",
+    "href": "slides/lec-3.html#combinations-the-or-operator",
+    "title": "Data wrangling I",
+    "section": "Combinations: The OR (|) operator",
+    "text": "Combinations: The OR (|) operator\n“Observations where either this is true OR that is true”\n\nApples that are red OR green\n\napples |&gt; \n  filter(color == \"red\" | color == \"green\")\n\n# A tibble: 4 × 4\n  name         color pounds sweet\n  &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Fuji         red        2 TRUE \n2 Gala         green      4 TRUE \n3 Macintosh    green      8 FALSE\n4 Granny Smith red        3 FALSE\n\n\n\n\n\n\n\n\nNote\n\n\nThe | should be above your Return/Enter key"
+  },
+  {
+    "objectID": "slides/lec-3.html#combinations-the-and-operator",
+    "href": "slides/lec-3.html#combinations-the-and-operator",
+    "title": "Data wrangling I",
+    "section": "Combinations: the AND operator (&)",
+    "text": "Combinations: the AND operator (&)\nThe & operator can be used to combine rules\n\nReturns observations where both rules are true\n\n\n“Apples that are red AND sweet or green AND sour”:\n\n\n\napples |&gt; \n  filter(color == \"red\" & sweet == TRUE | color == \"green\" & sweet == FALSE)"
+  },
+  {
+    "objectID": "slides/lec-3.html#in",
+    "href": "slides/lec-3.html#in",
+    "title": "Data wrangling I",
+    "section": "%in%",
+    "text": "%in%\nThe %in% operator is super powerful\n\nIt returns observations that belong to a set\n\n\nSay I wanted to look at just South American countries, normally:\n\ngapminder |&gt; \n  filter(country == \"Argentina\" | country == \"Brazil\" | country == \"Chile\")\n\nBrutally repetitive"
+  },
+  {
+    "objectID": "slides/lec-3.html#in-1",
+    "href": "slides/lec-3.html#in-1",
+    "title": "Data wrangling I",
+    "section": "%in%",
+    "text": "%in%\nMake a list of countries and return observations that match any of them\n\nkeep = c(\"Argentina\", \"Brazil\", \"Chile\")\n\ngapminder |&gt; filter(country %in% keep)\n\n\n\n\n\n\n\nNote\n\n\nTo make a “list” of items (a vector), use c()"
+  },
+  {
+    "objectID": "slides/lec-3.html#your-turn-world-leaders",
+    "href": "slides/lec-3.html#your-turn-world-leaders",
+    "title": "Data wrangling I",
+    "section": "Your turn: 👑 World leaders 👑",
+    "text": "Your turn: 👑 World leaders 👑\nOpen an r script and download two new packages: remotes and juanr.\nNext Using the leader dataset, identify:\n\nA Vietnamese Emperor who, in his first year in office, was 11 years old. Famously depraved.\n\n\ninstall.packages(\"remotes\")\nremotes::install_github(\"hail2thief/juanr\")\nlibrary(juanr)\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nYou can use ?leader to see the codebook. The acronym for Vietnam is “VNM”"
+  },
+  {
+    "objectID": "slides/lec-3.html#world-leaders",
+    "href": "slides/lec-3.html#world-leaders",
+    "title": "Data wrangling I",
+    "section": "👑 World leaders 👑",
+    "text": "👑 World leaders 👑\n\nlibrary(juanr)\n\n?leader\n\nleader |&gt; \n  filter(country == \"VNM\" & yr_office &lt;= 1 & age == 11)\n\n# A tibble: 1 × 16\n  country gwcode leader    gender  year yr_office   age edu   mil_service combat\n  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1 VNM        815 Thanh Th… M       1889         1    11 Seco…           0      0\n# ℹ 6 more variables: rebel &lt;dbl&gt;, yrs_exp &lt;dbl&gt;, phys_health &lt;dbl&gt;,\n#   mental_health &lt;dbl&gt;, will_force &lt;dbl&gt;, will_force_sd &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/lec-3.html#objects-and-pipes",
+    "href": "slides/lec-3.html#objects-and-pipes",
+    "title": "Data wrangling I",
+    "section": "Objects and Pipes",
+    "text": "Objects and Pipes\nStep 1-2: the data, the pipe, the wrangling functions\n\napples |&gt; \n  filter(sweet == FALSE)\n\n\n\nStep 3: store the subsetted data as a new object for later use\n\ngreen_apples = apples |&gt;\n  filter(sweet == FALSE)"
+  },
+  {
+    "objectID": "slides/lec-3.html#reminder-on-objects",
+    "href": "slides/lec-3.html#reminder-on-objects",
+    "title": "Data wrangling I",
+    "section": "Reminder on Objects",
+    "text": "Reminder on Objects\nIn programming, objects can be used to store all sorts of stuff for later use\n\ndata, functions, values\n\n\nWe create objects using = or &lt;-\n\n\nLike this:\n\nnew_object = stuff |&gt; filter(year == 1999)\n\n\n\nOr like this:\n\nnew_object &lt;- stuff |&gt; filter(year == 1999)"
+  },
+  {
+    "objectID": "slides/lec-3.html#naming-objects",
+    "href": "slides/lec-3.html#naming-objects",
+    "title": "Data wrangling I",
+    "section": "Naming objects",
+    "text": "Naming objects\n\nThere are only two hard things in Computer Science: cache invalidation and naming things. – Phil Karlton\n\n\nRecommend: keep it short, easy to type, informative, and use _ to separate words\n\n\n\n# Good\ngap_africa = gapminder |&gt; \n  filter(continent == \"Africa\")\n\n# Bad\nCountries_In_Africa_That_I_Want_To_Look_Up = gapminder |&gt; \n  filter(continent == \"Africa\")\n\n\n\nI use the excellent Tidyverse syntax guide in my work"
+  },
+  {
+    "objectID": "slides/lec-3.html#reminder-no-object-no-save",
+    "href": "slides/lec-3.html#reminder-no-object-no-save",
+    "title": "Data wrangling I",
+    "section": "Reminder: no object, no save",
+    "text": "Reminder: no object, no save\nWithout objects, your work washes away, like tears in the rain\n\n\n\nHere, we store our data wrangling\n\n\ngreen_apples = apples |&gt;\n  filter(sweet == FALSE)\n\ngreen_apples\n\n# A tibble: 2 × 4\n  name         color pounds sweet\n  &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Macintosh    green      8 FALSE\n2 Granny Smith red        3 FALSE\n\n\n\n\nHere we didn’t store\n\n\napples |&gt;\n  filter(sweet == FALSE)\n\n# A tibble: 2 × 4\n  name         color pounds sweet\n  &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Macintosh    green      8 FALSE\n2 Granny Smith red        3 FALSE\n\napples\n\n# A tibble: 4 × 4\n  name         color pounds sweet\n  &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;\n1 Fuji         red        2 TRUE \n2 Gala         green      4 TRUE \n3 Macintosh    green      8 FALSE\n4 Granny Smith red        3 FALSE\n\n\n\n\n\n\nNotice the original apples remains unchanged!"
+  },
+  {
+    "objectID": "slides/lec-3.html#the-formula",
+    "href": "slides/lec-3.html#the-formula",
+    "title": "Data wrangling I",
+    "section": "The formula",
+    "text": "The formula\nWrangle the data until you’re satisfied with the output:\n\napples |&gt; \n  filter(sweet == FALSE)\n\n\nStore the output as a new object:\n\nsour_apples = apples |&gt; \n  filter(sweet == FALSE)\n\n\n\nUse the new object (e.g., plotting):\n\nggplot(sour_apples, aes(x = name, y = pounds)) + geom_col()"
+  },
+  {
+    "objectID": "slides/lec-3.html#challenge-the-unusual-american-voter",
+    "href": "slides/lec-3.html#challenge-the-unusual-american-voter",
+    "title": "Data wrangling I",
+    "section": "Challenge: 🗳️ The (unusual) American voter 🗳️",
+    "text": "Challenge: 🗳️ The (unusual) American voter 🗳️\nThere’s a Twitter bot that randomly tweet profiles of real voters from the Cooperative Election Study:"
+  },
+  {
+    "objectID": "slides/lec-3.html#challenge-the-unusual-american-voter-1",
+    "href": "slides/lec-3.html#challenge-the-unusual-american-voter-1",
+    "title": "Data wrangling I",
+    "section": "Challenge: 🗳️ The (unusual) American voter 🗳️",
+    "text": "Challenge: 🗳️ The (unusual) American voter 🗳️\n\n\n\nA small sample of Americans\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nstate\nsex\nage\neduc\nrace\npid7\nideo5\nreligion\nvotechoice\nhispanic\nknow_governor\nconceal\nprochoice\ncleanair\nwall\nmandmin\naca\nminwage\nnewsint\n\n\n\n\nWashington\nMale\n66\n4-year\nWhite\nStrong Republican\nVery conservative\nProtestant\nDonald J. Trump (Republican)\nNo\nDemocrat\nSupport\nOppose\nOppose\nSupport\nOppose\nSupport\nOppose\nMost of the time\n\n\nPennsylvania\nMale\n68\nHigh school graduate\nBlack\nIndependent\nLiberal\nNothing in particular\nJoe Biden (Democrat)\nNo\nDemocrat\nSupport\nOppose\nSupport\nSupport\nOppose\nSupport\nOppose\nOnly now and then\n\n\nArizona\nFemale\n70\n2-year\nWhite\nStrong Republican\nVery conservative\nProtestant\nDonald J. Trump (Republican)\nNo\nRepublican\nOppose\nOppose\nSupport\nSupport\nOppose\nSupport\nOppose\nSome of the time\n\n\nArizona\nMale\n57\nHigh school graduate\nWhite\nLean Republican\nVery conservative\nProtestant\nDonald J. Trump (Republican)\nNo\nRepublican\nSupport\nOppose\nOppose\nSupport\nSupport\nSupport\nFavor\nMost of the time\n\n\nConnecticut\nMale\n21\nSome college\nWhite\nStrong Republican\nConservative\nNothing in particular\nNA\nNo\nDemocrat\nSupport\nSupport\nOppose\nSupport\nSupport\nSupport\nOppose\nMost of the time"
+  },
+  {
+    "objectID": "slides/lec-3.html#the-unusual-american-voter",
+    "href": "slides/lec-3.html#the-unusual-american-voter",
+    "title": "Data wrangling I",
+    "section": "🗳️ The (unusual) American voter 🗳️",
+    "text": "🗳️ The (unusual) American voter 🗳️\nIn your teams, using bot:\n\nIdentify the most unusual subgroup of voters you can think of\nConstraint: need at least five voters in your subgroup\nStore your unusual subgroup as an object\nOne member tells the class what was your subgroup of voters.\n\n\n\n\n\n\n\nNote\n\n\nRemember you can use ?bot to look at the codebook"
+  },
+  {
+    "objectID": "supplemental/data-wrangling.html#pipes-or",
+    "href": "supplemental/data-wrangling.html#pipes-or",
+    "title": "Data Wrangling",
+    "section": "Pipes (%>% or |>)",
+    "text": "Pipes (%&gt;% or |&gt;)\nFirst, a pipe is written as a %&gt;% or |&gt;. Pipes are a powerful tool that help us clearly expressing a sequence of functions. Pipes tell R that you want to use a designated set for a chain of functions that build off of each other. A way to think about is in math terms.\n$$\n\\[ F(G(H(X))), X=Data\\]\n$$\nIn this series of functions, the first step is you solve \\(H(X)\\), then using that solution you solve \\(G()\\), then after you solve \\(F()\\). The final output is the solution of those chain of events with the information of \\(X\\). This is how pipes work! Pipes use a set of information, typically a data frame, and then apply it to a series of functions that build off each other.",
+    "crumbs": [
+      "Code Examples",
+      "Data Wrangling (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-wrangling.html#filter-and-select",
+    "href": "supplemental/data-wrangling.html#filter-and-select",
+    "title": "Data Wrangling",
+    "section": "Filter() and Select()",
+    "text": "Filter() and Select()\nIn the following example, I use the select() and filter() to simplify the data. The select() allows me to select certain variables from the data and eliminate the rest. filter() does something similar but instead of variables, it allows me to simplify the data based on values based on a set of programmed logical operators. In my first example, I select for the circuit, year, constructor, surname of the driver, and the number of points awarded during that race. I use the unique() to remove duplicates, and then I filter for the race information for the constructor McLaren during the 2023 season.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.2\n✔ ggplot2   4.0.3     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(RandomData)\n\n\nrace_stats |&gt;\n  select(circuit, year, constructor, surname, points) |&gt;\n  # remove duplicates\n  unique() |&gt;\n  filter(constructor == \"McLaren\" & year == 2023)\n\n# A tibble: 40 × 5\n   circuit                         year constructor surname points\n   &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt;\n 1 Bahrain International Circuit   2023 McLaren     Norris       0\n 2 Jeddah Corniche Circuit         2023 McLaren     Norris       0\n 3 Jeddah Corniche Circuit         2023 McLaren     Piastri      0\n 4 Albert Park Grand Prix Circuit  2023 McLaren     Norris       8\n 5 Albert Park Grand Prix Circuit  2023 McLaren     Piastri      4\n 6 Baku City Circuit               2023 McLaren     Norris       2\n 7 Baku City Circuit               2023 McLaren     Piastri      0\n 8 Miami International Autodrome   2023 McLaren     Norris       0\n 9 Miami International Autodrome   2023 McLaren     Piastri      0\n10 Circuit de Monaco               2023 McLaren     Norris       2\n# ℹ 30 more rows\n\n\nWhat if we wanted two different constructors? Then we want to use the logical operator for | and also differentiate it from the next instruction for filter by using a , or (). In the example bellow, I filter for the race information for the constructor Mercades and Red Bull during the 2021 season.\n\nrace_stats |&gt;\n  select(circuit, year, constructor, surname, points) |&gt;\n  # remove duplicates\n    unique() |&gt;\n    filter(constructor == \"Mercades\" |  constructor == \"Red Bull\", year == 2021) |&gt;\n    print()\n\n# A tibble: 40 × 5\n   circuit                             year constructor surname    points\n   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;\n 1 Losail International Circuit        2021 Red Bull    Pérez          12\n 2 Losail International Circuit        2021 Red Bull    Verstappen     19\n 3 Bahrain International Circuit       2021 Red Bull    Pérez          10\n 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18\n 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0\n 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25\n 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12\n 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18\n 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10\n10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19\n# ℹ 30 more rows\n\n\nHowever, if we wanted to use the modified data, we could not because it is not saved. If we want to use this data we need to save it as a new object!\n\nseason_2021 &lt;- race_stats |&gt;\n  select(circuit, year, constructor, surname, points) |&gt;\n  # remove duplicates\n    unique() |&gt;\n    filter(constructor == \"Mercades\" |  constructor == \"Red Bull\", year == 2021) |&gt;\n    print()\n\n# A tibble: 40 × 5\n   circuit                             year constructor surname    points\n   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;\n 1 Losail International Circuit        2021 Red Bull    Pérez          12\n 2 Losail International Circuit        2021 Red Bull    Verstappen     19\n 3 Bahrain International Circuit       2021 Red Bull    Pérez          10\n 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18\n 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0\n 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25\n 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12\n 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18\n 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10\n10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19\n# ℹ 30 more rows\n\n\nNow, we can use this information!",
+    "crumbs": [
+      "Code Examples",
+      "Data Wrangling (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-wrangling.html#logical-operators",
+    "href": "supplemental/data-wrangling.html#logical-operators",
+    "title": "Data Wrangling",
+    "section": "Logical Operators",
+    "text": "Logical Operators",
+    "crumbs": [
+      "Code Examples",
+      "Data Wrangling (ggplot2)"
     ]
   }
 ]
