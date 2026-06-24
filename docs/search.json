@@ -202,7 +202,7 @@
     "href": "supplemental/data-vis.html",
     "title": "Data Visualization",
     "section": "",
-    "text": "Sadly, we have not gotten to this code yet.",
+    "text": "ggplot2 is a package in r that is used for creating graphics. This package is found in the package tidyverse. To build a graph, you first need to tell r what information or data you want it to use in the function ggplot().\nggplot(data)\nNext, you need to tell it what aesthetics you want it to use, which includes what x and y variables.\nggplot(data, aes(x, y)\nAfter, you need to tell r how you want it to graph the data.\nggplot(data, aes(x, y) + geom_point()\nggplot has several different geom_ that allow you to graph various different things. We will focus on four different graphs: scatter plots, histograms, box plots, and time series.\nHowever, we will only scratch the surface of the ggplot2 package, which includes many more commands and options (aesthetics, geoms, scales, statistics, etc.).",
     "crumbs": [
       "Code Examples",
       "Data Visualization (ggplot2)"
@@ -1112,7 +1112,7 @@
     "href": "weeks/week-1.html#lectures",
     "title": "Week 1",
     "section": "Lectures",
-    "text": "Lectures\n🖥️Lecture 1 - Meet + greet; Welcome to POL 051\n🖥️ Lecture 2 - Data Visualization I + II\n🖥️ Lecture 3 - Data Wrangling I",
+    "text": "Lectures\n🖥️Lecture 1 - Meet + greet; Welcome to POL 051\n🖥️Lecture 2 - Data Visualization I + II\n🖥️ Lecture 3 - Data Wrangling I",
     "crumbs": [
       "Weekly materials",
       "Week 1"
@@ -1248,6 +1248,580 @@
     "crumbs": [
       "Weekly materials",
       "Week 5"
+    ]
+  },
+  {
+    "objectID": "slides/lec-2.html#why-visualize-data",
+    "href": "slides/lec-2.html#why-visualize-data",
+    "title": "Data Visualization I & II",
+    "section": "Why visualize data?",
+    "text": "Why visualize data?\n\n\nData carries weight in our society\nVisualizing data is an effective way to convey information, convince, argue\nVisualization can be used to tell The Truth™️ (or not)"
+  },
+  {
+    "objectID": "slides/lec-2.html#dataviz-to-inform",
+    "href": "slides/lec-2.html#dataviz-to-inform",
+    "title": "Data Visualization I & II",
+    "section": "Dataviz to inform",
+    "text": "Dataviz to inform"
+  },
+  {
+    "objectID": "slides/lec-2.html#dataviz-to-mislead",
+    "href": "slides/lec-2.html#dataviz-to-mislead",
+    "title": "Data Visualization I & II",
+    "section": "Dataviz to mislead",
+    "text": "Dataviz to mislead"
+  },
+  {
+    "objectID": "slides/lec-2.html#inform-or-mislead",
+    "href": "slides/lec-2.html#inform-or-mislead",
+    "title": "Data Visualization I & II",
+    "section": "Inform? or mislead?",
+    "text": "Inform? or mislead?"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-gapminder-dataset",
+    "href": "slides/lec-2.html#the-gapminder-dataset",
+    "title": "Data Visualization I & II",
+    "section": "The Gapminder dataset",
+    "text": "The Gapminder dataset\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nAfghanistan\nAsia\n1952\n29\n8425333\n779\n\n\nAfghanistan\nAsia\n1957\n30\n9240934\n821\n\n\nAfghanistan\nAsia\n1962\n32\n10267083\n853\n\n\nAfghanistan\nAsia\n1967\n34\n11537966\n836\n\n\nAfghanistan\nAsia\n1972\n36\n13079460\n740"
+  },
+  {
+    "objectID": "slides/lec-2.html#rows-are-observations",
+    "href": "slides/lec-2.html#rows-are-observations",
+    "title": "Data Visualization I & II",
+    "section": "Rows are observations",
+    "text": "Rows are observations\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nAfghanistan\nAsia\n1952\n29\n8425333\n779\n\n\nAfghanistan\nAsia\n1957\n30\n9240934\n821\n\n\nAfghanistan\nAsia\n1962\n32\n10267083\n853\n\n\nAfghanistan\nAsia\n1967\n34\n11537966\n836\n\n\nAfghanistan\nAsia\n1972\n36\n13079460\n740\n\n\n\n\n\n\n\nIn a dataset, rows are observations\n\nThe data we observe for Afghanistan in the year 1952"
+  },
+  {
+    "objectID": "slides/lec-2.html#rows-are-observations-1",
+    "href": "slides/lec-2.html#rows-are-observations-1",
+    "title": "Data Visualization I & II",
+    "section": "Rows are observations",
+    "text": "Rows are observations\n\n\n\n\n\nid\nage\ndegree\nrace\nsex\n\n\n\n\n1\n47\nBachelor\nWhite\nMale\n\n\n2\n61\nHigh School\nWhite\nMale\n\n\n3\n72\nBachelor\nWhite\nMale\n\n\n4\n43\nHigh School\nWhite\nFemale\n\n\n5\n55\nGraduate\nWhite\nFemale\n\n\n\n\n\n\n\nIn survey data, an observation is typically a person who took the survey (a respondent)"
+  },
+  {
+    "objectID": "slides/lec-2.html#columns-are-variables",
+    "href": "slides/lec-2.html#columns-are-variables",
+    "title": "Data Visualization I & II",
+    "section": "Columns are variables",
+    "text": "Columns are variables\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nAfghanistan\nAsia\n1952\n29\n8425333\n779\n\n\nAfghanistan\nAsia\n1957\n30\n9240934\n821\n\n\nAfghanistan\nAsia\n1962\n32\n10267083\n853\n\n\nAfghanistan\nAsia\n1967\n34\n11537966\n836\n\n\nAfghanistan\nAsia\n1972\n36\n13079460\n740\n\n\n\n\n\n\n\nIn a dataset, columns are variables\n\nLife expectancy and GDP per capita are some of the variables in our data"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-final-graph",
+    "href": "slides/lec-2.html#the-final-graph",
+    "title": "Data Visualization I & II",
+    "section": "The final graph",
+    "text": "The final graph\n\nThere are four variables on this graph. What are they?"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-grammar-of-graphics",
+    "href": "slides/lec-2.html#the-grammar-of-graphics",
+    "title": "Data Visualization I & II",
+    "section": "The grammar of graphics",
+    "text": "The grammar of graphics\n\nGraphs have an internal logic, or grammar that connects data to visuals\n\n\nData = variables in a dataset\n\n\nAesthetic = visual property of a graph (position, shape, color, etc.)\n\n\nGeometry = representation of an aesthetic (point, line, text, etc.)"
+  },
+  {
+    "objectID": "slides/lec-2.html#mapping-data-to-aesthetics",
+    "href": "slides/lec-2.html#mapping-data-to-aesthetics",
+    "title": "Data Visualization I & II",
+    "section": "Mapping data to aesthetics",
+    "text": "Mapping data to aesthetics\n\n\n\n\n\nData\nAesthetic\nGeometry\n\n\n\n\nGDP per capita\nPosition(x-axis)\nPoint\n\n\nLife expectancy\nPosition (y-axis)\nPoint\n\n\nContinent\nColor\nPoint\n\n\nPopulation\nSize\nPoint\n\n\n\n\n\n\nTake the data,\nmap it onto an aesthetic,\nand visualize it with a geometry"
+  },
+  {
+    "objectID": "slides/lec-2.html#in-r",
+    "href": "slides/lec-2.html#in-r",
+    "title": "Data Visualization I & II",
+    "section": "In R",
+    "text": "In R\n\n\n\n\n\nData\naes()\ngeom_\n\n\n\n\ngdpPercap\nx\ngeom_point()\n\n\nlifeExp\ny\ngeom_point()\n\n\ncontinent\ncolor\ngeom_point()\n\n\npop\nsize\ngeom_point()\n\n\n\n\n\nUse the variable names exactly as they appear in the data, map them onto the exact function names in R"
+  },
+  {
+    "objectID": "slides/lec-2.html#ggplot-our-first-function",
+    "href": "slides/lec-2.html#ggplot-our-first-function",
+    "title": "Data Visualization I & II",
+    "section": "ggplot(): our first function 😢",
+    "text": "ggplot(): our first function 😢\n\nggplot()\n\n\ndon’t fret; You will not memorize these as they appear on screen"
+  },
+  {
+    "objectID": "slides/lec-2.html#ggplot-specify-the-data",
+    "href": "slides/lec-2.html#ggplot-specify-the-data",
+    "title": "Data Visualization I & II",
+    "section": "ggplot: specify the data",
+    "text": "ggplot: specify the data\n\nggplot(data = gap_07)"
+  },
+  {
+    "objectID": "slides/lec-2.html#use-aes-to-map-variables-to-aesthetics",
+    "href": "slides/lec-2.html#use-aes-to-map-variables-to-aesthetics",
+    "title": "Data Visualization I & II",
+    "section": "Use aes() to map variables to aesthetics",
+    "text": "Use aes() to map variables to aesthetics\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/lec-2.html#add-geometries-and-layers-using",
+    "href": "slides/lec-2.html#add-geometries-and-layers-using",
+    "title": "Data Visualization I & II",
+    "section": "add geometries and layers using +",
+    "text": "add geometries and layers using +\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp)) + geom_point()"
+  },
+  {
+    "objectID": "slides/lec-2.html#mapping-population-to-size-in-aes",
+    "href": "slides/lec-2.html#mapping-population-to-size-in-aes",
+    "title": "Data Visualization I & II",
+    "section": "mapping population to size in aes()",
+    "text": "mapping population to size in aes()\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/lec-2.html#mapping-continent-to-color-in-aes",
+    "href": "slides/lec-2.html#mapping-continent-to-color-in-aes",
+    "title": "Data Visualization I & II",
+    "section": "mapping continent to color in aes()",
+    "text": "mapping continent to color in aes()\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop, color = continent)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/lec-2.html#other-layers-add-the-missing-titles-with-labs",
+    "href": "slides/lec-2.html#other-layers-add-the-missing-titles-with-labs",
+    "title": "Data Visualization I & II",
+    "section": "Other layers: add the missing titles with labs()",
+    "text": "Other layers: add the missing titles with labs()\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop, color = continent)) + \n  geom_point() + labs(x = \"GDP per capita\", y = \"Life expectancy\", \n       title = \"Global wealth and health in 2007\", size = \"Population\",\n       color = \"\")\n\n\nNotice that text is placed within quotation marks!"
+  },
+  {
+    "objectID": "slides/lec-2.html#other-layers-add-a-theme",
+    "href": "slides/lec-2.html#other-layers-add-a-theme",
+    "title": "Data Visualization I & II",
+    "section": "Other layers: add a theme",
+    "text": "Other layers: add a theme\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop, color = continent)) + \n  geom_point() + labs(x = \"GDP per capita\", y = \"Life expectancy\", \n       title = \"Global wealth and health in 2007\") + \n  theme_bw()\n\n\nThere are many more themes, here are a few"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-final-formula",
+    "href": "slides/lec-2.html#the-final-formula",
+    "title": "Data Visualization I & II",
+    "section": "The final formula",
+    "text": "The final formula\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, \n                          size = pop, color = continent)) +\n  geom_point() + labs(x = \"GDP per capita\", y = \"Life expectancy\", \n       title = \"Global wealth and health in 2007\") +\n  theme_bw()\n\n\nTell ggplot() the data we want to plot\nMap all variables onto aesthetics within aes()\nAdd layers like geom_point() and theme_bw() using +"
+  },
+  {
+    "objectID": "slides/lec-2.html#whats-that-country-way-out-on-the-bottom-right",
+    "href": "slides/lec-2.html#whats-that-country-way-out-on-the-bottom-right",
+    "title": "Data Visualization I & II",
+    "section": "What’s that country way out on the bottom right?",
+    "text": "What’s that country way out on the bottom right?"
+  },
+  {
+    "objectID": "slides/lec-2.html#your-turn-try-labeling-the-points",
+    "href": "slides/lec-2.html#your-turn-try-labeling-the-points",
+    "title": "Data Visualization I & II",
+    "section": "🚨 Your turn: try labeling the points 🚨",
+    "text": "🚨 Your turn: try labeling the points 🚨\n\nAdd labels to each point by mapping country names onto the label aesthetic within aes()\nAdd geom_text layer to your plot to plot the names\n\ninstall.packages(\"gapminder\")\nlibrary(gapminder)\n\ngap_07 &lt;- gapminder %&gt;%\n  filter(year == 2007)"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-basic-plot",
+    "href": "slides/lec-2.html#the-basic-plot",
+    "title": "Data Visualization I & II",
+    "section": "The basic plot",
+    "text": "The basic plot\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop, \n                          color = continent)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/lec-2.html#map-country-names-to-label-aesthetic",
+    "href": "slides/lec-2.html#map-country-names-to-label-aesthetic",
+    "title": "Data Visualization I & II",
+    "section": "Map country names to label aesthetic",
+    "text": "Map country names to label aesthetic\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop, \n                          color = continent, label = country)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/lec-2.html#plot-the-labels",
+    "href": "slides/lec-2.html#plot-the-labels",
+    "title": "Data Visualization I & II",
+    "section": "Plot the labels",
+    "text": "Plot the labels\n\nggplot(data = gap_07, aes(x = gdpPercap, y = lifeExp, size = pop, \n                          color = continent, label = country)) + \n  geom_point() + \n  geom_text()"
+  },
+  {
+    "objectID": "slides/lec-2.html#what-did-we-do",
+    "href": "slides/lec-2.html#what-did-we-do",
+    "title": "Data Visualization I & II",
+    "section": "What did we do?",
+    "text": "What did we do?\n\n\n\n\n\nData\nAesthetic\nGeometry\n\n\n\n\ngdpPercap\nx\ngeom_point()\n\n\nlifeExp\ny\ngeom_point()\n\n\ncontinent\ncolor\ngeom_point()\n\n\npop\nsize\ngeom_point()\n\n\ncountry\nlabel\ngeom_text()\n\n\n\n\n\n\n\nTake your data, map it onto an aesthetic, represent with a geometry"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-presidents",
+    "href": "slides/lec-2.html#the-presidents",
+    "title": "Data Visualization I & II",
+    "section": "🇺🇸 The presidents 🇺🇸",
+    "text": "🇺🇸 The presidents 🇺🇸\n\nelections_historic %&gt;% \n  select(year, winner, win_party, ec_pct, popular_pct, two_term) %&gt;% \n  slice_head(n = 4) %&gt;% \n  knitr::kable(caption = \"Sample of presidential elections\", digits = 2)"
+  },
+  {
+    "objectID": "slides/lec-2.html#your-turn",
+    "href": "slides/lec-2.html#your-turn",
+    "title": "Data Visualization I & II",
+    "section": "🚨 Your turn 🚨",
+    "text": "🚨 Your turn 🚨\n\nMake a plot of presidential election results using the elections_historic dataset\n% of popular vote (x-axis, popular_pct) and % of electoral college vote (y-axis, ec_pct)\nmap the winner’s party to the color aesthetic, whether or not president served two terms to shape, and add labels to each point (use winner_label)\n\n\ninstall.packages(\"socviz\")\nlibrary(socviz)"
+  },
+  {
+    "objectID": "slides/lec-2.html#us-presidents",
+    "href": "slides/lec-2.html#us-presidents",
+    "title": "Data Visualization I & II",
+    "section": "US Presidents",
+    "text": "US Presidents\n\nWhat’s going on here?"
+  },
+  {
+    "objectID": "slides/lec-2.html#what-did-we-do-1",
+    "href": "slides/lec-2.html#what-did-we-do-1",
+    "title": "Data Visualization I & II",
+    "section": "What did we do?",
+    "text": "What did we do?\n\n\n\n\n\nData\nAesthetic\nGeometry\n\n\n\n\npopular_pct\nx\ngeom_point()\n\n\nec_pct\ny\ngeom_point()\n\n\nwin_party\ncolor\ngeom_point()\n\n\ntwo_term\nshape\ngeom_point()\n\n\nwinner_label\nlabel\ngeom_text()\n\n\n\n\n\nTake your data, map it onto an aesthetic, represent with a geometry"
+  },
+  {
+    "objectID": "slides/lec-2.html#what-kind-of-variable-do-i-have",
+    "href": "slides/lec-2.html#what-kind-of-variable-do-i-have",
+    "title": "Data Visualization I & II",
+    "section": "What kind of variable do I have?",
+    "text": "What kind of variable do I have?\n\n\n\nGeneral Social Survey\n\n\nid\nage\ndegree\nrace\nnum_kids\n\n\n\n\n1\n47\nBachelor\nWhite\n3\n\n\n2\n61\nHigh School\nWhite\n0\n\n\n3\n72\nBachelor\nWhite\n2\n\n\n4\n43\nHigh School\nWhite\n4\n\n\n5\n55\nGraduate\nWhite\n2\n\n\n\n\n\n\n\n\n\nContinuous variables take on lots of values (GDP, population, income, age, etc.)"
+  },
+  {
+    "objectID": "slides/lec-2.html#what-kind-of-variable-do-i-have-1",
+    "href": "slides/lec-2.html#what-kind-of-variable-do-i-have-1",
+    "title": "Data Visualization I & II",
+    "section": "What kind of variable do I have?",
+    "text": "What kind of variable do I have?\n\n\n\nGeneral Social Survey\n\n\nid\nage\ndegree\nrace\nnum_kids\n\n\n\n\n1\n47\nBachelor\nWhite\n3\n\n\n2\n61\nHigh School\nWhite\n0\n\n\n3\n72\nBachelor\nWhite\n2\n\n\n4\n43\nHigh School\nWhite\n4\n\n\n5\n55\nGraduate\nWhite\n2\n\n\n\n\n\n\n\n\n\nDiscrete or categorical variables takes on a few values, often “qualitative” (yes/no, 1/0, race, etc.)"
+  },
+  {
+    "objectID": "slides/lec-2.html#graph-1---the-scatterplot",
+    "href": "slides/lec-2.html#graph-1---the-scatterplot",
+    "title": "Data Visualization I & II",
+    "section": "Graph 1 - The Scatterplot",
+    "text": "Graph 1 - The Scatterplot\n\n\nThe scatterplot visualizes the relationship between two continuous variables\n\n\nShows every point in the data, reveals trends and outliers"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-grammar-of-scatterplots",
+    "href": "slides/lec-2.html#the-grammar-of-scatterplots",
+    "title": "Data Visualization I & II",
+    "section": "The grammar of scatterplots",
+    "text": "The grammar of scatterplots\n\n\n\n\n\n\nThe data\n\n\ngdpPercap\nlifeExp\n\n\n\n\n974.58\n43.83\n\n\n5937.03\n76.42\n\n\n6223.37\n72.30\n\n\n4797.23\n42.73\n\n\n12779.38\n75.32\n\n\n\n\n\n\n\n\n\n\n\nMapping the data\n\n\nData\nAesthetic\nGeometry\n\n\n\n\ngdpPercap\nx\ngeom_point()\n\n\nlifeExp\ny\ngeom_point()\n\n\n\n\n\n\n\n\n\n\nggplot(gap_07, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point()\n\nTypically, we put the cause on the x-axis and the effect on the y-axis"
+  },
+  {
+    "objectID": "slides/lec-2.html#scatterplots-are-for-continuous-variables",
+    "href": "slides/lec-2.html#scatterplots-are-for-continuous-variables",
+    "title": "Data Visualization I & II",
+    "section": "Scatterplots are for continuous variables",
+    "text": "Scatterplots are for continuous variables\n\nPlot is uninformative because continent is discrete (i.e., a category)"
+  },
+  {
+    "objectID": "slides/lec-2.html#graph-2-the-time-series",
+    "href": "slides/lec-2.html#graph-2-the-time-series",
+    "title": "Data Visualization I & II",
+    "section": "Graph 2: the time series",
+    "text": "Graph 2: the time series\n\nThe time series uses a line to show you how a variable (y-axis) moves over time (x-axis)"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-grammar-of-time-series",
+    "href": "slides/lec-2.html#the-grammar-of-time-series",
+    "title": "Data Visualization I & II",
+    "section": "The grammar of time series",
+    "text": "The grammar of time series\n\n\n\n\n\n\nThe data\n\n\nyear\navg_yrs\n\n\n\n\n1952\n49.06\n\n\n1957\n51.51\n\n\n1962\n53.61\n\n\n1967\n55.68\n\n\n1972\n57.65\n\n\n\n\n\n\n\n\n\n\n\nMapping the data\n\n\nData\nAesthetic\nGeometry\n\n\n\n\nyear\nx\ngeom_line()\n\n\navg_yrs\ny\ngeom_line()\n\n\n\n\n\n\n\n\n\nNotice the new geometry, geom_line()"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-time-series",
+    "href": "slides/lec-2.html#the-time-series",
+    "title": "Data Visualization I & II",
+    "section": "The time series",
+    "text": "The time series\n\nggplot(life_yr, aes(x = year, y = avg_yrs)) +\n  geom_line()"
+  },
+  {
+    "objectID": "slides/lec-2.html#your-turn-recession",
+    "href": "slides/lec-2.html#your-turn-recession",
+    "title": "Data Visualization I & II",
+    "section": "🚨 Your turn: 💸Recession💸 🚨",
+    "text": "🚨 Your turn: 💸Recession💸 🚨\n\nLook at the economics dataset from the tidyverse package\nType and run economics to see the data\nType and run ?economics to read about the data\nMake a time series of unemployment over time\nCan you identify the recessions?"
+  },
+  {
+    "objectID": "slides/lec-2.html#recession",
+    "href": "slides/lec-2.html#recession",
+    "title": "Data Visualization I & II",
+    "section": "💸Recession💸",
+    "text": "💸Recession💸"
+  },
+  {
+    "objectID": "slides/lec-2.html#multiple-time-series",
+    "href": "slides/lec-2.html#multiple-time-series",
+    "title": "Data Visualization I & II",
+    "section": "Multiple time series",
+    "text": "Multiple time series\nSometimes we observe multiple units over time; how can we visualize these?\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nBolivia\nAmericas\n1987\n57.251\n6156369\n2753.6915\n\n\nUnited States\nAmericas\n1977\n73.380\n220239000\n24072.6321\n\n\nGhana\nAfrica\n1992\n57.501\n16278738\n925.0602\n\n\nChina\nAsia\n1997\n70.426\n1230075000\n2289.2341\n\n\nUnited States\nAmericas\n1997\n76.810\n272911760\n35767.4330"
+  },
+  {
+    "objectID": "slides/lec-2.html#start-from-scratch",
+    "href": "slides/lec-2.html#start-from-scratch",
+    "title": "Data Visualization I & II",
+    "section": "Start from scratch",
+    "text": "Start from scratch\n\nggplot(data = gapminder_sample)"
+  },
+  {
+    "objectID": "slides/lec-2.html#add-aesthetics",
+    "href": "slides/lec-2.html#add-aesthetics",
+    "title": "Data Visualization I & II",
+    "section": "Add aesthetics",
+    "text": "Add aesthetics\n\nggplot(data = gapminder_sample, aes(x = year, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/lec-2.html#add-geometry",
+    "href": "slides/lec-2.html#add-geometry",
+    "title": "Data Visualization I & II",
+    "section": "Add geometry: 🤢",
+    "text": "Add geometry: 🤢\n\nggplot(data = gapminder_sample, aes(x = year, y = lifeExp)) +\n  geom_line()"
+  },
+  {
+    "objectID": "slides/lec-2.html#using-color-to-separate-lines",
+    "href": "slides/lec-2.html#using-color-to-separate-lines",
+    "title": "Data Visualization I & II",
+    "section": "using color to separate lines",
+    "text": "using color to separate lines\n\nggplot(data = gapminder_sample, aes(x = year, y = lifeExp, color = country)) + \n  geom_line()"
+  },
+  {
+    "objectID": "slides/lec-2.html#multiple-time-series-1",
+    "href": "slides/lec-2.html#multiple-time-series-1",
+    "title": "Data Visualization I & II",
+    "section": "Multiple time series",
+    "text": "Multiple time series\n\nggplot(data = gapminder_sample, aes(x = year, y = lifeExp, color = country)) + \n  geom_line()\n\n\n\nThese are useful for comparing trends across units (countries, places, people, etc)"
+  },
+  {
+    "objectID": "slides/lec-2.html#graph-3-the-histogram",
+    "href": "slides/lec-2.html#graph-3-the-histogram",
+    "title": "Data Visualization I & II",
+    "section": "Graph 3: the histogram",
+    "text": "Graph 3: the histogram\n\nA histogram shows you how a continuous variable is distributed"
+  },
+  {
+    "objectID": "slides/lec-2.html#interpreting-histograms",
+    "href": "slides/lec-2.html#interpreting-histograms",
+    "title": "Data Visualization I & II",
+    "section": "Interpreting histograms",
+    "text": "Interpreting histograms\n\n\nWhat do we see here?"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-grammar-of-histograms",
+    "href": "slides/lec-2.html#the-grammar-of-histograms",
+    "title": "Data Visualization I & II",
+    "section": "The grammar of histograms",
+    "text": "The grammar of histograms\n\n\n\n\n\n\nThe data\n\n\nlifeExp\n\n\n\n\n43.83\n\n\n76.42\n\n\n72.30\n\n\n42.73\n\n\n75.32\n\n\n\n\n\n\n\n\n\n\n\nMapping the data\n\n\nData\nAesthetic\nGeometry\n\n\n\n\nlifeExp\nx\ngeom_histogram()\n\n\n\n\n\n\n\n\n\nNotice the new geometry, geom_histogram(); and that a histogram only uses the x-axis!"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-histogram",
+    "href": "slides/lec-2.html#the-histogram",
+    "title": "Data Visualization I & II",
+    "section": "The histogram",
+    "text": "The histogram\n\nggplot(gap_07, aes(x = lifeExp)) + geom_histogram()"
+  },
+  {
+    "objectID": "slides/lec-2.html#your-turn-organs",
+    "href": "slides/lec-2.html#your-turn-organs",
+    "title": "Data Visualization I & II",
+    "section": "🚨 Your turn: organs 🫁🧠 🚨",
+    "text": "🚨 Your turn: organs 🫁🧠 🚨\n\n\nIn some countries, when you die it is assumed you want to donate your organs\n\nTo not donate, you have to opt out\nIn other countries, when you die it is assumed you do not want to donate your organs\nTo not donate, you have to opt in\n\n\n\n\n\nSample from organdata\n\n\ncountry\ndonors\nopt\n\n\n\n\nFinland\n17.1\nNA\n\n\nDenmark\n12.9\nIn\n\n\nAustria\n25.9\nOut\n\n\nAustria\n23.9\nOut\n\n\nItaly\n10.1\nIn"
+  },
+  {
+    "objectID": "slides/lec-2.html#your-turn-organs-1",
+    "href": "slides/lec-2.html#your-turn-organs-1",
+    "title": "Data Visualization I & II",
+    "section": "🚨 Your turn: organs 🫁🧠 🚨",
+    "text": "🚨 Your turn: organs 🫁🧠 🚨\nUsing the organdata dataset:\n\nMake a histogram of country’s organ donation rate (donors)\nThen set the fill aesthetic to opt, whether donors have to opt in or opt out of donating. How does the graph change?"
+  },
+  {
+    "objectID": "slides/lec-2.html#organs",
+    "href": "slides/lec-2.html#organs",
+    "title": "Data Visualization I & II",
+    "section": "organs 🫁🧠",
+    "text": "organs 🫁🧠"
+  },
+  {
+    "objectID": "slides/lec-2.html#graph-4-the-barplot",
+    "href": "slides/lec-2.html#graph-4-the-barplot",
+    "title": "Data Visualization I & II",
+    "section": "Graph 4: the barplot",
+    "text": "Graph 4: the barplot\n\n\nBarplots place a category (place, country, person, etc) on one axis and a quantity (amount, average, median, etc.) on another\n\n\nUseful for making comparisons, highlighting differences\n\nWhy would there be differences across TV consumption?"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-grammar-of-barplots",
+    "href": "slides/lec-2.html#the-grammar-of-barplots",
+    "title": "Data Visualization I & II",
+    "section": "The grammar of barplots",
+    "text": "The grammar of barplots\n\n\n\n\n\n\nThe data\n\n\nmarital\ntv\n\n\n\n\nNo answer\n2.56\n\n\nNever married\n3.11\n\n\nSeparated\n3.55\n\n\nDivorced\n3.09\n\n\nWidowed\n3.91\n\n\n\n\n\n\n\n\n\n\n\nMapping the data\n\n\nData\nAesthetic\nGeometry\n\n\n\n\ntv\nx\ngeom_col()\n\n\nmarital\ny\ngeom_col()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nYou could switch the x and y mapping around, but I think categories look better on the y-axis"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-barplot",
+    "href": "slides/lec-2.html#the-barplot",
+    "title": "Data Visualization I & II",
+    "section": "The barplot",
+    "text": "The barplot\n\nggplot(tv, aes(y = marital, x = tv)) + \n  geom_col()"
+  },
+  {
+    "objectID": "slides/lec-2.html#graph-5-the-boxplot",
+    "href": "slides/lec-2.html#graph-5-the-boxplot",
+    "title": "Data Visualization I & II",
+    "section": "Graph 5: the boxplot",
+    "text": "Graph 5: the boxplot\n\n\nBoxplots compare distributions of continuous variables across groups\n\nthey show us more than the barplot which only gives us a quantity for each group"
+  },
+  {
+    "objectID": "slides/lec-2.html#compare-distributions-the-boxplot",
+    "href": "slides/lec-2.html#compare-distributions-the-boxplot",
+    "title": "Data Visualization I & II",
+    "section": "Compare distributions: the boxplot",
+    "text": "Compare distributions: the boxplot\n\n\nBoxplots contain a lot of info 🥵:\n\nbold line is the median observation\nbox is the middle 50% of observations\nthin lines show you min and max value, except…\nthe dots, which are outlier observations\n\n\n\n\n\n\n\n\n\n\n\n\n\ninterpret"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-grammar-of-boxplots",
+    "href": "slides/lec-2.html#the-grammar-of-boxplots",
+    "title": "Data Visualization I & II",
+    "section": "The grammar of boxplots",
+    "text": "The grammar of boxplots\n\n\n\n\n\n\nThe data\n\n\ncontinent\nlifeExp\n\n\n\n\nAsia\n43.83\n\n\nEurope\n76.42\n\n\nAfrica\n72.30\n\n\nAfrica\n42.73\n\n\nAmericas\n75.32\n\n\n\n\n\n\n\n\n\n\n\nMapping the data\n\n\nData\nAesthetic\nGeometry\n\n\n\n\ncontient\ny\ngeom_boxplot()\n\n\nlifeExp\nx\ngeom_boxplot()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nYou could switch the x and y mapping around, but I think categories look better on the y-axis"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-boxplot",
+    "href": "slides/lec-2.html#the-boxplot",
+    "title": "Data Visualization I & II",
+    "section": "The boxplot",
+    "text": "The boxplot\n\nggplot(gapminder, aes(y = continent, x = lifeExp)) + geom_boxplot()"
+  },
+  {
+    "objectID": "slides/lec-2.html#the-five-ish-graphs",
+    "href": "slides/lec-2.html#the-five-ish-graphs",
+    "title": "Data Visualization I & II",
+    "section": "The five(-ish) graphs",
+    "text": "The five(-ish) graphs\n\n\n\n\n\nGraph\naes()\ngeom_\nPurpose\n\n\n\n\nScatterplot\nx = cause, y = effect\npoint()\nRelationships\n\n\nTime series\nx = date, y = variable\nline()\nTrends\n\n\nHistogram\nx = cont. variable\nhistogram()\nDistributions\n\n\nBarplot\ny = category, x = quantity\ncol()\nCompare amounts\n\n\nBoxplot\ny = category, x = cont. variable\nboxplot()\nCompare distributions\n\n\n\n\n\n\n\n\nKnow how and when to use which!"
+  },
+  {
+    "objectID": "slides/lec-2.html#showing-movement-using-panels",
+    "href": "slides/lec-2.html#showing-movement-using-panels",
+    "title": "Data Visualization I & II",
+    "section": "Showing “movement” using panels",
+    "text": "Showing “movement” using panels\n\n\nWe can use panels to show movement of a variable across time, space, etc.\n\nWhat is this graph showing us?"
+  },
+  {
+    "objectID": "slides/lec-2.html#using-facet_wrap",
+    "href": "slides/lec-2.html#using-facet_wrap",
+    "title": "Data Visualization I & II",
+    "section": "Using facet_wrap",
+    "text": "Using facet_wrap\n\nggplot(gapminder, aes(x = lifeExp)) + geom_histogram()"
+  },
+  {
+    "objectID": "slides/lec-2.html#using-facet_wrap-1",
+    "href": "slides/lec-2.html#using-facet_wrap-1",
+    "title": "Data Visualization I & II",
+    "section": "Using facet_wrap",
+    "text": "Using facet_wrap\n\nggplot(gapminder, aes(x = lifeExp)) + geom_histogram() + \n  facet_wrap(vars(year)) \n\n\n\n\n\n\n\n\nNote\n\n\nMake sure the facetting variable is wrapped in vars()!"
+  },
+  {
+    "objectID": "slides/lec-2.html#make-aesthetics-static",
+    "href": "slides/lec-2.html#make-aesthetics-static",
+    "title": "Data Visualization I & II",
+    "section": "Make aesthetics static",
+    "text": "Make aesthetics static\n\nggplot(gap_07, aes(x = gdpPercap, y = lifeExp)) + \n  geom_point(size = 4, color = \"orange\", shape = 2) \n\n\nTake your aesthetics out of aes() and into geom() to make them static"
+  },
+  {
+    "objectID": "slides/lec-2.html#ridge-plots-better-than-grouped-histograms",
+    "href": "slides/lec-2.html#ridge-plots-better-than-grouped-histograms",
+    "title": "Data Visualization I & II",
+    "section": "Ridge plots (better than grouped histograms)",
+    "text": "Ridge plots (better than grouped histograms)\n\nlibrary(ggridges)\nggplot(gapminder, aes(y = continent, x = lifeExp)) + geom_density_ridges() \n\n\nEase visual comparison + kinda looks like the Joy Division album"
+  },
+  {
+    "objectID": "slides/lec-2.html#beeswarm-plots-alternative-boxplots",
+    "href": "slides/lec-2.html#beeswarm-plots-alternative-boxplots",
+    "title": "Data Visualization I & II",
+    "section": "Beeswarm plots (alternative boxplots)",
+    "text": "Beeswarm plots (alternative boxplots)\n\nlibrary(ggbeeswarm)\nggplot(gapminder, aes(y = continent, x = lifeExp)) +  geom_quasirandom() \n\n\nBeeswarm plots tell us something boxplots don’t: the number observations by group; used recently by the NYT"
+  },
+  {
+    "objectID": "slides/lec-2.html#use-different-color-and-fill-scales",
+    "href": "slides/lec-2.html#use-different-color-and-fill-scales",
+    "title": "Data Visualization I & II",
+    "section": "Use different color and fill scales",
+    "text": "Use different color and fill scales\n\nggplot(gapminder, aes(x = lifeExp, fill = continent)) + geom_histogram() + \n  scale_fill_brewer(palette = \"Blues\") \n\n\nscale_fill_brewer() for fill, scale_color_brewer for color"
+  },
+  {
+    "objectID": "slides/lec-2.html#my-favorite-scale-right-now",
+    "href": "slides/lec-2.html#my-favorite-scale-right-now",
+    "title": "Data Visualization I & II",
+    "section": "My favorite scale (right now)",
+    "text": "My favorite scale (right now)\n\nggplot(gapminder, aes(x = lifeExp, fill = continent)) + geom_histogram() + \n  scale_fill_viridis_d(option = \"magma\") \n\n\nscale_fill_viridis_d for discrete variables, scale_fill_viridis_d for continuous"
+  },
+  {
+    "objectID": "slides/lec-2.html#many-other-themes",
+    "href": "slides/lec-2.html#many-other-themes",
+    "title": "Data Visualization I & II",
+    "section": "Many other themes",
+    "text": "Many other themes\n\ntheme_spongeBob() from tvthemes package, many more online"
+  },
+  {
+    "objectID": "supplemental/data-vis.html#scatter-plots",
+    "href": "supplemental/data-vis.html#scatter-plots",
+    "title": "Data Visualization",
+    "section": "Scatter Plots",
+    "text": "Scatter Plots\nThe first plot style we will be looking at is a scatter plot. To plot a scatter plot in ggplot you will use the format discussed above and to tell r you want it to graph a scatter plot you will use the geom function; geom_point().\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.2\n✔ ggplot2   4.0.3     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n# remotes::install_github(\"hbdaarstad/RandomData\")\n\nlibrary(RandomData)\n\n# ggplot(data, aes(x, y) + geom_point()\n\nIn the following example, we will plot the qualifying position for the 20 drivers and the final points they were awarded for the Las Vegas Grand Prix in 2023.\n\nscatterplot &lt;- race_stats |&gt;\n  filter(circuit == \"Las Vegas Strip Street Circuit\" & year == \"2023\")\n\nggplot(scatterplot, aes(quali_position, points)) + \n        geom_point()\n\n\n\n\n\n\n\n\nLet’s add a main title and adjust the x and y labels.\n\nggplot(scatterplot, aes(quali_position, points)) + \n        geom_point() +\n        labs(\n          x = \"Qualifying Position\",\n          y = \"Points Awarded\",\n          title = \"Qualifying Position vs. Points Awarded at Las Vegas GP 2023\"\n        )\n\n\n\n\n\n\n\n\nIf we wanted to add a smoother line we would use the geom_smooth() and we will be fitting a linear regression line, thus inside geom_smooth() we method = \"lm\".\n\nggplot(scatterplot, aes(quali_position, points)) + \n        geom_point() +\n        labs(\n          x = \"Qualifying Position\",\n          y = \"Points Awarded\",\n          title = \"Qualifying Position vs. Points Awarded at Las Vegas GP 2023\"\n        ) +\n        geom_smooth(method = \"lm\")\n\n`geom_smooth()` using formula = 'y ~ x'",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-vis.html#time-series",
+    "href": "supplemental/data-vis.html#time-series",
+    "title": "Data Visualization",
+    "section": "Time Series",
+    "text": "Time Series\ngeom_line() in ggplot2 is used to create a line plot by connecting data points with a continuous line, which is ideal for visualizing trends over time. It is particularly useful for time series data because it clearly shows how a variable changes across ordered time intervals, allowing for easy identification of patterns and trends.\n\n?constructors_stats\n\n# Calculate total wins per year for Ferrari\nferrari_wins &lt;- constructors_stats |&gt;\n  filter(constructor == \"Ferrari\") |&gt;\n  group_by(year) |&gt; \n  summarize(total_wins = sum(max(constructor_wins)))\n\nggplot(ferrari_wins, aes(x = year, y = total_wins)) +\n  geom_line(color = \"red\", linewidth = 1.2) +  # Creates a red line plot\n  labs(title = \"Ferrari Wins 1958 to 2024 (Before the Summer Break)\", \n       x = \"Year\", \n       y = \"Wins\") +\n  theme_classic()\n\n\n\n\n\n\n\n\n\naes(x = year, y = total_wins):\n\nx = year: Puts the years on the x-axis.\ny = total_wins: Puts the total number of wins on the y-axis.\n\ngeom_line(color = \"red\", linewidth = 1.2):\n\ngeom_line(): Creates a line plot instead of points.\ncolor = \"red\": Adds a color to the line\nlinewidth = 1.2: Makes the line slightly thicker for better visibility.",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-vis.html#histograms",
+    "href": "supplemental/data-vis.html#histograms",
+    "title": "Data Visualization",
+    "section": "Histograms",
+    "text": "Histograms\nIn ggplot2 to build a histogram we put geom_histogram() and we only one numeric variable is needed in the input. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, final_position, and save it as a new object called McLarenStandings_2023.\n\nMcLarenStandings_2023 &lt;- McLarenStandings_2023 |&gt;\n  mutate(final_position_numeric = ifelse(final_position == \"DNF\", 0, as.numeric(final_position)))\n\nggplot(McLarenStandings_2023, aes(x = final_position_numeric)) +\n  ## we use fill for bars not color and we can adjust bins here\n  geom_histogram(fill = \"orange\", bins = 10) +\n  labs(\n        title = \"McLaren Race Results 2023\", \n        x = \"Race Results\", \n        y = \"Count\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\naes(x = final_position_numeric): Defines the variable for the histogram.\ngeom_histogram(): Creates the histogram.\nfill = \"orange\": Fills the bars with orange.\nbins = 10: Adjust the number of bins (change as needed).\nlabs(): Adds title and axis labels.\ntheme_minimal(): Uses a cleaner theme.\n\nIn a histogram, bins represent the intervals (or ranges) into which data points are grouped. Each bin covers a specific range of values, and the height of the bar represents the number of observations (or frequency) that fall within that range.",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-vis.html#bar-plot",
+    "href": "supplemental/data-vis.html#bar-plot",
+    "title": "Data Visualization",
+    "section": "Bar Plot",
+    "text": "Bar Plot\nNow, lets say we wanted to compare this across different categories, therefore instead we can use bar plots instead of histograms. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, final_position, and save it as a new object called McLarenStandings_2023.\n\n# Summarize mean race positions by driver\nbarplot &lt;- McLarenStandings_2023 |&gt;\n  group_by(surname) |&gt;\n  summarize(mean_position = mean(final_position_numeric))\n\n# Create a bar plot of mean race positions\nggplot(barplot, aes(x = mean_position, y = surname, fill = surname)) +\n  geom_col() +\n  labs(title = \"McLaren Mean Race Results 2023\", \n       x = \"Mean Race Position\", \n       y = \"McLaren Driver\") +\n  scale_fill_manual(values = c(\"orange\", \"grey\")) + \n  theme_minimal()\n\n\n\n\n\n\n\n\n\naes(x = mean_position, y = surname, fill = surname):\n\nx = mean_position: The x-axis represents the mean race position of each driver.\ny = surname: The y-axis represents the driver’s name.\nfill = surname: Each driver gets a unique color for their bar.\n\ngeom_col():\n\nCreates a bar chart where the bar length represents the mean race position\n\nscale_fill_manual(values = c(\"orange\", \"grey\")):\n\nManually assigns colors to the bars.\n\"orange\" for one driver and \"grey\" for the other (representing McLaren’s team colors).",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-vis.html#box-plots",
+    "href": "supplemental/data-vis.html#box-plots",
+    "title": "Data Visualization",
+    "section": "Box Plots",
+    "text": "Box Plots\nTo make a box plot we use the geom_boxplot() function! In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, final_position, and save it as a new object called McLarenStandings_2023.\n\nggplot(McLarenStandings_2023, aes(x = surname, y = final_position_numeric, fill = surname)) +\n  geom_boxplot() +\n  scale_fill_manual(values = c(\"orange\", \"grey\")) +  # Assign McLaren colors\n  labs(title = \"McLaren Race Results\", \n       x = \"Driver\", \n       y = \"Final Position\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\naes(x = surname, y = final_position_numeric, fill = surname):\n\nx = surname: Drivers on the x-axis.\ny = final_position_numeric: Final race position on the y-axis.\nfill = surname: Colors the boxes based on the driver.\n\ngeom_boxplot(): Creates a boxplot to show the distribution of race positions.\n\nThe box and whiskey plot represents the middle 50% of race finishes for each driver, while the horizontal line inside the box is the median race position, the whiskers show the range of most race finishes (excluding outliers), and any dots outside the whiskers indicate outliers.",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-vis.html#more-adv.-code-for-base-r-visualization",
+    "href": "supplemental/data-vis.html#more-adv.-code-for-base-r-visualization",
+    "title": "Data Visualization",
+    "section": "More Adv. Code for Base R Visualization",
+    "text": "More Adv. Code for Base R Visualization\nNow that you know the basics, we can add more details and change things.\nI have provided some examples. In the first example, I add three different box plots with different colors and I adjust opacity of the colors.\n\n\n`summarise()` has regrouped the output.\nℹ Summaries were computed grouped by constructor and year.\nℹ Output is grouped by constructor.\nℹ Use `summarise(.groups = \"drop_last\")` to silence this message.\nℹ Use `summarise(.by = c(constructor, year))` for per-operation grouping\n  (`?dplyr::dplyr_by`) instead.\n\n\n\n\n\n\n\n\n\nIn my second example, I add two more lines to my time series graph, change their colors, and also add a legend.\n\n\n`summarise()` has regrouped the output.\nℹ Summaries were computed grouped by surname and year.\nℹ Output is grouped by surname.\nℹ Use `summarise(.groups = \"drop_last\")` to silence this message.\nℹ Use `summarise(.by = c(surname, year))` for per-operation grouping\n  (`?dplyr::dplyr_by`) instead.",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
+    ]
+  },
+  {
+    "objectID": "supplemental/data-vis.html#ggplot2-resources",
+    "href": "supplemental/data-vis.html#ggplot2-resources",
+    "title": "Data Visualization",
+    "section": "ggplot2 Resources:",
+    "text": "ggplot2 Resources:\nggplot2 Website: https://ggplot2.tidyverse.org/reference/index.html\nAesthetic specifications: https://ggplot2.tidyverse.org/articles/ggplot2-specs.html\n\nSpecifications for lines, shapes, etc.\n\nhttps://r-graph-gallery.com/ggplot2-package.html\nList of ggplot2 Resources: https://github.com/erikgahner/awesome-ggplot2\nggplot2 book: https://ggplot2-book.org\nggplot2 cheat sheet: https://rstudio.github.io/cheatsheets/html/data-visualization.html",
+    "crumbs": [
+      "Code Examples",
+      "Data Visualization (ggplot2)"
     ]
   }
 ]

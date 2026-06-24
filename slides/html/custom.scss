@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: 'Poppins', sans-serif;
+$font-family-monospace: 'Roboto Mono', monospace;
+
+$presentation-title-slide-text-align: left;
+
+$presentation-h1-font-size: 2.2em;
+$presentation-h2-font-size: 2em;
+$presentation-body-font-size: 2em;
+$monofontoptions: 2em;
+$code-block-font-size: .7em; //0.55em
+
+$theme-darkblue: #213772;
+$theme-blue: #99D9DD;
+$theme-white: #F7F8F9;
+$theme-yellow: #F4BA02;
+$theme-red: #dc354a;
+
+
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+/*-- scss:rules --*/
+
+.slide-number {
+  color: #ffffff
+}
+
+.white h1 {
+  color: #ffffff !important;
+}
+
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.small {
+  font-size: .8em;
+}
+
+
+.blue {
+  color: $theme-darkblue;
+  font-weight: bold;
+}
+
+.yellow {
+  color: $theme-yellow;
+  font-weight: bold;
+}
+
+.red {
+  color: $theme-red;
+  font-weight: bold;
+}
+
+.reveal .slide a {
+  text-decoration: underline;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shout { color: #ee5863; 
+font-family: 'Fira Sans', sans-serif;
+font-weight: bold;
+}
+
+/* 
+Coloring and inverse coloring in title bars and content boxes
+*/
+.box-1 {
+  background-color: #dc354a;
+  color: #FFFFFF;
+  margin: 0em auto;
+  overflow: hidden;
+  padding: 0.1em 0.4em;
+  font-weight: 600;
+  display: table;
+  text-align: center
+}
+
+.box-2 {
+  background-color: #ecb025;
+  color: #FFFFFF;
+  margin: 0em auto;
+  overflow: hidden;
+  padding: 0.1em 0.4em;
+  font-weight: 600;
+  display: table;
+  text-align: center;
+}
+
+.box-3 {
+  background-color: #213772;
+  color: #FFFFFF;
+  margin: 0em auto;
+  overflow: hidden;
+  padding: 0.1em 0.4em;
+  font-weight: 600;
+  display: table;
+  text-align: center
+}
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}

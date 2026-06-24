@@ -4,6 +4,298 @@ execute:
   echo: false
 ---
 
-Sadly, we have not gotten to this code yet.
+`ggplot2` is a package in r that is used for creating graphics. This package is found in the package `tidyverse.` To build a graph, you first need to tell r what information or data you want it to use in the function `ggplot()`.
 
-![](/supplemental/images/IMG_6761.JPG){width="376"}
+`ggplot(data)`
+
+Next, you need to tell it what aesthetics you want it to use, which includes what x and y variables.
+
+`ggplot(data, aes(x, y)`
+
+After, you need to tell r how you want it to graph the data.
+
+`ggplot(data, aes(x, y) + geom_point()`
+
+`ggplot` has several different `geom_` that allow you to graph various different things. We will focus on four different graphs: scatter plots, histograms, box plots, and time series.
+
+However, we will only scratch the surface of the **ggplot2** package, which includes many more commands and options (aesthetics, geoms, scales, statistics, etc.).
+
+## Scatter Plots
+
+The first plot style we will be looking at is a scatter plot. To plot a scatter plot in `ggplot` you will use the format discussed above and to tell r you want it to graph a scatter plot you will use the geom function; `geom_point()`.
+
+```{r}
+#| echo: true
+
+library(tidyverse)
+
+# remotes::install_github("hbdaarstad/RandomData")
+
+library(RandomData)
+
+# ggplot(data, aes(x, y) + geom_point()
+
+```
+
+In the following example, we will plot the qualifying position for the 20 drivers and the final points they were awarded for the Las Vegas Grand Prix in 2023.
+
+```{r}
+#| echo: true
+
+scatterplot <- race_stats |>
+  filter(circuit == "Las Vegas Strip Street Circuit" & year == "2023")
+
+ggplot(scatterplot, aes(quali_position, points)) + 
+        geom_point()
+
+```
+
+Let's add a main title and adjust the x and y labels.
+
+```{r}
+#| echo: true
+
+ggplot(scatterplot, aes(quali_position, points)) + 
+        geom_point() +
+        labs(
+          x = "Qualifying Position",
+          y = "Points Awarded",
+          title = "Qualifying Position vs. Points Awarded at Las Vegas GP 2023"
+        )
+```
+
+If we wanted to add a smoother line we would use the `geom_smooth()` and we will be fitting a linear regression line, thus inside `geom_smooth()` we `method = "lm"`.
+
+```{r}
+#| echo: true
+
+ggplot(scatterplot, aes(quali_position, points)) + 
+        geom_point() +
+        labs(
+          x = "Qualifying Position",
+          y = "Points Awarded",
+          title = "Qualifying Position vs. Points Awarded at Las Vegas GP 2023"
+        ) +
+        geom_smooth(method = "lm")
+
+```
+
+## Time Series
+
+`geom_line()` in `ggplot2` is used to create a line plot by connecting data points with a continuous line, which is ideal for visualizing trends over time. It is particularly useful for time series data because it clearly shows how a variable changes across ordered time intervals, allowing for easy identification of patterns and trends.
+
+```{r}
+#| echo: true
+
+?constructors_stats
+
+# Calculate total wins per year for Ferrari
+ferrari_wins <- constructors_stats |>
+  filter(constructor == "Ferrari") |>
+  group_by(year) |> 
+  summarize(total_wins = sum(max(constructor_wins)))
+
+ggplot(ferrari_wins, aes(x = year, y = total_wins)) +
+  geom_line(color = "red", linewidth = 1.2) +  # Creates a red line plot
+  labs(title = "Ferrari Wins 1958 to 2024 (Before the Summer Break)", 
+       x = "Year", 
+       y = "Wins") +
+  theme_classic()
+
+```
+
+-   **`aes(x = year, y = total_wins)`**:
+
+    -   `x = year`: Puts the years on the x-axis.
+
+    -   `y = total_wins`: Puts the total number of wins on the y-axis.
+
+-   **`geom_line(color = "red", linewidth = 1.2)`**:
+
+    -   `geom_line()`: Creates a **line plot** instead of points.
+
+    -   `color = "red"`: Adds a color to the line
+
+    -   `linewidth = 1.2`: Makes the line slightly thicker for better visibility.
+
+```{r}
+#| include: false
+
+McLarenStandings_2023 <- race_stats |>
+  select(circuit, year, constructor, surname) |>
+  # remove duplicates
+  unique() |>
+  filter(constructor == "McLaren" & year == 2023) |>
+  mutate(
+    final_position = case_when(
+      #PIASTRI
+      circuit == "Bahrain International Circuit" & surname == "Piastri" ~ "DNF",
+      circuit == "Jeddah Corniche Circuit" & surname == "Piastri" ~ "15",
+      circuit == "Albert Park Grand Prix Circuit" & surname == "Piastri" ~ "8", 
+      circuit ==  "Baku City Circuit" & surname == "Piastri" ~ "11",
+      circuit ==  "Miami International Autodrome" & surname == "Piastri" ~ "19",
+      circuit == "Circuit de Monaco" & surname == "Piastri" ~ "10",
+      circuit == "Circuit de Barcelona-Catalunya" & surname == "Piastri" ~ "13",
+      circuit == "Circuit Gilles Villeneuve" & surname == "Piastri" ~ "11", 
+      circuit == "Red Bull Ring" & surname == "Piastri" ~ "16",
+      circuit == "Silverstone Circuit" & surname == "Piastri" ~ "4",
+      circuit == "Hungaroring" & surname == "Piastri" ~ "5",
+      circuit == "Circuit de Spa-Francorchamps" & surname == "Piastri" ~ "DNF",
+      circuit == "Circuit Park Zandvoort" & surname == "Piastri" ~ "9",
+      circuit == "Autodromo Nazionale di Monza" & surname == "Piastri" ~ "12",
+      circuit == "Marina Bay Street Circuit" & surname == "Piastri" ~ "7",
+      circuit == "Suzuka Circuit" & surname == "Piastri" ~ "3",
+      circuit == "Losail International Circuit" & surname == "Piastri" ~ "2",
+      circuit == "Circuit of the Americas" & surname == "Piastri" ~ "DNF",
+      circuit == "Autódromo Hermanos Rodríguez" & surname == "Piastri" ~ "8",
+      circuit == "Autódromo José Carlos Pace" ~ "14",
+      circuit == "Las Vegas Strip Street Circuit" & surname == "Piastri" ~ "10",
+      circuit == "Yas Marina Circuit" & surname == "Piastri" ~ "6",
+        
+        # NORRIS
+        circuit == "Bahrain International Circuit" & surname == "Norris" ~ "17",
+        circuit == "Jeddah Corniche Circuit" & surname == "Norris" ~ "17",
+        circuit == "Albert Park Grand Prix Circuit" & surname == "Norris" ~ "6",
+        circuit ==  "Baku City Circuit" & surname == "Norris" ~ "9",
+        circuit ==  "Miami International Autodrome" & surname == "Norris" ~ "17", 
+        circuit == "Circuit de Monaco" & surname == "Norris" ~ "9", 
+        circuit == "Circuit de Barcelona-Catalunya" & surname == "Norris" ~ "17", 
+        circuit == "Circuit Gilles Villeneuve" & surname == "Norris" ~ "13",
+        circuit == "Red Bull Ring" & surname == "Norris" ~ "4", 
+        circuit == "Silverstone Circuit" & surname == "Norris" ~ "2",
+        circuit == "Hungaroring" & surname == "Norris" ~ "2",
+        circuit == "Circuit de Spa-Francorchamps" & surname == "Norris" ~ "7",
+        circuit == "Circuit Park Zandvoort" & surname == "Norris" ~ "9",
+        circuit == "Autodromo Nazionale di Monza" & surname == "Norris" ~"8",
+        circuit == "Marina Bay Street Circuit" & surname == "Norris" ~ "2",
+        circuit == "Suzuka Circuit" & surname == "Norris" ~ "2",
+        circuit == "Losail International Circuit" & surname == "Norris" ~ "3",
+        circuit == "Circuit of the Americas" & surname == "Norris" ~ "3",
+        circuit == "Autódromo Hermanos Rodríguez" & surname == "Norris" ~ "5",
+        circuit == "Autódromo José Carlos Pace" ~ "2",
+        circuit == "Las Vegas Strip Street Circuit" & surname == "Norris" ~ "DNF",
+        circuit == "Yas Marina Circuit" & surname == "Norris" ~ "5"
+        )
+  ) |> mutate(final_position_numeric = as.numeric(final_position))
+```
+
+## Histograms
+
+In `ggplot2` to build a histogram we put `geom_histogram()` and we only one numeric variable is needed in the input. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
+
+```{r}
+#| echo: true
+
+McLarenStandings_2023 <- McLarenStandings_2023 |>
+  mutate(final_position_numeric = ifelse(final_position == "DNF", 0, as.numeric(final_position)))
+
+ggplot(McLarenStandings_2023, aes(x = final_position_numeric)) +
+  ## we use fill for bars not color and we can adjust bins here
+  geom_histogram(fill = "orange", bins = 10) +
+  labs(
+        title = "McLaren Race Results 2023", 
+        x = "Race Results", 
+        y = "Count") +
+  theme_minimal()
+
+
+```
+
+-   `aes(x = final_position_numeric)`: Defines the variable for the histogram.
+
+-   `geom_histogram()`: Creates the histogram.
+
+-   `fill = "orange"`: Fills the bars with orange.
+
+-   `bins = 10`: Adjust the number of bins (change as needed).
+
+-   `labs()`: Adds title and axis labels.
+
+-   `theme_minimal()`: Uses a cleaner theme.
+
+In a histogram, **bins** represent the intervals (or ranges) into which data points are grouped. Each bin covers a specific range of values, and the height of the bar represents the number of observations (or frequency) that fall within that range.
+
+## Bar Plot
+
+Now, lets say we wanted to compare this across different categories, therefore instead we can use bar plots instead of histograms. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
+
+```{r}
+#| echo: true
+
+# Summarize mean race positions by driver
+barplot <- McLarenStandings_2023 |>
+  group_by(surname) |>
+  summarize(mean_position = mean(final_position_numeric))
+
+# Create a bar plot of mean race positions
+ggplot(barplot, aes(x = mean_position, y = surname, fill = surname)) +
+  geom_col() +
+  labs(title = "McLaren Mean Race Results 2023", 
+       x = "Mean Race Position", 
+       y = "McLaren Driver") +
+  scale_fill_manual(values = c("orange", "grey")) + 
+  theme_minimal()
+```
+
+-   **`aes(x = mean_position, y = surname, fill = surname)`**:
+
+    -   `x = mean_position`: The x-axis represents the **mean race position** of each driver.
+
+    -   `y = surname`: The y-axis represents the **driver's name**.
+
+    -   `fill = surname`: Each driver gets a unique color for their bar.
+
+-   **`geom_col()`**:
+
+    -   Creates a **bar chart** where the bar length represents the **mean race position**
+
+-   **`scale_fill_manual(values = c("orange", "grey"))`**:
+
+    -   Manually assigns colors to the bars.
+
+    -   `"orange"` for one driver and `"grey"` for the other (representing McLaren's team colors).
+
+## Box Plots
+
+To make a box plot we use the `geom_boxplot()` function! In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
+
+```{r}
+#| echo: true
+
+ggplot(McLarenStandings_2023, aes(x = surname, y = final_position_numeric, fill = surname)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("orange", "grey")) +  # Assign McLaren colors
+  labs(title = "McLaren Race Results", 
+       x = "Driver", 
+       y = "Final Position") +
+  theme_minimal()
+
+```
+
+-   **`aes(x = surname, y = final_position_numeric, fill = surname)`**:
+
+    -   `x = surname`: Drivers on the x-axis.
+
+    -   `y = final_position_numeric`: Final race position on the y-axis.
+
+    -   `fill = surname`: Colors the boxes based on the driver.
+
+-   **`geom_boxplot()`**: Creates a boxplot to show the distribution of race positions.
+
+The **box and whiskey plot** represents the middle 50% of race finishes for each driver, while the **horizontal line inside the box** is the **median race position**, the **whiskers** show the range of most race finishes (excluding outliers), and any **dots outside the whiskers** indicate o**utliers**.
+
+## ggplot2 Resources:
+
+ggplot2 Website: <https://ggplot2.tidyverse.org/reference/index.html>
+
+Aesthetic specifications: <https://ggplot2.tidyverse.org/articles/ggplot2-specs.html>
+
+-   Specifications for lines, shapes, etc.
+
+<https://r-graph-gallery.com/ggplot2-package.html>
+
+List of ggplot2 Resources: <https://github.com/erikgahner/awesome-ggplot2>
+
+ggplot2 book: <https://ggplot2-book.org>
+
+ggplot2 cheat sheet: <https://rstudio.github.io/cheatsheets/html/data-visualization.html>

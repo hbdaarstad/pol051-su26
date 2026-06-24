@@ -22,7 +22,7 @@ Project Idea due - Fri, June 28
 
 🖥️[Lecture 1 - Meet + greet; Welcome to POL 051](/slides/lec-1.html)
 
-🖥️ [Lecture 2 - Data Visualization I + II](not-available-lec.html)
+🖥️[Lecture 2 - Data Visualization I + II](/slides/lec-2.html)
 
 🖥️ [Lecture 3 - Data Wrangling I](not-available-lec.html)
 

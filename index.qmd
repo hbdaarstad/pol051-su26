@@ -18,7 +18,7 @@ This page contains an outline of the topics, content, and assignments for the su
 | Week | Date | Topic | Prepare | Slides | AE | Lab | Exam | Project |
 |:--:|:--:|:---|:--:|:--:|:--:|:--:|:--:|:--:|
 | [1](/weeks/week-1.html) | Mon, June 22 | Lecture 1 - Meet + greet, Welcome to POL 051 | [📖](/weeks/week-1.html#prepare) | [🖥️](slides/lec-1.html) | [📋](/ae/files/ae-1-rbasics.qmd){download="ae-1-rbasics.qmd"} |  |  | Teams created + list of project ideas 📂 |
-|  | Tue, June 23 | Lecture 2 - Data Visualization I & II |  | [🖥️](not-available-lec.html) |  |  |  |  |
+|  | Tue, June 23 | Lecture 2 - Data Visualization I & II |  | [🖥️](slides/lec-2.html) |  |  |  |  |
 |  | Wed, June 24 | Lecture 3 - Data Wrangling I |  | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Thu, June 25 | Lab 1 |  | [🖥️](not-available-lec.html) |  | [💻](not-available.html) |  | Chosen Topic is Due June 28 📂 |
 | [2](/weeks/week-2.html) | Mon, June 29 | Lecture 4 - Data Wrangling II | [📖](/weeks/week-2.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
