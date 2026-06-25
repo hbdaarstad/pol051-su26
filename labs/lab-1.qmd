@@ -1,0 +1,234 @@
+---
+title: "Lab-1"
+output: html_document
+---
+
+# Instructions
+
+-   You will do your work in this `Rmarkdown` document but will submit all your answers on Canvas
+-   *very important*: As you move through the document, make sure to run all code chunks (grey bits) that already have code in them
+-   Write your own code in the empty code chunks
+-   Useful shortcuts:
+    -   to run all the code in a specific code chunk, press the green right-facing triangle at the top right of the code chunk
+    -   to run all *prior* code chunks, press the downward-facing gray triangle at the top right of the code chunk
+
+```{r load-libraries, warning=FALSE, message=FALSE}
+
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(babynames) # loads babynames data, needs to install if not yet installed
+library(socviz) # loads socviz data, needs to install if not yet installed
+library(juanr) # install if not yet installed
+```
+
+# Task 1: Baby Names
+
+The `babynames` package includes data from the Social Security Administration on how often a name was given to a baby between 1880-2015.
+
+Run the code chunk below to create `baby_subset`, a dataset of babies named "Angel".
+
+```{r}
+baby_subset <- babynames %>%
+  filter(name == "Angel")
+
+# look at the data
+head(baby_subset)
+```
+
+Using `baby_subset`, make a *time-series* that shows how often the name we picked was used for babies categorized as male and as female over time. (Hint: map the `sex` variable to the color aesthetic; also, the `n` variable shows the count per year).
+
+Make the plot below:
+
+```{r}
+
+```
+
+**Question 1**: Roughly speaking, what happens to the use of the name from the 1990s onwards?
+
+Now, make a similar graph for your name or a name of your choosing. Alter the code chunk below so that `baby_subset` contains babies with your chosen name instead of "Angel". If `baby_subset` looks empty, make sure the name is spelled correctly (e.g., "Juan" instead of "juan"). If you're still struggling, try a different name!
+
+```{r mckinley-subset}
+baby_subset <- babynames %>%
+  filter(name == "Angel")
+
+# look at the data
+head(baby_subset)
+```
+
+Now make the same plot from earlier below:
+
+```{r}
+
+
+```
+
+**Question 2: Briefly describe the trend you observe with your chosen name over time.**
+
+Finally, let's look at the most popular names in 1945. Run the code below:
+
+```{r}
+top_names = babynames %>% 
+  filter(year == 1945) %>% 
+  group_by(sex) %>% 
+  top_n(n = 10, wt = prop) %>% 
+  select(sex, name, prop) %>% 
+  mutate(name = fct_reorder(name, prop))
+```
+
+Using `top_names`, make a barplot that puts the baby's name on the y-axis, and the proportion of babies with that name (the variable is called `prop`) on the x-axis. Map the sex variable to the fill aesthetic to create separate bars for male and female babies.
+
+```{r}
+
+
+```
+
+**Question 3: Roughly speaking, where is the biggest drop off in name popularity among female names?**
+
+# Task 2: Childcare costs
+
+Run the code chunk below to generate `childcare_four`, a dataset of childcare costs for every county in four US states.
+
+```{r}
+childcare_four = childcare |> 
+  filter(state %in% c("Mississippi", "Virginia", "California", "Hawaii")) |> 
+  select(state, county, infant_price)
+childcare_four
+```
+
+Using `childcare_four`, make a boxplot plot of the distribution of infant childcare prices across states (hint: the state's name should go on the y-axis).
+
+```{r}
+
+
+
+```
+
+**Question 4: Generally speaking, which state has the most outliers in terms of childcare costs?**
+
+# Task 3: The Movies
+
+Next, let's look at some data about movies. These data are about a selection of films and info about how much they cost, how much they made in theaters, and what rating they received from reviewers. Run the code below:
+
+```{r clean-movie-data, message=FALSE, warning=FALSE}
+# read data
+?movies # look at the codebook
+movies = 
+  movies %>% 
+  # exclude films made before the 60s
+  filter(year >= 1960)
+
+head(movies)
+```
+
+Using `movies`, make a scatterplot that presents a movie's budget (x-axis) against how much it grossed in theaters (y-axis). Color the points by which `decade` the movie was made in. Add titles to the x and y axis and a theme.
+
+Make the plot below:
+
+```{r budget}
+
+
+```
+
+**Question 5: right click the graph --\> "save image as" --\> and save it somewhere on your computer. You will need to submit the plot!**
+
+Look at that outlier point in top-left part of the plot (should have the color for "1970s"). What movie is this?
+
+Make a new plot that adds labels to each of the points so that you can figure out what that movie is. Hint: look at how we did this with the health and wealth plot from class with `gapminder`.
+
+Make the plot below (hint: if hard to see, press the icon with an arrow and a box at the top right of the image):
+
+```{r}
+
+
+
+```
+
+**Question 6: What's the outlier movie?**
+
+**Question 7: What, if anything, does the movie's position on the graph tell us about how successful it was?**
+
+Movies vary so much in length (i.e., their duration in minutes). Around how long are most movies? Make a histogram of `duration` below:
+
+```{r ratings-year}
+
+
+```
+
+**Question 8: Roughly, about how long are most movies (where is the peak of the distribution)?**
+
+Finally, let's look at who are the most/least *profitable* thriller movie directors. First, we'll make a new dataset that only looks at thriller movies, calculates each movie's profit (`gross` - `budget`) and finds the average profit for each director. To make this more manageable, let's look at directors who made at least 2 movies.
+
+Run the code below to create `directors_profit`, a dataset of thriller movie directors:
+
+```{r summarize-profits-director}
+directors_profit = movies %>% 
+  # only look at horror movies
+  filter(genre1 == "Thriller" | genre2 == "Thriller" | genre3 == "Thriller") %>% 
+  # calculate profit
+  mutate(profit = gross - budget) %>% 
+  # group by director name
+  group_by(director) %>% 
+  # calculate number of movies each director made, average profit, average rating
+  summarise(n_movies = n(), 
+            profit = mean(profit)) %>% 
+  # include directors who made more than 2 movies
+  filter(n_movies > 2)
+```
+
+Using `directors_profit` make a barplot that has the `director` on the y-axis and `profit` on the x-axis.
+
+Make the plot below:
+
+```{r plot-director-profits}
+
+
+```
+
+-   **Question 9: Who is the least profitable director?**
+
+# Task 4: Pokemon
+
+First we'll look at data on pokemon. Let's load it below and look at it.
+
+```{r load-pokemon}
+pokemon
+
+?pokemon
+```
+
+Using `filter()`, tell me which Pokemon:
+
+-   is taller than a meter
+-   weighs more than 200 times its height
+-   has a type 1 of "ground"
+-   is a generation 3 pokemon
+
+```{r}
+
+
+```
+
+**Q10: Who's that Pokemon?**
+
+Now, look at Pokemon that:
+
+-   have a higher defense than attack
+-   have a capture rate of 3
+-   are legendary
+
+```{r}
+
+
+```
+
+**Q11: How many pokemon fit this description?**
+
+Next, look at Pokemon that are:
+
+-   grass for type 1 and psychic for type 2, or grass for type1 and flying for type2
+-   better at speed than defense
+-   have an HP level above 50
+
+```{r}
+
+
+```

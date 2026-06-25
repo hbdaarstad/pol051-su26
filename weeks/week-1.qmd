@@ -32,7 +32,7 @@ Project Idea due - Fri, June 28
 
 ## Lab
 
-⌨️ [Lab 1 - Data Visualization + Data Wrangling I](not-available.html)
+⌨️ [Lab 1 - Data Visualization + Data Wrangling I](/labs/lab-1.qmd){download="lab-1.qmd"}
 
 <br><br>
 

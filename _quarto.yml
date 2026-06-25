@@ -38,7 +38,7 @@ website:
       - icon: code-square
         href: https://posit.cloud
         text: "Posit Cloud"
-      - icon: person-fill
+      - icon: book
         text: "Course books"
         menu:
           - text: R for Data Sceince

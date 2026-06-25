@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>POL 051: The Scientific Study of Politics – POL 051 - Summer 2026</title>
+<title>Lab-1 – POL 051 - Summer 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./course-syllabus.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-75493511a7215914068a432dc454a958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-40808b6f0c3085988c400b067a015837.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-75493511a7215914068a432dc454a958.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-40808b6f0c3085988c400b067a015837.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,9 +103,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="POL 051: The Scientific Study of Politics – POL 051 - Summer 2026">
+<meta property="og:title" content="Lab-1 – POL 051 - Summer 2026">
 <meta property="og:description" content="Homepage for POL 051 - The Scientific Study of Politics at UC Davis, Summer 2026.">
-<meta property="og:image" content="http://haleydaarstad.com/pol051-su26/images/pic01.jpg">
 <meta property="og:site_name" content="POL 051 - Summer 2026">
 </head>
 
@@ -85,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./course-overview.html">Course information</a></li><li class="breadcrumb-item"><a href="./course-overview.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab-1</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -99,14 +131,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://login.canvas.ucdavis.edu/" title="Canvas" class="quarto-navigation-tool px-1" aria-label="Canvas"><i class="bi bi-clipboard-check"></i></a>
     <a href="https://posit.cloud" title="Posit Cloud" class="quarto-navigation-tool px-1" aria-label="Posit Cloud"><i class="bi bi-code-square"></i></a>
     <div class="dropdown">
-      <a href="" title="Course books" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Course books"><i class="bi bi-book"></i></a>
+      <a href="" title="Course books" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Course books"><i class="bi bi-person-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://r4ds.hadley.nz/">
@@ -137,34 +169,34 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Course information</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-overview.html" class="sidebar-item-text sidebar-link active">
+  <a href="../course-overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./course-faq.html" class="sidebar-item-text sidebar-link">
+  <a href="../course-faq.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQ</span></a>
   </div>
 </li>
@@ -181,13 +213,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project-description.html" class="sidebar-item-text sidebar-link">
+  <a href="../project-description.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Description</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project-tips-resources.html" class="sidebar-item-text sidebar-link">
+  <a href="../project-tips-resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Options</span></a>
   </div>
 </li>
@@ -204,37 +236,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-3.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-4.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-5.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weeks/week-6.html" class="sidebar-item-text sidebar-link">
+  <a href="../weeks/week-6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6</span></a>
   </div>
 </li>
@@ -251,37 +283,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./supplemental/r-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="../supplemental/r-basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Basics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./supplemental/data-vis.html" class="sidebar-item-text sidebar-link">
+  <a href="../supplemental/data-vis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Visualization (ggplot2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./supplemental/data-wrangling.html" class="sidebar-item-text sidebar-link">
+  <a href="../supplemental/data-wrangling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Wrangling (ggplot2)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./supplemental/models.html" class="sidebar-item-text sidebar-link">
+  <a href="../supplemental/models.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Linear Regression Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./supplemental/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../supplemental/hypothesis-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">t-tests and Correlations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./supplemental/data-gen.html" class="sidebar-item-text sidebar-link">
+  <a href="../supplemental/data-gen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Random Data Generation</span></a>
   </div>
 </li>
@@ -297,16 +329,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome-to-the-scientific-study-of-politics" id="toc-welcome-to-the-scientific-study-of-politics" class="nav-link active" data-scroll-target="#welcome-to-the-scientific-study-of-politics">Welcome to The Scientific Study of Politics!</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#task-1-baby-names" id="toc-task-1-baby-names" class="nav-link" data-scroll-target="#task-1-baby-names">Task 1: Baby Names</a></li>
+  <li><a href="#task-2-childcare-costs" id="toc-task-2-childcare-costs" class="nav-link" data-scroll-target="#task-2-childcare-costs">Task 2: Childcare costs</a></li>
+  <li><a href="#task-3-the-movies" id="toc-task-3-the-movies" class="nav-link" data-scroll-target="#task-3-the-movies">Task 3: The Movies</a></li>
+  <li><a href="#task-4-pokemon" id="toc-task-4-pokemon" class="nav-link" data-scroll-target="#task-4-pokemon">Task 4: Pokemon</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/course-overview.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/labs/lab-1.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./course-overview.html">Course information</a></li><li class="breadcrumb-item"><a href="./course-overview.html">Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">POL 051: The Scientific Study of Politics</h1>
+<h1 class="title">Lab-1</h1>
 </div>
 
 
@@ -323,44 +359,214 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome-to-the-scientific-study-of-politics" class="level3">
-<h3 class="anchored" data-anchor-id="welcome-to-the-scientific-study-of-politics">Welcome to The Scientific Study of Politics!</h3>
-<p>Data is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.</p>
-<p>This undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="images/pic01.jpg" class="img-fluid" width="308"></p>
-</div><div class="column" style="width:50%;">
-<section id="instructor" class="level4">
-<h4 class="anchored" data-anchor-id="instructor">Instructor:</h4>
-<div style="padding-left: 2rem;">
-<div class="line-block">Ms.&nbsp;Haley Daarstad<br>
-569 Kerr Hall<br>
-hbdaarstad@ucdavis.edu<br>
-Office Hours: Tue 2:00 - 4:00 PM</div>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<ul>
+<li>You will do your work in this <code>Rmarkdown</code> document but will submit all your answers on Canvas</li>
+<li><em>very important</em>: As you move through the document, make sure to run all code chunks (grey bits) that already have code in them</li>
+<li>Write your own code in the empty code chunks</li>
+<li>Useful shortcuts:
+<ul>
+<li>to run all the code in a specific code chunk, press the green right-facing triangle at the top right of the code chunk</li>
+<li>to run all <em>prior</em> code chunks, press the downward-facing gray triangle at the top right of the code chunk</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Load ggplot2, dplyr, and all the other tidyverse packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames) <span class="co"># loads babynames data, needs to install if not yet installed</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(socviz) <span class="co"># loads socviz data, needs to install if not yet installed</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(juanr) <span class="co"># install if not yet installed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="lecture" class="level4">
-<h4 class="anchored" data-anchor-id="lecture">Lecture:</h4>
-<div style="padding-left: 2rem;">
-<div class="line-block">Monday - Wednesday<br>
-12:10 pm - 1:50 pm<br>
-Hoagland Hall 168</div>
+<section id="task-1-baby-names" class="level1">
+<h1>Task 1: Baby Names</h1>
+<p>The <code>babynames</code> package includes data from the Social Security Administration on how often a name was given to a baby between 1880-2015.</p>
+<p>Run the code chunk below to create <code>baby_subset</code>, a dataset of babies named “Angel”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>baby_subset <span class="ot">&lt;-</span> babynames <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Angel"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(baby_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   year sex   name      n      prop
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;     &lt;dbl&gt;
+1  1888 M     Angel     8 0.0000616
+2  1890 M     Angel     5 0.0000418
+3  1891 M     Angel     5 0.0000458
+4  1894 F     Angel     5 0.0000212
+5  1896 M     Angel     5 0.0000387
+6  1899 M     Angel     7 0.0000608</code></pre>
 </div>
+</div>
+<p>Using <code>baby_subset</code>, make a <em>time-series</em> that shows how often the name we picked was used for babies categorized as male and as female over time. (Hint: map the <code>sex</code> variable to the color aesthetic; also, the <code>n</code> variable shows the count per year).</p>
+<p>Make the plot below:</p>
+<p><strong>Question 1</strong>: Roughly speaking, what happens to the use of the name from the 1990s onwards?</p>
+<p>Now, make a similar graph for your name or a name of your choosing. Alter the code chunk below so that <code>baby_subset</code> contains babies with your chosen name instead of “Angel”. If <code>baby_subset</code> looks empty, make sure the name is spelled correctly (e.g., “Juan” instead of “juan”). If you’re still struggling, try a different name!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>baby_subset <span class="ot">&lt;-</span> babynames <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">==</span> <span class="st">"Angel"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the data</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(baby_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   year sex   name      n      prop
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;     &lt;dbl&gt;
+1  1888 M     Angel     8 0.0000616
+2  1890 M     Angel     5 0.0000418
+3  1891 M     Angel     5 0.0000458
+4  1894 F     Angel     5 0.0000212
+5  1896 M     Angel     5 0.0000387
+6  1899 M     Angel     7 0.0000608</code></pre>
+</div>
+</div>
+<p>Now make the same plot from earlier below:</p>
+<p><strong>Question 2: Briefly describe the trend you observe with your chosen name over time.</strong></p>
+<p>Finally, let’s look at the most popular names in 1945. Run the code below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>top_names <span class="ot">=</span> babynames <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1945</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">wt =</span> prop) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sex, name, prop) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">fct_reorder</span>(name, prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using <code>top_names</code>, make a barplot that puts the baby’s name on the y-axis, and the proportion of babies with that name (the variable is called <code>prop</code>) on the x-axis. Map the sex variable to the fill aesthetic to create separate bars for male and female babies.</p>
+<p><strong>Question 3: Roughly speaking, where is the biggest drop off in name popularity among female names?</strong></p>
 </section>
-<section id="discussionlab" class="level4">
-<h4 class="anchored" data-anchor-id="discussionlab">Discussion/Lab:</h4>
-<div style="padding-left: 2rem;">
-<div class="line-block">Thursday<br>
-12:10 pm - 1:50 pm<br>
-Teaching and Learning Complex 2212</div>
+<section id="task-2-childcare-costs" class="level1">
+<h1>Task 2: Childcare costs</h1>
+<p>Run the code chunk below to generate <code>childcare_four</code>, a dataset of childcare costs for every county in four US states.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>childcare_four <span class="ot">=</span> childcare <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Mississippi"</span>, <span class="st">"Virginia"</span>, <span class="st">"California"</span>, <span class="st">"Hawaii"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(state, county, infant_price)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>childcare_four</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,064 × 3
+   state      county         infant_price
+   &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt;
+ 1 California Alameda County         302.
+ 2 California Alameda County         313.
+ 3 California Alameda County         313.
+ 4 California Alameda County         314.
+ 5 California Alameda County         314.
+ 6 California Alameda County         312.
+ 7 California Alameda County         310.
+ 8 California Alameda County         344.
+ 9 California Alameda County         378.
+10 California Alameda County         386.
+# ℹ 3,054 more rows</code></pre>
 </div>
+</div>
+<p>Using <code>childcare_four</code>, make a boxplot plot of the distribution of infant childcare prices across states (hint: the state’s name should go on the y-axis).</p>
+<p><strong>Question 4: Generally speaking, which state has the most outliers in terms of childcare costs?</strong></p>
 </section>
+<section id="task-3-the-movies" class="level1">
+<h1>Task 3: The Movies</h1>
+<p>Next, let’s look at some data about movies. These data are about a selection of films and info about how much they cost, how much they made in theaters, and what rating they received from reviewers. Run the code below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>?movies <span class="co"># look at the codebook</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">=</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  movies <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># exclude films made before the 60s</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1960</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 13
+  title         year decade director genre1 genre2 genre3 duration  gross budget
+  &lt;chr&gt;        &lt;dbl&gt; &lt;fct&gt;  &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1 Avatar&nbsp;       2009 2000s  James C… Action Adven… Fanta…      178 7.61e8 2.37e8
+2 Pirates of …  2007 2000s  Gore Ve… Action Adven… Fanta…      169 3.09e8 3   e8
+3 The Dark Kn…  2012 2010s  Christo… Action Thril… &lt;NA&gt;        164 4.48e8 2.5 e8
+4 John Carter&nbsp;  2012 2010s  Andrew … Action Adven… Sci         132 7.31e7 2.64e8
+5 Spider-Man …  2007 2000s  Sam Rai… Action Adven… Roman…      156 3.37e8 2.58e8
+6 Tangled&nbsp;      2010 2010s  Nathan … Adven… Anima… Comedy      100 2.01e8 2.6 e8
+# ℹ 3 more variables: imdb_score &lt;dbl&gt;, color &lt;chr&gt;, content_rating &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p><br><br></p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ogeGJS0GEF4?si=9goHMz6Bf03nPhWO" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>These course materials have been inspired by</p>
+<p>Using <code>movies</code>, make a scatterplot that presents a movie’s budget (x-axis) against how much it grossed in theaters (y-axis). Color the points by which <code>decade</code> the movie was made in. Add titles to the x and y axis and a theme.</p>
+<p>Make the plot below:</p>
+<p><strong>Question 5: right click the graph –&gt; “save image as” –&gt; and save it somewhere on your computer. You will need to submit the plot!</strong></p>
+<p>Look at that outlier point in top-left part of the plot (should have the color for “1970s”). What movie is this?</p>
+<p>Make a new plot that adds labels to each of the points so that you can figure out what that movie is. Hint: look at how we did this with the health and wealth plot from class with <code>gapminder</code>.</p>
+<p>Make the plot below (hint: if hard to see, press the icon with an arrow and a box at the top right of the image):</p>
+<p><strong>Question 6: What’s the outlier movie?</strong></p>
+<p><strong>Question 7: What, if anything, does the movie’s position on the graph tell us about how successful it was?</strong></p>
+<p>Movies vary so much in length (i.e., their duration in minutes). Around how long are most movies? Make a histogram of <code>duration</code> below:</p>
+<p><strong>Question 8: Roughly, about how long are most movies (where is the peak of the distribution)?</strong></p>
+<p>Finally, let’s look at who are the most/least <em>profitable</em> thriller movie directors. First, we’ll make a new dataset that only looks at thriller movies, calculates each movie’s profit (<code>gross</code> - <code>budget</code>) and finds the average profit for each director. To make this more manageable, let’s look at directors who made at least 2 movies.</p>
+<p>Run the code below to create <code>directors_profit</code>, a dataset of thriller movie directors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>directors_profit <span class="ot">=</span> movies <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># only look at horror movies</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(genre1 <span class="sc">==</span> <span class="st">"Thriller"</span> <span class="sc">|</span> genre2 <span class="sc">==</span> <span class="st">"Thriller"</span> <span class="sc">|</span> genre3 <span class="sc">==</span> <span class="st">"Thriller"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate profit</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">profit =</span> gross <span class="sc">-</span> budget) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group by director name</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(director) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate number of movies each director made, average profit, average rating</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_movies =</span> <span class="fu">n</span>(), </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">profit =</span> <span class="fu">mean</span>(profit)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># include directors who made more than 2 movies</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n_movies <span class="sc">&gt;</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using <code>directors_profit</code> make a barplot that has the <code>director</code> on the y-axis and <code>profit</code> on the x-axis.</p>
+<p>Make the plot below:</p>
+<ul>
+<li><strong>Question 9: Who is the least profitable director?</strong></li>
+</ul>
+</section>
+<section id="task-4-pokemon" class="level1">
+<h1>Task 4: Pokemon</h1>
+<p>First we’ll look at data on pokemon. Let’s load it below and look at it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pokemon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 801 × 14
+   name       type1 type2  height_m weight_kg capture_rate    hp attack defense
+   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Bulbasaur  grass poison      0.7       6.9           45    45     49      49
+ 2 Ivysaur    grass poison      1        13             45    60     62      63
+ 3 Venusaur   grass poison      2       100             45    80    100     123
+ 4 Charmander fire  &lt;NA&gt;        0.6       8.5           45    39     52      43
+ 5 Charmeleon fire  &lt;NA&gt;        1.1      19             45    58     64      58
+ 6 Charizard  fire  flying      1.7      90.5           45    78    104      78
+ 7 Squirtle   water &lt;NA&gt;        0.5       9             45    44     48      65
+ 8 Wartortle  water &lt;NA&gt;        1        22.5           45    59     63      80
+ 9 Blastoise  water &lt;NA&gt;        1.6      85.5           45    79    103     120
+10 Caterpie   bug   &lt;NA&gt;        0.3       2.9          255    45     30      35
+# ℹ 791 more rows
+# ℹ 5 more variables: sp_attack &lt;dbl&gt;, sp_defense &lt;dbl&gt;, speed &lt;dbl&gt;,
+#   generation &lt;dbl&gt;, is_legendary &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>?pokemon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using <code>filter()</code>, tell me which Pokemon:</p>
+<ul>
+<li>is taller than a meter</li>
+<li>weighs more than 200 times its height</li>
+<li>has a type 1 of “ground”</li>
+<li>is a generation 3 pokemon</li>
+</ul>
+<p><strong>Q10: Who’s that Pokemon?</strong></p>
+<p>Now, look at Pokemon that:</p>
+<ul>
+<li>have a higher defense than attack</li>
+<li>have a capture rate of 3</li>
+<li>are legendary</li>
+</ul>
+<p><strong>Q11: How many pokemon fit this description?</strong></p>
+<p>Next, look at Pokemon that are:</p>
+<ul>
+<li>grass for type 1 and psychic for type 2, or grass for type1 and flying for type2</li>
+<li>better at speed than defense</li>
+<li>have an HP level above 50</li>
+</ul>
 
 
 </section>
@@ -927,15 +1133,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./course-syllabus.html" class="pagination-link" aria-label="Syllabus">
-        <span class="nav-page-text">Syllabus</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -944,7 +1141,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/course-overview.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/labs/lab-1.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
