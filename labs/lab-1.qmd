@@ -40,6 +40,7 @@ Make the plot below:
 
 ```{r}
 
+
 ```
 
 **Question 1**: Roughly speaking, what happens to the use of the name from the 1990s onwards?
@@ -99,7 +100,6 @@ Using `childcare_four`, make a boxplot plot of the distribution of infant childc
 ```{r}
 
 
-
 ```
 
 **Question 4: Generally speaking, which state has the most outliers in terms of childcare costs?**
@@ -124,7 +124,6 @@ Using `movies`, make a scatterplot that presents a movie's budget (x-axis) again
 Make the plot below:
 
 ```{r budget}
-
 
 ```
 

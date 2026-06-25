@@ -5,6 +5,7 @@ project:
     - "**/*.qmd"
     - "!files/**"
     - "!ae/files/**"
+    - "!labs/**"
   resources:
     - data/
     - files/
