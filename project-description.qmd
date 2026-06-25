@@ -3,12 +3,12 @@ title: "Project description"
 ---
 
 ::: callout-important
-Project information is still being finalized, and will be completed by June 22, 2026.
+Project Proposal due date extended, now due Wed. July 1.
 :::
 
 ## Timeline
 
-[Project Proposal](#topic-ideas) due Sun, June 28
+[Project Proposal](#topic-ideas) due ~~Sun, June 28~~ Wed. July 1
 
 [Draft report](#draft-report) due Fri, July 17
 
@@ -112,7 +112,7 @@ The purpose of the project report draft #1 is to get your team started on this p
 
 Click here for the [project report template](files/project-template.qmd){download="project-template.qmd"}.
 
-You will render this as a word docx before submitting to canvas. 
+You will render this as a word docx before submitting to canvas.
 
 Include the following in the draft:
 
@@ -306,7 +306,7 @@ The lit review will be worth 10 points and needs to include the following:
 
         -   How was it collected? (1 points)
 
-#### Data Summary + Regression (50 points) 
+#### Data Summary + Regression (50 points)
 
 -   Data Summarization (15 points)
 

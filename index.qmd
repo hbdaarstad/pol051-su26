@@ -20,10 +20,10 @@ This page contains an outline of the topics, content, and assignments for the su
 | [1](/weeks/week-1.html) | Mon, June 22 | Lecture 1 - Meet + greet, Welcome to POL 051 | [📖](/weeks/week-1.html#prepare) | [🖥️](slides/lec-1.html) | [📋](/ae/files/ae-1-rbasics.qmd){download="ae-1-rbasics.qmd"} |  | [🧮](/supplemental/r-basics.html) | Teams created + list of project ideas 📂 |
 |  | Tue, June 23 | Lecture 2 - Data Visualization I & II |  | [🖥️](slides/lec-2.html) |  |  | [🧮](/supplemental/data-vis.html) |  |
 |  | Wed, June 24 | Lecture 3 - Data Wrangling I |  | [🖥️](slides/lec-3.html) |  | |[🧮](/supplemental/data-wrangling.html)   |  |
-|  | Thu, June 25 | Lab 1 |  | |  | [💻](/labs/lab-1.qmd){download="lab-1.qmd"} | | Chosen Topic is Due June 28 📂 |
+|  | Thu, June 25 | Lab 1 |  | |  | [💻](/labs/lab-1.qmd){download="lab-1.qmd"} | | |
 | [2](/weeks/week-2.html) | Mon, June 29 | Lecture 4 - Data Wrangling II | [📖](/weeks/week-2.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Tue, June 30 | Lecture 5 - Relationships I |  | [🖥️](not-available-lec.html) |  |  |  |  |
-|  | Wed, July 1 | Lecture 6 - Relationships II |  | [🖥️](not-available-lec.html) |  |  |  |  |
+|  | Wed, July 1 | Lecture 6 - Relationships II |  | [🖥️](not-available-lec.html) |  |  |  |Chosen Topic is Due June 28 📂  |
 |  | Thu, July 2 | Lab 2 |  |  |  | [💻](not-available.html) |  |  |
 | [3](/weeks/week-3.html) | Mon, July 6 | Lecture 7 - Modeling I | [📖](/weeks/week-3.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Tue, July 7 | Lecture 8 - Modeling II |  | [🖥️](not-available-lec.html) |  |  |  |  |
