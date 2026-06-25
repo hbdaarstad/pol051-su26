@@ -8,6 +8,7 @@ project:
   resources:
     - data/
     - files/
+    - labs/
     - ae/files/
 
 website:
