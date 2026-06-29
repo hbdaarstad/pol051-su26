@@ -12,7 +12,7 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 4 -](not-available-lec.html)[Data Wrangling I](not-avaliable-lec.html)[I](not-available-lec.html)
+🖥️ [Lecture 4 -Data Wrangling II](slides/lec-4.html)
 
 🖥️ [Lecture 5 - Relationships I](not-avaliable-lec.html)
 

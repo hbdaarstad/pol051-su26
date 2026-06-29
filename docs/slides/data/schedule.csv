@@ -1,0 +1,14 @@
+week,date,day2,content,assignment,example,title
+Week 01,NA,2024-09-25T08:00:00Z,/content/01-content,NA,/example/01-example,Hello
+Week 02,2024-09-30T08:00:00Z,2024-10-02T08:00:00Z,/content/02-content,/assignment/02-assignment,/example/02-example,Data visualization
+Week 03,2024-10-07T08:00:00Z,2024-10-09T08:00:00Z,/content/03-content,/assignment/03-assignment,/example/03-example,Data wrangling
+Week 04,2024-10-14T08:00:00Z,2024-10-16T08:00:00Z,/content/04-content,/assignment/04-assignment,/example/04-example,Relationships
+Week 05,2024-10-21T08:00:00Z,2024-10-23T08:00:00Z,/content/05-content,NA,/example/05-example,Modeling
+,2024-10-28T08:00:00Z,NA,NA,NA,NA,"Midterm exam, in class <i class=""fa-solid fa-star""></i>"
+Week 06,2024-10-28T08:00:00Z,2024-10-30T08:00:00Z,/content/06-content,/assignment/06-assignment,/example/06-example,Prediction
+Week 07,2024-11-04T08:00:00Z,2024-11-06T08:00:00Z,/content/07-content,/assignment/07-assignment,/example/07-example,Causality
+Week 08,NA,2024-11-13T08:00:00Z,/content/08-content,/assignment/08-assignment,/example/08-example,DAGs
+Week 09,2024-11-18T08:00:00Z,2024-11-20T08:00:00Z,/content/09-content,/assignment/09-assignment,/example/09-example,Natural experiments
+Week 10,2024-11-25T08:00:00Z,NA,/content/10-content,/assignment/10-assignment,/example/10-example,Uncertainty
+Week 11,2024-12-02T08:00:00Z,2024-12-04T08:00:00Z,/content/11-content,NA,/example/11-example,Hypothesis testing
+,2024-12-10T10:30:00Z,NA,NA,NA,NA,"Final exam, in class 10:30:00 <i class=""fa-solid fa-star""></i>"

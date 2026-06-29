@@ -1,0 +1,603 @@
+---
+title: "Data wrangling II"
+subtitle: "POL51"
+author: "Haley Daarstad"
+institute: "University of California, Davis"
+date: today
+date-format: long
+format:
+  revealjs: 
+    chalkboard: true
+    slide-number: true
+    height: 900
+    width: 1600
+    code-line-numbers: true
+    smooth-scrawl: true
+    theme: [simple, html/custom.scss]
+    incremental: true
+    title-slide-attributes:
+      data-background-image: img/dubois-spiral-2.png
+      data-background-size: contain
+      data-background-position: right
+      data-background-color: "#dc354a"
+---
+
+```{r setup, include=FALSE}
+# set knit options
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=5, 
+  fig.retina=3,
+  fig.align="center",
+  out.width = "100%",
+  cache = FALSE,
+  echo = FALSE,
+  message = FALSE, 
+  warning = FALSE
+)
+
+# libraries
+library(gapminder)
+library(socviz)
+library(juanr)
+
+# source
+source(here::here("slides/R/funcs.R"))
+
+
+```
+
+# Plan for today {.center background-color="#dc354a"}
+
+. . .
+
+Making amends + objects review
+
+. . .
+
+Mutating new variables
+
+. . .
+
+Creating categories
+
+# Weekly check-in {.center background-color="#dc354a"}
+
+So far, you:
+
+. . .
+
+somehow do not know how to make every graph from scratch based solely off memory
+
+. . .
+
+are confused about errors you are seeing for the first time in a computer program you've never used before
+
+. . .
+
+are unable to re-type all the code I am presenting on slides into your notes at what would be a rate on par with a professional court stenographer
+
+# Weekly check-in {.center background-color="#dc354a"}
+
+You are *confused* and *unsure* of yourselves
+
+. . .
+
+But you are doing **well**
+
+. . .
+
+You've only been coding for a single week
+
+. . .
+
+You just need to know how to piece together answers from notes + slides
+
+. . .
+
+You will **slowly** get better at coding, and dealing with errors (be patient!)
+
+# Back to objects {.center background-color="#dc354a"}
+
+## Using objects
+
+```{r, echo = TRUE}
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+```
+
+. . .
+
+What if I wanted to make this same plot, but only looking at **Asian** countries?
+
+## Subset to Asia
+
+I can use `filter()` to subset the data to Asia, store it as a new object `gap_asia`, and use that new object to make a plot
+
+```{r, echo = TRUE}
+gap_asia = gapminder |> filter(continent == "Asia")
+
+ggplot(gap_asia, aes(x = gdpPercap, y = lifeExp)) + geom_point()
+```
+
+## Using the new object
+
+Notice how I need to **use the new object**
+
+the original `gapminder` does not have what I want
+
+::::::: columns
+:::: {.column width="50%"}
+::: fragment
+```{r, echo = TRUE}
+ggplot(gap_asia, aes(x = gdpPercap, 
+                       y = lifeExp)) + 
+  geom_point()
+```
+:::
+::::
+
+:::: {.column width="50%"}
+::: fragment
+```{r, echo = TRUE}
+ggplot(gapminder, aes(x = gdpPercap, 
+                      y = lifeExp)) + 
+  geom_point()
+```
+:::
+::::
+:::::::
+
+## filter() and variables types
+
+Filtering requires knowing the **type** of variable you are working with
+
+. . .
+
+Numerical variables do not use quotes
+
+```{r, echo = TRUE, eval = FALSE}
+gapminder |> filter(year > 2000)
+```
+
+. . .
+
+Categorical variables use quotes, and spelling must be *exact*
+
+✅
+
+```{r, echo = TRUE, eval = FALSE}
+gapminder |> filter(continent == "Asia")
+```
+
+. . .
+
+❌
+
+```{r, echo = TRUE, eval = FALSE}
+gapminder |> filter(continent == "asia")
+```
+
+. . .
+
+`TRUE/FALSE` variables are all-caps, no quotes
+
+```{r, echo = TRUE, eval = FALSE}
+gapminder |> filter(is_asia == TRUE)
+```
+
+## What values does a variable take on?
+
+To figure out what **values** a variable can take on, you can use `distinct()`
+
+. . .
+
+```{r, echo = TRUE}
+bot |> 
+  distinct(religion)
+```
+
+# Next on data wrangling... {.center background-color="#dc354a"}
+
+So far, you:
+
+. . .
+
+You know to save/store new things into an object
+
+. . .
+
+You know how to filter the data to see only certain values for certain variables
+
+. . .
+
+What if we need a new variable?
+
+## Homicides in 2019
+
+```{r}
+df = read_rds(here("slides/data", "murder_wiki_2019.rds"))
+
+murder_set = df |> 
+  select(state, city, population, murder_total)
+
+murder_set |> 
+  head() |> 
+  kable(digits = 0) |> 
+  kable_styling(bootstrap_options = "striped")
+```
+
+## Most violent cities in America?
+
+```{r}
+df |> 
+  slice_max(order_by = murder_total, n = 10) |> 
+  ggplot(aes(y = reorder(paste0(city, ", ", state), murder_total), 
+             x = murder_total)) + 
+  geom_col(color = "white", fill = red) + 
+  labs(x = "Murder and nonnegligent manslaughter", y = NULL)
+```
+
+## Fewer deaths in towns with less people
+
+```{r}
+df |> 
+  ggplot(aes(x = log(population), y = murder_total)) + 
+  geom_point(size = 2, color = blue) + 
+  labs(x = "Population (logged)", y = "Murder and nonnegligent manslaughter")
+```
+
+## Normalizing variables {.center}
+
+To compare across cities we need to **take into account** differences in population
+
+. . .
+
+We want to know how many murders have taken place (or drug overdoses, or crimes, or COVID cases, or...) per person in the city (**per capita**)
+
+. . .
+
+This is called **normalizing** a variable; *changing* it so that we can make units more *comparable*
+
+## Murder **rate**
+
+In math terms this is just dividing the number of murders by population:
+
+$Murders_{capita} = \frac{Murders}{Population}$ = "how many murders per person"
+
+. . .
+
+<br>
+
+Since this fraction is *tiny*, the convention is to multiply by a number that makes sense
+
+. . .
+
+for the population of a city, say 100,000 people
+
+. . .
+
+$Murders_{per 100k} = \frac{Murders}{Population} \times 100,000$ = "how many murders per 100,000 people"
+
+## Comparing murder *rates*
+
+If we look at murder **rates**, the picture changes:
+
+```{r}
+df |> 
+  slice_max(order_by = murder_rate, n = 10) |> 
+  ggplot(aes(y = reorder(paste0(city, ", ", state), murder_rate), 
+             x = murder_rate)) + 
+  geom_col(color = "white", fill = red) + 
+  labs(x = "Murder and nonnegligent manslaughter rate per 100,000", y = NULL)
+```
+
+# Making new variables with `mutate()`
+
+`mutate()` **adds** new variables to data
+
+```{r, out.width="60%"}
+knitr::include_graphics("img/mutate.png")
+```
+
+## Using mutate
+
+```{r, echo = TRUE}
+murder_set
+```
+
+## Using mutate
+
+```{r, echo = TRUE}
+murder_set |> 
+  mutate()
+```
+
+## Using mutate
+
+```{r, echo = TRUE}
+murder_set |> 
+  mutate(murder_capita = murder_total / population)
+```
+
+Notice that I named a new variable, `murder_capita`
+
+## Using mutate
+
+```{r, echo = TRUE}
+murder_set |> 
+  mutate(murder_capita = murder_total / population, 
+         murder_rate = murder_capita * 100000)
+```
+
+Notice the new **columns**
+
+## Forgetting to store
+
+If you don't store your changes, they will melt away, like tears in the rain
+
+```{r, echo = TRUE, eval = FALSE}
+murder_set |> 
+  mutate(murder_capita = murder_total / population, 
+         murder_rate = murder_capita * 100000)
+```
+
+. . .
+
+```{r, echo = TRUE}
+murder_set
+```
+
+## New object, or overwite the old one?
+
+. . .
+
+You can make a new object:
+
+```{r, echo = TRUE, eval=FALSE}
+murder_rates = murder_set |>
+  mutate(murder_capita = murder_total / population, 
+         murder_rate = murder_capita * 100000)
+```
+
+. . .
+
+Or overwrite the old one
+
+```{r, echo = TRUE, eval=TRUE}
+murder_set = murder_set |>
+  mutate(murder_capita = murder_total / population, 
+         murder_rate = murder_capita * 100000)
+```
+
+. . .
+
+In general, overwriting when you are **adding** stuff to your data (`mutate`) is fine
+
+```{r, echo = TRUE}
+murder_set
+```
+
+## New object, or overwite the old one?
+
+Overwriting when you are **removing** information from the data can be bad
+
+. . .
+
+For example, when we `filter()`
+
+. . .
+
+```{r, echo = TRUE, eval = TRUE}
+gapminder = gapminder |> 
+  filter(continent == "Africa")
+gapminder
+```
+
+. . .
+
+This is bad, since we lose the original `gapminder` data
+
+## 🚨 Your turn 🌡️ Climate change 🌡️ 🚨
+
+```{r}
+climate %>% 
+  sample_n(5) %>%
+  select(country, year, population, co2) |> 
+  kbl(caption = "Sample from climate dataset", digits = 2)
+```
+
+## 🚨 Your turn 🌡️ Climate change 🌡️ 🚨
+
+Using `climate`, make the following two plots looking **only** at Germany, USA, China, India:
+
+1.  A grouped time-series of `co2` emissions over time (separate country by color)
+
+2.  A grouped time-series of `co2` emissions **per capita** over time (separate country by color)
+
+3.  Who's to "blame" for climate change? And where should we focus environmental efforts?
+
+::: callout-tip
+1.  The climate data set is in the package `juanr`
+2.  Use `geom_line()` for the time series graph
+3.  Reminder to load/attach your packages using `library()`
+:::
+
+```{r}
+countdown::countdown(minutes = 10L)
+```
+
+## 🚨 🌡️ Climate change Pt. 1 🌡️ 🚨 {.smaller}
+
+```{r}
+#| echo: true
+
+library(juanr)
+
+climate_cap <- climate |>
+  filter(country  %in% c("Germany", "United States", "China", "India")) |>
+  mutate(co2_capita = co2/population)
+
+ggplot(climate_cap, aes(x=year, y = co2, color = country)) + geom_line()
+
+```
+
+## 🚨 🌡️ Climate change Pt. 2 🌡️ 🚨
+
+```{r}
+#| echo: true
+
+library(juanr)
+
+ggplot(climate_cap, aes(x=year, y = co2_capita, color = country)) + geom_line()
+
+```
+
+# Creating categories
+
+## Creating categories with `case_when()`
+
+. . .
+
+Sometimes we want to create **categorical variables** (tall, short, poor, rich, Republican-leaning, Democrat-leaning, etc.)
+
+. . .
+
+We can use `case_when()`, which goes **within** `mutate()`
+
+. . .
+
+Like `filter()`, `case_when()` also relies on logical operators
+
+## Who won the county?
+
+```{r}
+small_elections =
+  elections %>%
+  select(name, state, per_gop_2020, per_dem_2020) 
+
+small_elections |> 
+  sample_n(10) |> 
+  kbl(digits = 2, caption = "sample from elections dataset")
+```
+
+## Who won the county?
+
+The general formula: `case_when(CONDITION ~ LABEL)`
+
+```{r, echo = TRUE}
+small_elections
+```
+
+## Who won the county?
+
+The general formula: `case_when(CONDITION ~ LABEL)`
+
+```{r, echo = TRUE}
+small_elections |> 
+  mutate(who_won = case_when(per_gop_2020 > per_dem_2020 ~ "Republicans"))
+```
+
+::: callout-note
+Remember when we `mutate()` we have to name the new variable
+:::
+
+::: notes
+point out the NA
+:::
+
+## Who won the county?
+
+The general formula: `case_when(CONDITION ~ LABEL)`
+
+```{r, echo = TRUE}
+small_elections |> 
+  mutate(who_won = case_when(per_gop_2020 > per_dem_2020 ~ "Republicans",
+                             per_dem_2020 > per_gop_2020 ~ "Democrats"))
+```
+
+::: notes
+How would I add condition for tie?
+:::
+
+## OK but by how much?
+
+Our categories can be more complex, for instance the **win margin**
+
+. . .
+
+Step 1: calculate the win **margin**
+
+```{r, echo = TRUE}
+small_elections |> 
+  mutate(margin = per_gop_2020 - per_dem_2020)
+```
+
+## OK but by how much?
+
+Step 2: add the categories
+
+```{r, echo = TRUE}
+small_elections |> 
+  mutate(margin = per_gop_2020 - per_dem_2020) |> 
+  mutate(who_won = case_when(margin > 0 & margin < .1 ~ "R < 10"))
+```
+
+## OK but by how much?
+
+Step 3: keep adding categories
+
+```{r, echo = TRUE}
+small_elections |> 
+  mutate(margin = per_gop_2020 - per_dem_2020) |> 
+  mutate(who_won = case_when(margin > 0 & margin < .1 ~ "R < 10",
+                             margin >= .1 & margin < .2 ~ "R + 10"))
+```
+
+. . .
+
+And so on...
+
+## 🚨 Your turn 🚨
+
+Using the `elections` dataset:
+
+1.  Create a variable that tells you what happened in the 2016 election in each county. The variable should incorporate four possibilities:
+
+    1)  DEMS won in 2012 and in 2016 ("blue")
+
+    2)  REPS won in 2012 and in 2016 ("red")
+
+    3)  the county flipped from blue to red ("blue to red")
+
+    4)  the county flipped from red to blue ("red to blue")
+
+2.  Make a boxplot that compares household income (x-axis) across this variable (y-axis)
+
+::: callout-tip
+1.  The elections data set is in the package `juanr`
+2.  Use `geom_boxplot()` for a boxplot graph
+:::
+
+```{r}
+countdown::countdown(minutes = 15L)
+```
+
+## 🚨 Elections 🚨
+
+```{r}
+#| echo: true
+
+elections_cat <- elections |>
+  mutate(
+   won = case_when(
+      per_dem_2012 >  per_gop_2012 & per_dem_2016 >  per_gop_2016 ~ "blue",
+      per_dem_2012 >  per_gop_2012 & per_dem_2016 >  per_gop_2016 ~ "red",
+      per_dem_2012 <  per_gop_2016 & per_dem_2016 >  per_gop_2016 ~ "red to blue",
+      per_dem_2012 >  per_gop_2016 & per_dem_2016 <  per_gop_2016 ~ "blue to red"
+    ) 
+  )
+
+# ggplot(data= elections_cat, aes(x = hh_income, y = won)) + geom_boxplot() 
+
+
+```

@@ -21,7 +21,7 @@ This page contains an outline of the topics, content, and assignments for the su
 |  | Tue, June 23 | Lecture 2 - Data Visualization I & II |  | [🖥️](slides/lec-2.html) |  |  | [🧮](/supplemental/data-vis.html) |  |
 |  | Wed, June 24 | Lecture 3 - Data Wrangling I |  | [🖥️](slides/lec-3.html) |  | |[🧮](/supplemental/data-wrangling.html)   |  |
 |  | Thu, June 25 | Lab 1 |  | |  | [💻](/labs/lab-1.qmd){download="lab-1.qmd"} | | |
-| [2](/weeks/week-2.html) | Mon, June 29 | Lecture 4 - Data Wrangling II | [📖](/weeks/week-2.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
+| [2](/weeks/week-2.html) | Mon, June 29 | Lecture 4 - Data Wrangling II | [📖](/weeks/week-2.html#prepare) | [🖥️](slides/lec-4.html) |  |  |  |  |
 |  | Tue, June 30 | Lecture 5 - Relationships I |  | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Wed, July 1 | Lecture 6 - Relationships II |  | [🖥️](not-available-lec.html) |  |  |  |Chosen Topic is Due June 28 📂  |
 |  | Thu, July 2 | Lab 2 |  |  |  | [💻](not-available.html) |  |  |
