@@ -366,6 +366,17 @@ window.Quarto = {
   <li><a href="#pipes-or" id="toc-pipes-or" class="nav-link active" data-scroll-target="#pipes-or">Pipes (%&gt;% or |&gt;)</a></li>
   <li><a href="#filter-and-select" id="toc-filter-and-select" class="nav-link" data-scroll-target="#filter-and-select">Filter() and Select()</a></li>
   <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">Logical Operators</a></li>
+  <li><a href="#filtering-and-selecting-data" id="toc-filtering-and-selecting-data" class="nav-link" data-scroll-target="#filtering-and-selecting-data">Filtering and Selecting Data</a></li>
+  <li><a href="#creating-new-variables" id="toc-creating-new-variables" class="nav-link" data-scroll-target="#creating-new-variables">Creating New Variables</a></li>
+  <li><a href="#descriptive-statistics-using-tidyverse" id="toc-descriptive-statistics-using-tidyverse" class="nav-link" data-scroll-target="#descriptive-statistics-using-tidyverse">Descriptive Statistics Using Tidyverse</a></li>
+  <li><a href="#class-examples" id="toc-class-examples" class="nav-link" data-scroll-target="#class-examples">Class Examples</a></li>
+  <li><a href="#filter-and-variables-types" id="toc-filter-and-variables-types" class="nav-link" data-scroll-target="#filter-and-variables-types">filter() and variables types</a></li>
+  <li><a href="#what-values-does-a-variable-take-on" id="toc-what-values-does-a-variable-take-on" class="nav-link" data-scroll-target="#what-values-does-a-variable-take-on">What values does a variable take on?</a>
+  <ul class="collapse">
+  <li><a href="#world-leaders-example" id="toc-world-leaders-example" class="nav-link" data-scroll-target="#world-leaders-example">World Leaders Example</a></li>
+  <li><a href="#climate-change-example" id="toc-climate-change-example" class="nav-link" data-scroll-target="#climate-change-example">Climate Change Example</a></li>
+  <li><a href="#elections-example" id="toc-elections-example" class="nav-link" data-scroll-target="#elections-example">Elections Example</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/supplemental/data-wrangling.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -409,7 +420,7 @@ window.Quarto = {
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.2.1     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.2
-✔ ggplot2   4.0.3     ✔ tibble    3.3.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.2
 ✔ purrr     1.2.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -497,8 +508,433 @@ window.Quarto = {
 <section id="logical-operators" class="level2">
 <h2 class="anchored" data-anchor-id="logical-operators">Logical Operators</h2>
 <p><img src="images/logical_operators.png" class="img-fluid"></p>
+</section>
+<section id="filtering-and-selecting-data" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-and-selecting-data">Filtering and Selecting Data</h2>
+<p>In the following coding examples, you will see three important functions, a <code>pipe</code>, <code>select()</code>, and <code>filter()</code>. First, a pipe is written as a <code>%&gt;%</code> or <code>|&gt;</code>. Pipes are a powerful tool that help us clearly expressing a sequence of functions. Pipes tell R that you want to use a designated set for a chain of functions that build off of each other. A way to think about is in math terms.</p>
+<p>$$</p>
+<p><span class="math display">\[ F(G(H(X))), X=Data\]</span></p>
+<p>$$</p>
+<p>In this series of functions, the first step is you solve <span class="math inline">\(H(X)\)</span>, then using that solution you solve <span class="math inline">\(G()\)</span>, then after you solve <span class="math inline">\(F()\)</span>. The final output is the solution of those chain of events with the information of <span class="math inline">\(X\)</span>. This is how pipes work! Pipes use a set of information, typically a data frame, and then apply it to a series of functions that build off each other.</p>
+<p><img src="pictures/logical_operators.png" class="img-fluid" style="width:100.0%"></p>
+<p>In the following example, I use the <code>select()</code> and <code>filter()</code> to simplify the data. The <code>select()</code> allows me to select certain variables from the data and eliminate the rest. <code>filter()</code> does something similar but instead of variables, it allows me to simplify the data based on values based on a set of programmed logical operators. In my first example, I select for the <code>circuit</code>, <code>year</code>, <code>constructor</code>, <code>surname</code> of the driver, and the number of <code>points</code> awarded during that race. I use the <code>unique()</code> to remove duplicates, and then I filter for the race information for the constructor McLaren during the 2023 season.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RandomData)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>race_stats <span class="sc">|&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"McLaren"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2023</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                         year constructor surname points
+   &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt;
+ 1 Bahrain International Circuit   2023 McLaren     Norris       0
+ 2 Jeddah Corniche Circuit         2023 McLaren     Norris       0
+ 3 Jeddah Corniche Circuit         2023 McLaren     Piastri      0
+ 4 Albert Park Grand Prix Circuit  2023 McLaren     Norris       8
+ 5 Albert Park Grand Prix Circuit  2023 McLaren     Piastri      4
+ 6 Baku City Circuit               2023 McLaren     Norris       2
+ 7 Baku City Circuit               2023 McLaren     Piastri      0
+ 8 Miami International Autodrome   2023 McLaren     Norris       0
+ 9 Miami International Autodrome   2023 McLaren     Piastri      0
+10 Circuit de Monaco               2023 McLaren     Norris       2
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>What if we wanted two different constructors? Then we want to use the logical operator for <code>|</code> and also differentiate it from the next instruction for filter by using a <code>,</code> or <code>()</code>. In the example bellow, I filter for the race information for the constructor <code>Mercades</code> and <code>Red Bull</code> during the <code>2021</code> season.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>race_stats <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercades"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                             year constructor surname    points
+   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
+ 1 Losail International Circuit        2021 Red Bull    Pérez          12
+ 2 Losail International Circuit        2021 Red Bull    Verstappen     19
+ 3 Bahrain International Circuit       2021 Red Bull    Pérez          10
+ 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18
+ 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0
+ 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25
+ 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12
+ 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18
+ 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10
+10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>However, if we wanted to use the modified data, we could not because it is not saved. If we want to use this data we need to save it as a new object!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>season_2021 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercades"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                             year constructor surname    points
+   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
+ 1 Losail International Circuit        2021 Red Bull    Pérez          12
+ 2 Losail International Circuit        2021 Red Bull    Verstappen     19
+ 3 Bahrain International Circuit       2021 Red Bull    Pérez          10
+ 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18
+ 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0
+ 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25
+ 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12
+ 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18
+ 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10
+10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>Now, we can use this information!</p>
+</section>
+<section id="creating-new-variables" class="level2">
+<h2 class="anchored" data-anchor-id="creating-new-variables">Creating New Variables</h2>
+<p>We can also add to our data sets! If we want to make a new variable, we can use the <code>mutate()</code>, which uses existing data to create new variables. The correct format of the function is the following, first is the new variable name and then an equal sign <code>=</code>, followed by how the new variable will be formed and what existing variables are used to make it.</p>
+<p><code>mutate(new_column_name = function(old_variable_1))</code></p>
+<p>In the example below, we calculate the average lap time by taking the total time for the driver to finish the race divided by the number of laps.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>season_2023 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, time, laps) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"McLaren"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">avg_laptime =</span> <span class="fu">sum</span>(time)<span class="sc">/</span>laps)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>season_2023 <span class="sc">|&gt;</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(circuit, year, constructor, surname, avg_laptime) <span class="sc">|&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>   <span class="co"># remove duplicates</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                         year constructor surname avg_laptime
+   &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;
+ 1 Bahrain International Circuit   2023 McLaren     Norris      646286.
+ 2 Jeddah Corniche Circuit         2023 McLaren     Norris      710915.
+ 3 Jeddah Corniche Circuit         2023 McLaren     Piastri     710915.
+ 4 Albert Park Grand Prix Circuit  2023 McLaren     Norris      612858.
+ 5 Albert Park Grand Prix Circuit  2023 McLaren     Piastri     612858.
+ 6 Baku City Circuit               2023 McLaren     Norris      696975.
+ 7 Baku City Circuit               2023 McLaren     Piastri     696975.
+ 8 Miami International Autodrome   2023 McLaren     Norris      623609.
+ 9 Miami International Autodrome   2023 McLaren     Piastri     634745.
+10 Circuit de Monaco               2023 McLaren     Norris      461633.
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>If we wanted to make a new character variable we would use the <code>case_when()</code> in the <code>mutate()</code> function. In this example, I make a new variable based on the final position of the race for the two McLaren drivers, Piastri and Norris, in the 2023 season. I use the existing variables the circuit and surname to make this new variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>McLarenStandings_2023 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"McLaren"</span> <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2023</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">final_position =</span> <span class="fu">case_when</span>(</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      <span class="co">#PIASTRI</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Bahrain International Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"DNF"</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Jeddah Corniche Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"15"</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Albert Park Grand Prix Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"8"</span>, </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span>  <span class="st">"Baku City Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"11"</span>,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span>  <span class="st">"Miami International Autodrome"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"19"</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Circuit de Monaco"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"10"</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Circuit de Barcelona-Catalunya"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"13"</span>,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Circuit Gilles Villeneuve"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"11"</span>, </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Red Bull Ring"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"16"</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Silverstone Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"4"</span>,</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Hungaroring"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"5"</span>,</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Circuit de Spa-Francorchamps"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"DNF"</span>,</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Circuit Park Zandvoort"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"9"</span>,</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Autodromo Nazionale di Monza"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"12"</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Marina Bay Street Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"7"</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Suzuka Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"3"</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Losail International Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Circuit of the Americas"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"DNF"</span>,</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Autódromo Hermanos Rodríguez"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"8"</span>,</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Autódromo José Carlos Pace"</span> <span class="sc">~</span> <span class="st">"14"</span>,</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Las Vegas Strip Street Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"10"</span>,</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>      circuit <span class="sc">==</span> <span class="st">"Yas Marina Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Piastri"</span> <span class="sc">~</span> <span class="st">"6"</span>,</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># NORRIS</span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Bahrain International Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"17"</span>,</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Jeddah Corniche Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"17"</span>,</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Albert Park Grand Prix Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"6"</span>,</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span>  <span class="st">"Baku City Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"9"</span>,</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span>  <span class="st">"Miami International Autodrome"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"17"</span>, </span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Circuit de Monaco"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"9"</span>, </span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Circuit de Barcelona-Catalunya"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"17"</span>, </span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Circuit Gilles Villeneuve"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"13"</span>,</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Red Bull Ring"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"4"</span>, </span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Silverstone Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Hungaroring"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Circuit de Spa-Francorchamps"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"7"</span>,</span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Circuit Park Zandvoort"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"9"</span>,</span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Autodromo Nazionale di Monza"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span><span class="st">"8"</span>,</span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Marina Bay Street Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Suzuka Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Losail International Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"3"</span>,</span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Circuit of the Americas"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"3"</span>,</span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Autódromo Hermanos Rodríguez"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"5"</span>,</span>
+<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Autódromo José Carlos Pace"</span> <span class="sc">~</span> <span class="st">"2"</span>,</span>
+<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Las Vegas Strip Street Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"DNF"</span>,</span>
+<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a>        circuit <span class="sc">==</span> <span class="st">"Yas Marina Circuit"</span> <span class="sc">&amp;</span> surname <span class="sc">==</span> <span class="st">"Norris"</span> <span class="sc">~</span> <span class="st">"5"</span></span>
+<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb17-56"><a href="#cb17-56" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb17-57"><a href="#cb17-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-58"><a href="#cb17-58" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(McLarenStandings_2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 5
+   circuit                         year constructor surname final_position
+   &lt;chr&gt;                          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;         
+ 1 Bahrain International Circuit   2023 McLaren     Norris  17            
+ 2 Jeddah Corniche Circuit         2023 McLaren     Norris  17            
+ 3 Jeddah Corniche Circuit         2023 McLaren     Piastri 15            
+ 4 Albert Park Grand Prix Circuit  2023 McLaren     Norris  6             
+ 5 Albert Park Grand Prix Circuit  2023 McLaren     Piastri 8             
+ 6 Baku City Circuit               2023 McLaren     Norris  9             
+ 7 Baku City Circuit               2023 McLaren     Piastri 11            
+ 8 Miami International Autodrome   2023 McLaren     Norris  17            
+ 9 Miami International Autodrome   2023 McLaren     Piastri 19            
+10 Circuit de Monaco               2023 McLaren     Norris  9             
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="descriptive-statistics-using-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-statistics-using-tidyverse">Descriptive Statistics Using Tidyverse</h2>
+<p>Now that we know some basic ways to manipulate the data frame, lets look at different way to do basic descriptive statistics! In this section we will be using the function, <code>summarize()</code>. This function is similar to the mutate function, except instead of adding a variable, it makes a new data frame based on existing variables. You will also see the function <code>group_by()</code>. This function allows us to organize the data by telling it to group things by a variable(s). Essentially, the functions splits things into groups.</p>
+<p>For this example we are going to find the total points for each team in the 2023 season!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>TeamStandings_2023 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2023</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(constructor) <span class="sc">|&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_points =</span> <span class="fu">sum</span>(points)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(TeamStandings_2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   constructor    total_points
+   &lt;chr&gt;                 &lt;dbl&gt;
+ 1 Alfa Romeo               16
+ 2 AlphaTauri               22
+ 3 Alpine F1 Team          110
+ 4 Aston Martin            266
+ 5 Ferrari                 363
+ 6 Haas F1 Team              9
+ 7 McLaren                 266
+ 8 Mercedes                374
+ 9 Red Bull                790
+10 Williams                 26</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>TeamStandings_2023 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2023</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(constructor) <span class="sc">|&gt;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_points =</span> <span class="fu">sum</span>(points)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_points))</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(TeamStandings_2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   constructor    total_points
+   &lt;chr&gt;                 &lt;dbl&gt;
+ 1 Red Bull                790
+ 2 Mercedes                374
+ 3 Ferrari                 363
+ 4 Aston Martin            266
+ 5 McLaren                 266
+ 6 Alpine F1 Team          110
+ 7 Williams                 26
+ 8 AlphaTauri               22
+ 9 Alfa Romeo               16
+10 Haas F1 Team              9</code></pre>
+</div>
+</div>
+<p>What if we wanted to know the percentage of points each driver contributed to the teams total?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>TeamStandings_2023 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2023</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(constructor) <span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_points =</span> <span class="fu">sum</span>(points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span>  <span class="co"># Ungroup to avoid issues with the next group_by</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(surname) <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">perc_points =</span> <span class="fu">sum</span>(points, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">unique</span>(total_points) <span class="sc">*</span> <span class="dv">100</span>)  <span class="sc">|&gt;</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(perc_points))</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(TeamStandings_2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 22 × 2
+   surname    perc_points
+   &lt;chr&gt;            &lt;dbl&gt;
+ 1 Albon             96.2
+ 2 Alonso            74.4
+ 3 Norris            69.2
+ 4 Verstappen        67.1
+ 5 Hülkenberg        66.7
+ 6 Tsunoda           63.6
+ 7 Bottas            62.5
+ 8 Hamilton          58.0
+ 9 Leclerc           51.0
+10 Ocon              50.9
+# ℹ 12 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="class-examples" class="level2">
+<h2 class="anchored" data-anchor-id="class-examples">Class Examples</h2>
+</section>
+<section id="filter-and-variables-types" class="level2">
+<h2 class="anchored" data-anchor-id="filter-and-variables-types">filter() and variables types</h2>
+<p>Filtering requires knowing the <strong>type</strong> of variable you are working with</p>
+<p>Numerical variables do not use quotes</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Categorical variables use quotes, and spelling must be <em>exact</em></p>
+<p>✅</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span> <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>❌</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span> <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"asia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>TRUE/FALSE</code> variables are all-caps, no quotes</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span> <span class="fu">filter</span>(is_asia <span class="sc">==</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-values-does-a-variable-take-on" class="level2">
+<h2 class="anchored" data-anchor-id="what-values-does-a-variable-take-on">What values does a variable take on?</h2>
+<p>To figure out what <strong>values</strong> a variable can take on, you can use <code>distinct()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(juanr)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>bot <span class="sc">|&gt;</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(religion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 1
+   religion                 
+   &lt;fct&gt;                    
+ 1 Roman Catholic           
+ 2 Protestant               
+ 3 Jewish                   
+ 4 Nothing in particular    
+ 5 Agnostic                 
+ 6 Atheist                  
+ 7 Something else           
+ 8 Mormon                   
+ 9 Hindu                    
+10 Muslim                   
+11 Eastern or Greek Orthodox
+12 Buddhist                 
+13 &lt;NA&gt;                     </code></pre>
+</div>
+</div>
+<section id="world-leaders-example" class="level3">
+<h3 class="anchored" data-anchor-id="world-leaders-example">World Leaders Example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(juanr)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>?leader</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>leader <span class="sc">|&gt;</span> </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"VNM"</span> <span class="sc">&amp;</span> yr_office <span class="sc">&lt;=</span> <span class="dv">1</span> <span class="sc">&amp;</span> age <span class="sc">==</span> <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 16
+  country gwcode leader    gender  year yr_office   age edu   mil_service combat
+  &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+1 VNM        815 Thanh Th… M       1889         1    11 Seco…           0      0
+# ℹ 6 more variables: rebel &lt;dbl&gt;, yrs_exp &lt;dbl&gt;, phys_health &lt;dbl&gt;,
+#   mental_health &lt;dbl&gt;, will_force &lt;dbl&gt;, will_force_sd &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="climate-change-example" class="level3 center" data-background-color="#dc354a">
+<h3 class="center anchored" data-background-color="#dc354a" data-anchor-id="climate-change-example">Climate Change Example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(juanr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>climate_cap <span class="ot">&lt;-</span> climate <span class="sc">|&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country  <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Germany"</span>, <span class="st">"United States"</span>, <span class="st">"China"</span>, <span class="st">"India"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">co2_capita =</span> co2<span class="sc">/</span>population)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(climate_cap, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y =</span> co2, <span class="at">color =</span> country)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-wrangling_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(climate_cap, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y =</span> co2_capita, <span class="at">color =</span> country)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 8 rows containing missing values or values outside the scale range
+(`geom_line()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-wrangling_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="elections-example" class="level3">
+<h3 class="anchored" data-anchor-id="elections-example">Elections Example</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>elections_cat <span class="ot">&lt;-</span> elections <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">won =</span> <span class="fu">case_when</span>(</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>      per_dem_2012 <span class="sc">&gt;</span>  per_gop_2012 <span class="sc">&amp;</span> per_dem_2016 <span class="sc">&gt;</span>  per_gop_2016 <span class="sc">~</span> <span class="st">"blue"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>      per_dem_2012 <span class="sc">&gt;</span>  per_gop_2012 <span class="sc">&amp;</span> per_dem_2016 <span class="sc">&gt;</span>  per_gop_2016 <span class="sc">~</span> <span class="st">"red"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>      per_dem_2012 <span class="sc">&lt;</span>  per_gop_2016 <span class="sc">&amp;</span> per_dem_2016 <span class="sc">&gt;</span>  per_gop_2016 <span class="sc">~</span> <span class="st">"red to blue"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>      per_dem_2012 <span class="sc">&gt;</span>  per_gop_2016 <span class="sc">&amp;</span> per_dem_2016 <span class="sc">&lt;</span>  per_gop_2016 <span class="sc">~</span> <span class="st">"blue to red"</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span> elections_cat, <span class="fu">aes</span>(<span class="at">x =</span> hh_income, <span class="at">y =</span> won)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 41 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data-wrangling_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

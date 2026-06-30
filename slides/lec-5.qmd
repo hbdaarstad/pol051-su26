@@ -1,0 +1,875 @@
+---
+title: "Relationships I"
+subtitle: "POL51"
+author: "Haley Daarstad"
+institute: "University of California, Davis"
+date: today
+date-format: long
+format:
+  revealjs: 
+    html-math-method: mathjax
+    chalkboard: true
+    slide-number: true
+    height: 900
+    width: 1600
+    code-line-numbers: true
+    smooth-scrawl: true
+    theme: [simple, html/custom.scss]
+    incremental: true
+    title-slide-attributes:
+      data-background-image: img/dubois-spiral-2.png
+      data-background-size: contain
+      data-background-position: right
+      data-background-color: "#dc354a"
+---
+
+```{r setup, include=FALSE}
+# set knit options
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=5, 
+  fig.retina=3,
+  fig.align="center",
+  out.width = "100%",
+  cache = FALSE,
+  echo = FALSE,
+  message = FALSE, 
+  warning = FALSE
+)
+
+# libraries
+library(gapminder)
+library(socviz)
+library(juanr)
+
+# source
+source(here::here("slides/R/funcs.R"))
+
+
+```
+
+# Plan for today {.center background-color="#dc354a"}
+
+. . .
+
+Data, objects, variables
+
+. . .
+
+Mean, median, variance
+
+. . .
+
+Summarizing data
+
+# Data, objects, variables
+
+. . .
+
+Objects are one of the most confusing parts of coding for new programmers
+
+. . .
+
+An **object** is a "thing" that lives in R that we can use; think of the pantry metaphor!
+
+. . .
+
+In this class, 99.99% of objects are just **data**
+
+. . .
+
+Data has **variables** which are represented as columns
+
+. . .
+
+Objects ➡️ Data ➡️ Variables
+
+## Data, objects, variables
+
+. . .
+
+`trade` is a data object that contains variables like **imports**
+
+```{r, echo = TRUE}
+trade
+```
+
+. . .
+
+`trade_2010` and `trade` are both objects, `year` is a variable
+
+```{r, echo = TRUE, eval = FALSE}
+trade_2010 = trade |> 
+  filter(year == 2010)
+```
+
+## Data, objects, variables
+
+Confusing! `imports_gdp` is an object that contains a variable that's also named `imports_gdp`
+
+```{r, echo = TRUE, eval = FALSE}
+imports_gdp = 
+  trade |> 
+  mutate(imports_gdp = imports / gdp)
+```
+
+. . .
+
+<br>
+
+This is why we need to pick good variable names!
+
+## A common mistake
+
+Say we wanted to multiply GDP per capita by population and plot the result:
+
+```{r, echo = TRUE}
+gap_gdp = gapminder |> 
+  mutate(gdp = gdpPercap * pop)
+```
+
+. . .
+
+❌
+
+```{r, echo = TRUE, eval = FALSE}
+ggplot(gapminder, aes(x = year, y = gap_gdp)) + geom_point()
+```
+
+Mistake: using the original gapminder data, treating `gap_gdp` as a **variable**
+
+. . .
+
+✅
+
+```{r, echo = TRUE, eval = FALSE}
+ggplot(gap_gdp, aes(x = year, y = gdp)) + geom_point()
+```
+
+Correct: use the new data object, which contains the newly created variable `gdp`
+
+# Summarizing data {background-color="#dc354a"}
+
+## Summarizing data
+
+. . .
+
+Often, with data, we want to **compare** things
+
+. . .
+
+Are democracies more peaceful than autocracies?
+
+. . .
+
+Does early-voting increase turnout?
+
+. . .
+
+To do this, we often rely on **statistical summaries** of our data:
+
+. . .
+
+Means, medians, minimums, maximums, variances
+
+## Summary stats {.center}
+
+. . .
+
+The *mean*: 3, 4, 8 $\rightarrow$ $\frac{(3 + 4 + 8)}{3} = 5$
+
+. . .
+
+The *median*: 3, **4**, 8 $\rightarrow$ 4
+
+. . .
+
+The *minimum*: **3**, 4, 8 $\rightarrow$ 3
+
+. . .
+
+The *maximum*: 3, 4, **8** $\rightarrow$ 8
+
+## Example: an experiment
+
+Some counties let people vote **early**; others don't
+
+. . .
+
+Do counties with early provisions have **higher** turnout?
+
+## The data
+
+```{r}
+set.seed(1990)
+fake = tibble(`Vote early?` = sample(x = c("Yes", "No"), size = 3000, 
+                              replace = TRUE)) %>% 
+  mutate(`Turnout (%)` = rnorm(n = 3000, mean = 40 + 10*I(`Vote early?` == "Yes"), sd = 5))
+
+knitr::kable(head(fake, n = 10), align = "cc", digits = 1)
+```
+
+## Quantifying "higher"
+
+We can compare the *averages* of counties that do have early voting against those that don't:
+
+. . .
+
+```{r}
+fake %>% 
+  group_by(`Vote early?`) %>% 
+  summarise(`Average turnout` = mean(`Turnout (%)`)) %>% 
+  knitr::kable(digits = 1)
+```
+
+. . .
+
+Counties with early voting have, **on average**, 10 percentage points higher turnout
+
+## Mean vs. median
+
+We almost always compare averages, but medians are helpful in some cases:
+
+. . .
+
+```{r, out.width="80%"}
+fake = tibble(income = rexp(n = 500, rate = .005)) %>% 
+  mutate(income = income * 350)
+
+ggplot(fake, aes(x = income)) + 
+  geom_histogram(color = "white", fill = red, alpha = .8) + 
+  theme_bw(base_family = "Fira Sans") + 
+  labs(title = "Fake distribution of household income in the US", 
+       x = NULL, y = NULL) + 
+  scale_x_continuous(labels = scales::dollar) + 
+  geom_vline(xintercept = mean(fake$income), 
+             lty = 2, 
+             size = 2, 
+             color = yellow) + 
+  geom_vline(xintercept = median(fake$income), 
+             lty = 2, 
+             size = 2, 
+             color = blue) + 
+  geom_label(aes(x = 300000, y = 50,
+                label = glue::glue("median: {scales::dollar(round(median(fake$income), 0))}")), 
+            color = blue, family = "Fira Sans", size = 5) + 
+  geom_label(aes(x = 300000, y = 40,
+                label = glue::glue("mean: {scales::dollar(round(mean(fake$income), 0))}")), 
+            color = yellow, family = "Fira Sans", size = 5)
+```
+
+::: notes
+What's happening here?
+:::
+
+## One more stat: variation {.center}
+
+. . .
+
+Another way to compare data is by how much a variable *varies*
+
+. . .
+
+Some distributions are very *narrow*, others are very *wide*
+
+. . .
+
+Narrow = observations are similar; wide = observations are not similar
+
+. . .
+
+## Measuring variation: the standard deviation
+
+The formula:
+
+$$ s = \sqrt{\frac{1}{N-1} \sum_{i=1}^N (x_i - \overline{x})^2}$$
+
+. . .
+
+All the movement is here, the sum of the differences between each observation $x_i$ and the average observation $\overline{x}$
+
+$$\sum_{i=1}^N (x_i - \overline{x})^2$$
+
+## Variance intuition
+
+::::::: columns
+:::: {.column width="50%"}
+::: fragment
+```{r}
+tibble(age = round(rnorm(n = 50, mean = 50, sd = 20), 0)) |> 
+  mutate(avg_age = mean(age),
+         diff = age - avg_age,
+         square = diff^2) |> 
+  slice_head(n = 5) |> 
+  rename("\\(\\overline{age}\\)" = avg_age, "\\(\\ age - \\overline{age}\\)" = diff,
+         "\\(\\ (age - \\overline{age})^2 \\)" = square) |> 
+  kbl(digits = 1, escape = FALSE, caption = "Wide distribution", align = "cccc")
+```
+:::
+::::
+
+:::: {.column width="50%"}
+::: fragment
+```{r}
+tibble(age = round(rnorm(n = 50, mean = 50, sd = 2), 0)) |> 
+  mutate(avg_age = mean(age),
+         diff = age - avg_age,
+         square = diff^2) |> 
+  slice_head(n = 5) |> 
+  rename("\\(\\overline{age}\\)" = avg_age, "\\(\\ age - \\overline{age}\\)" = diff,
+         "\\(\\ (age - \\overline{age})^2 \\)" = square) |> 
+  kbl(digits = 1, escape = FALSE, caption = "Narrow distribution", align = "cccc")
+```
+:::
+::::
+:::::::
+
+$$\sum_{i=1}^N (age_i - \overline{age})^2$$
+
+. . .
+
+The farther observations are from the mean, the **larger** the standard deviation
+
+## Measuring variation
+
+Same average (\~\$50,000), different **standard deviations**
+
+```{r}
+fake = tibble(`narrow, sd = $5,000` = rnorm(n = 200, mean = 50, sd = 5), 
+              `wide, sd = $10,000` = rnorm(n = 200, mean = 50, sd = 10), 
+              `very wide, sd = $20,000` = rnorm(n = 200, mean = 50, sd = 20)) %>% 
+  pivot_longer(everything()) %>% 
+  mutate(value = value * 1000, 
+         name = factor(name, levels = c("narrow, sd = $5,000", 
+                                        "wide, sd = $10,000",
+                                        "very wide, sd = $20,000")))
+
+ggplot(fake, aes(x = value, fill = name)) + 
+  geom_density(color = "white", alpha = .8) + 
+  facet_wrap(vars(name)) + 
+  scale_x_continuous(labels = scales::comma) + 
+  theme_bw(base_family = "Fira Sans", base_size = 14) + 
+  theme(legend.position = "none") + 
+  scale_fill_viridis_d(option = "rocket", end = .8) + 
+  labs(x = NULL, y = NULL, title = "Household income across three fake towns")
+```
+
+::: notes
+What could we measure with sd? Can we use standard deviation to measure *equality*?
+:::
+
+# Summarizing data in R {background-color="#dc354a"}
+
+## Summary statistics with `summarize()`
+
+We can use `summarize()` to **calculate** things like the mean, median, etc.
+
+```{r, out.width="50%"}
+knitr::include_graphics("img/summarize.png")
+```
+
+. . .
+
+Summarizing **condenses** data into statistics
+
+## Using `summarize()`
+
+Say I want to know the average life expectancy in the world in 2007:
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007)
+```
+
+## Using `summarize()`
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize()
+```
+
+## Using `summarize()`
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize(avg_life = mean(lifeExp))
+```
+
+Notice how the data has been *summarized*: only one row
+
+. . .
+
+Notice that I've *named* the summary statistic `avg_life`
+
+## Using `summarize()`
+
+What if I also wanted to know the **median** life expectancy?
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize(avg_life = mean(lifeExp), 
+            med_life = median(lifeExp)) 
+```
+
+Notice! how similar this looks to `mutate()`
+
+## Using `summarize()`
+
+What if I also wanted to know the **min** and **max** life expectancy?
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize(avg_life = mean(lifeExp), 
+            med_life = median(lifeExp), 
+            min_life = min(lifeExp), 
+            max_life = max(lifeExp))
+```
+
+## Using `summarize()`
+
+What if I also wanted to know the **standard deviation** of life expectancy?
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize(avg_life = mean(lifeExp), 
+            med_life = median(lifeExp), 
+            min_life = min(lifeExp), 
+            max_life = max(lifeExp), 
+            sd_life = sd(lifeExp))
+```
+
+## Using `summarize()`
+
+```{r, echo = TRUE, eval = FALSE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize(avg_life = mean(lifeExp), 
+            med_life = median(lifeExp), 
+            min_life = min(lifeExp), 
+            max_life = max(lifeExp), 
+            sd_life = sd(lifeExp)) 
+```
+
+. . .
+
+`summarize()` is like `mutate()` in that you are creating *new variables*
+
+. . .
+
+So note that you have to *name* the new variables!
+
+## We can use summary functions in filter
+
+which country had the lowest life expectancy in 2007?
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  filter(lifeExp == min(lifeExp))
+```
+
+## We can use summary functions in filter
+
+which countries had above average GPD but below average health?
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  filter(gdpPercap > mean(gdpPercap), lifeExp < mean(lifeExp))
+```
+
+## Woe unto us: missing data
+
+. . .
+
+In life, sometimes data is **missing**
+
+. . .
+
+respondent doesn't answer a question, no one knows Afghanistan's GDP in 1943, etc.
+
+. . .
+
+R represents missing data as **NA**
+
+. . .
+
+```{r}
+pokemon %>% 
+  filter(is.na(height_m)) %>% 
+  select(name, type1, type2, height_m, weight_kg) %>% 
+  sample_n(6) %>% 
+  knitr::kable()
+```
+
+## Summarizing with missing data
+
+If you try to *summarize* data that has missing values, R will return `NA`:
+
+. . .
+
+```{r, echo = TRUE}
+pokemon %>% 
+  summarise(average_height = mean(height_m))
+```
+
+. . .
+
+::: callout-note
+Any math operation with `NA` will return `NA` (.e.g, 3 + `NA` = `NA`)
+:::
+
+## What to do?
+
+. . .
+
+There are whole classes on what to do with missing data (impute, simulate, model, etc.)
+
+. . .
+
+In this class we will tell R to ignore missing observations
+
+. . .
+
+We can do this by adding the `na.rm = TRUE` argument to summary
+
+```{r, echo = TRUE}
+pokemon %>% 
+  summarise(average_height = mean(height_m, na.rm = TRUE)) 
+```
+
+## Remember...
+
+. . .
+
+If you're trying to calculate a summary statistic and keep getting `NA`...
+
+. . .
+
+99.99999% of the time you need to add `na.rm = TRUE` to your function!
+
+. . .
+
+```{r, echo = TRUE, eval = TRUE}
+pokemon %>% 
+  summarise(average_height = mean(height_m, na.rm = TRUE)) 
+```
+
+## 🚨 Your turn: 🚢 trade 🚢 🚨
+
+Dataset from `juanr` on international trade:
+
+```{r}
+trade %>% 
+  head() %>% 
+  knitr::kable(caption = "Trade patterns around the world")
+```
+
+## 🚨 Your turn: 🚢 trade 🚢 🚨
+
+Using the `trade` dataset:
+
+1.  How has Inter-Governmental Organizations (IGOs) membership expanded over time? Calculate the *median* number of IGOs that countries belonged to in 1960. Repeat for 2010. About how much has IGO membership grown in 50 years?
+
+2.  What is having a sea border worth? Look only at countries that have at least one sea border in the year 2010. What is the average value of exports among these countries? Do the same for countries with no sea borders. About how much more do countries with sea borders export than countries without?
+
+3.  What was the country with the *most* exports in 1960? What about in 2012?
+
+::: callout-tip
+1.  Remember to attach your libraries using `library()`
+2.  Trade is in the `juanr` package and these functions are found in the `tidyverse` package, also run the `library(dyplr)` after these two (this will already be installed)
+3.  `?trade` to look at the variables and `distinct()` to look at a variables values
+:::
+
+```{r}
+countdown::countdown(minutes = 15L)
+```
+
+## 🚨 🚢 trade Q1 🚢 🚨 {.smaller}
+
+```{r}
+#| echo: true
+
+library(juanr)
+library(tidyverse)
+library(dplyr)
+
+trade_1960 <- trade |>
+  filter(year == 1960) |>
+  summarise(
+   median_igos = median(sum_igos, na.rm = TRUE)
+  )
+
+trade_2010 <- trade |>
+  filter(year == 2010) |>
+  summarise(
+   median_igos = median(sum_igos, na.rm = TRUE)
+  )
+
+trade_1960 
+trade_2010
+
+```
+
+## 🚨 🚢 trade Q2 🚢 🚨
+
+```{r}
+#| echo: true
+
+trade_seaborders <- trade |>
+  filter(sea_borders >= 1 & year == 2010) |>
+  summarise(
+   avg_exports = mean(exports, na.rm = TRUE)
+  )
+
+trade_no_seaborders <- trade |>
+  filter(sea_borders == 0 & year == 2010) |>
+  summarise(
+   avg_exports = mean(exports, na.rm = TRUE)
+  )
+
+trade_seaborders
+trade_no_seaborders
+
+```
+
+## 🚨 🚢 trade Q3 🚢 🚨 {.smaller}
+
+```{r}
+#| echo: true
+
+## Option 1
+trade_exp1960 <- trade |>
+  filter(year == 1960) |>
+  filter(exports == max(exports, na.rm=TRUE))
+
+trade_exp2012 <- trade |>
+  filter(year == 2012) |>
+  filter(exports == max(exports, na.rm=TRUE))
+
+trade_exp1960
+trade_exp2012 
+
+## Option 2
+trade_exp1960 <- trade |>
+  filter(year == 1960) |>
+  arrange(desc(exports))
+
+trade_exp2012 <- trade |>
+  filter(year == 2012) |>
+  arrange(desc(exports))
+
+trade_exp1960[1,]
+trade_exp2012[1,]
+
+```
+
+##  {.center}
+
+## Relationships {.center}
+
+. . .
+
+`summarize()` lets us calculate statistics for the whole dataset
+
+. . .
+
+But what if we want to do this for different *groups* within the data?
+
+. . .
+
+This is at the heart of making **comparisons**
+
+## Variation in trade over time: the brutal way
+
+How much do country imports **vary** for each country over time?
+
+. . .
+
+Tedious: `filter()` to calculate standard deviation of imports for each country
+
+. . .
+
+Starting with China
+
+```{r, echo = TRUE}
+trade %>% 
+  filter(country == "China") %>%  
+  summarise(var_trade = sd(imports, na.rm = TRUE)) 
+```
+
+## Variation in trade over time: the brutal way
+
+I could go on to another country:
+
+```{r, echo = TRUE}
+trade %>% 
+  filter(country == "Algeria") %>%  
+  summarise(var_trade = sd(imports, na.rm = TRUE)) 
+```
+
+## Variation in trade over time: the brutal way
+
+And so on for all countries... but this is brutally tedious
+
+```{r, echo = TRUE}
+trade %>% 
+  filter(country == "Nepal") %>%  
+  summarise(var_trade = sd(imports, na.rm = TRUE)) 
+```
+
+## Using `group_by()`
+
+We can use `group_by()` in combination with `summarize()` to calculate some stat **by** another variable in the data:
+
+. . .
+
+```{r, echo = TRUE}
+trade %>% 
+  group_by(country) %>%  
+  summarise(var_trade = sd(imports, na.rm = TRUE)) 
+```
+
+## Using `group_by()`
+
+Like with anything else, we can store our results as a new object:
+
+```{r, echo = TRUE}
+var_time = trade %>% 
+  group_by(country) %>% 
+  summarise(var_trade = sd(imports, na.rm = TRUE))
+
+var_time
+```
+
+## Variation in trade over time
+
+And use our object to make plots:
+
+```{r, echo = FALSE, out.width="100%"}
+top = var_time %>% 
+  slice_max(var_trade, n = 10) %>% 
+  mutate(type = "Top 10")
+bottom = var_time %>% 
+  slice_min(var_trade, n = 10) %>% 
+  mutate(type = "Bottom 10")
+
+bind_rows(top, bottom) %>% 
+  ggplot(aes(x = reorder(country, var_trade), 
+             y = var_trade, color = type)) + 
+  ggalt::geom_lollipop(size = 1.2, alpha = .8) + 
+  facet_wrap(vars(type), scales = "free_y") + 
+  coord_flip() + 
+  scale_x_discrete(labels = scales::label_wrap(20)) + 
+  theme(legend.position = "none") + 
+  scale_color_manual(values = c(red, blue)) + 
+  scale_y_continuous(labels = scales::dollar) + 
+  labs(x = NULL, y = "Variation in trade over time\n(in millions of USD)")
+```
+
+::: notes
+What does this graph tell us?
+:::
+
+## Using `group_by()`
+
+We can even `group_by()` multiple variables 🤯
+
+. . .
+
+Average life expectancy per **time**:
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>%
+  group_by(year) %>% 
+  summarise(avg_life = mean(lifeExp))
+```
+
+## Using `group_by()`
+
+We can even `group_by()` multiple variables 🤯
+
+. . .
+
+Average life expectancy per **year** and **continent**:
+
+. . .
+
+```{r, echo = TRUE}
+gapminder %>%
+  group_by(year, continent) %>% 
+  summarise(avg_life = mean(lifeExp))
+```
+
+## Using `group_by()`
+
+Store as object:
+
+```{r, echo = TRUE}
+life_continent_year = gapminder %>% 
+  group_by(year, continent) %>%
+  summarise(avg_life = mean(lifeExp))
+```
+
+## Make the plot
+
+```{r, echo = TRUE, out.width="80%"}
+ggplot(life_continent_year, aes(x = year, y = avg_life, color = continent)) + 
+  geom_line(size = 2, alpha = .8) + labs(x = "Year", y = "Average life expectancy")
+```
+
+## 🚨 Your turn: 🌡️ ugly prejudice 🌡️ 🚨
+
+. . .
+
+Researchers use *feeling thermometers* to measure how people feel about different groups
+
+. . .
+
+🌡 goes from zero (strong dislike) to 100 (strong like), with 50 as the neutral point
+
+. . .
+
+```{r}
+therm %>% 
+  head() %>% 
+  #select(birth_year, sex, race, party_id, ft_black_2017, ft_white_2017) %>% 
+  knitr::kable()
+```
+
+## 🚨 Your turn: 🌡️ ugly prejudice 🌡️ 🚨
+
+Using the `therm` dataset:
+
+1.  Calculate average 🌡 towards **two** groups of your choosing, broken down **by** one respondent characteristic. Make sense of the finding.
+
+2.  Calculate average 🌡 towards **two** groups of your choosing, broken down **by** two (🤯🤯🤯) respondent characteristics. Make sense of the finding.
+
+3.  Tell the class what you found.
+
+::: callout-tip
+1.  `?therm` to look at the the variables and `distinct()` to look at a variables values
+:::
+
+```{r}
+countdown::countdown(minutes = 15L)
+```
