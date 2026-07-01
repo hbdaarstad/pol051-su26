@@ -20,7 +20,7 @@ editor: visual
 
 ## Participation
 
-📋
+📋 [AE 2 - Relationships II](/ae/files/ae-2-relationships.qmd){download="ae-2-relationships.qmd"}
 
 ## Lab
 

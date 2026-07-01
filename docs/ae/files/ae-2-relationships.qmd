@@ -1,0 +1,44 @@
+---
+title: "AE-2"
+format: html
+editor: visual
+---
+
+```{r}
+
+# install(fivethirtyeight)
+library(tidyverse)
+library(fivethirtyeight)
+
+
+```
+
+## 🎨 Bob Ross 🎨
+
+Using the `bob_ross` data from `fivethirtyeight` package
+
+1.  How likely was Bob Ross to include a happy little `tree` in one of his paintings?
+
+2.  How has the frequency with which Bob Ross included `clouds` in his paintings changed across the show's seasons? Make a time series to illustrate.
+
+3.  If there is a `mountain` in a Bob Ross painting, how likely is it that mountain is *snowy* (`snowy_mountain`)?
+
+4.  How much more likely was Steve Ross (`steve`) to paint a lake (`lake`) than his dad?Running Code
+
+```{r}
+
+```
+
+## 💺 Flying etiquette 💺
+
+Using the `flying` data from `fivethirtyeight`
+
+1.  In a row of three seats, who should get to use the middle arm rest (`two_arm_rests`)? Make a barplot of the *percent* of respondents who gave each answer.
+
+2.  In general, is it rude to knowingly bring unruly children on a plane? Make a barplot of the *percent* who gave each answer, but **separated by** whether the respondent has a kid or not.
+
+3.  Make a barplot of responses to an etiquette dilemma of your liking. Bonus points if you break it down by a respondent characteristic.
+
+```{r}
+
+```
