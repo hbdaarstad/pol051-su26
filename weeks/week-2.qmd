@@ -24,7 +24,7 @@ editor: visual
 
 ## Lab
 
-⌨️ [Lab 2 - Data Wrangling II + Relationships](not-available.html)
+⌨️ [Lab 2 - Data Wrangling II + Relationships](/labs/lab-2.qmd){download="lab-2.qmd"}
 
 <br><br>
 

@@ -1,0 +1,228 @@
+---
+title: "Lab-2: Data Wrangling II + Relationships I + II"
+---
+
+# Instructions
+
+-   You will do your work in this `Rmarkdown` document but will submit all your answers on Canvas
+-   *very important*: As you move through the document, make sure to run all code chunks (grey bits) that already have code in them
+-   Write your own code in the empty code chunks
+-   Useful shortcuts:
+    -   to run all the code in a specific code chunk, press the green right-facing triangle at the top right of the code chunk
+    -   to run all *prior* code chunks, press the downward-facing gray triangle at the top right of the code chunk
+
+```{r load-libraries, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(socviz)
+library(juanr)
+```
+
+# Task 1: Pokemon
+
+First we'll look at data on pokemon. Let's load it below and look at it.
+
+```{r load-pokemon}
+pokemon
+?pokemon
+```
+
+Finally, let's create some new variables and do some plotting. Construct a variable called `diff` that equals a Pokemon's attack level minus their defense level. This variable tells you how much better (or worse) a Pokemon is at attack than defense.
+
+```{r}
+
+
+
+```
+
+Make a boxplot graph where you compare the distribution of `diff` across a Pokemon's `type1`.
+
+```{r}
+
+
+```
+
+**Question 1: right click the graph --\> "save image as" --\> and save it somewhere on your computer. You will need to submit the plot!**
+
+**Question 2: which type has the MOST outliers in terms of Pokemon who are better at defense than attack?**
+
+# Task 2: Opiate deaths
+
+Let's look at data on deaths related to opiate use in the US, from the `socviz` package.
+
+```{r}
+opiates
+```
+
+First, make a barplot of opiate deaths (x-axis) by state (y-axis) but only for one year, 2010.
+
+```{r}
+
+
+```
+
+**Question 3: What's the top state in terms of opiate deaths?**
+
+The plot lets you compare the number of opiate deaths across states, but there's a problem: some states have a lot more people, and will therefore have *more* deaths even if the opiate crisis isn't necessarily worse there.
+
+To account for this, construct a new variable gives you the death *rate* per 100,000 residents. To get the rate:
+
+-   divides deaths by population
+-   multiplies that number by 100,000
+-   call it `deaths_per_100`
+
+This gives you the death *rate* per 100,000 residents. Make the same barplot as above but this time with your new *rate* variable on the y-axis:
+
+```{r}
+
+
+```
+
+**Question 4: Which state has the worst opiate death rate?**
+
+**Question 5: Which of the following is closest to the meaning of this state having the highest opiate death rate:**
+
+-   this state has the most deaths overall in 2010
+-   this state has the most deaths relative to it's population in 2010
+-   this state has the highest year-to-year increase in opiate deaths in 2010
+-   the rate of opiate deaths in this state has been increasing over time
+
+# Task 3: World Bank categories
+
+Let's look at data on countries' levels of national income per capita (GNI per cap):
+
+```{r}
+income = read_rds("https://github.com/hail2thief/poli-301/raw/master/static/files/gni-2021.rds") %>% 
+  # drop missing income data
+  drop_na(gni_cap)
+income
+```
+
+The World Bank likes to categorize countries into "buckets" based on national income. The buckets are as follows:
+
+-   Low income = less than \$1,046
+-   Lower-middle = \$1,046 – 4,095
+-   Upper-middle = \$4,096 - 12,695
+-   High income = \$12,695
+
+Use `case_when` to construct a new variable called `category` that categorizes countries into these buckets. Store your new data as an object named `income_cats`:
+
+```{r}
+
+
+```
+
+How many countries are in the "Lower-middle" category? Run the code below. The code will tell you how many countries are in each `category`:
+
+```{r, eval = FALSE}
+income_cats %>% 
+  group_by(category) %>% 
+  tally()
+```
+
+**Question 6: What percent of countries are in the low income category?**
+
+# Task 4: Money in politics
+
+We're going to work with the Database on Ideology, Money in Politics, and Elections (`bonica`), which has candidate-level information on campaign fundraising.
+
+```{r}
+bonica
+?bonica
+```
+
+How much money did the average candidate from each party raise in the 2018 election cycle? Calculate the average amount of money raised (`total_receipts`) per political party in the 2018 cycle.
+
+```{r}
+
+```
+
+**Question 7: How much money did the TOP fundraising party raise, on average?**
+
+Look only at California politicians. Among these, who raised the most money? Hint: you may need to use two filters sequentially instead of one.
+
+```{r}
+
+```
+
+**Question 8: Who raised the most money?**
+
+How much do the number of donors vary *within* states? For the 2018 cycle, calculate the standard deviation of the number of donors each candidate received money from (`num_distinct_donors`), broken down by state. Then, look at which state has the highest standard deviation of the number of distinct donors.
+
+```{r}
+
+```
+
+**Question 9: Which state has the highest standard deviation of distinct donors?**
+
+The reason this state has such a high standard deviation of the number of unique donors is because of one candidate who is unusually good at fundraising. Dig around in the data for this state; who is this person?
+
+```{r}
+
+
+```
+
+**Question 10: Who is this person?**
+
+**Question 11: What can we infer from the fact that this state has the highest standard deviation of the number of unique donors?**
+
+# Task 5: Leaders
+
+Look at the leader dataset on world leaders:
+
+```{r}
+leader
+?leader
+```
+
+Across the whole dataset, how many years of experience does the median leader have?
+
+```{r}
+
+```
+
+**Question 12: how many years of experience does the median leader have?**
+
+What percent of world leaders have experience in a rebellion in the year of 1991?
+
+```{r}
+
+
+```
+
+**Question 13: What percent of world leaders in 1991 had experience in a rebellion?**
+
+How is the age of world leaders changing over time? Calculate the average age of world leaders per year. Plot the average ages as a lined time series.
+
+```{r}
+
+
+```
+
+**Question 14: right click the graph --\> "save image as" --\> and save it somewhere on your computer. You will need to submit the plot!**
+
+# Task 6: bots
+
+Look at the bot data on how Americans feel about different political issues:
+
+```{r}
+bot
+?bot
+```
+
+What percent of of respondents in `bot` support concealed carry?
+
+```{r}
+
+```
+
+**Question 15:**  **What percent of WHITE respondents in `bot` support concealed carry?**
+
+Let's look at how the different religious groups feel about abortion (`prochoice`). Calculate the percent of respondents who support or oppose `prochoice`, broken down by religion. Store as an object so you can look at it.
+
+```{r}
+
+```
+
+**Question 16: What religious group has the highest opposition to `prochoice`?**
+
+# All Done!
