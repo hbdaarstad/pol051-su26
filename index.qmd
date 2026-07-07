@@ -25,8 +25,8 @@ This page contains an outline of the topics, content, and assignments for the su
 |  | Tue, June 30 | Lecture 5 - Relationships I |  | [🖥️](slides/lec-5.html) |  |  |  [🧮](/supplemental/data-wrangling.html) |  |
 |  | Wed, July 1 | Lecture 6 - Relationships II |  | [🖥️](slides/lec-6.html) |[📋](/ae/files/ae-2-relationships.qmd){download="ae-2-relationships.qmd"} |  |  |Chosen Topic is Due June 28 📂  |
 |  | Thu, July 2 | Lab 2 |  |  |  | [💻](/labs/lab-2.qmd){download="lab-2.qmd"} |  |  |
-| [3](/weeks/week-3.html) | Mon, July 6 | Lecture 7 - Modeling I | [📖](/weeks/week-3.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
-|  | Tue, July 7 | Lecture 8 - Modeling II |  | [🖥️](not-available-lec.html) |  |  |  |  |
+| [3](/weeks/week-3.html) | Mon, July 6 | Lecture 7 - Modeling I | [📖](/weeks/week-3.html#prepare) | [🖥️](slides/lec-7.html) |  |  |  |  |
+|  | Tue, July 7 | Lecture 8 - Modeling II |  | [🖥️](slides/lec-8.html) |  |  |  |  |
 |  | Wed, July 8 | Lecture 9 - Causality I |  |  |  |  |  |  |
 |  | Thu, July 9 | Lab 3 |  | [🖥️](not-available-lec.html) |  | [💻](not-available.html) |  |  |
 | [4](/weeks/week-4.html) | Mon, July 13 | Lecture 10 - Causality II | [📖](/weeks/week-4.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |

@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="Haley Daarstad">
+  <meta name="dcterms.date" content="2026-07-07">
+  <title>POL 051 - Summer 2026 – Modeling I</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c98ac06e38fe745200bc14d81cfd39df.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<meta property="og:title" content="Modeling I – POL 051 - Summer 2026">
+<meta property="og:description" content="POL51">
+<meta property="og:site_name" content="POL 051 - Summer 2026">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#dc354a" data-background-image="img/dubois-spiral-2.png" data-background-position="right" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">Modeling I</h1>
+  <p class="subtitle">POL51</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Haley Daarstad 
+</div>
+        <p class="quarto-title-affiliation">
+            University of California, Davis
+          </p>
+    </div>
+</div>
+
+  <p class="date">July 7, 2026</p>
+</section>
+<section>
+<section id="plan-for-today" class="title-slide slide level1 center" data-background-color="#dc354a">
+<h1>Plan for today</h1>
+<p>Correlations</p>
+<div class="fragment">
+<p>Models and lines</p>
+</div>
+<div class="fragment">
+<p>Fitting models</p>
+</div>
+</section>
+<section id="patterns-in-the-data" class="slide level2">
+<h2>Patterns in the data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">So far: wrangling and visualizing data</li>
+<li class="fragment">Looking for <strong>patterns</strong> (hopefully real)</li>
+<li class="fragment">Examples?</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/pattern.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="patterns-and-correlations" class="slide level2">
+<h2>Patterns and correlations</h2>
+
+<img data-src="img/correlation.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>A useful way to talk about these patterns is in terms of <strong>correlations</strong></p>
+<div class="fragment">
+<p>When we see a pattern between two (or more) variables, we say they are <strong>correlated</strong>; when we don’t see one, we say they are <strong>uncorrelated</strong></p>
+</div>
+<div class="fragment">
+<p>Correlations can be <strong>strong</strong> or <strong>weak</strong>, <strong>positive</strong> or <strong>negative</strong></p>
+</div>
+</section>
+<section id="correlations-strength" class="slide level2">
+<h2>Correlations: strength</h2>
+<p>When two variables “move together”, the correlation is <strong>strong</strong></p>
+<p>When they don’t “move together”, the correlation is <strong>weak</strong></p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="correlations-strength-1" class="slide level2">
+<h2>Correlations: strength</h2>
+<p>Better heuristic: knowing about one variable tells you <em>something</em> about the other</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Strong</strong>: if you know how a county voted in 2012, you have a good guess for 2016</p>
+<p><strong>Weak</strong>: if you know a county’s average commute time, you know almost nothing about how it votes</p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="correlation-strength" class="slide level2">
+<h2>Correlation: strength</h2>
+<p>We also talk (informally) about correlations that include <strong>categorical</strong> variables</p>
+<p>Big gaps between groups <span class="math inline">\(\rightarrow\)</span> correlated</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlation-direction" class="slide level2">
+<h2>Correlation: direction</h2>
+<p>➕: When two variables move “in the same direction”</p>
+<p>➖: When two variables move “in opposite directions”</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+
+<section id="quantifying-correlation" class="slide level2">
+<h2>Quantifying correlation</h2>
+<p>When the two variables are continuous, we can quantify the correlation</p>
+<p><span class="math display">\[r =
+  \frac{ \sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y}) }{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2\sum_{i=1}^{n}(y_i-\bar{y})^2}}\]</span></p>
+<div class="fragment">
+<p>Correlation coefficient, <strong>r</strong>:</p>
+<p>ranges from -1 to 1,</p>
+<p>perfectly correlated = 1 or -1,</p>
+<p>perfectly uncorrelated = 0</p>
+</div>
+<div class="fragment">
+<p>All of the movement is here: <span class="math inline">\(\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})\)</span></p>
+</div>
+</section>
+<section id="quantifying-correlation-1" class="slide level2">
+<h2>Quantifying correlation</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">age</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\overline{age}\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\ age_{i} - \overline{age}\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">child</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\overline{child}\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\ child_{i} - \overline{child}\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">product</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">49.16</td>
+<td style="text-align: right;">14.84</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.85</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">2.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">49.16</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">1.85</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">49.16</td>
+<td style="text-align: right;">20.84</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.85</td>
+<td style="text-align: right;">-0.85</td>
+<td style="text-align: right;">-17.76</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span class="math display">\[\sum_{i=1}^{n}(age_i-\overline{age})(child_i-\overline{child})\]</span></p>
+<div class="fragment">
+<p>Lots of big, positive <strong>products</strong> <span class="math inline">\(\rightarrow\)</span> strong <strong>positive correlation</strong></p>
+</div>
+<div class="fragment">
+<p>Lots of big, negative <strong>products</strong> <span class="math inline">\(\rightarrow\)</span> strong <strong>negative correlation</strong></p>
+</div>
+<div class="fragment">
+<p>A mix of positive and negative <strong>products</strong> <span class="math inline">\(\rightarrow\)</span> <strong>weak</strong> correlation</p>
+</div>
+</section>
+<section id="interpreting-the-coefficient" class="slide level2">
+<h2>Interpreting the coefficient</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Correlation coefficient</th>
+<th style="text-align: left;">Rough meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">+/- 0.1 - 0.3</td>
+<td style="text-align: left;">Modest</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+/- 0.3 - 0.5</td>
+<td style="text-align: left;">Moderate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+/- 0.5 - 0.8</td>
+<td style="text-align: left;">Strong</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+/- 0.8 - 0.9</td>
+<td style="text-align: left;">Very strong</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/correlation-grid-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="guess-the-correlation" class="title-slide slide level1 center">
+<h1><a href="http://guessthecorrelation.com">Guess the correlation</a></h1>
+
+</section>
+<section id="correlation-coefficient-just-a-number" class="slide level2">
+<h2>Correlation coefficient: just a number</h2>
+<div class="fragment">
+<p>It’s useful in a <strong>narrow</strong> range of situations</p>
+</div>
+<div class="fragment">
+<p>The underlying <strong>concepts</strong> are more broadly applicable</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Strength</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Direction</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Strong</td>
+<td style="text-align: left;">Positive</td>
+<td style="text-align: left;">As X goes up, Y goes up *a lot*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Strong</td>
+<td style="text-align: left;">Negative</td>
+<td style="text-align: left;">As X goes up, Y goes down *a lot*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Weak</td>
+<td style="text-align: left;">Positve</td>
+<td style="text-align: left;">As X goes up, Y goes up *a little*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Weak</td>
+<td style="text-align: left;">Negative</td>
+<td style="text-align: left;">As X goes up, Y goes down *a little*</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="our-turn-correlations" class="slide level2">
+<h2>🚨 Our turn: correlations 🚨</h2>
+<p>What do these pair-wise correlations from <code>elections</code> tell us?</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section></section>
+<section>
+<section id="models" class="title-slide slide level1 center">
+<h1>Models</h1>
+
+</section>
+<section id="models-1" class="slide level2">
+<h2>Models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>Models are everywhere in social science (and industry)</p></li>
+<li class="fragment"><p>Beneath what ads you see, movie recs, election forecasts, social science research <span class="math inline">\(\rightarrow\)</span> a <strong>model</strong></p></li>
+<li class="fragment"><p>In the social sciences, we use models to describe how an <strong>outcome</strong> changes in response to a <strong>treatment</strong></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/models.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="the-moving-parts" class="slide level2">
+<h2>The moving parts</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>The things we want to study in the social sciences are complex</p></li>
+<li class="fragment"><p>Why do people <strong>vote</strong>? We can think of lots of factors that go into this decision</p></li>
+<li class="fragment"><p><span class="red">Voted</span> = <span class="blue">Age</span> + <span class="blue">Interest in politics</span> + <span class="blue">Free time</span> + <span class="blue">Social networks</span> + . . .</p></li>
+<li class="fragment"><p>Models break up (<strong>decompose</strong>) the variance in an <span class="red">outcome</span> into a set of <span class="blue">explanatory</span> variables</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/model-collector.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="speaking-the-language" class="slide level2">
+<h2>Speaking the language</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="lightable-material lightable-striped lightable-hover caption-top" data-quarto-postprocess="true" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Y</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(236, 176, 37, 255) !important;">Outcome variable</td>
+<td style="text-align: left; background-color: rgba(236, 176, 37, 255) !important;">Treatment variable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Response variable</td>
+<td style="text-align: left;">Explanatory variable</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dependent variable</td>
+<td style="text-align: left;">Independent variable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">What is being changed</td>
+<td style="text-align: left;">What is causing the change in Y</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Maybe you’ve seen some of these terms before; here’s what we will use</p>
+</section></section>
+<section>
+<section id="your-turn-identify-the-parts" class="title-slide slide level1 center">
+<h1>🚨Your turn🚨 Identify the parts</h1>
+<p>Identify the <strong>treatment</strong> and the <strong>outcome</strong> in each example below:</p>
+<ul>
+<li class="fragment"><p>A car company wants to know how changing the weight of a car will impact its fuel efficiency</p></li>
+<li class="fragment"><p>A pollster wants to predict vote choice in a county based on race, income, past voting</p></li>
+<li class="fragment"><p>Does having a friend vote make you more likely to vote?</p></li>
+</ul>
+</section>
+<section id="model-cars" class="slide level2">
+<h2>Model cars</h2>
+<p>Say we want to model how changing a car’s <span class="blue">weight</span> (treatment) affects its <span class="red">fuel efficiency</span> (outcome)</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<caption>Sample from mtcars</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mpg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">cyl</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">disp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">hp</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">drat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">wt</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">qsec</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">vs</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">am</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">gear</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.62</td>
+<td style="text-align: right;">16.46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.88</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.32</td>
+<td style="text-align: right;">18.61</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.21</td>
+<td style="text-align: right;">19.44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.44</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="modeling-weight-and-fuel-efficiency" class="slide level2">
+<h2>Modeling weight and fuel efficiency</h2>
+<p>Very strong, negative correlation (<strong>r</strong> = -.9)</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="why-a-model" class="slide level2">
+<h2>Why a model?</h2>
+<div class="fragment">
+<p>Graph + correlation just gives us direction and strength of relationship</p>
+</div>
+<div class="fragment">
+<p>What if we wanted to know what fuel efficiency to expect if a car weighs 3 tons, or 6.2?</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="lines-as-models" class="slide level2">
+<h2>Lines as models</h2>
+<div class="fragment">
+<p>There’s many ways to model relationships between variables</p>
+</div>
+<div class="fragment">
+<p>A simple model is a <strong>line</strong> that “fits” the data “well”</p>
+</div>
+<div class="fragment">
+<p>The <strong>line of best fit</strong> describes how fuel efficiency changes as weight changes</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="strength-of-relationship" class="slide level2">
+<h2>Strength of relationship</h2>
+<p>The <strong>slope</strong> of the line quantifies the <strong>strength</strong> of the relationship</p>
+<div class="fragment">
+<p>Slope: -5.3 <span class="math inline">\(\rightarrow\)</span> for every ton of weight you add to a car, you lose 5 miles per gallon</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="guessing-where-theres-no-data" class="slide level2">
+<h2>Guessing where there’s no data</h2>
+<p>Line also gives us “best guess” for the fuel efficiency of a car with a given weight</p>
+<div class="fragment">
+<p>even where we have <strong>no data</strong></p>
+</div>
+<div class="fragment">
+<p>best guess for 4.5 ton car <span class="math inline">\(\rightarrow\)</span> 13 mpg</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="drawing-lines-in-r" class="slide level2">
+<h2>Drawing lines in R</h2>
+<p>We can add a trend-line to a graph using <code>geom_smooth(method = "lm")</code></p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="where-does-this-line-come-from" class="slide level2">
+<h2>Where does this line come from?</h2>
+<p>Remember that a straight line takes the following form</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p>6th grade algebra notation:</p>
+<p><span class="math inline">\(Y = b + mx\)</span></p>
+<p>Y = a number</p>
+<p>x = a number</p>
+<p>m = the slope <span class="math inline">\(\frac{rise}{run}\)</span></p>
+<p>b = the intercept</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>Statistical notation:</p>
+<p><span class="math inline">\(Y = \beta_0 + \beta_{1} x\)</span></p>
+<p><span class="math inline">\(Y\)</span> = a number</p>
+<p><span class="math inline">\(x1\)</span> = a number</p>
+<p><span class="math inline">\(\beta_1\)</span> = the slope <span class="math inline">\(\frac{rise}{run}\)</span></p>
+<p><span class="math inline">\(\beta_0\)</span> = the intercept</p>
+</div>
+</div></div>
+<div class="fragment">
+<p>If you know <span class="math inline">\(\beta_0\)</span> (intercept) and <span class="math inline">\(\beta_1\)</span> (slope) you can draw a line</p>
+</div>
+</section>
+<section id="some-lines" class="slide level2">
+<h2>Some lines</h2>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="which-line-to-draw" class="slide level2">
+<h2>Which line to draw?</h2>
+<p>We could draw many lines through this data; which is “best”?</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="drawing-the-line" class="slide level2">
+<h2>Drawing the line</h2>
+<p>We need to find the <strong>intercept</strong> (<span class="math inline">\(\beta_0\)</span>) and <strong>slope</strong> (<span class="math inline">\(\beta_1\)</span>) that will “fit” the data “well”</p>
+<p><span class="math inline">\(mpg_{i} = \beta_0 + \beta_1 \times weight_{i}\)</span></p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="what-does-it-mean-to-fit-well" class="slide level2">
+<h2>What does it mean to “fit well”?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Models use a rule for defining what it means to fit the data “well”</li>
+<li class="fragment">This rule is called a <strong>loss function</strong></li>
+<li class="fragment">Different models use different loss functions</li>
+<li class="fragment">We’ll look at the most popular modeling approach:</li>
+<li class="fragment"><strong>ordinary least squares</strong> (OLS)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/bad-fit-jordan.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%;height:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="the-loss-function-for-ols" class="slide level2">
+<h2>The loss function for OLS</h2>
+<div class="fragment">
+<p>The loss function for OLS (roughly!) says:</p>
+</div>
+<div class="fragment">
+<p>a line fits the data <em>well</em> if the sum of all the squared <span class="blue">distances</span> between the <span class="red">line</span> and <span class="yellow">each data point</span> is <strong>as small as possible</strong></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(Y_i\)</span> is the <span class="yellow">data point</span> <span class="math inline">\(\rightarrow\)</span> value of observation <span class="math inline">\(i\)</span> <span class="math inline">\(\rightarrow\)</span> the mpg of car <span class="math inline">\(i\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\widehat{Y_i}\)</span> is the <span class="red">line</span> <span class="math inline">\(\rightarrow\)</span> the mpg our line predicts for a car with that weight <span class="math inline">\(\rightarrow\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\beta_0 + \beta_1 \times weight\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="blue">Distance</span> between each point and line = <span class="math inline">\((Y_i - \widehat{Y_i})\)</span></p>
+</div>
+</section>
+<section id="distance-between-each-point-and-the-line" class="slide level2">
+<h2>Distance between each point and the line</h2>
+<p><span class="math inline">\(Y_i\)</span> = actual MPG for the <span class="yellow">Toyota Corolla</span></p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="distance-between-each-point-and-the-line-1" class="slide level2">
+<h2>Distance between each point and the line</h2>
+<p><span class="math inline">\(\widehat{Y_i}\)</span> = our model’s <span class="red">predicted MPG</span> (<span class="math inline">\(\beta_0\)</span> + <span class="math inline">\(\beta_1 \times weight\)</span>) for the Corolla</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="distance-between-each-point-and-the-line-2" class="slide level2">
+<h2>Distance between each point and the line</h2>
+<p><span class="math inline">\(Y_i - \widehat{Y_i}\)</span> = the <span class="blue">distance</span> between the data point and the line</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="back-to-the-loss-function" class="slide level2">
+<h2>Back to the loss function</h2>
+<p><span class="math inline">\(Y_i - \widehat{Y_i}\)</span> is the distance between the point and the line</p>
+<div class="fragment">
+<p>OLS uses the <strong>squared</strong> distances: <span class="math inline">\((Y_i - \widehat{Y_i})^2\)</span></p>
+</div>
+<div class="fragment">
+<p>The <strong>sum</strong> of the squared distances: <span class="math inline">\(\sum_i^n{(Y_i - \widehat{Y_i})^2}\)</span></p>
+</div>
+<div class="fragment">
+<p>Remember that <span class="math inline">\(\widehat{Y_i} = \widehat{\beta_0} + \widehat{\beta_{1}} \times weight\)</span></p>
+</div>
+<div class="fragment">
+<p>So can rewrite: <span class="math inline">\(\sum_i^n{(Y_i - \widehat{Y_i})^2} = \sum_i^n{(Y_i - \widehat{\beta_0} + \widehat{\beta_{1}} \times weight)^2}\)</span></p>
+</div>
+<div class="fragment">
+<p>So we need to pick <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> to make this as small as possible (<strong>minimize</strong>):</p>
+<p><span class="math inline">\(\sum_i^n{(Y_i - \widehat{\beta_0} + \widehat{\beta_{1}} \times weight)^2}\)</span></p>
+</div>
+</section>
+<section id="estimating-the-parameters" class="slide level2">
+<h2>Estimating the parameters</h2>
+<div class="fragment">
+<p>How do we find the specific <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> that minimize the loss function?</p>
+</div>
+<div class="fragment">
+<p>Zooming out (not just OLS): in modeling there are two <strong>kinds</strong> of approaches</p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Statistical theory</strong>: make some assumptions and use math to find <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Computational</strong>: make some assumptions and use brute force smart guessing to find <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span></p>
+</div>
+</div></div>
+</div>
+<div class="fragment">
+<p>Sometimes (1) and (2) will produce the same answer; other times only (1) or (2) is possible</p>
+</div>
+</section>
+<section id="computational-approach" class="slide level2">
+<h2>Computational approach</h2>
+<p>Imagine an algorithm that:</p>
+<ol type="1">
+<li class="fragment"><p>Draws a line through the data by picking values of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span></p></li>
+<li class="fragment"><p>Sees how far each point is from the line</p></li>
+<li class="fragment"><p>Sum up all the <strong>squared</strong> distances for that line (remember OLS calls for squaring!)</p></li>
+<li class="fragment"><p>Rinse, repeat with a new line</p></li>
+</ol>
+<div class="fragment">
+<p>The pair of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> that produce the line with the <em>smallest</em> sum of squared distances is our OLS estimator</p>
+</div>
+</section>
+<section id="strawman-comparison" class="slide level2">
+<h2>Strawman comparison</h2>
+<p>Which line fits the data better? (Duh)</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="first-candidate-fit-the-line" class="slide level2">
+<h2>First candidate: fit the line</h2>
+<p>Rough guess: what is <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> here?</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="first-candidate-the-residuals" class="slide level2">
+<h2>First candidate: the residuals</h2>
+<p>How far is each point from the line? This is <span class="math inline">\((Y_i - \widehat{Y_i})\)</span></p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>Also known as the <strong>residual</strong> <span class="math inline">\(\approx\)</span> how <em>wrong</em> the line is about each point</p>
+</section>
+<section id="how-good-is-line-1" class="slide level2">
+<h2>How good is line 1?</h2>
+<p>Remember, our loss function says that a good line has small <span class="math inline">\((Y_i - \widehat{Y_i})^2\)</span></p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mpg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\ \widehat{mpg}\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">residual</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">squared_residual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">23.28</td>
+<td style="text-align: right;">-2.28</td>
+<td style="text-align: right;">5.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">21.92</td>
+<td style="text-align: right;">-0.92</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">24.89</td>
+<td style="text-align: right;">-2.09</td>
+<td style="text-align: right;">4.35</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">20.10</td>
+<td style="text-align: right;">1.30</td>
+<td style="text-align: right;">1.68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">18.90</td>
+<td style="text-align: right;">-0.20</td>
+<td style="text-align: right;">0.04</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>We sum up the squared residuals to measure how good (or bad) the line is <strong>overall</strong> = <span class="math inline">\(\sum_i^n{(Y_i - \widehat{Y_i})^2} \approx 278.3\)</span></p>
+</div>
+</section></section>
+<section>
+<section id="second-candidate-fit-the-line" class="title-slide slide level1 center">
+<h1>Second candidate: fit the line</h1>
+<p>Rough guess: what is <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> here?</p>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="second-candidate-the-residuals" class="slide level2">
+<h2>Second candidate: the residuals</h2>
+
+<img data-src="lec-7_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="how-good-is-line-2" class="slide level2">
+<h2>How good is line 2?</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mpg</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">\(\ \widehat{mpg}\)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">residual</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">squared_residual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Toyota Corona</td>
+<td style="text-align: right;">21.5</td>
+<td style="text-align: right;">24.11</td>
+<td style="text-align: right;">1.41</td>
+<td style="text-align: right;">1.99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fiat X1-9</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">26.94</td>
+<td style="text-align: right;">7.21</td>
+<td style="text-align: right;">51.98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lincoln Continental</td>
+<td style="text-align: right;">10.4</td>
+<td style="text-align: right;">8.30</td>
+<td style="text-align: right;">-9.69</td>
+<td style="text-align: right;">93.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fiat 128</td>
+<td style="text-align: right;">32.4</td>
+<td style="text-align: right;">25.53</td>
+<td style="text-align: right;">12.31</td>
+<td style="text-align: right;">151.54</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Camaro Z28</td>
+<td style="text-align: right;">13.3</td>
+<td style="text-align: right;">16.76</td>
+<td style="text-align: right;">-6.79</td>
+<td style="text-align: right;">46.10</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\sum_i^n{(Y_i - \widehat{Y_i})^2} \approx 1,126\)</span></p>
+<p>So line 2 is a <strong>much worse</strong> fit for the data than line 1</p>
+</div>
+</section>
+<section id="the-best-line" class="slide level2">
+<h2>The best line</h2>
+<div class="fragment">
+<p>This is what <code>geom_smooth()</code> is doing under-the-hood (sorry)</p>
+</div>
+<div class="fragment">
+<p>It’s using math to figure out which line fits the data best</p>
+</div>
+<div class="fragment">
+<p><strong>Conceptual</strong> best = the line that is closest to all the points</p>
+</div>
+<div class="fragment">
+<p><strong>Math</strong> best = the smallest sum of squared residuals</p>
+</div>
+</section>
+<section id="so-who-are-the-winning-betas" class="slide level2">
+<h2>So who are the winning Betas?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math inline">\(Y = \beta_0 + \beta1x_1\)</span></p>
+<p><span class="math inline">\(mpg = \beta_0 + \beta_1 \times weight\)</span></p>
+<p><span class="math inline">\(mpg = 37 + -5 \times weight\)</span></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-7_files/figure-revealjs/unnamed-chunk-36-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section id="what-does-this-model-get-us" class="title-slide slide level1 center">
+<h1>What does this model get us?</h1>
+<p><span class="math display">\[mpg = 37 + -5weight\]</span></p>
+<div class="fragment">
+<p>A lot</p>
+</div>
+<div class="fragment">
+<p>We can describe the overall rate of change with the <strong>slope</strong></p>
+</div>
+<div class="fragment">
+<p>for every ton of weight we add to a car we <strong>lose</strong> 5 miles per gallon</p>
+</div>
+<div class="fragment">
+<p>We can also plug in whatever weight we want and get an estimate</p>
+</div>
+<div class="fragment">
+<p>What’s the fuel efficiency of a car that weighs exactly 2 tons?</p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(mpg = 37 + -5 \times weight\)</span></p>
+<p><span class="math inline">\(mpg = 37 + -5 \times 2 = 27\)</span></p>
+</div>
+</section>
+
+<section id="modeling-in-a-nutshell" class="title-slide slide level1 center">
+<h1>Modeling in a nutshell</h1>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>You want to see how some <span class="red">outcome</span> responds to some <span class="blue">treatment</span></p></li>
+<li class="fragment"><p>Fit a line (or something else) to the variables</p></li>
+<li class="fragment"><p>Extract the underlying <strong>model</strong></p></li>
+<li class="fragment"><p>Use the model to make <strong>inferences</strong></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/model2.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%;height:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/haleydaarstad\.com\/pol051-su26\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

@@ -1,0 +1,705 @@
+---
+title: "Modeling II"
+subtitle: "POL51"
+author: "Haley Daarstad"
+institute: "University of California, Davis"
+date: today
+date-format: long
+format:
+  revealjs: 
+    html-math-method: mathjax
+    slide-number: true
+    height: 900
+    width: 1600
+    code-line-numbers: true
+    code-overflow: wrap
+    smooth-scrawl: true
+    theme: [simple, html/custom.scss]
+    incremental: true
+    title-slide-attributes:
+      data-background-image: img/dubois-spiral-2.png
+      data-background-size: contain
+      data-background-position: right
+      data-background-color: "#dc354a"
+---
+
+```{r setup, include=FALSE}
+# set knit options
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=5, 
+  fig.retina=3,
+  fig.align="center",
+  out.width = "100%",
+  cache = FALSE,
+  echo = FALSE,
+  message = FALSE, 
+  warning = FALSE
+)
+
+# load libraries
+library(socviz)
+library(juanr)
+library(gapminder)
+library(patchwork)
+library(broom)
+
+# source
+source(here::here("slides/R", "funcs.R"))
+```
+
+# Plan for today {.center background-color="#dc354a"}
+
+OLS in R
+
+. . .
+
+Modeling with continuous variables
+
+. . .
+
+Modeling with categorical variables
+
+## Uses of models
+
+::::: columns
+::: {.column width="50%"}
+What we want out of our model:
+
+-   Does TV news make people more energized to vote? Or does it turn them off from politics?
+
+-   **How much** does an additional hour of TV increase (or decrease) the likelihood that someone votes?
+
+-   **What level** of Y (voter turnout) should we expect for a given level of X (exposure to the news)?
+:::
+
+::: {.column width="50%"}
+```{r, out.width="80%"}
+knitr::include_graphics("img/big-picture.jpeg")
+```
+:::
+:::::
+
+# OLS in R {.center background-color="#dc354a"}
+
+## How does car weight impact fuel efficiency?
+
+```{r}
+mtcars |> 
+  slice(1:8) |> 
+  sample_n(7) |> 
+  kbl(digits = 1) |> 
+  column_spec(column = c(2, 7), background = "yellow")
+```
+
+## How does car weight impact fuel efficiency?
+
+Remember, we want to estimate $\beta_0$ (intercept) and $\beta_1$ (slope)
+
+. . .
+
+$mpg = \beta_0 + \beta1 \times weight$
+
+```{r, out.width="60%"}
+ggplot(mtcars, aes(x = wt, y = mpg)) + 
+  geom_point(color = blue, alpha = .8) + 
+  theme_nice() + labs(x = "Weight (1000 lbs)", 
+                     y = "Miles/gallon (mpg)") + 
+  geom_smooth(method = "lm", fullrange = TRUE)
+```
+
+## Fit the model
+
+We can use `lm()` to fit models in R using this general formula:
+
+> lm([Outcome]{.red} \~ [X1 + X2 + ...]{.blue}, data = DATA)
+
+. . .
+
+```{r,echo = TRUE}
+weight_model = lm(mpg ~ wt, data = mtcars)
+```
+
+. . .
+
+Notice that I saved as an object, and the **placement** of the variables
+
+. . .
+
+The [outcome]{.red} always goes on the **left hand side**
+
+## Extract the model
+
+We can extract our estimates of $\beta_0$ and $\beta_1$ with `tidy()`, from the `broom` package
+
+```{r,echo = TRUE}
+tidy(weight_model)
+```
+
+## Making sense of the table
+
+$mpg = \beta_0 + \beta_1 \times weight$
+
+```{r,echo = TRUE}
+tidy(weight_model)
+```
+
+. . .
+
+The `estimate` column gives us $\beta_0$ (intercept) and $\beta_1$ (slope for weight)
+
+. . .
+
+Note! We only care about the first two columns of `tidy()` so far
+
+## Extract the model
+
+$mpg = \beta_0 + \beta_1 \times weight$
+
+```{r}
+tidy(weight_model) %>%
+  kbl(digits = 2) %>% 
+  column_spec(2, background = "yellow")
+```
+
+. . .
+
+The intercept ( $\beta_0$ ) = 37.29
+
+. . .
+
+The slope ( $\beta_1$ ) = -5.3
+
+. . .
+
+The model: $mpg = 37.29 + -5.3 \times weight$
+
+# Modeling with continuous variables {.center background-color="#dc354a"}
+
+## Back to the cars
+
+The model: $mpg = 37.29 + -5.3 \times weight$
+
+How do we interpret the slope on *weight*?
+
+```{r, out.width="80%"}
+ggplot(mtcars, aes(x = wt, y = mpg)) + 
+  geom_point(color = blue, alpha = .8) + 
+  theme_nice() + labs(x = "Weight (1000 lbs)", 
+                     y = "Miles/gallon (mpg)") + 
+  geom_smooth(method = "lm", fullrange = TRUE)
+```
+
+## Interpretation: continuous variables
+
+::::: columns
+::: {.column width="50%"}
+-   As you turn the dimmer (*treatment variable*) the light (*outcome variable*) changes
+
+-   Turn the dimmer up, the light increases by SLOPE amount
+
+-   Turn the dimmer down, the light decreases by SLOPE amount
+
+-   The change is **gradual**
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("img/dimmer.jpeg")
+```
+:::
+:::::
+
+## Interpretation: the slope
+
+$mpg = 37.2 + \color{red}{-5.3} \times weight$
+
+```{r}
+tidy(weight_model) %>%
+  knitr::kable(digits = 2)
+```
+
+. . .
+
+**General**: for every *unit increase* in X, Y changes by $\color{red}{5.3}$ *units*
+
+. . .
+
+**Specific**: for every *ton of weight* you add to a car, you lose $\color{red}{5.3}$ *miles per gallon* of fuel efficiency
+
+## Interpretation: the intercept
+
+$mpg = 37.2 + -5.3 \times weight$
+
+. . .
+
+Remember that the Y-intercept is the *value of Y when X = 0*
+
+$$
+\begin{aligned}
+Y = 6 + 2x \\
+X = 0 \\
+Y = 6 + 2 \times 0 \\
+Y = 6
+\end{aligned}
+$$
+
+## Interpretation: the intercept
+
+Take the formula: $mpg = 37.2 + -5.3 \times weight$
+
+. . .
+
+Set X (weight) equal to 0 $\rightarrow$ $\color{red}{37.2} + (-5.3 \times 0) = \color{red}{37.2}$
+
+. . .
+
+**General**: The estimated value of Y, when X equals zero, is $\color{red}{37.2}$ units
+
+. . .
+
+**Specific**: The estimated fuel efficiency for a car that weighs *0 tons* is $\color{red}{37.2}$ miles per gallon
+
+## Spot the intercept
+
+$mpg = 37.29 + -5.3 \times weight$
+
+```{r, out.width="80%"}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  coord_cartesian(xlim = c(0, 7), ylim = c(0, 40)) +
+  geom_point(color = blue, alpha = .8) +
+  theme_nice() + labs(x = "Weight (1000 lbs)",
+                     y = "Miles/gallon (mpg)") +
+  geom_smooth(method = "lm", fullrange = TRUE) +
+  geom_abline(data = NULL, intercept = coef(weight_model)[1],
+              slope = coef(weight_model)[2], lty = 2, color = "black")
+```
+
+We can confirm we're not crazy if we zoom out; the line crosses y-axis at 37.2
+
+## Nonsense intercepts
+
+$mpg = 37.2 + -5.3 \times weight$
+
+Interpretation of the intercept:
+
+. . .
+
+> The average fuel efficiency for a car that weighs nothing is 37.2 miles per gallon
+
+. . .
+
+This is **nonsense**: a car cannot weigh zero tons
+
+. . .
+
+You will run into this often: don't let it confuse you!
+
+. . .
+
+the intercept will rarely be useful on its own; But we **need** it to make predictions
+
+## Another example: gapminder
+
+What's the relationship between **GDP per capita** and **life expectancy**?
+
+```{r}
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color = red, alpha = .8)
+```
+
+## Another example: gapminder
+
+What's the relationship between **GDP per capita** and **life expectancy**?
+
+```{r}
+gapminder |> 
+  sample_n(5) |> 
+  kbl(digits = 0) |> 
+  column_spec(column = c(4, 6), background = "yellow")
+```
+
+<br>
+
+Notice the **units**: life expectancy in years, GDP in dollars per capita
+
+## The model
+
+We fit the model using `lm()`
+
+```{r,echo = TRUE}
+wealth_mod = lm(lifeExp ~ gdpPercap, data = gapminder)
+```
+
+. . .
+
+We extract the coefficient estimates using `tidy()`
+
+```{r, echo = TRUE}
+tidy(wealth_mod)
+```
+
+## Interpreting the estimates
+
+$LifeExp = \beta_0 + \beta_1 \times gdpPercap$
+
+```{r}
+tidy(wealth_mod)
+```
+
+. . .
+
+$\beta_1$, the slope = for every additional dollar of GDP, a country's life expectancy rises by .0007 years
+
+. . .
+
+$\beta_0$, the intercept = the average life expectancy for a country with no economic activity (GDP = 0) is 54 years
+
+## The scale of the coefficients
+
+$LifeExp = 54 + .0007 \times gdpPercap$
+
+Slope: for every **dollar** increase in GDP, life expectancy increases by 0.0007 years
+
+. . .
+
+Tiny! Does this mean a country's wealth has little to do with their health?
+
+. . .
+
+No! It is a problem with the **scale** that GDP is in
+
+. . .
+
+one dollar differences in GDP are tiny, meaningless
+
+. . .
+
+GDP changes by much more from year to year
+
+## Variable scales
+
+We can rescale GDP so that it's in 10s of thousands of dollars:
+
+```{r,echo = TRUE}
+gapminder = gapminder %>%
+  mutate(gdp_10k = gdpPercap/10000)
+```
+
+```{r, echo = FALSE}
+gapminder
+```
+
+## Variable scales
+
+Note the variable is the same; only thing that has changed is the scale!
+
+```{r}
+gapminder %>%
+  select(`GDP (in dollars)` = gdpPercap, 
+         `GDP (in tens of thousands of dollars)` = gdp_10k) %>%
+  pivot_longer(everything()) %>%
+  ggplot(aes(x = value)) +
+  geom_histogram(fill = red, alpha = .8, color = "white", bins = 30) +
+  facet_wrap(vars(name), scales = "free") +
+  theme_nice() + scale_x_continuous(labels = scales::dollar)
+```
+
+## Re-fit the model
+
+```{r,echo = TRUE}
+wealth_mod_10k = lm(lifeExp ~ gdp_10k, data = gapminder)
+tidy(wealth_mod_10k)
+```
+
+. . .
+
+Slope ($\beta_1$): for every additional \$10,000 of GDP, a country gains about 7.65 years
+
+. . .
+
+Mind your *scales*: if a coefficient is tiny, ask yourself if the scale makes sense
+
+## 🚨 🚢 Who trades? 🚢 🚨
+
+Fit a model that estimates how much a country exports, using a treatment variable of your choosing. Interpret the model output.
+
+```{r}
+countdown::countdown(minutes = 5L)
+```
+
+# Regression with categorical variables {.center background-color="#dc354a"}
+
+## Categorical variables
+
+We can also use categorical variables in our models
+
+. . .
+
+The simplest categorical variable is a *binary variable*: Men vs. women, young vs. old, has a policy in place (vs. not), TRUE/FALSE
+
+. . .
+
+Let's look at data on the relationship between [organ donation laws]{.blue} and how frequently people [donate their organs]{.red}
+
+. . .
+
+[organ donation laws]{.blue} in this data are binary: in some countries, people have to **opt out** of donating their organs
+
+. . .
+
+In other countries, people have to **opt in** (like in the US)
+
+## Organ donation
+
+```{r}
+organdata |> 
+  drop_na() |> 
+  select(country, year, donors, opt) |> 
+  sample_n(5) |> 
+  kbl(digits = 1, caption = "from socviz::organdata")
+```
+
+## Binary variables in models
+
+I can include the binary variable in a regression model:
+
+```{r, echo = TRUE}
+donor_mod = lm(donors ~ opt, data = organdata)
+```
+
+. . .
+
+And look at the output:
+
+```{r}
+tidy(donor_mod)
+```
+
+. . .
+
+But how do we interpret the "slope" of a binary variable?
+
+## Binary variables
+
+Remember, with categorical variables we are **comparing groups**
+
+```{r}
+ggplot(drop_na(organdata, opt), aes(x = opt, y = donors, 
+                                    color = opt)) + 
+  ggbeeswarm::geom_beeswarm(alpha = .8) + 
+  scale_color_manual(values = c(blue, red)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Organ donation: opt in or out?", 
+       y = "Average donation rate\n(donors per million residents)")
+```
+
+## Binary variables: fitting the model
+
+We can think about a line running "across" the groups, with each endpoint being optimally located to minimize the squared distances **within** each group
+
+```{r}
+lines = organdata %>% 
+  drop_na(opt) %>% 
+  group_by(opt) %>% 
+  summarise(mean = mean(donors, na.rm = TRUE))
+
+p1 = ggplot(drop_na(organdata, opt), aes(x = opt, y = donors, 
+                                    color = opt)) + 
+  ggbeeswarm::geom_beeswarm(alpha = .8) + 
+  geom_point(data = lines, aes(x = opt, y = mean), size = 5, inherit.aes = FALSE) + 
+  geom_segment(aes(x = 1, xend = 2, y = lines$mean[lines$opt == "In"],
+                   yend = lines$mean[lines$opt == "Out"]), 
+               size = 2, inherit.aes = FALSE) + 
+  scale_color_manual(values = c(blue, red)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Organ donation: opt in or out?", 
+       y = "Average donation rate\n(donors per million residents)")
+p1
+```
+
+## Binary variables: the slope
+
+The height of one endpoint relative to the other, or the **slope** of the line, tells us how much higher or lower one group is, on average, than the other
+
+```{r, out.width="80%"}
+p1
+```
+
+. . .
+
+In this case it is `r round(lines$mean[2] - lines$mean[1], 2)` $\rightarrow$ how many more organ donors countries with an "opt out" policy have, on average, than countries with an "opt in" policy
+
+## Back to the regression output
+
+Note that this is exactly what the model output is giving us:
+
+```{r}
+tidy(donor_mod)
+```
+
+. . .
+
+The model is picking one of the categories ("Opt in") and treating it as a **baseline category**
+
+. . .
+
+It tells us how much **higher**/**lower** on average, the other category is ("Opt out")
+
+## How to interpret categorical variables?
+
+::::: columns
+::: {.column width="50%"}
+-   Turn the light on (`opt` goes from "In" to "Out"), the light *increases* by SLOPE
+
+-   Turn the light off (`opt` goes from "Out" to "In"), the light *decreases* by SLOPE
+
+-   The change is **instant**
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("img/switch.jpeg")
+```
+:::
+:::::
+
+## Interpreting categories
+
+$\operatorname{\widehat{donors}} = \color{red}{14.31} + \color{blue}{5.5}(\operatorname{opt}_{\operatorname{Out}})$
+
+```{r}
+tidy(donor_mod)
+```
+
+Slope: Country-years where people have to OPT OUT of donating their organs have, on average, [5.5]{.blue} more donations per million residents than country-years where people have to OPT IN
+
+. . .
+
+Intercept (set `optOut` = 0 or "off", i.e., countries where `opt == "in"`):
+
+. . .
+
+Country-years where people have to OPT IN to organ donation have, on average, [14.31]{.red} donations per million residents
+
+## More complicated categorical variables
+
+Most of the variables we care about are not just binary
+
+. . .
+
+They take on many values
+
+. . .
+
+E.g., education levels, sex, race, religion, etc.
+
+. . .
+
+What happens when we include one of these in a model?
+
+. . .
+
+Say we wanted to look at how being in a particular continent shapes a country's life expectancy
+
+## The model
+
+We can estimate the model, same as before:
+
+```{r, echo = TRUE}
+continent_mod = lm(lifeExp ~ continent, data = gapminder)
+tidy(continent_mod)
+```
+
+. . .
+
+Now we get more coefficients! What do they mean?
+
+## Look at the data
+
+With complex categorical variables, we are also comparing across groups
+
+```{r, out.width="70%"}
+lines = 
+  gapminder %>% 
+  group_by(continent) %>% 
+  summarise(lifeExp = mean(lifeExp, na.rm = TRUE))
+
+ggplot(gapminder, aes(x = continent, y = lifeExp, color = continent)) + 
+  ggbeeswarm::geom_quasirandom() + 
+  geom_point(data = lines,
+               size = 5, color = "black") + 
+  theme(legend.position = "none") + 
+  labs(x = "Continent", y = "Life expectancy (in years)")
+```
+
+We can also identify the value within each group that minimizes $(Y_i - \hat{Y_i})^2$
+
+. . .
+
+But how to draw a "line" across all these groups?
+
+## Multiple categories
+
+Just like before, R will pick one of the groups to treat as the "**baseline**"
+
+. . .
+
+It will then tell us how much higher/lower the other categories are, on average, **relative to that baseline category**
+
+. . .
+
+```{r}
+tidy(continent_mod)
+```
+
+What group is the baseline here?
+
+## Interpretation
+
+```{r}
+tidy(continent_mod)
+```
+
+-   `continentAmericas` = countries in the Americas have, on average, 15.8 years more life expectancy than countries in *Africa* (the baseline)
+
+-   `continentAsia` = countries in Asia have, on average, 11.2 years more life expectancy than countries in *Africa*
+
+-   `Intercept` = (set Americas = 0, Asia = 0, Europe = 0, Oceania = 0) $\rightarrow$ the average life expectancy in **Africa** is 48.9 years
+
+## Interpretation formula
+
+```{r}
+tribble(~Type, ~Approach, ~Intercept,
+        "Continuous", "A one unit increase in X, SLOPE unit change in Y", "Average value of Y when X = 0",
+        "Category", "The category is SLOPE units higher/lower than the intercept", "Average value of Y for baseline (missing) category") %>% 
+  knitr::kable()
+```
+
+Interpreting coefficients is pretty confusing; it just requires practice
+
+## We're on our way
+
+We now know (sort of) how to interpret the coefficients on those big tables:
+
+. . .
+
+```{r, out.width="80%"}
+knitr::include_graphics("img/scores-table.png")
+```
+
+## 🚨 Your turn: 👨‍👧‍👦 Kids 👨‍👧‍👦 🚨
+
+Using the `gss_sm` dataset:
+
+1.  Do happier people tend to have more or fewer kids than less happy people? Regress `childs` (outcome) against `happy` (treatment). Interpret the output.
+
+2.  How does religion affect family size? Regress the number of siblings `sibs` (outcome) against respondent religion `relig`. Based on the output: which religion has the largest families, on average?
+
+::: callout-note
+Remember: to figure out what values a categorical variable takes on, use the `distinct()` function, like so: `data %>% distinct(variable)`
+:::
+
+```{r}
+countdown::countdown(minutes = 10L)
+```
