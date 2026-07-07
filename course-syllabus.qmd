@@ -9,7 +9,7 @@ The syllabus is subject to changes and updates.
 ## Course info
 
 |   | Day | Time | Location |
-|----|----|----|----|
+|------------------|------------------|------------------|------------------|
 | Lectures | Mon, Tue & Wed. | 12:10 pm - 1:50 pm | Hoagland Hall 168 |
 | Discussion/Lab | Thu | 12:10 pm - 1:50 pm | Teaching and Learning Complex 2212 |
 | Office Hours | Tue | 2:00 - 4:00 PM | Kerr Hall 569 |
@@ -214,4 +214,4 @@ Click [here](https://registrar.ucdavis.edu/calendar/academic-calendar) for the f
 
 ## **Credits**
 
-This course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel**,** Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available.
+This course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel**,** Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.

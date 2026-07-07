@@ -1913,7 +1913,7 @@
     "href": "course-syllabus.html#credits",
     "title": "Syllabus",
     "section": "Credits",
-    "text": "Credits\nThis course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available.",
+    "text": "Credits\nThis course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -1979,7 +1979,7 @@
     "href": "course-overview.html",
     "title": "POL 051: The Scientific Study of Politics",
     "section": "",
-    "text": "Welcome to The Scientific Study of Politics!\nData is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.\nThis undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.\n\n\n\n\n\nInstructor:\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\n\n\n\nLecture:\n\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\n\n\n\nDiscussion/Lab:\n\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\nThese course materials have been inspired by",
+    "text": "Welcome to The Scientific Study of Politics!\nData is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.\nThis undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.\n\n\n\n\n\nInstructor:\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\n\n\n\nLecture:\n\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\n\n\n\nDiscussion/Lab:\n\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\nThese course materials have been inspired by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.",
     "crumbs": [
       "Course information",
       "Overview"
@@ -2954,7 +2954,7 @@
     "href": "slides/lec-8.html#how-does-car-weight-impact-fuel-efficiency",
     "title": "Modeling II",
     "section": "How does car weight impact fuel efficiency?",
-    "text": "How does car weight impact fuel efficiency?\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\nMerc 240D\n24.4\n4\n146.7\n62\n3.7\n3.2\n20.0\n1\n0\n4\n2\n\n\nMazda RX4\n21.0\n6\n160.0\n110\n3.9\n2.6\n16.5\n0\n1\n4\n4\n\n\nHornet Sportabout\n18.7\n8\n360.0\n175\n3.1\n3.4\n17.0\n0\n0\n3\n2\n\n\nHornet 4 Drive\n21.4\n6\n258.0\n110\n3.1\n3.2\n19.4\n1\n0\n3\n1\n\n\nDuster 360\n14.3\n8\n360.0\n245\n3.2\n3.6\n15.8\n0\n0\n3\n4\n\n\nDatsun 710\n22.8\n4\n108.0\n93\n3.9\n2.3\n18.6\n1\n1\n4\n1\n\n\nValiant\n18.1\n6\n225.0\n105\n2.8\n3.5\n20.2\n1\n0\n3\n1"
+    "text": "How does car weight impact fuel efficiency?\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\ncarb\n\n\n\n\nValiant\n18.1\n6\n225.0\n105\n2.8\n3.5\n20.2\n1\n0\n3\n1\n\n\nHornet 4 Drive\n21.4\n6\n258.0\n110\n3.1\n3.2\n19.4\n1\n0\n3\n1\n\n\nDatsun 710\n22.8\n4\n108.0\n93\n3.9\n2.3\n18.6\n1\n1\n4\n1\n\n\nDuster 360\n14.3\n8\n360.0\n245\n3.2\n3.6\n15.8\n0\n0\n3\n4\n\n\nMazda RX4\n21.0\n6\n160.0\n110\n3.9\n2.6\n16.5\n0\n1\n4\n4\n\n\nMerc 240D\n24.4\n4\n146.7\n62\n3.7\n3.2\n20.0\n1\n0\n4\n2\n\n\nHornet Sportabout\n18.7\n8\n360.0\n175\n3.1\n3.4\n17.0\n0\n0\n3\n2"
   },
   {
     "objectID": "slides/lec-8.html#how-does-car-weight-impact-fuel-efficiency-1",
@@ -3052,7 +3052,7 @@
     "href": "slides/lec-8.html#another-example-gapminder-1",
     "title": "Modeling II",
     "section": "Another example: gapminder",
-    "text": "Another example: gapminder\nWhat’s the relationship between GDP per capita and life expectancy?\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nEthiopia\nAfrica\n1972\n44\n30770372\n566\n\n\nPeru\nAmericas\n1952\n44\n8025700\n3759\n\n\nPhilippines\nAsia\n1997\n69\n75012988\n2537\n\n\nSouth Africa\nAfrica\n1992\n62\n39964159\n7225\n\n\nArgentina\nAmericas\n1957\n64\n19610538\n6857\n\n\n\n\n\n\n\n\nNotice the units: life expectancy in years, GDP in dollars per capita"
+    "text": "Another example: gapminder\nWhat’s the relationship between GDP per capita and life expectancy?\n\n\n\n\n\ncountry\ncontinent\nyear\nlifeExp\npop\ngdpPercap\n\n\n\n\nRwanda\nAfrica\n1957\n42\n2822082\n540\n\n\nChile\nAmericas\n1962\n58\n7961258\n4519\n\n\nComoros\nAfrica\n1997\n61\n527982\n1174\n\n\nItaly\nEurope\n1957\n68\n49182000\n6249\n\n\nSenegal\nAfrica\n1992\n58\n8307920\n1368\n\n\n\n\n\n\n\n\nNotice the units: life expectancy in years, GDP in dollars per capita"
   },
   {
     "objectID": "slides/lec-8.html#the-model",
@@ -3101,7 +3101,14 @@
     "href": "slides/lec-8.html#who-trades",
     "title": "Modeling II",
     "section": "🚨 🚢 Who trades? 🚢 🚨",
-    "text": "🚨 🚢 Who trades? 🚢 🚨\nFit a model that estimates how much a country exports, using a treatment variable of your choosing. Interpret the model output."
+    "text": "🚨 🚢 Who trades? 🚢 🚨\nFit a model that estimates how much a country exports, using a treatment variable of your choosing. Interpret the model output.\n\n\n\n\n\n\nNote\n\n\n\nUse the dataset trade in the package juanr\nIdentify your y (outcome) and x (explanatory) variables\nUse the lm() function to fit a model\nUse tidy() to show the outcomes of the model"
+  },
+  {
+    "objectID": "slides/lec-8.html#who-trades-1",
+    "href": "slides/lec-8.html#who-trades-1",
+    "title": "Modeling II",
+    "section": "🚨 🚢 Who trades? 🚢 🚨",
+    "text": "🚨 🚢 Who trades? 🚢 🚨\n\nlibrary(juanr)\nlibrary(tidyverse)\n\n?trade\n\ntrade_ols &lt;- lm(exports ~ sum_igos, data = trade)\n\ntidy(trade_ols)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic   p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)  -64655.    2580.      -25.1 2.55e-134\n2 sum_igos       1868.      47.7      39.1 6.75e-311"
   },
   {
     "objectID": "slides/lec-8.html#categorical-variables",
@@ -3115,7 +3122,7 @@
     "href": "slides/lec-8.html#organ-donation",
     "title": "Modeling II",
     "section": "Organ donation",
-    "text": "Organ donation\n\n\n\nfrom socviz::organdata\n\n\ncountry\nyear\ndonors\nopt\n\n\n\n\nAustria\n1995-01-01\n21.5\nOut\n\n\nNorway\n1991-01-01\n15.2\nOut\n\n\nItaly\n2001-01-01\n17.1\nIn\n\n\nNetherlands\n1991-01-01\n14.9\nIn\n\n\nGermany\n1999-01-01\n13.2\nIn"
+    "text": "Organ donation\n\n\n\nfrom socviz::organdata\n\n\ncountry\nyear\ndonors\nopt\n\n\n\n\nSweden\n2002-01-01\n11.0\nOut\n\n\nItaly\n1993-01-01\n6.2\nIn\n\n\nGermany\n1997-01-01\n13.2\nIn\n\n\nItaly\n2000-01-01\n14.2\nIn\n\n\nCanada\n2002-01-01\n13.0\nIn"
   },
   {
     "objectID": "slides/lec-8.html#binary-variables-in-models",
@@ -3220,7 +3227,21 @@
     "href": "slides/lec-8.html#your-turn-kids",
     "title": "Modeling II",
     "section": "🚨 Your turn: 👨‍👧‍👦 Kids 👨‍👧‍👦 🚨",
-    "text": "🚨 Your turn: 👨‍👧‍👦 Kids 👨‍👧‍👦 🚨\nUsing the gss_sm dataset:\n\nDo happier people tend to have more or fewer kids than less happy people? Regress childs (outcome) against happy (treatment). Interpret the output.\nHow does religion affect family size? Regress the number of siblings sibs (outcome) against respondent religion relig. Based on the output: which religion has the largest families, on average?\n\n\n\n\n\n\n\nNote\n\n\nRemember: to figure out what values a categorical variable takes on, use the distinct() function, like so: data %&gt;% distinct(variable)"
+    "text": "🚨 Your turn: 👨‍👧‍👦 Kids 👨‍👧‍👦 🚨\nUsing the gss_sm dataset:\n\nDo happier people tend to have more or fewer kids than less happy people? Regress childs (outcome) against happy (treatment). Interpret the output.\nHow does religion affect family size? Regress the number of siblings sibs (outcome) against respondent religion relig. Based on the output: which religion has the largest families, on average?\n\n\n\n\n\n\n\nNote\n\n\n\nThe dataset gss_sm is found in the package socviz\nsummary() or tidy() for table\n\nRemember: to rearrange a table or outcome, you can use the data |&gt; arrange(desc(variable_name)) to show the highest to lowest."
+  },
+  {
+    "objectID": "slides/lec-8.html#kids-q1",
+    "href": "slides/lec-8.html#kids-q1",
+    "title": "Modeling II",
+    "section": "🚨 👨‍👧‍👦 Kids Q1 👨‍👧‍👦 🚨",
+    "text": "🚨 👨‍👧‍👦 Kids Q1 👨‍👧‍👦 🚨\n\nlibrary(socviz)\n\n?gss_sm\n\ngss_sm |&gt;\n  distinct(happy)\n\n# A tibble: 4 × 1\n  happy        \n  &lt;fct&gt;        \n1 Pretty Happy \n2 Very Happy   \n3 &lt;NA&gt;         \n4 Not Too Happy\n\nlm(childs ~ happy, data = gss_sm) |&gt;\n  tidy()\n\n# A tibble: 3 × 5\n  term               estimate std.error statistic   p.value\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)           1.91     0.0586     32.6  1.13e-198\n2 happyPretty Happy    -0.145    0.0719     -2.02 4.32e-  2\n3 happyNot Too Happy    0.105    0.0980      1.07 2.86e-  1"
+  },
+  {
+    "objectID": "slides/lec-8.html#kids-q2",
+    "href": "slides/lec-8.html#kids-q2",
+    "title": "Modeling II",
+    "section": "🚨 👨‍👧‍👦 Kids Q2 👨‍👧‍👦 🚨",
+    "text": "🚨 👨‍👧‍👦 Kids Q2 👨‍👧‍👦 🚨\n\nlm(sibs ~ relig, data = gss_sm) |&gt;\n  tidy() |&gt;\n  arrange(desc(estimate))\n\n# A tibble: 13 × 5\n   term                          estimate std.error statistic   p.value\n   &lt;chr&gt;                            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n 1 (Intercept)                   3.77        0.0861  43.8     8.48e-321\n 2 religMoslem/Islam             1.86        0.736    2.53    1.15e-  2\n 3 religNative American          0.478       1.59     0.300   7.64e-  1\n 4 religCatholic                 0.452       0.152    2.97    2.96e-  3\n 5 religOther                    0.000631    0.488    0.00129 9.99e-  1\n 6 religOther Eastern           -0.0221      1.59    -0.0139  9.89e-  1\n 7 religChristian               -0.347       0.511   -0.680   4.97e-  1\n 8 religNone                    -0.484       0.154   -3.14    1.72e-  3\n 9 religOrthodox-Christian      -0.486       1.21    -0.403   6.87e-  1\n10 religInter-Nondenominational -0.915       1.21    -0.758   4.48e-  1\n11 religBuddhism                -0.963       0.700   -1.37    1.69e-  1\n12 religJewish                  -1.93        0.454   -4.25    2.23e-  5\n13 religHinduism                -2.00        0.887   -2.26    2.41e-  2"
   },
   {
     "objectID": "supplemental/data-gen.html",
@@ -3436,7 +3457,7 @@
     "href": "weeks/week-3.html#lectures",
     "title": "Week 3",
     "section": "Lectures",
-    "text": "Lectures\n🖥️ Lecture 7 - Modeling I\n🖥️ Lecture 8 - Modeling II\n🖥️ Lecture 9 - Causality I",
+    "text": "Lectures\n🖥️ Lecture 7 - Modeling I\n🖥️ Lecture 8-Modeling II\n🖥️ Lecture 9 - Causality I",
     "crumbs": [
       "Weekly materials",
       "Week 3"

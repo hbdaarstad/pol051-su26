@@ -424,8 +424,31 @@ Mind your *scales*: if a coefficient is tiny, ask yourself if the scale makes se
 
 Fit a model that estimates how much a country exports, using a treatment variable of your choosing. Interpret the model output.
 
+::: callout-note
+1.  Use the dataset `trade` in the package `juanr`
+2.  Identify your y (outcome) and x (explanatory) variables
+3.  Use the `lm()` function to fit a model
+4.  Use `tidy()` to show the outcomes of the model
+:::
+
 ```{r}
 countdown::countdown(minutes = 5L)
+```
+
+## 🚨 🚢 Who trades? 🚢 🚨
+
+```{r}
+#| echo: true
+
+library(juanr)
+library(tidyverse)
+
+?trade
+
+trade_ols <- lm(exports ~ sum_igos, data = trade)
+
+tidy(trade_ols)
+
 ```
 
 # Regression with categorical variables {.center background-color="#dc354a"}
@@ -697,9 +720,39 @@ Using the `gss_sm` dataset:
 2.  How does religion affect family size? Regress the number of siblings `sibs` (outcome) against respondent religion `relig`. Based on the output: which religion has the largest families, on average?
 
 ::: callout-note
-Remember: to figure out what values a categorical variable takes on, use the `distinct()` function, like so: `data %>% distinct(variable)`
+1.  The dataset `gss_sm` is found in the package `socviz`
+2.  `summary()` or `tidy()` for table
+
+Remember: to rearrange a table or outcome, you can use the `data |> arrange(desc(variable_name))` to show the highest to lowest.
 :::
 
 ```{r}
 countdown::countdown(minutes = 10L)
+```
+
+## 🚨 👨‍👧‍👦 Kids Q1 👨‍👧‍👦 🚨
+
+```{r}
+#| echo: true
+
+library(socviz)
+
+?gss_sm
+
+gss_sm |>
+  distinct(happy)
+
+lm(childs ~ happy, data = gss_sm) |>
+  tidy()
+
+```
+
+## 🚨 👨‍👧‍👦 Kids Q2 👨‍👧‍👦 🚨
+
+```{r}
+#| echo: true
+
+lm(sibs ~ relig, data = gss_sm) |>
+  tidy() |>
+  arrange(desc(estimate))
 ```
