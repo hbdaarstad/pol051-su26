@@ -1,0 +1,62 @@
+---
+title: "AE-1: R Basics"
+editor: visual
+output-file: html
+---
+
+## Writing "Text"
+
+```{r}
+
+```
+
+## Writing Numbers
+
+```{r}
+
+```
+
+## Basic Calculations {.smaller}
+
+```{r}
+
+# addition
+
+
+# subtraction
+
+
+# multipilication
+
+
+# division
+
+
+# exponent
+
+
+```
+
+## Comments
+
+```{r}
+
+```
+
+## Creating Objects {.smaller}
+
+```{r}
+
+```
+
+## Data Types
+
+```{r}
+
+```
+
+## Packages
+
+```{r}
+
+```

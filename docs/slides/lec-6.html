@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="Haley Daarstad">
+  <meta name="dcterms.date" content="2026-07-08">
+  <title>POL 051 - Summer 2026 – Relationships II</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-364d386c60e955365bf573cf9f71986d.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <link href="../site_libs/countdown-0.6.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.6.0/countdown.js"></script>
+<meta property="og:title" content="Relationships II – POL 051 - Summer 2026">
+<meta property="og:description" content="POL51">
+<meta property="og:site_name" content="POL 051 - Summer 2026">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#dc354a" data-background-image="img/dubois-spiral-2.png" data-background-position="right" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">Relationships II</h1>
+  <p class="subtitle">POL51</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Haley Daarstad 
+</div>
+        <p class="quarto-title-affiliation">
+            University of California, Davis
+          </p>
+    </div>
+</div>
+
+  <p class="date">July 8, 2026</p>
+</section>
+<section id="plan-for-today" class="title-slide slide level1 center" data-background-color="#dc354a">
+<h1>Plan for today</h1>
+<div class="fragment">
+<p>Comparing across groups</p>
+</div>
+<div class="fragment">
+<p>Dummy variables</p>
+</div>
+<div class="fragment">
+<p>Summarizing categories</p>
+</div>
+</section>
+
+<section>
+<section id="comparing-across-groups" class="title-slide slide level1 center" data-background-color="#dc354a">
+<h1>Comparing across groups</h1>
+
+</section>
+<section id="the-feeling-thermometer" class="slide level2">
+<h2>The feeling thermometer</h2>
+<p>We can use <code>summarise()</code> to measure average support for specific groups:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_police =</span> <span class="fu">mean</span>(ft_police, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  avg_police
+       &lt;dbl&gt;
+1       75.7</code></pre>
+</div>
+</div>
+</section>
+<section id="feeling-thermometer" class="slide level2">
+<h2>Feeling thermometer</h2>
+<p>We can <em>compare</em> where support is highest and lowest:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_police =</span> <span class="fu">mean</span>(ft_police, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb3-3"><a></a>            <span class="at">avg_muslim =</span> <span class="fu">mean</span>(ft_muslim, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb3-4"><a></a>            <span class="at">avg_white =</span> <span class="fu">mean</span>(ft_white, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb3-5"><a></a>            <span class="at">avg_immig =</span> <span class="fu">mean</span>(ft_immig, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb3-6"><a></a>            <span class="at">avg_fem =</span> <span class="fu">mean</span>(ft_fem, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb3-7"><a></a>            <span class="at">avg_black =</span> <span class="fu">mean</span>(ft_black, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  avg_police avg_muslim avg_white avg_immig avg_fem avg_black
+       &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1       75.7       50.0      76.1      61.9    52.1      71.3</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>patterns</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="breaking-down-support" class="slide level2">
+<h2>Breaking down support</h2>
+<p>We can look for patterns by using <code>group_by()</code> to separate average support <em>by</em> respondent characteristics:</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a></a>  <span class="fu">group_by</span>(party_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_police =</span> <span class="fu">mean</span>(ft_police, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb5-4"><a></a>            <span class="at">avg_muslim =</span> <span class="fu">mean</span>(ft_muslim, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb5-5"><a></a>            <span class="at">avg_white =</span> <span class="fu">mean</span>(ft_white, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb5-6"><a></a>            <span class="at">avg_immig =</span> <span class="fu">mean</span>(ft_immig, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb5-7"><a></a>            <span class="at">avg_fem =</span> <span class="fu">mean</span>(ft_fem, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb5-8"><a></a>            <span class="at">avg_black =</span> <span class="fu">mean</span>(ft_black, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  party_id    avg_police avg_muslim avg_white avg_immig avg_fem avg_black
+  &lt;fct&gt;            &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 Democrat          67.8       64.6      74.1      71.7    73.9      78.3
+2 Republican        87.6       33.3      81.7      50.2    30.3      65.6
+3 Independent       74.2       49.0      74.1      61.5    48.3      69.1
+4 Other             72.7       45.1      71.1      65.4    40.7      70.2
+5 Not sure          70.1       47.1      70.8      56.9    54.0      66.7</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>take code and iteratively change it</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="breaking-down-support-1" class="slide level2">
+<h2>Breaking down support</h2>
+<p>We can use <code>filter()</code> to focus our comparison on fewer categories:</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>therm_by_party <span class="ot">=</span> therm <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">filter</span>(party_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Democrat"</span>, <span class="st">"Republican"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a></a>  <span class="fu">group_by</span>(party_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_police =</span> <span class="fu">mean</span>(ft_police, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb7-5"><a></a>            <span class="at">avg_muslim =</span> <span class="fu">mean</span>(ft_muslim, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb7-6"><a></a>            <span class="at">avg_white =</span> <span class="fu">mean</span>(ft_white, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb7-7"><a></a>            <span class="at">avg_immig =</span> <span class="fu">mean</span>(ft_immig, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb7-8"><a></a>            <span class="at">avg_fem =</span> <span class="fu">mean</span>(ft_fem, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb7-9"><a></a>            <span class="at">avg_black =</span> <span class="fu">mean</span>(ft_black, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb7-10"><a></a>therm_by_party</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  party_id   avg_police avg_muslim avg_white avg_immig avg_fem avg_black
+  &lt;fct&gt;           &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 Democrat         67.8       64.6      74.1      71.7    73.9      78.3
+2 Republican       87.6       33.3      81.7      50.2    30.3      65.6</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>Where are the biggest partisan gaps? What’s going on with immigrants? Is this really an apples-to-apples comparison?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="the-immigration-gap" class="slide level2">
+<h2>The immigration gap</h2>
+<div class="fragment">
+<p>What explains this gap? How much is it about each party’s <strong>ideology</strong> and how much is about <strong>who</strong> is in each party?</p>
+</div>
+<div class="fragment">
+<p>Immigrants in the USA are more likely to <strong>identify</strong> as Democrat</p>
+</div>
+<div class="fragment">
+<p>How much of the difference we are observing across parties solely about <strong>parties</strong> and how much is it about <em>demographic</em> differences?</p>
+</div>
+<div class="fragment">
+<p>It might be, for instance, that the attitudes of non-migrants don’t differ much across parties</p>
+</div>
+<div class="fragment">
+<p>that is, the big gap we see is all because immigrants are <em>both</em> more likely to be Democrats <em>and</em> have stronger views of own community</p>
+</div>
+</section>
+<section id="making-sense-of-the-immigration-gap" class="slide level2">
+<h2>Making sense of the immigration gap</h2>
+<p>We want an <strong>apples to apples</strong> comparison: White Dems vs.&nbsp;White Reps, Asian Dems vs.&nbsp;Asian Reps, and so on</p>
+<div class="fragment">
+<p>We can “test” this concern by breaking the data down further, by race:</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">filter</span>(party_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Democrat"</span>, <span class="st">"Republican"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">group_by</span>(party_id, race) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_imm =</span> <span class="fu">mean</span>(ft_immig, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+# Groups:   party_id [2]
+   party_id   race            avg_imm
+   &lt;fct&gt;      &lt;fct&gt;             &lt;dbl&gt;
+ 1 Democrat   White              71.2
+ 2 Democrat   Black              71.1
+ 3 Democrat   Hispanic           76.2
+ 4 Democrat   Asian              75.5
+ 5 Democrat   Native American    62.9
+ 6 Democrat   Mixed              74.6
+ 7 Democrat   Other              84.1
+ 8 Republican White              49.8
+ 9 Republican Black              54.6
+10 Republican Hispanic           58.0
+11 Republican Asian              54.7
+12 Republican Native American    47.4
+13 Republican Mixed              51.4
+14 Republican Other              42.3</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="making-sense-of-the-immigration-gap-1" class="slide level2">
+<h2>Making sense of the immigration gap</h2>
+<p>We can filter to focus on fewer races:</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">filter</span>(party_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Democrat"</span>, <span class="st">"Republican"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">filter</span>(race <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"White"</span>, <span class="st">"Black"</span>, <span class="st">"Hispanic"</span>, <span class="st">"Asian"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb11-4"><a></a>  <span class="fu">group_by</span>(party_id, race) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_imm =</span> <span class="fu">mean</span>(ft_immig, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+# Groups:   party_id [2]
+  party_id   race     avg_imm
+  &lt;fct&gt;      &lt;fct&gt;      &lt;dbl&gt;
+1 Democrat   White       71.2
+2 Democrat   Black       71.1
+3 Democrat   Hispanic    76.2
+4 Democrat   Asian       75.5
+5 Republican White       49.8
+6 Republican Black       54.6
+7 Republican Hispanic    58.0
+8 Republican Asian       54.7</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-the-pattern" class="slide level2">
+<h2>Visualizing the pattern</h2>
+<p>We can create a new object to make a nice plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>therm_party_immig <span class="ot">=</span> therm <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">filter</span>(party_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Democrat"</span>, <span class="st">"Republican"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">filter</span>(race <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"White"</span>, <span class="st">"Black"</span>, <span class="st">"Hispanic"</span>, <span class="st">"Asian"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a></a>  <span class="fu">group_by</span>(party_id, race) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_imm =</span> <span class="fu">mean</span>(ft_immig, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-immigration-attitudes-gap" class="slide level2">
+<h2>The immigration attitudes gap</h2>
+
+<img data-src="lec-6_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><aside class="notes">
+<p>comparing apples to apples, the gap persists</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="big-picture" class="title-slide slide level1 center">
+<h1>Big picture</h1>
+<p>The immigration gap persists (though smaller), even comparing non-immigrants against non-immigrants and immigrants against immigrants</p>
+<div class="fragment">
+<p>This analysis is a way of <strong>accounting</strong> for differences in groups (Democrats versus Republicans); it’s closer to an “apples to apples” comparison</p>
+</div>
+<div class="fragment">
+<p>Big differences <strong>across groups</strong> should raise eyebrows; what’s going on here?</p>
+</div>
+<div class="fragment">
+<p>We can break the data down further to see what’s going on beneath the surface</p>
+</div>
+</section>
+<section id="non-differences-can-be-surprsing-too" class="slide level2">
+<h2>Non-differences can be surprsing too</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a></a>  <span class="fu">summarise</span>(<span class="at">avg_dems =</span> <span class="fu">mean</span>(ft_dem, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb14-3"><a></a>            <span class="at">avg_reps =</span> <span class="fu">mean</span>(ft_rep, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  avg_dems avg_reps
+     &lt;dbl&gt;    &lt;dbl&gt;
+1     49.4     43.3</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Pretty neutral feelings; mass <strong>polarization</strong> is dead!</p>
+</div>
+</section>
+<section id="oh" class="slide level2">
+<h2>Oh…</h2>
+<p>Breaking down data says something different</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>therm <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">group_by</span>(party_id) <span class="sc">%&gt;%</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">summarise</span>(<span class="at">dems =</span> <span class="fu">mean</span>(ft_dem, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb16-4"><a></a>            <span class="at">reps =</span> <span class="fu">mean</span>(ft_rep, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  party_id     dems  reps
+  &lt;fct&gt;       &lt;dbl&gt; &lt;dbl&gt;
+1 Democrat     79.9  22.1
+2 Republican   21.5  72.4
+3 Independent  41.2  39.6
+4 Other        31.9  38.7
+5 Not sure     43.2  42.3</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="negative-polarization" class="slide level2">
+<h2>Negative polarization</h2>
+
+<img data-src="lec-6_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section></section>
+<section>
+<section id="dummy-variables" class="title-slide slide level1 center" data-background-color="#dc354a">
+<h1>Dummy variables</h1>
+
+</section>
+<section id="dummy-variables-1" class="slide level2">
+<h2>Dummy variables</h2>
+<p>Often, <em>categorical</em> variables are coded 0/1 to represent “yes/no” or “presence/absence”</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<caption>sample from leaders dataset</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">country</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">leader</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mil_service</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">combat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CAN</td>
+<td style="text-align: left;">Bennett</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">USA</td>
+<td style="text-align: left;">Wilson</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CAN</td>
+<td style="text-align: left;">Pierre Trudeau</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BUI</td>
+<td style="text-align: left;">Bagaza</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EST</td>
+<td style="text-align: left;">Vares</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BUL</td>
+<td style="text-align: left;">Boris III</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUL</td>
+<td style="text-align: left;">Menzies</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VEN</td>
+<td style="text-align: left;">Maduro</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BRA</td>
+<td style="text-align: left;">de Silva Pessoa</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LBR</td>
+<td style="text-align: left;">Hilary Richard Wright Johnson</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="dummy-proportions" class="slide level2">
+<h2>Dummy proportions</h2>
+<p>Dummy variables are useful for lots of reasons</p>
+<div class="fragment">
+<p>One is that when you take the average of a dummy variable you get a <strong>proportion</strong></p>
+</div>
+<div class="fragment">
+<p>Coffee today? 1, 0, 0, 0, 1</p>
+</div>
+<div class="fragment">
+<p>Average of coffee = <span class="math inline">\(\frac{1 + 0 + 0 + 0 + 1}{5} = .40\)</span></p>
+</div>
+<div class="fragment">
+<p>We can think about that proportion as a <strong>probability</strong> or <strong>likelihood</strong></p>
+</div>
+<div class="fragment">
+<p>What is the <strong>probability</strong> a random student in class has had coffee? 2/5 = 40%</p>
+</div>
+</section>
+<section id="dummy-variables-2" class="slide level2">
+<h2>Dummy variables</h2>
+<p>When you take the average of a dummy variable you get a proportion:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>leader <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a></a>  <span class="fu">summarise</span>(<span class="at">combat =</span> <span class="fu">mean</span>(combat, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  combat
+   &lt;dbl&gt;
+1  0.246</code></pre>
+</div>
+</div>
+<p>Approximately 24% of world leaders have combat experience, or</p>
+<div class="fragment">
+<p>there’s a 24% <strong>chance</strong> a randomly selected leader has combat experience</p>
+</div>
+</section>
+<section id="dummy-variables-3" class="slide level2">
+<h2>Dummy variables</h2>
+<p>Like with anything else, we can take averages by groups</p>
+<div class="fragment">
+<p>For example, combat experience by country</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>leader <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">summarise</span>(<span class="at">combat =</span> <span class="fu">mean</span>(combat, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(combat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 189 × 2
+   country combat
+   &lt;chr&gt;    &lt;dbl&gt;
+ 1 AUH      0.958
+ 2 TAJ      0.857
+ 3 BFO      0.817
+ 4 TOG      0.816
+ 5 NIG      0.780
+ 6 PRK      0.723
+ 7 BEN      0.683
+ 8 EQG      0.673
+ 9 NIR      0.667
+10 CON      0.667
+# ℹ 179 more rows</code></pre>
+</div>
+</div>
+<p>Note that <code>arrange(desc(variable))</code> arranges the dataset in descending order</p>
+</div>
+</section>
+<section id="dummy-variables-4" class="slide level2">
+<h2>Dummy variables</h2>
+<p>We can store as an object, to make a plot:</p>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>combat_country <span class="ot">=</span> leader <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a></a>  <span class="co"># proportion who've seen combat</span></span>
+<span id="cb22-4"><a></a>  <span class="fu">summarise</span>(<span class="at">combat =</span> <span class="fu">mean</span>(combat, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-5"><a></a>  <span class="co"># subset to just the top 10 in terms of combat experience</span></span>
+<span id="cb22-6"><a></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> combat, <span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb22-7"><a></a></span>
+<span id="cb22-8"><a></a><span class="fu">ggplot</span>(combat_country, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">reorder</span>(country, combat),</span>
+<span id="cb22-9"><a></a>                           <span class="at">x =</span> combat)) <span class="sc">+</span> </span>
+<span id="cb22-10"><a></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="lec-6_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="your-turn-bob-ross" class="slide level2">
+<h2>🚨 Your turn: 🎨 Bob Ross 🎨 🚨</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 0%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 1%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">episode</th>
+<th style="text-align: right;">season</th>
+<th style="text-align: right;">episode_num</th>
+<th style="text-align: left;">title</th>
+<th style="text-align: right;">apple_frame</th>
+<th style="text-align: right;">aurora_borealis</th>
+<th style="text-align: right;">barn</th>
+<th style="text-align: right;">beach</th>
+<th style="text-align: right;">boat</th>
+<th style="text-align: right;">bridge</th>
+<th style="text-align: right;">building</th>
+<th style="text-align: right;">bushes</th>
+<th style="text-align: right;">cabin</th>
+<th style="text-align: right;">cactus</th>
+<th style="text-align: right;">circle_frame</th>
+<th style="text-align: right;">cirrus</th>
+<th style="text-align: right;">cliff</th>
+<th style="text-align: right;">clouds</th>
+<th style="text-align: right;">conifer</th>
+<th style="text-align: right;">cumulus</th>
+<th style="text-align: right;">deciduous</th>
+<th style="text-align: right;">diane_andre</th>
+<th style="text-align: right;">dock</th>
+<th style="text-align: right;">double_oval_frame</th>
+<th style="text-align: right;">farm</th>
+<th style="text-align: right;">fence</th>
+<th style="text-align: right;">fire</th>
+<th style="text-align: right;">florida_frame</th>
+<th style="text-align: right;">flowers</th>
+<th style="text-align: right;">fog</th>
+<th style="text-align: right;">framed</th>
+<th style="text-align: right;">grass</th>
+<th style="text-align: right;">guest</th>
+<th style="text-align: right;">half_circle_frame</th>
+<th style="text-align: right;">half_oval_frame</th>
+<th style="text-align: right;">hills</th>
+<th style="text-align: right;">lake</th>
+<th style="text-align: right;">lakes</th>
+<th style="text-align: right;">lighthouse</th>
+<th style="text-align: right;">mill</th>
+<th style="text-align: right;">moon</th>
+<th style="text-align: right;">mountain</th>
+<th style="text-align: right;">mountains</th>
+<th style="text-align: right;">night</th>
+<th style="text-align: right;">ocean</th>
+<th style="text-align: right;">oval_frame</th>
+<th style="text-align: right;">palm_trees</th>
+<th style="text-align: right;">path</th>
+<th style="text-align: right;">person</th>
+<th style="text-align: right;">portrait</th>
+<th style="text-align: right;">rectangle_3d_frame</th>
+<th style="text-align: right;">rectangular_frame</th>
+<th style="text-align: right;">river</th>
+<th style="text-align: right;">rocks</th>
+<th style="text-align: right;">seashell_frame</th>
+<th style="text-align: right;">snow</th>
+<th style="text-align: right;">snowy_mountain</th>
+<th style="text-align: right;">split_frame</th>
+<th style="text-align: right;">steve_ross</th>
+<th style="text-align: right;">structure</th>
+<th style="text-align: right;">sun</th>
+<th style="text-align: right;">tomb_frame</th>
+<th style="text-align: right;">tree</th>
+<th style="text-align: right;">trees</th>
+<th style="text-align: right;">triple_frame</th>
+<th style="text-align: right;">waterfall</th>
+<th style="text-align: right;">waves</th>
+<th style="text-align: right;">windmill</th>
+<th style="text-align: right;">window_frame</th>
+<th style="text-align: right;">winter</th>
+<th style="text-align: right;">wood_framed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S01E01</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">A WALK IN THE WOODS</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S01E02</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">MT. MCKINLEY</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S01E03</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">EBONY SUNSET</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S01E04</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">WINTER MIST</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S01E05</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">QUIET STREAM</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S01E06</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">WINTER MOON</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="your-turn-bob-ross-1" class="slide level2">
+<h2>🚨 Your turn: 🎨 Bob Ross 🎨 🚨</h2>
+<p>Using the <code>bob_ross</code> data from <code>fivethirtyeight</code> package</p>
+<ol type="1">
+<li class="fragment"><p>How likely was Bob Ross to include a happy little <code>tree</code> in one of his paintings?</p></li>
+<li class="fragment"><p>How has the frequency with which Bob Ross included <code>clouds</code> in his paintings changed across the show’s seasons? Make a time series to illustrate.</p></li>
+<li class="fragment"><p>If there is a <code>mountain</code> in a Bob Ross painting, how likely is it that mountain is <em>snowy</em> (<code>snowy_mountain</code>)?</p></li>
+<li class="fragment"><p>How much more likely was Steve Ross (<code>steve</code>) to paint a lake (<code>lake</code>) than his dad?</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_4e2c3803" minutes="10" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+</section></section>
+<section>
+<section id="analyzing-categorical-data" class="title-slide slide level1 center" data-background-color="#dc354a">
+<h1>Analyzing categorical data</h1>
+
+</section>
+<section id="analyzing-categorical-data-1" class="slide level2">
+<h2>Analyzing categorical data</h2>
+<div class="fragment">
+<p>Some variables have values that are <strong>categories</strong> (race, sex, etc.)</p>
+</div>
+<div class="fragment">
+<p>Can’t take the <strong>mean</strong> of a category!</p>
+</div>
+<div class="fragment">
+<p>But we <em>can</em> look at the <em>proportions</em> of observations in each category, and look for patterns there</p>
+</div>
+</section>
+<section id="pokemon-types" class="slide level2">
+<h2>Pokemon types</h2>
+<p>How many Pokemon are there of each type? What are the most and least common types?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">type1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ralts</td>
+<td style="text-align: left;">psychic</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Slowbro</td>
+<td style="text-align: left;">water</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vulpix</td>
+<td style="text-align: left;">fire</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sigilyph</td>
+<td style="text-align: left;">psychic</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tropius</td>
+<td style="text-align: left;">grass</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Snivy</td>
+<td style="text-align: left;">grass</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Articuno</td>
+<td style="text-align: left;">ice</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="counting-categories" class="slide level2">
+<h2>Counting categories</h2>
+<p>We can use a new function <code>tally()</code>, in combination with <code>group_by()</code>, to <strong>count</strong> how many observations are in each category:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pokemon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 801 × 14
+   name       type1 type2  height_m weight_kg capture_rate    hp attack defense
+   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Bulbasaur  grass poison      0.7       6.9           45    45     49      49
+ 2 Ivysaur    grass poison      1        13             45    60     62      63
+ 3 Venusaur   grass poison      2       100             45    80    100     123
+ 4 Charmander fire  &lt;NA&gt;        0.6       8.5           45    39     52      43
+ 5 Charmeleon fire  &lt;NA&gt;        1.1      19             45    58     64      58
+ 6 Charizard  fire  flying      1.7      90.5           45    78    104      78
+ 7 Squirtle   water &lt;NA&gt;        0.5       9             45    44     48      65
+ 8 Wartortle  water &lt;NA&gt;        1        22.5           45    59     63      80
+ 9 Blastoise  water &lt;NA&gt;        1.6      85.5           45    79    103     120
+10 Caterpie   bug   &lt;NA&gt;        0.3       2.9          255    45     30      35
+# ℹ 791 more rows
+# ℹ 5 more variables: sp_attack &lt;dbl&gt;, sp_defense &lt;dbl&gt;, speed &lt;dbl&gt;,
+#   generation &lt;dbl&gt;, is_legendary &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="counting-categories-1" class="slide level2">
+<h2>Counting categories</h2>
+<p>We can use a new function <code>tally()</code>, in combination with <code>group_by()</code>, to <strong>count</strong> how many observations are in each category:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a></a>  <span class="fu">group_by</span>(type1) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 801 × 14
+# Groups:   type1 [18]
+   name       type1 type2  height_m weight_kg capture_rate    hp attack defense
+   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Bulbasaur  grass poison      0.7       6.9           45    45     49      49
+ 2 Ivysaur    grass poison      1        13             45    60     62      63
+ 3 Venusaur   grass poison      2       100             45    80    100     123
+ 4 Charmander fire  &lt;NA&gt;        0.6       8.5           45    39     52      43
+ 5 Charmeleon fire  &lt;NA&gt;        1.1      19             45    58     64      58
+ 6 Charizard  fire  flying      1.7      90.5           45    78    104      78
+ 7 Squirtle   water &lt;NA&gt;        0.5       9             45    44     48      65
+ 8 Wartortle  water &lt;NA&gt;        1        22.5           45    59     63      80
+ 9 Blastoise  water &lt;NA&gt;        1.6      85.5           45    79    103     120
+10 Caterpie   bug   &lt;NA&gt;        0.3       2.9          255    45     30      35
+# ℹ 791 more rows
+# ℹ 5 more variables: sp_attack &lt;dbl&gt;, sp_defense &lt;dbl&gt;, speed &lt;dbl&gt;,
+#   generation &lt;dbl&gt;, is_legendary &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="counting-categories-2" class="slide level2">
+<h2>Counting categories</h2>
+<p>We can use a new function <code>tally()</code>, in combination with <code>group_by()</code>, to <strong>count</strong> how many observations are in each category:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a></a>  <span class="fu">group_by</span>(type1) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a></a>  <span class="fu">tally</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 2
+   type1        n
+   &lt;chr&gt;    &lt;int&gt;
+ 1 bug         72
+ 2 dark        29
+ 3 dragon      27
+ 4 electric    39
+ 5 fairy       18
+ 6 fighting    28
+ 7 fire        52
+ 8 flying       3
+ 9 ghost       27
+10 grass       78
+11 ground      32
+12 ice         23
+13 normal     105
+14 poison      32
+15 psychic     53
+16 rock        45
+17 steel       24
+18 water      114</code></pre>
+</div>
+</div>
+</section>
+<section id="from-counts-to-percents" class="slide level2">
+<h2>From counts to percents</h2>
+<p>We can can then use <code>mutate()</code> to calculate the <strong>percent</strong> in each group:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a></a>  <span class="fu">group_by</span>(type1) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 18 × 3
+   type1        n percent
+   &lt;chr&gt;    &lt;int&gt;   &lt;dbl&gt;
+ 1 bug         72   8.99 
+ 2 dark        29   3.62 
+ 3 dragon      27   3.37 
+ 4 electric    39   4.87 
+ 5 fairy       18   2.25 
+ 6 fighting    28   3.50 
+ 7 fire        52   6.49 
+ 8 flying       3   0.375
+ 9 ghost       27   3.37 
+10 grass       78   9.74 
+11 ground      32   4.00 
+12 ice         23   2.87 
+13 normal     105  13.1  
+14 poison      32   4.00 
+15 psychic     53   6.62 
+16 rock        45   5.62 
+17 steel       24   3.00 
+18 water      114  14.2  </code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>stop to show the n/sum(n)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="group_by-tally" class="slide level2">
+<h2>group_by + tally()</h2>
+<p>We can then store as object for plotting:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>type_pct <span class="ot">=</span> pokemon <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a></a>  <span class="fu">group_by</span>(type1) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a></a>  <span class="fu">tally</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb31-4"><a></a>  <span class="fu">mutate</span>(<span class="at">percent =</span> n<span class="sc">/</span><span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="group_by-tally-1" class="slide level2">
+<h2>group_by + tally()</h2>
+<p>We can then store as object for plotting:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ggplot</span>(type_pct, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">reorder</span>(type1, percent), </span>
+<span id="cb32-2"><a></a>                     <span class="at">x =</span> percent)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span> </span>
+<span id="cb32-4"><a></a>  <span class="co"># suppress legend</span></span>
+<span id="cb32-5"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="lec-6_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section id="your-turn-flying-etiquette" class="slide level2">
+<h2>🚨 Your turn: 💺 Flying etiquette 💺 🚨</h2>
+<p>A survey of what’s rude to do on a plane:</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top" data-quarto-postprocess="true">
+<caption>Sample from the flying dataset</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">gender</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">age</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">height</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">children_under_18</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">household_income</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">education</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">location</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">frequency</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">recline_frequency</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">recline_obligation</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">recline_rude</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">recline_eliminate</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">switch_seats_friends</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">switch_seats_family</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">wake_up_bathroom</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">wake_up_walk</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">baby</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">unruly_child</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">two_arm_rests</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">middle_arm_rest</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">shade</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">unsold_seat</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">talk_stranger</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">get_up</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">electronics</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">smoked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">30-44</td>
+<td style="text-align: left;">5'4"</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Some college or Associate degree</td>
+<td style="text-align: left;">Mountain</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">About half the time</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">More than five times times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">45-60</td>
+<td style="text-align: left;">5'5"</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">$25,000 - $49,999</td>
+<td style="text-align: left;">High school degree</td>
+<td style="text-align: left;">South Atlantic</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">Everyone in the row should have some say</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Twice</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">&gt; 60</td>
+<td style="text-align: left;">5'1"</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">$25,000 - $49,999</td>
+<td style="text-align: left;">Bachelor degree</td>
+<td style="text-align: left;">West North Central</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Once in a while</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Three times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">45-60</td>
+<td style="text-align: left;">5'7"</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">$25,000 - $49,999</td>
+<td style="text-align: left;">Graduate degree</td>
+<td style="text-align: left;">West South Central</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Twice</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">45-60</td>
+<td style="text-align: left;">5'9"</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">$25,000 - $49,999</td>
+<td style="text-align: left;">Some college or Associate degree</td>
+<td style="text-align: left;">Middle Atlantic</td>
+<td style="text-align: left;">Once a month or less</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">The person in the middle seat gets both arm rests</td>
+<td style="text-align: left;">The person in aisle</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Three times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">45-60</td>
+<td style="text-align: left;">5'8"</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Graduate degree</td>
+<td style="text-align: left;">Pacific</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Usually</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Three times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">30-44</td>
+<td style="text-align: left;">5'7"</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">$25,000 - $49,999</td>
+<td style="text-align: left;">Some college or Associate degree</td>
+<td style="text-align: left;">New England</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">About half the time</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Three times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">45-60</td>
+<td style="text-align: left;">5'5"</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">$50,000 - $99,999</td>
+<td style="text-align: left;">High school degree</td>
+<td style="text-align: left;">South Atlantic</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Once in a while</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">Whoever puts their arm on the arm rest first</td>
+<td style="text-align: left;">Everyone in the row should have some say</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Three times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">30-44</td>
+<td style="text-align: left;">5'11"</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">$50,000 - $99,999</td>
+<td style="text-align: left;">Some college or Associate degree</td>
+<td style="text-align: left;">East North Central</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Always</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">Everyone in the row should have some say</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Four times</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">45-60</td>
+<td style="text-align: left;">Under 5 ft.</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">$50,000 - $99,999</td>
+<td style="text-align: left;">Some college or Associate degree</td>
+<td style="text-align: left;">East North Central</td>
+<td style="text-align: left;">Once a year or less</td>
+<td style="text-align: left;">Once in a while</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Somewhat</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Very</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The arm rests should be shared</td>
+<td style="text-align: left;">The person in the window seat should have exclusive control</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Twice</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn-flying-etiquette-1" class="slide level2">
+<h2>🚨 Your turn: 💺 flying etiquette 💺 🚨</h2>
+<p>Using the <code>flying</code> data from <code>fivethirtyeight</code></p>
+<ol type="1">
+<li class="fragment"><p>In a row of three seats, who should get to use the middle arm rest (<code>two_arm_rests</code>)? Make a barplot of the <em>percent</em> of respondents who gave each answer.</p></li>
+<li class="fragment"><p>In general, is it rude to knowingly bring unruly children on a plane? Make a barplot of the <em>percent</em> who gave each answer, but <strong>separated by</strong> whether the respondent has a kid or not.</p></li>
+<li class="fragment"><p>Make a barplot of responses to an etiquette dilemma of your liking. Bonus points if you break it down by a respondent characteristic.</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<countdown-timer class="countdown" id="timer_a4e836ac" minutes="15" seconds="0" update-every="1" tabindex="0" style="right:0;bottom:0;"></countdown-timer>
+</div>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("http:\/\/haleydaarstad\.com\/pol051-su26\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
