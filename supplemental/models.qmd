@@ -2,6 +2,230 @@
 title: "Linear Regression Modeling"
 ---
 
-Sadly, we have not gotten to this code yet.
+### OLS
 
-![](/supplemental/images/IMG_6760.JPG){width="363"}
+**OLS (Ordinary Least Squares)** helps us fit a line to the data to best explain how one variable (X) affects another variable (Y)
+
+Linear regression is the most commonly used approach for modeling
+
+-   It involves a numerical outcome variable, y, and explanatory variables, x, that are either numerical or categorical.
+
+-   We assume the relationship between X and Y is linear (a line) Useful for prediction and explanation.
+
+$$
+Y_i = \alpha + \beta X + u_i
+$$
+
+We use sample data to make inferences about the population of interest, therefore our regression formula is:
+
+$$
+\hat Y_i = \hat\alpha + \hat\beta X + \hat u_i
+$$
+
+The hat (\^) are indicators of a sample data not the true population estimate.
+
+-   Y: dependent, outcome variable
+
+-   X: independent, explanatory variable
+
+-   𝜶  and β: are the parameter estimates
+
+    -   𝜶 : The predicted value of Y when X= 0 (intercept)
+
+    -   β: how much Y changes for a one-unit increase in X (slope)
+
+We use linear regressions to estimate how x changes are y! Therefore, how we interpret the estimate, β, is determined by whether our x value is a categorical or continuous variable.
+
+Here is the formula to Interpreting Regressions:
+
+-   Continuous Variable -\> Look at the slope!
+
+    -   When X increases 1 unit, Y increases by 𝛽
+
+    -   Usually, you can ignore the intercept The intercept is the average value of Y when X =0.
+
+-   Dummy/Categorical Variable -\> Compare it with the baseline category (aka intercept)
+
+    -   When X is in the given category, average Y value is higher by 𝛽 compared to the average Y value for baseline X.
+
+    -   The intercept is the average Y value for the baseline category.
+
+| Type | Approach | Interpetation |
+|------------------------|------------------------|------------------------|
+| Continious | A one unit increase in X, SLOPE unit change in Y. | For every \_\_\_ (replace with unit value) increase in \_\_\_ (replace with X value) results in \_\_\_ (replace with estimate/slope) unit change in \_\_\_ (replace with Y, or outcome value) |
+| Categorical | The category is SLOPE unites higher/lower than the intercept. | The \_\_\_ (replace with categorical value) is \_\_\_ (replace with estimate/slope) higher/lower than \_\_\_ (replace with baseline/intercept) |
+
+The function to calculate this in R is: `lm()`
+
+Example:
+
+I will be using the same randomly generated data as the correlations examples.
+
+```{r}
+
+library(tidyverse)
+set.seed(123)
+
+age <- sample(18:100, 100, replace = TRUE)
+gender <- sample(c(1, 0), 100, replace = TRUE)  # 1 = Female, 0 = Male
+kids <- sample(0:5, 100, replace = TRUE)
+
+# Now build the data.frame with dependent vars defined inline
+data <- data.frame(
+  age = age,
+  gender = gender,
+  height = rnorm(100, mean = 5.5, sd = 0.75) + gender * -0.25,
+  kids = kids,
+  income = rnorm(100, mean = 45000, sd = 10000) + age * 1000 + gender * (-2000) + kids * (-3000),
+  years_edu = sample(10:23, 100, replace = TRUE) + age * 1 + gender * 2
+)
+
+head(data)
+```
+
+First, we will doing a simple linear regression with only one X value. Y is our outcome variable and X is our explantory variable. it will look like the following:
+
+`lm(y ~ x, data)`
+
+```{r}
+
+# categorical interpetation
+model1 <- lm(height ~ gender, data)
+
+summary(model1)
+
+```
+
+Our estimate, how much x changes y, is **-0.17**, and our baseline, Male's height, is **5.51** feet, which we can interpret as the following:
+
+Men are on average **5.51** feet high, and women are on average **0.17 feet shorter** than Men.
+
+However, we can not say according to our data that gender is correlated with height, since according to our P-value column, our **p-value is 0.228**, which is more than 0.05.
+
+```{r}
+
+# continious interpetation
+model2 <- lm(income ~ age, data)
+
+summary(model2)
+
+```
+
+We want to look at the column with the estimate first, this tells us our intercept and estimate.
+
+Our estimate, how much x changes y, is **1045.02**, and our intercept is **34,967.79**, which we can interpret as the following:
+
+At 18 years old (which is the lowest age we have), income is **34,967.79**, and for every year older, an individuals income increases by **1045.02** dollars.
+
+In additon, we can say according to our data that age is correlated with income, since according to our P-value column, our **p-value is \<2e-16**, which is less than 0.05.
+
+In addition you can see \*\*\* after our p-value, this tells us the level of significance, the more stars the stronger the significance.
+
+### Multivariate Linear Regressions
+
+Now, we have just been looking at one explanatory variable, however, you may want to look are more than one and also consider that there maybe outside influence that you need to control for.
+
+Furthermore, you may want to add more x variables. To do this, you can do the following:
+
+`lm(y ~ x1 + x2 + x3 + ... + xn , data)`
+
+Now, lets look at an example, but first, lets make some random generated data real quick!
+
+```{r}
+
+# What if we have a confounding variable?
+
+# This will be our confounding variable
+weekly_exercise <- rnorm(100,5,2)
+
+# lets make our new dataframe
+df_confound <- tibble(income_scale = (rnorm(100,30000,10000) + 10000*weekly_exercise)/1000,
+                      age = rnorm(100,35,10),
+                      # this is another function that creats a binary variable based on probability 
+                      female = rbinom(100,1,.5),
+                      heart_health = 60 + 10*weekly_exercise - 1*age + 8*female + rnorm(100,0,10))
+
+# regression model
+model3 <- lm(heart_health ~ income_scale + age + female, df_confound)
+summary(model3)
+
+# visual
+df_confound |>
+  ggplot(aes(x = income_scale, y = heart_health)) + 
+  geom_point()
+
+```
+
+Okay! There is something wrong with this model yes? We know income scale doesn't actually impact heart health, rather this is done through weekly exercise! To take this into account we can do the following:
+
+```{r}
+
+model.fix <- lm(heart_health ~ weekly_exercise + income_scale + age + female, df_confound)
+summary(model.fix)
+
+df_confound |>
+  ggplot(aes(x=weekly_exercise,y = heart_health)) + 
+  geom_point()+
+  # lets add a line based on using a linear regression
+  geom_smooth(method ="lm")
+
+```
+
+Now, income is no longer correlated!
+
+## Class Examples
+
+### Who Trades? 🚢
+
+Fit a model that estimates how much a country exports, using a treatment variable of your choosing. Interpret the model output.
+
+1.  Use the dataset `trade` in the package `juanr`
+
+2.  Identify your y (outcome) and x (explanatory) variables
+
+3.  Use the `lm()` function to fit a model
+
+4.  Use `tidy()` to show the outcomes of the model
+
+To use `tidy()` use the `broom` package
+
+```{r}
+#| echo: true
+
+library(juanr)
+library(tidyverse)
+library(broom)
+
+?trade
+
+trade_ols <- lm(exports ~ sum_igos, data = trade)
+
+tidy(trade_ols)
+
+```
+
+### 👨‍👧‍👦 Kids 👨‍👧‍👦
+
+Using the `gss_sm dataset`:
+
+Do happier people tend to have more or fewer kids than less happy people? Regress `childs` (outcome) against `happy` (treatment). Interpret the output.
+
+How does religion affect family size? Regress the number of siblings `sibs` (outcome) against respondent religion `relig`. Based on the output: which religion has the largest families, on average?
+
+```{r}
+#| echo: true
+
+library(socviz)
+
+?gss_sm
+
+gss_sm |>
+  distinct(happy)
+
+lm(childs ~ happy, data = gss_sm) |>
+  tidy()
+
+lm(sibs ~ relig, data = gss_sm) |>
+  tidy() |>
+  arrange(desc(estimate))
+```

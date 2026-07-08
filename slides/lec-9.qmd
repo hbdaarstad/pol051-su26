@@ -63,6 +63,10 @@ Fake data
 
 The problem with causality
 
+## Note: tidy() {.center background-color="#dc354a"}
+
+The function `tidy()` is in the package broom, so to use `tidy()` you will need to install `broom` and attach the package using library
+
 ## \# Prediction vs. causality {.center background-color="#dc354a"}
 
 ## Why predict
@@ -109,7 +113,7 @@ ggplot(filter(gapminder, year == 2007), aes(x = gdpPercap, y = lifeExp)) +
 
 # A turning point {.center background-color="#dc354a"}
 
-## First half of course
+## Before....
 
 ::::: columns
 ::: {.column width="50%"}
@@ -129,7 +133,7 @@ knitr::include_graphics("img/learning-R.png")
 :::
 :::::
 
-## First half of course
+## Before....
 
 Use models to estimate the relationship between X and Y:
 
@@ -142,7 +146,7 @@ tidy(mod)
 
 But is this relationship **causal**? Would an increase in GDP **cause** an increase in life expectancy, on average?
 
-## Second half of the course
+## NOW!
 
 ::::: columns
 ::: {.column width="50%"}
@@ -350,7 +354,7 @@ knitr::include_graphics("img/sponge-cause.jpeg")
 
 ::::: columns
 ::: {.column width="50%"}
--   A good way to see that we correlation **can** equal causation is to make up (**simulate**) data where we know that X causes Y
+-   A good way to see that a correlation **can** equal causation is to make up (**simulate**) data where we know that X causes Y
 -   We can make up data in R with the `rnorm()` function
 -   `rnorm()` draws random numbers from a **normal distribution**
 -   The numbers it makes up are pretty close to some **mean**, plus or minus a **standard deviation**
@@ -570,7 +574,14 @@ Using the steps I just went through above, make up some data that pre-confirms s
 
 3.  Make a scatterplot with a trend line -- use `labs()` to help us make sense of the plot axes!
 
-4.  Post your idea in Slack, winner (creativity + accuracy) will get small extra credit
+```{r}
+#| echo: true
+#| eval: false
+
+object_name = tibble(var1 = rnorm(n = , mean = , sd = ), 
+                       var2 = rnorm(n = , mean = , sd = ) # + or - # * or \ #) ,
+                       )
+```
 
 ```{r}
 countdown::countdown(minutes = 15L, font_size = "1.5em")

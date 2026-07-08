@@ -1,7 +1,220 @@
 ---
-title: "Random Data Generation"
+title: "Correlations"
 ---
 
-Sadly, we have not gotten to this code yet.
+```{r setup, include=FALSE}
+# set knit options
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=5, 
+  fig.retina=3,
+  fig.align="center",
+  out.width = "100%",
+  cache = FALSE,
+  echo = FALSE,
+  message = FALSE, 
+  warning = FALSE
+)
 
-![](/supplemental/images/IMG_6760.JPG){width="345"}
+# load libraries
+library(socviz)
+library(juanr)
+library(gapminder)
+library(patchwork)
+
+# source
+source(here::here("slides/R", "funcs.R"))
+
+```
+
+## Quantifying correlation
+
+Correlations are used to understand a relationship between two variables. We use the following equation to quantify correlations:
+
+$$r =
+  \frac{ \sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y}) }{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2\sum_{i=1}^{n}(y_i-\bar{y})^2}}$$
+
+-   ranges from -1 to 1,
+
+-   perfectly correlated = 1 or -1,
+
+-   perfectly uncorrelated = 0
+
+All of the movement is here: $\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})$
+
+```{r}
+
+child_table = gss_sm |> 
+  mutate(age_avg = mean(age, na.rm = TRUE),
+         child_avg = mean(childs, na.rm = TRUE),
+         diff_age = age - age_avg,
+         diff_child = childs - child_avg,
+         product = diff_age * diff_child) |> 
+  sample_n(5) |> 
+  select(age, "\\(\\overline{age}\\)" = age_avg, 
+        "\\(\\ age_{i} - \\overline{age}\\)" = diff_age,
+         child = childs, "\\(\\overline{child}\\)" = child_avg, 
+         "\\(\\ child_{i} - \\overline{child}\\)" = diff_child,
+         product) |> 
+  slice(c(1, 3, 5))
+
+
+kbl(child_table, digits = 2, escape = FALSE)
+```
+
+$$\sum_{i=1}^{n}(age_i-\overline{age})(child_i-\overline{child})$$
+
+Lots of big, positive **products** $\rightarrow$ strong **positive correlation**
+
+Lots of big, negative **products** $\rightarrow$ strong **negative correlation**
+
+::: callout-important
+It is important to understand that correlations **DO NOT** say anything about how much Y changes when X changes. Rather it only describes the ‘relationship’ between two variables.
+:::
+
+Correlations can describe two things: direction and strength of a relationship.
+
+#### **Direction (+/-)**
+
+-   A positive correlation means that when one variable increases another variable increases as well.
+
+-   A negative correlation means that when one variable goes up another variable decreases.
+
+#### **Strength**
+
+-   Correlations range from -1.0 to +1.0.
+
+-   The closer it is to +1 or -1, the more closely the two variables are related. (Strong)
+
+-   If the correlation is close to 0, it means there is no relationship.
+
+Furthermore, to describe correlations we look at the direction (positive or negative) and strength (the number)
+
+-   **Strong:** the relationship is very consistent
+
+-   **Weak:** the relationship exists, but is not very strong or consistent
+
+-   **Positive:** when one variable increases, the other tends to increase
+
+-   **Negative:** when one variable increases, the other tends to decrease
+
+::: callout-warning
+**REMINDER: THE NUMERICAL VALUE DOES NOT DESCRIBE HOW MUCH CHANGE JUST THE STRENGTH OF THE RELATIONSHIP.**
+:::
+
+### Example 1:
+
+In the first example, we are looking a randomly generated data to see how we can identify correlations visually based on scatter plots. I have provided 5 examples.
+
+```{r}
+library(tidyverse)
+set.seed(123)
+
+x = rnorm(100, mean = 1, sd = .5)
+y = rnorm(100, mean = 1, sd = 0.5)
+
+d1 <- data.frame(x = x,
+                 y = y + x*.5)
+d2 <- data.frame(x = x,
+                 y = y + x*-.5)
+d3 <- data.frame(x = x,
+                 y = y + x*1)
+d4 <- data.frame(x = x,
+                 y = y + x*-1)
+d5 <- data.frame(x = x,
+                 y = y)
+
+# visualize the correlations through a scatter plot
+
+# weak positive correlation
+ggplot(d1, aes(x, y)) +
+geom_point()  +
+ labs(title="Weak Positive Correlation Between X and Y")
+
+# weak negative correlation
+ggplot(d2, aes(x, y)) +
+geom_point()  +
+ labs(title= "Weak Negative Correlation Between X and Y")
+
+# strong positive correlation
+ggplot(d3, aes(x, y)) +
+geom_point()  +
+ labs(title="Strong PositiveCorrelation Between X and Y")
+
+# strong negative correlation
+ggplot(d4, aes(x, y)) +
+geom_point()  +
+ labs(title="Strong Negative Correlation Between X and Y")
+
+# no correlation
+ggplot(d5, aes(x, y)) +
+geom_point() +
+ labs(title="No Correlation Between X and Y")
+
+```
+
+### Example 2:
+
+Now in example 2, I have randomly generated data on a fake data set to understand how to use the the `cor()` function and how to visually plot correlations to illustrate it.
+
+```{r}
+
+age <- sample(18:100, 100, replace = TRUE)
+gender <- sample(c(1, 0), 100, replace = TRUE)  # 1 = Female, 0 = Male
+kids <- sample(0:5, 100, replace = TRUE)
+
+# Now build the data.frame with dependent vars defined inline
+data <- data.frame(
+  age = age,
+  gender = gender,
+  height = rnorm(100, mean = 5.5, sd = 0.75) + gender * -0.25,
+  kids = kids,
+  income = rnorm(100, mean = 45000, sd = 10000) + age * 1000 + gender * (-2000) + kids * (-3000),
+  years_edu = sample(10:23, 100, replace = TRUE) + age * 1 + gender * 2
+)
+
+head(data)
+```
+
+The `cor()` function allows us to clalculate the correlation between two or more variables. My first example is looking at only variables and then visualizing it through a scatter plot.
+
+```{r}
+
+# correlation for only two variables
+cor(data$age, data$income)
+
+# visualize the correlations through a scatter plot
+ggplot(data, aes(x = age, y = income)) +
+geom_point()
+
+```
+
+Since the correlation score is 0.89, we can determine there is strong positive relationship between age and income, stating that as age increases so does income. Which is seen in our scatter plot as well.
+
+Next, we will examine our full data set. Doing this only works if you have only numerical values, it does not work for non numerical values.
+
+```{r}
+
+# correlations for all variables in the dataset
+cor(data)
+
+```
+
+We can visualize this using the `ggcorrplot()` function.
+
+-   `lab = TRUE` shows the correlation coefficients
+
+-   `type = "upper"` changes the shape of visualization showing
+
+```{r}
+
+# install.packages("ggcorrplot")
+library(ggcorrplot) # for ggcorrplot()
+
+# save correlation values as a variable
+cor_data <- cor(data)
+
+# plot the correlation values
+ggcorrplot(cor_data, lab = TRUE, type = "upper")
+
+```

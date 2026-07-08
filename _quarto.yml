@@ -97,7 +97,7 @@ website:
           - href: supplemental/hypothesis-tests.qmd
             text: t-tests and Correlations
           - href: supplemental/data-gen.qmd
-            text: Random Data Generation
+            text: Correlations
 
 format:
   html:

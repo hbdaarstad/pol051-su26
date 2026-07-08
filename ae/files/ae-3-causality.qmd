@@ -1,0 +1,30 @@
+---
+title: "AE 3"
+---
+
+## 🕵️ Your turn: Michael Lacour 🕵️
+
+Using the steps I just went through above, make up some data that pre-confirms some pattern about the world you wish were true:
+
+1.  Change the [treatment]{.blue} and [outcome]{.red} variables in the code to ones of your choosing
+
+2.  Alter the parameters in `rnorm()` so the values make sense for your variables (e.g., what is a reasonable distribution for age?)
+
+3.  Make a scatterplot with a trend line -- use `labs()` to help us make sense of the plot axes!
+
+```{r}
+
+tibble()
+```
+
+## 🧩 Your turn: counterfactuals 🧩
+
+With neighbor, think through the counterfactual scenarios in these examples. What is the implicit counterfactual? What would a good counterfactual look like?
+
+1.  A study on whether international trade between two countries makes them more likely to form a defensive alliance.
+
+2.  A study on whether being a victim of a crime makes someone more supportive of authoritarian leaders
+
+3.  A study on whether those who served in the military are more likely to vote for "dovish" or "hawkish" candidates
+
+4.  A study on whether post-*Dobbs* abortion restrictions reduced abortions

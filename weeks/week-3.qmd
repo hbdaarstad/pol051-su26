@@ -14,13 +14,14 @@ editor: visual
 
 🖥️ [Lecture 7 - Modeling I](/slides/lec-7.html)
 
-🖥️ [Lecture 8 ](slides/lec-8.html)[-Modeling II](/slides/lec-8.html)
+🖥️ [Lecture 8 - Modeling II](/slides/lec-8.html)
 
-🖥️ [Lecture 9 - Causality I](not-avaliable-lec.html)
+🖥️ [Lecture 9 - Causality I](/slides/lec-9.html)
+
 
 ## Participation
 
-📋
+📋 [AE 3: Causality](/ae/files/ae-3-causality.qmd){download="ae-3-causality.qmd"}
 
 ## Lab
 
