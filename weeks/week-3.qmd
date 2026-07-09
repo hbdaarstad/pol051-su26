@@ -18,14 +18,13 @@ editor: visual
 
 🖥️ [Lecture 9 - Causality I](/slides/lec-9.html)
 
-
 ## Participation
 
 📋 [AE 3: Causality](/ae/files/ae-3-causality.qmd){download="ae-3-causality.qmd"}
 
 ## Lab
 
-⌨️ [Lab 3 - Modeling I + II](not-available.html)
+⌨️ [Lab 3 - Modeling I + II](/labs/lab-3.qmd){download="lab-3.qmd"}
 
 <br><br>
 

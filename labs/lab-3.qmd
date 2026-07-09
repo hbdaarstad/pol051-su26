@@ -91,7 +91,7 @@ Imagine the following scenario:
 
 > You're a researcher that wants to test whether rebel groups that have strong ideological convictions abuse civilians less or more than rebel groups with weak ideological convictions. You also know that, in civil wars where the state is run by a military dictatorship, civilians are more likely to be abused in general, although the state being a military dictatorship has no effect on the rebel group's ideology.
 
-**Q7: Will the fact that civilians are abused more in civil wars where the state is run by a dictatorship bias your study?**
+**Q7: What is the treatment variable here, and why might it pose a challenge for the definition of causality in this class?**
 
 Imagine the following scenario:
 

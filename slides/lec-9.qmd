@@ -578,8 +578,8 @@ Using the steps I just went through above, make up some data that pre-confirms s
 #| echo: true
 #| eval: false
 
-object_name = tibble(var1 = rnorm(n = , mean = , sd = ), 
-                       var2 = rnorm(n = , mean = , sd = ) # + or - # * or \ #) ,
+object_name = tibble(treatment = rnorm(n = , mean = , sd = ), 
+                    outcome = rnorm(n = , mean = , sd = ) # + or - * treatment,
                        )
 ```
 

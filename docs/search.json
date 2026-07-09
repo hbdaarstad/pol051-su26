@@ -437,7 +437,7 @@
     "href": "slides/lec-9.html#drawing-from-a-normal-distribution",
     "title": "Causality I",
     "section": "Drawing from a normal distribution",
-    "text": "Drawing from a normal distribution\nGenerate 10 random numbers, most of which are +/- 2 away from 10:\n\nrnorm(n = 10, mean = 10, sd = 2)\n\n [1] 13.261141 10.773984 11.590948  9.782673 11.156832  6.882718  8.257916\n [8]  7.043502  8.319070 11.256091\n\n\n\nGenerate 5 random numbers, most of which are +/- 10 away from 50:\n\nrnorm(n = 5, mean = 50, sd = 10)\n\n[1] 52.47437 55.43297 58.24872 36.85401 46.82708\n\n\n\n\nGenerate 4 random numbers, most of which are +/- 100 away from -10:\n\nrnorm(n = 4, mean = -10, sd = 100)\n\n[1]  44.0492276 -27.5182496 126.6578710  -0.4953027\n\n\n\n\n\n\n\n\nNote\n\n\nn = number of draws, mean = average, sd = standard deviation"
+    "text": "Drawing from a normal distribution\nGenerate 10 random numbers, most of which are +/- 2 away from 10:\n\nrnorm(n = 10, mean = 10, sd = 2)\n\n [1]  6.949790 14.027801 10.960668 10.811843  8.692834 13.798625  9.743443\n [8] 12.133162 10.962706 10.130319\n\n\n\nGenerate 5 random numbers, most of which are +/- 10 away from 50:\n\nrnorm(n = 5, mean = 50, sd = 10)\n\n[1] 49.11410 40.25305 47.72332 46.28520 59.13883\n\n\n\n\nGenerate 4 random numbers, most of which are +/- 100 away from -10:\n\nrnorm(n = 4, mean = -10, sd = 100)\n\n[1]  119.97385  -84.49219   32.91787 -137.57080\n\n\n\n\n\n\n\n\nNote\n\n\nn = number of draws, mean = average, sd = standard deviation"
   },
   {
     "objectID": "slides/lec-9.html#do-winners-keep-winning",
@@ -451,7 +451,7 @@
     "href": "slides/lec-9.html#faking-simulating-the-treatment",
     "title": "Causality I",
     "section": "Faking (simulating) the treatment",
-    "text": "Faking (simulating) the treatment\nWe can use tibble() and rnorm() to simulate variables\n\nelections (treatment) = 500 elections, vote share is 50% of the vote on average, +/- 5%\n\n\n\nfake_election = tibble(party_share = rnorm(n = 500, mean = 50, sd = 5))\nfake_election\n\n# A tibble: 500 × 1\n   party_share\n         &lt;dbl&gt;\n 1        53.0\n 2        56.8\n 3        49.2\n 4        38.7\n 5        53.4\n 6        56.7\n 7        49.6\n 8        42.2\n 9        39.8\n10        53.9\n# ℹ 490 more rows"
+    "text": "Faking (simulating) the treatment\nWe can use tibble() and rnorm() to simulate variables\n\nelections (treatment) = 500 elections, vote share is 50% of the vote on average, +/- 5%\n\n\n\nfake_election = tibble(party_share = rnorm(n = 500, mean = 50, sd = 5))\nfake_election\n\n# A tibble: 500 × 1\n   party_share\n         &lt;dbl&gt;\n 1        53.6\n 2        50.9\n 3        45.8\n 4        46.5\n 5        42.8\n 6        46.1\n 7        44.3\n 8        50.6\n 9        53.9\n10        52.6\n# ℹ 490 more rows"
   },
   {
     "objectID": "slides/lec-9.html#and-we-can-plot-it",
@@ -465,7 +465,7 @@
     "href": "slides/lec-9.html#making-the-outcome",
     "title": "Causality I",
     "section": "Making the outcome",
-    "text": "Making the outcome\nNext we want to make up campaign fundraising (outcome)\n\nLet’s say parties raise about 20k on average, plus or minus 4k\n\n\n\nfake_election = tibble(party_share = rnorm(n = 500, mean = 50, sd = 5), \n                       funding = rnorm(n = 500, mean = 20000, sd = 4000))\nfake_election\n\n# A tibble: 500 × 2\n   party_share funding\n         &lt;dbl&gt;   &lt;dbl&gt;\n 1        42.7  24412.\n 2        47.7  23920.\n 3        46.7  23797.\n 4        46.6  24233.\n 5        38.7  20904.\n 6        48.3   9803.\n 7        48.7  17187.\n 8        59.0  20863.\n 9        50.0  23029.\n10        54.8  19871.\n# ℹ 490 more rows"
+    "text": "Making the outcome\nNext we want to make up campaign fundraising (outcome)\n\nLet’s say parties raise about 20k on average, plus or minus 4k\n\n\n\nfake_election = tibble(party_share = rnorm(n = 500, mean = 50, sd = 5), \n                       funding = rnorm(n = 500, mean = 20000, sd = 4000))\nfake_election\n\n# A tibble: 500 × 2\n   party_share funding\n         &lt;dbl&gt;   &lt;dbl&gt;\n 1        49.0  31105.\n 2        54.2  23078.\n 3        48.4  13547.\n 4        56.9  16517.\n 5        45.9  16782.\n 6        49.4  22235.\n 7        54.1  13576.\n 8        53.3  20432.\n 9        46.8  11677.\n10        55.8  19166.\n# ℹ 490 more rows"
   },
   {
     "objectID": "slides/lec-9.html#and-we-can-plot-it-1",
@@ -486,7 +486,7 @@
     "href": "slides/lec-9.html#making-x-cause-y-1",
     "title": "Causality I",
     "section": "Making X cause Y",
-    "text": "Making X cause Y\nWe can do this in R like so:\n\nfake_election = tibble(party_share = rnorm(n = 500, mean = 50, sd = 5), \n                       funding = rnorm(n = 500, mean = 20000, sd = 4000) + 2000 * party_share)\nfake_election\n\n# A tibble: 500 × 2\n   party_share funding\n         &lt;dbl&gt;   &lt;dbl&gt;\n 1        43.7 102658.\n 2        47.7 110698.\n 3        50.1 120889.\n 4        48.5 117753.\n 5        49.7 126357.\n 6        45.7 112363.\n 7        45.5 117294.\n 8        48.9 114949.\n 9        48.2 114980.\n10        59.3 135331.\n# ℹ 490 more rows\n\n\n\nAs an equation, this looks like: \\(Donations_{i} = Party\\_share_{i} \\times 2000\\)"
+    "text": "Making X cause Y\nWe can do this in R like so:\n\nfake_election = tibble(party_share = rnorm(n = 500, mean = 50, sd = 5), \n                       funding = rnorm(n = 500, mean = 20000, sd = 4000) + 2000 * party_share)\nfake_election\n\n# A tibble: 500 × 2\n   party_share funding\n         &lt;dbl&gt;   &lt;dbl&gt;\n 1        58.5 137553.\n 2        57.2 134736.\n 3        54.8 133910.\n 4        52.9 127093.\n 5        51.6 119538.\n 6        47.1 111460.\n 7        46.0 114502.\n 8        54.8 125868.\n 9        44.1 107359.\n10        47.5 119973.\n# ℹ 490 more rows\n\n\n\nAs an equation, this looks like: \\(Donations_{i} = Party\\_share_{i} \\times 2000\\)"
   },
   {
     "objectID": "slides/lec-9.html#eyeballing-it",
@@ -500,7 +500,7 @@
     "href": "slides/lec-9.html#can-we-get-the-causal-estimate-back",
     "title": "Causality I",
     "section": "Can we get the causal estimate back?",
-    "text": "Can we get the causal estimate back?\nWe know the effect of vote share on campaign donations: it’s 2k per percent of the vote\n\nCan we use a model to get that estimate back?\n\n\nYes!\n\nmod = lm(funding ~ party_share, data = fake_election)\ntidy(mod)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic   p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)   16084.    1777.       9.05 3.20e- 18\n2 party_share    2080.      35.7     58.3  1.14e-224"
+    "text": "Can we get the causal estimate back?\nWe know the effect of vote share on campaign donations: it’s 2k per percent of the vote\n\nCan we use a model to get that estimate back?\n\n\nYes!\n\nmod = lm(funding ~ party_share, data = fake_election)\ntidy(mod)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic   p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)   17543.    1947.       9.01 4.42e- 18\n2 party_share    2047.      39.1     52.3  2.07e-204"
   },
   {
     "objectID": "slides/lec-9.html#hope",
@@ -521,7 +521,7 @@
     "href": "slides/lec-9.html#your-turn-michael-lacour-1",
     "title": "Causality I",
     "section": "🕵️ Your turn: Michael Lacour 🕵️",
-    "text": "🕵️ Your turn: Michael Lacour 🕵️\nUsing the steps I just went through above, make up some data that pre-confirms some pattern about the world you wish were true:\n\nChange the treatment and outcome variables in the code to ones of your choosing\nAlter the parameters in rnorm() so the values make sense for your variables (e.g., what is a reasonable distribution for age?)\nMake a scatterplot with a trend line – use labs() to help us make sense of the plot axes!\n\n\nobject_name = tibble(var1 = rnorm(n = , mean = , sd = ), \n                       var2 = rnorm(n = , mean = , sd = ) # + or - # * or \\ #) ,\n                       )"
+    "text": "🕵️ Your turn: Michael Lacour 🕵️\nUsing the steps I just went through above, make up some data that pre-confirms some pattern about the world you wish were true:\n\nChange the treatment and outcome variables in the code to ones of your choosing\nAlter the parameters in rnorm() so the values make sense for your variables (e.g., what is a reasonable distribution for age?)\nMake a scatterplot with a trend line – use labs() to help us make sense of the plot axes!\n\n\nobject_name = tibble(treatment = rnorm(n = , mean = , sd = ), \n                    outcome = rnorm(n = , mean = , sd = ) # + or - * treatment,\n                       )"
   },
   {
     "objectID": "slides/lec-9.html#the-democratic-peace",
@@ -535,21 +535,21 @@
     "href": "slides/lec-9.html#potential-outcomes",
     "title": "Causality I",
     "section": "Potential outcomes",
-    "text": "Potential outcomes\nThis magical world where we can compare the number of wars when a country is a democracy versus when it is not is called the potential outcomes\n\n\n\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\n2\n\n\nCanada\n1\n0\n\n\nChina\n0\n3\n\n\nChina\n1\n3\n\n\nUSA\n0\n4\n\n\nUSA\n1\n4"
+    "text": "Potential outcomes\nThis magical world where we can compare the number of wars when a country is a democracy versus when it is not is called the potential outcomes\n\n\n\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\n3\n\n\nCanada\n1\n1\n\n\nChina\n0\n5\n\n\nChina\n1\n0\n\n\nUSA\n0\n1\n\n\nUSA\n1\n2"
   },
   {
     "objectID": "slides/lec-9.html#the-fundamental-problem-of-causality",
     "href": "slides/lec-9.html#the-fundamental-problem-of-causality",
     "title": "Causality I",
     "section": "The fundamental problem of causality",
-    "text": "The fundamental problem of causality\n\n\nIn reality, we can only observe democracy at one value for each country\nThe US is a democracy, we can observe wars when democracy = 1, but not when democracy = 0\nChina is not a democracy, we can observe wars when democracy = 0, but not when democracy = 1\n\n\n\n\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\n2\n\n\nCanada\n1\n0\n\n\nChina\n0\n3\n\n\nChina\n1\n3\n\n\nUSA\n0\n4\n\n\nUSA\n1\n4"
+    "text": "The fundamental problem of causality\n\n\nIn reality, we can only observe democracy at one value for each country\nThe US is a democracy, we can observe wars when democracy = 1, but not when democracy = 0\nChina is not a democracy, we can observe wars when democracy = 0, but not when democracy = 1\n\n\n\n\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\n3\n\n\nCanada\n1\n1\n\n\nChina\n0\n5\n\n\nChina\n1\n0\n\n\nUSA\n0\n1\n\n\nUSA\n1\n2"
   },
   {
     "objectID": "slides/lec-9.html#potential-vs.-observed",
     "href": "slides/lec-9.html#potential-vs.-observed",
     "title": "Causality I",
     "section": "Potential vs. observed",
-    "text": "Potential vs. observed\nWe only observe the world on the right, but not the left\n\n\n\n\n\nPotential outcomes world\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\n2\n\n\nCanada\n1\n0\n\n\nChina\n0\n3\n\n\nChina\n1\n3\n\n\nUSA\n0\n4\n\n\nUSA\n1\n4\n\n\n\n\n\n\n\n\n\nObserved outcomes world\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\nNA\n\n\nCanada\n1\n0\n\n\nChina\n0\n3\n\n\nChina\n1\nNA\n\n\nUSA\n0\nNA\n\n\nUSA\n1\n4"
+    "text": "Potential vs. observed\nWe only observe the world on the right, but not the left\n\n\n\n\n\nPotential outcomes world\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\n3\n\n\nCanada\n1\n1\n\n\nChina\n0\n5\n\n\nChina\n1\n0\n\n\nUSA\n0\n1\n\n\nUSA\n1\n2\n\n\n\n\n\n\n\n\n\nObserved outcomes world\n\n\ncountry\ndemocracy\nwar\n\n\n\n\nCanada\n0\nNA\n\n\nCanada\n1\n1\n\n\nChina\n0\n5\n\n\nChina\n1\nNA\n\n\nUSA\n0\nNA\n\n\nUSA\n1\n2"
   },
   {
     "objectID": "slides/lec-9.html#the-fundamental-problem-of-causality-1",
@@ -563,7 +563,7 @@
     "href": "slides/lec-9.html#comparing-apples-and-oranges",
     "title": "Causality I",
     "section": "Comparing apples and oranges",
-    "text": "Comparing apples and oranges\nWhy not just compare the number of wars for countries where democracy = 0 (autocracies) versus the countries where democracy = 1 (democracies)?\n\nIf democracies fight less, then democracy reduces conflict\n\n\n\nobserved %&gt;% \n  group_by(democracy) %&gt;% \n  summarise(wars = mean(war, na.rm = TRUE))\n\n# A tibble: 2 × 2\n  democracy  wars\n      &lt;dbl&gt; &lt;dbl&gt;\n1         0     3\n2         1     2"
+    "text": "Comparing apples and oranges\nWhy not just compare the number of wars for countries where democracy = 0 (autocracies) versus the countries where democracy = 1 (democracies)?\n\nIf democracies fight less, then democracy reduces conflict\n\n\n\nobserved %&gt;% \n  group_by(democracy) %&gt;% \n  summarise(wars = mean(war, na.rm = TRUE))\n\n# A tibble: 2 × 2\n  democracy  wars\n      &lt;dbl&gt; &lt;dbl&gt;\n1         0   5  \n2         1   1.5"
   },
   {
     "objectID": "slides/lec-9.html#comparing-apples-and-oranges-1",
@@ -577,14 +577,14 @@
     "href": "slides/lec-9.html#why-experiments-work",
     "title": "Causality I",
     "section": "Why experiments work",
-    "text": "Why experiments work\nIn an experiment, we randomly expose participants to some treatment, while others are exposed to nothing (or a placebo)\n\n\n\n\n\n\nPerson\nShown an ad?\nDemocrats thermometer\n\n\n\n\n1\nYes\n27.42\n\n\n2\nNo\n78.69\n\n\n3\nYes\n53.59\n\n\n4\nNo\n48.31\n\n\n5\nNo\n24.29\n\n\n\n\n\n\n\nWe then compare the outcome of those who did and didn’t get the treatment"
+    "text": "Why experiments work\nIn an experiment, we randomly expose participants to some treatment, while others are exposed to nothing (or a placebo)\n\n\n\n\n\n\nPerson\nShown an ad?\nDemocrats thermometer\n\n\n\n\n1\nYes\n93.2\n\n\n2\nNo\n27.95\n\n\n3\nYes\n23.1\n\n\n4\nNo\n63.25\n\n\n5\nNo\n97.64\n\n\n\n\n\n\n\nWe then compare the outcome of those who did and didn’t get the treatment"
   },
   {
     "objectID": "slides/lec-9.html#why-experiments-work-1",
     "href": "slides/lec-9.html#why-experiments-work-1",
     "title": "Causality I",
     "section": "Why experiments work",
-    "text": "Why experiments work\nExperiments have the same “problem” as the democracy and war example: we can’t observe the same person seeing and not seeing the ad\n\n\n\n\n\nPerson\nShown an ad?\nDemocrats thermometer\n\n\n\n\n1\nYes\n27.42\n\n\n2\nNo\n78.69\n\n\n\n\n\n\nBut since the experimental ad was randomly assigned, the people that did and didn’t see the ad are good counterfactuals of one another\n\n\nit is, by definition, just as likely a person who received treatment could have instead received the control/placebo (note how this differs from democracy \\(\\rightarrow\\) war)"
+    "text": "Why experiments work\nExperiments have the same “problem” as the democracy and war example: we can’t observe the same person seeing and not seeing the ad\n\n\n\n\n\nPerson\nShown an ad?\nDemocrats thermometer\n\n\n\n\n1\nYes\n93.2\n\n\n2\nNo\n27.95\n\n\n\n\n\n\nBut since the experimental ad was randomly assigned, the people that did and didn’t see the ad are good counterfactuals of one another\n\n\nit is, by definition, just as likely a person who received treatment could have instead received the control/placebo (note how this differs from democracy \\(\\rightarrow\\) war)"
   },
   {
     "objectID": "slides/lec-9.html#the-gold-standard",
@@ -1997,7 +1997,7 @@
     "href": "index.html",
     "title": "POL 051: The Scientific Study of Politics",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the summer session. Note that this schedule will be updated as the summer progresses, with all changes documented here.\n\n\n\n\n\n\n\n\nInstructor:\nLecture:\nDiscussion/Lab:\n\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nPrepare\nSlides\nAE\nLab\nCode Example\nProject\n\n\n\n\n1\nMon, June 22\nLecture 1 - Meet + greet, Welcome to POL 051\n📖\n🖥️\n📋\n\n🧮\nTeams created + list of project ideas 📂\n\n\n\nTue, June 23\nLecture 2 - Data Visualization I & II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, June 24\nLecture 3 - Data Wrangling I\n\n🖥️\n\n\n🧮\n\n\n\n\nThu, June 25\nLab 1\n\n\n\n💻\n\n\n\n\n2\nMon, June 29\nLecture 4 - Data Wrangling II\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, June 30\nLecture 5 - Relationships I\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 1\nLecture 6 - Relationships II\n\n🖥️\n📋\n\n\nChosen Topic is Due June 28 📂\n\n\n\nThu, July 2\nLab 2\n\n\n\n💻\n\n\n\n\n3\nMon, July 6\nLecture 7 - Modeling I\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, July 7\nLecture 8 - Modeling II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 8\nLecture 9 - Causality I\n\n🖥️\n📋\n\n\n\n\n\n\nThu, July 9\nLab 3\n\n🖥️\n\n💻\n\n\n\n\n4\nMon, July 13\nLecture 10 - Causality II\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 14\nLecture 11 - DAGs\n\n🖥️\n\n\n\n\n\n\n\nWed, July 15\nLecture 12 - Uncertainty\n\n\n\n\n\n\n\n\n\nThu, July 16\nLab 4\n\n🖥️\n\n💻\n\nProject Draft Due Fri. July 17 📂\n\n\n5\nMon, July 20\nLecture 13 - Hypothesis Testing I\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 21\nLecture 14 - Hypothesis Testing II\n\n🖥️\n\n\n\n\n\n\n\nWed, July 22\nLecture 15 - Prediction\n\n🖥️\n\n\n\nPeer Review is Due 📂\n\n\n\nThu, July 23\nLab 5\n\n\n\n💻\n\n\n\n\n6\nMon, July 27\nLecture 16 - Experiments\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 28\nLecture 17 - Natural Experiments I\n\n🖥️\n\n\n\n\n\n\n\nWed, July 29\nLecture 18 - Natural Experiments II\n\n🖥️\n\n\n\nFinal Project Due\n\n\n\nThu, July 30\nFinal Project Presentation\n\n\n\n\n\nFinal Project Presentation 📂",
+    "text": "This page contains an outline of the topics, content, and assignments for the summer session. Note that this schedule will be updated as the summer progresses, with all changes documented here.\n\n\n\n\n\n\n\n\nInstructor:\nLecture:\nDiscussion/Lab:\n\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nPrepare\nSlides\nAE\nLab\nCode Example\nProject\n\n\n\n\n1\nMon, June 22\nLecture 1 - Meet + greet, Welcome to POL 051\n📖\n🖥️\n📋\n\n🧮\nTeams created + list of project ideas 📂\n\n\n\nTue, June 23\nLecture 2 - Data Visualization I & II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, June 24\nLecture 3 - Data Wrangling I\n\n🖥️\n\n\n🧮\n\n\n\n\nThu, June 25\nLab 1\n\n\n\n💻\n\n\n\n\n2\nMon, June 29\nLecture 4 - Data Wrangling II\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, June 30\nLecture 5 - Relationships I\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 1\nLecture 6 - Relationships II\n\n🖥️\n📋\n\n\nChosen Topic is Due June 28 📂\n\n\n\nThu, July 2\nLab 2\n\n\n\n💻\n\n\n\n\n3\nMon, July 6\nLecture 7 - Modeling I\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, July 7\nLecture 8 - Modeling II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 8\nLecture 9 - Causality I\n\n🖥️\n📋\n\n\n\n\n\n\nThu, July 9\nLab 3\n\n\n\n💻\n\n\n\n\n4\nMon, July 13\nLecture 10 - Causality II\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 14\nLecture 11 - DAGs\n\n🖥️\n\n\n\n\n\n\n\nWed, July 15\nLecture 12 - Uncertainty\n\n\n\n\n\n\n\n\n\nThu, July 16\nLab 4\n\n🖥️\n\n💻\n\nProject Draft Due Fri. July 17 📂\n\n\n5\nMon, July 20\nLecture 13 - Hypothesis Testing I\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 21\nLecture 14 - Hypothesis Testing II\n\n🖥️\n\n\n\n\n\n\n\nWed, July 22\nLecture 15 - Prediction\n\n🖥️\n\n\n\nPeer Review is Due 📂\n\n\n\nThu, July 23\nLab 5\n\n\n\n💻\n\n\n\n\n6\nMon, July 27\nLecture 16 - Experiments\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 28\nLecture 17 - Natural Experiments I\n\n🖥️\n\n\n\n\n\n\n\nWed, July 29\nLecture 18 - Natural Experiments II\n\n🖥️\n\n\n\nFinal Project Due\n\n\n\nThu, July 30\nFinal Project Presentation\n\n\n\n\n\nFinal Project Presentation 📂",
     "crumbs": [
       "Course information",
       "Schedule"
