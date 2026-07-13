@@ -5,9 +5,9 @@ editor: visual
 ---
 
 ::: callout-important
-PROJECT DUE - Wed, July 29
+PRESENTATION - Mon, July 27
 
-PRESENTIATION - Thu, July 30
+PROJECT DUE - Wed, July 29
 :::
 
 ## Prepare
@@ -16,11 +16,7 @@ PRESENTIATION - Thu, July 30
 
 ## Participate
 
-🖥️ [Lecture 14 - Experiments](not-avaliable-lec.html)
-
-🖥️ [Lecture 15 - Natural Experiments I](not-avaliable-lec.html)
-
-🖥️ [Lecture 16 -](not-avaliable-lec.html) [Natural Experiments II](not-avaliable-lec.html)
+🖥️ [Lecture 16 - Natural Experiments](not-avaliable-lec.html)
 
 ## Practice
 

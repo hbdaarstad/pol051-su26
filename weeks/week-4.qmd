@@ -16,7 +16,7 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 10 -](not-available-lec.html)[Causality II](not-avaliable-lec.html)
+🖥️ [Lecture 10 -Causality II](/slides/lec-10.html)
 
 🖥️ [Lecture 11 - DAGs](not-avaliable-lec.html)
 

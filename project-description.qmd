@@ -3,7 +3,7 @@ title: "Project description"
 ---
 
 ::: callout-important
-Project Proposal due date extended, now due Wed. July 1.
+Project Presentation date moved forward, now Mon. July 27
 :::
 
 ## Timeline
@@ -16,7 +16,7 @@ Project Proposal due date extended, now due Wed. July 1.
 
 [Final report](#written-report) due Wed, July 29
 
-[Presentation](#video-presentation--slides) on Thu, July 30
+[Presentation](#video-presentation--slides) on ~~Thu, July 30~~ Mon. July 27
 
 ## Introduction
 

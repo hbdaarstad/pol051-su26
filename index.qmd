@@ -29,7 +29,7 @@ This page contains an outline of the topics, content, and assignments for the su
 |  | Tue, July 7 | Lecture 8 - Modeling II |  | [🖥️](slides/lec-8.html) |  |  |  [🧮](/supplemental/models.html)  |  |
 |  | Wed, July 8 | Lecture 9 - Causality I |  | [🖥️](slides/lec-9.html) | [📋](/ae/files/ae-3-causality.qmd){download="ae-3-causality.qmd"} |  |  |  |
 |  | Thu, July 9 | Lab 3 |  |  |  | [💻](/labs/lab-3.qmd){download="lab-3.qmd"} |  |  |
-| [4](/weeks/week-4.html) | Mon, July 13 | Lecture 10 - Causality II | [📖](/weeks/week-4.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
+| [4](/weeks/week-4.html) | Mon, July 13 | Lecture 10 - Causality II | [📖](/weeks/week-4.html#prepare) | [🖥️](slides/lec-10.html) |  |  |  |  |
 |  | Tue, July 14 | Lecture 11 - DAGs |  | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Wed, July 15 | Lecture 12 - Uncertainty |  |  |  |  |  |  |
 |  | Thu, July 16 | Lab 4 |  | [🖥️](not-available-lec.html) |  | [💻](not-available.html) |  | Project Draft Due Fri. July 17 📂 |
@@ -37,7 +37,4 @@ This page contains an outline of the topics, content, and assignments for the su
 |  | Tue, July 21 | Lecture 14 - Hypothesis Testing II |  | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Wed, July 22 | Lecture 15 - Prediction |  | [🖥️](not-available-lec.html) |  |  |  | Peer Review is Due 📂 |
 |  | Thu, July 23 | Lab 5 |  |  |  | [💻](not-available.html) |  |  |
-| [6](/weeks/week-6.html) | Mon, July 27 | Lecture 16 - Experiments | [📖](/weeks/week-6.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
-|  | Tue, July 28 | Lecture 17 - Natural Experiments I |  | [🖥️](not-available-lec.html) |  |  |  |  |
-|  | Wed, July 29 | Lecture 18 - Natural Experiments II |  | [🖥️](not-available-lec.html) |  |  |  | Final Project Due |
-|  | Thu, July 30 | Final Project Presentation |  |  |  |  |  | Final Project Presentation 📂 |
+| [6](/weeks/week-6.html) | Mon, July 27 | Lecture 16 - Natural Experiments + Final Presentations | [📖](/weeks/week-6.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |Final Project Presentation 📂  |

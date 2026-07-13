@@ -4,7 +4,7 @@
     "href": "weeks/week-6.html",
     "title": "Week 6",
     "section": "",
-    "text": "Important\n\n\n\nPROJECT DUE - Wed, July 29\nPRESENTIATION - Thu, July 30",
+    "text": "Important\n\n\n\nPRESENTATION - Mon, July 27\nPROJECT DUE - Wed, July 29",
     "crumbs": [
       "Weekly materials",
       "Week 6"
@@ -26,7 +26,7 @@
     "href": "weeks/week-6.html#participate",
     "title": "Week 6",
     "section": "Participate",
-    "text": "Participate\n🖥️ Lecture 14 - Experiments\n🖥️ Lecture 15 - Natural Experiments I\n🖥️ Lecture 16 - Natural Experiments II",
+    "text": "Participate\n🖥️ Lecture 16 - Natural Experiments",
     "crumbs": [
       "Weekly materials",
       "Week 6"
@@ -1434,6 +1434,703 @@
     "text": "🗳️ The (unusual) American voter 🗳️\nIn your teams, using bot:\n\nIdentify the most unusual subgroup of voters you can think of\nConstraint: need at least five voters in your subgroup\nStore your unusual subgroup as an object\nOne member tells the class what was your subgroup of voters.\n\n\n\n\n\n\n\nNote\n\n\nRemember you can use ?bot to look at the codebook"
   },
   {
+    "objectID": "slides/lec-10.html#causal-diagram",
+    "href": "slides/lec-10.html#causal-diagram",
+    "title": "Causality II",
+    "section": "Causal diagram",
+    "text": "Causal diagram\n\n\nWe need a causal model\nThe model is our idea of how the data came to be (the data-generating process)\nThe model tells us how to identify a causal effect (if it’s possible!)"
+  },
+  {
+    "objectID": "slides/lec-10.html#directed-acyclical-graphs-dags",
+    "href": "slides/lec-10.html#directed-acyclical-graphs-dags",
+    "title": "Causality II",
+    "section": "Directed Acyclical Graphs (DAGs)",
+    "text": "Directed Acyclical Graphs (DAGs)\nA popular modeling tool for thinking about causality is the DAG\nNodes (points) = variables; Edges (arrows) = direction of causality"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags",
+    "href": "slides/lec-10.html#dags",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\nNodes = variables; Arrows = direction of causality\n\n\n\n\n\n\n\n\n\n\nRead: X1 has an effect on Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags-1",
+    "href": "slides/lec-10.html#dags-1",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\n\n\nX1 has an effect on Y; X2 has an effect on X1; X2 affects Y only through X1\nMissing arrows matter!\n\nExample of x2 - x1 - y?"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags-2",
+    "href": "slides/lec-10.html#dags-2",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\n\n\nX1 has an effect on Y; X2 has an effect on X1 and Y (via X1); X3 has an effect on X1 and Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-ideology",
+    "href": "slides/lec-10.html#example-ideology",
+    "title": "Causality II",
+    "section": "Example: ideology",
+    "text": "Example: ideology\nWhere does (liberal) ideology come from?\n\nVariables in the literature: Income (I), Liberal (L), Age (A), Media (M), Parents (P)\n\n\n\n\n\n\n\n\n\n\n\n\nWhat are our assumptions? What’s this DAG saying?"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags-3",
+    "href": "slides/lec-10.html#dags-3",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\nDAGs encode everything we know about some process\n\nWe can see all of our assumptions and how they fit together\n\n\nFor example: the effect of Parents on how Liberal someone is happens directly and indirectly (through Media)\n\n\nMissing arrows also matter: we are assuming that Age has no effect on Media diet"
+  },
+  {
+    "objectID": "slides/lec-10.html#identification",
+    "href": "slides/lec-10.html#identification",
+    "title": "Causality II",
+    "section": "Identification",
+    "text": "Identification\nWhy do this?\n\nLater: DAGs help us figure out how to estimate the effect of one variable on another\n\n\nWhile at the same time being mindful of all the other variables that we need to adjust, or control for\n\n\nFor instance, we might want to estimate the effect of Media consumption (M) on how Liberal (L) someone is\n\n\nThis process is called “identification” \\(\\rightarrow\\) to identify the effect of X on Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#waffles-and-divorce",
+    "href": "slides/lec-10.html#waffles-and-divorce",
+    "title": "Causality II",
+    "section": "Waffles and Divorce",
+    "text": "Waffles and Divorce"
+  },
+  {
+    "objectID": "slides/lec-10.html#waffle-house-index",
+    "href": "slides/lec-10.html#waffle-house-index",
+    "title": "Causality II",
+    "section": "Waffle House Index",
+    "text": "Waffle House Index"
+  },
+  {
+    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce",
+    "href": "slides/lec-10.html#does-waffle-house-cause-divorce",
+    "title": "Causality II",
+    "section": "Does Waffle House cause divorce?",
+    "text": "Does Waffle House cause divorce?\nStates with more waffle houses tend to have more divorce\n\n\n\n\n\nLocation\nMarriage\nDivorce\nWaffles per Person\n\n\n\n\nWest Virginia\n22.2\n10.9\n2.16\n\n\nIowa\n21.5\n10.2\n0.00\n\n\nSouth Dakota\n20.1\n10.9\n0.00\n\n\nFlorida\n17.0\n8.5\n7.07\n\n\nMontana\n18.5\n9.1\n0.00\n\n\nIdaho\n25.8\n7.7\n0.00\n\n\nNebraska\n19.6\n8.8\n0.00"
+  },
+  {
+    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce-1",
+    "href": "slides/lec-10.html#does-waffle-house-cause-divorce-1",
+    "title": "Causality II",
+    "section": "Does Waffle House cause divorce?",
+    "text": "Does Waffle House cause divorce?\nDo cheap, delicious waffles put marriages at risk?\n\n\nSpeculate on underlying mechanism"
+  },
+  {
+    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce-2",
+    "href": "slides/lec-10.html#does-waffle-house-cause-divorce-2",
+    "title": "Causality II",
+    "section": "Does Waffle House cause divorce?",
+    "text": "Does Waffle House cause divorce?\n\nAlmost certainly not\n\n\nNo one thinks there is a plausible way in which Waffle House causes divorce\n\n\nWhen we see a correlation of this kind we wonder about other variables that are actually driving the relationship\n\n\nYou’ve likely thought about this before: a “lurking” variable, “other factors”, that “matter”\n\n\nBut what might that variable be? And how exactly does it lead us astray?"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-lurking-variable",
+    "href": "slides/lec-10.html#the-lurking-variable",
+    "title": "Causality II",
+    "section": "The lurking variable",
+    "text": "The lurking variable\nIt turns out that Waffle Houses originated in the South (Georgia), and most of them are still there\n\nThe South also happens to have some of the highest divorce rates in the country"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-dag",
+    "href": "slides/lec-10.html#the-dag",
+    "title": "Causality II",
+    "section": "The DAG",
+    "text": "The DAG\nSo the DAG might look something like this: South has an effect on Waffle Houses and Divorce, but Waffles do not cause Divorce"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-problem",
+    "href": "slides/lec-10.html#the-problem",
+    "title": "Causality II",
+    "section": "The problem",
+    "text": "The problem\n\n\nA DAG like this will produce a correlation between Waffles and Divorce, even when there is no causal relationship\n\n\nThis is called confounding: the South is confounding the relationship between Waffles and Divorce"
+  },
+  {
+    "objectID": "slides/lec-10.html#how-does-this-happen",
+    "href": "slides/lec-10.html#how-does-this-happen",
+    "title": "Causality II",
+    "section": "How does this happen?",
+    "text": "How does this happen?\nLet’s make up data to convince ourselves this is true\n\nfifty states, about half of them are in the South\n\n\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE))\n\n# A tibble: 50 × 1\n   south\n   &lt;dbl&gt;\n 1     0\n 2     1\n 3     0\n 4     1\n 5     1\n 6     1\n 7     1\n 8     1\n 9     0\n10     1\n# ℹ 40 more rows\n\n\n\n\n\n\n\n\nNote\n\n\nsample() is choosing at random between 0 and 1, 50 times, with replacement"
+  },
+  {
+    "objectID": "slides/lec-10.html#simulate-the-treatment",
+    "href": "slides/lec-10.html#simulate-the-treatment",
+    "title": "Causality II",
+    "section": "Simulate the treatment",
+    "text": "Simulate the treatment\nStep 2: make Waffle houses, let’s say about 20 per million residents, +/- 4\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n       waffle = rnorm(n = 50, mean = 20, sd = 4))\n\n# A tibble: 50 × 2\n   south waffle\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     0   18.8\n 2     1   16.8\n 3     0   19.4\n 4     0   16.0\n 5     0   25.8\n 6     1   21.8\n 7     1   24.3\n 8     0   18.7\n 9     0   21.5\n10     1   22.0\n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/lec-10.html#make-waffles-more-common-in-the-south",
+    "href": "slides/lec-10.html#make-waffles-more-common-in-the-south",
+    "title": "Causality II",
+    "section": "Make Waffles more common in the South",
+    "text": "Make Waffles more common in the South\nStep 3: The arrow from South to Waffles, let’s say Southern states have about 10 more Waffles, on average\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n       waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south)\n\n# A tibble: 50 × 2\n   south waffle\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     1   33.3\n 2     1   34.2\n 3     0   14.0\n 4     1   24.8\n 5     0   23.6\n 6     1   32.8\n 7     0   25.7\n 8     0   18.4\n 9     1   28.1\n10     1   28.3\n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/lec-10.html#simulate-the-outcome",
+    "href": "slides/lec-10.html#simulate-the-outcome",
+    "title": "Causality II",
+    "section": "Simulate the outcome",
+    "text": "Simulate the outcome\nStep 4: make a divorce rate, let’s say about 20 divorces per 1,000 adults\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2))"
+  },
+  {
+    "objectID": "slides/lec-10.html#make-the-south-have-more-divorce",
+    "href": "slides/lec-10.html#make-the-south-have-more-divorce",
+    "title": "Causality II",
+    "section": "Make the South have more divorce",
+    "text": "Make the South have more divorce\nStep 5: the arrow from South to divorce, let’s say southern states have about 8 more divorces per 1,000 residents\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8 * south)\n\nNOTICE! Waffles have no effect on divorce in our fake data"
+  },
+  {
+    "objectID": "slides/lec-10.html#a-totally-confounded-relationship",
+    "href": "slides/lec-10.html#a-totally-confounded-relationship",
+    "title": "Causality II",
+    "section": "A totally confounded relationship",
+    "text": "A totally confounded relationship\nThe South’s effect on Waffle House and on Divorce creates a confounded correlation between the two"
+  },
+  {
+    "objectID": "slides/lec-10.html#a-totally-confounded-relationship-1",
+    "href": "slides/lec-10.html#a-totally-confounded-relationship-1",
+    "title": "Causality II",
+    "section": "A totally confounded relationship",
+    "text": "A totally confounded relationship\nThe DAG on the left will produce an association like the one on the right\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEven if Waffles and Divorce are causally unrelated"
+  },
+  {
+    "objectID": "slides/lec-10.html#your-turn-confounded-waffles",
+    "href": "slides/lec-10.html#your-turn-confounded-waffles",
+    "title": "Causality II",
+    "section": "🧇 Your turn: confounded waffles 🧇",
+    "text": "🧇 Your turn: confounded waffles 🧇\nMake up data where a lurking variable creates a confounded relationship between two other variables that isn’t truly causal.\n\nChange the confound, treatment and outcome variables in the code to ones of your choosing\nMake a scatterplot with a trend line – use labs() to help us make sense of the plot axes and tell us what the confound is with the title = argument in labs()\n\n\nfake_data = tibble(confound = rnorm(n = , mean = , sd = ),\n                   treatment = rnorm(n = , mean = , sd = ) + or - #*confound,\n                   outcome = rnorm(n = , mean = , sd = ) + or - #*treament + or - #*confound\n  \n)\n\n\n\n\n\n\n\nNote\n\n\nIf you want to make a binary or categorical variable use sample()\nexample = sample(c(\"Woman\", \"Man\"), size = 50, replace = TRUE)"
+  },
+  {
+    "objectID": "slides/lec-10.html#whats-going-on-here",
+    "href": "slides/lec-10.html#whats-going-on-here",
+    "title": "Causality II",
+    "section": "What’s going on here?",
+    "text": "What’s going on here?\n\n\nThink of causality as water flowing in the direction of the arrows\nWe want look at water flowing directly from a treatment to an outcome\nBut account for the fact that there is often indirect flow that contaminates our estimates\n\n\nSource: the mighty Andrew Heiss"
+  },
+  {
+    "objectID": "slides/lec-10.html#whats-going-on-here-1",
+    "href": "slides/lec-10.html#whats-going-on-here-1",
+    "title": "Causality II",
+    "section": "What’s going on here?",
+    "text": "What’s going on here?\nTo identify the effect of Waffles on Divorce we need to account, or control for, the influence of the South\nOtherwise we will be confounded"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-formula",
+    "href": "slides/lec-10.html#the-formula",
+    "title": "Causality II",
+    "section": "The formula",
+    "text": "The formula\n\nMake a DAG of what we think is going on with our treatment and outcome\nFigure out where the indirect flows are (today)\nAccount for those in our analysis (later in class)"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control",
+    "href": "slides/lec-10.html#what-do-we-need-to-control",
+    "title": "Causality II",
+    "section": "What do we need to control?",
+    "text": "What do we need to control?\n\n\nNothing"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control-1",
+    "href": "slides/lec-10.html#what-do-we-need-to-control-1",
+    "title": "Causality II",
+    "section": "What do we need to control?",
+    "text": "What do we need to control?\n\n\nNothing! No indirect flow to X"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control-2",
+    "href": "slides/lec-10.html#what-do-we-need-to-control-2",
+    "title": "Causality II",
+    "section": "What do we need to control?",
+    "text": "What do we need to control?\n\n\nNothing! No indirect flow to X!"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control-to-identify",
+    "href": "slides/lec-10.html#what-do-we-need-to-control-to-identify",
+    "title": "Causality II",
+    "section": "What do we need to control to identify…",
+    "text": "What do we need to control to identify…\nMedia consumption (M) \\(\\rightarrow\\) Liberal (L)"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-elemental-confounds",
+    "href": "slides/lec-10.html#the-elemental-confounds",
+    "title": "Causality II",
+    "section": "The elemental confounds",
+    "text": "The elemental confounds"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-confounding-fork",
+    "href": "slides/lec-10.html#the-confounding-fork",
+    "title": "Causality II",
+    "section": "The confounding fork 🍴",
+    "text": "The confounding fork 🍴\nY \\(\\leftarrow\\) Z \\(\\rightarrow\\) X\nThere is a third variable, Z, that is a common cause of X and Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-confounding-fork-1",
+    "href": "slides/lec-10.html#the-confounding-fork-1",
+    "title": "Causality II",
+    "section": "The confounding fork",
+    "text": "The confounding fork\nWe’ve already seen this!\n\n\n\n\n\n\n\n\n\n\n\nCreates an association between X and Y that isn’t causal\n\n\n\n\n\n\n\n\n\n\nDistorts the true causal relation between X and Y\n\nNote that both of these fork scenarios will confound"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-second-scenario",
+    "href": "slides/lec-10.html#the-second-scenario",
+    "title": "Causality II",
+    "section": "The second scenario",
+    "text": "The second scenario\nSay that Waffles do cause Divorce, but the effect is tiny\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10*south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8*south + .0001 * waffle)\n\nSame code as before, I’ve just added a tiny effect of waffle houses on divorce = .0001 more divorces per waffle house"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-second-scenario-1",
+    "href": "slides/lec-10.html#the-second-scenario-1",
+    "title": "Causality II",
+    "section": "The second scenario",
+    "text": "The second scenario\nThe effect of Z (South) on X (Waffles) and Y (Divorce) will distort our estimates:\n\nmod = lm(divorce ~ waffle, data = fake) \ntidy(mod)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   10.9      1.45        7.52 1.17e- 9\n2 waffle         0.533    0.0558      9.55 1.10e-12\n\n\n\nEstimate is \\(\\frac{estimated}{true}\\) = 5334.2101551 times larger than the true effect!"
+  },
+  {
+    "objectID": "slides/lec-10.html#dealing-with-forks",
+    "href": "slides/lec-10.html#dealing-with-forks",
+    "title": "Causality II",
+    "section": "Dealing with forks",
+    "text": "Dealing with forks\nWe need to figure out what Z is, measure it, and adjust for it in our analysis"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-perplexing-pipe",
+    "href": "slides/lec-10.html#the-perplexing-pipe",
+    "title": "Causality II",
+    "section": "The perplexing pipe 🚰",
+    "text": "The perplexing pipe 🚰\nX \\(\\rightarrow\\) Z \\(\\rightarrow\\) Y\nX causes Z, which causes Y (or: Z mediates the effect of X on Y)\n\n\n\n\n\n\n\n\n\n\nWhat happens if we adjust for Z? We block the effect of X on Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#an-example-foreign-intervention",
+    "href": "slides/lec-10.html#an-example-foreign-intervention",
+    "title": "Causality II",
+    "section": "An example: foreign intervention",
+    "text": "An example: foreign intervention\nWhat effect does US foreign wars have on US support abroad?\n\nSay the DAG looks like this:\n\n\n\n\n\n\n\n\n\nIf we control for casualties we are blocking the effect of intervention on support"
+  },
+  {
+    "objectID": "slides/lec-10.html#an-example-foreign-intervention-1",
+    "href": "slides/lec-10.html#an-example-foreign-intervention-1",
+    "title": "Causality II",
+    "section": "An example: foreign intervention",
+    "text": "An example: foreign intervention\nWhat if the DAG instead looked like this:\n\n\nWhat does it mean"
+  },
+  {
+    "objectID": "slides/lec-10.html#an-example-foreign-intervention-2",
+    "href": "slides/lec-10.html#an-example-foreign-intervention-2",
+    "title": "Causality II",
+    "section": "An example: foreign intervention",
+    "text": "An example: foreign intervention\nTwo ways that War affects US sentiment: directly and indirectly\nAdjusting for casualties blocks the indirect effect; if that’s what we want, fine – But if we want the full effect then we’ll be wrong!\n\n\nWhat does it mean"
+  },
+  {
+    "objectID": "slides/lec-10.html#pipes-why-are-they-even-a-problem",
+    "href": "slides/lec-10.html#pipes-why-are-they-even-a-problem",
+    "title": "Causality II",
+    "section": "Pipes: why are they even a problem?",
+    "text": "Pipes: why are they even a problem?\nJust leave pipes alone! It’s a problem of “over-adjusting”\n\nBad social science: sometimes we are so afraid of forks that we control for everything we have data on\n\n\nEspecially when a process seems very complicated"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-where-pipes-go-wrong",
+    "href": "slides/lec-10.html#example-where-pipes-go-wrong",
+    "title": "Causality II",
+    "section": "Example: where pipes go wrong",
+    "text": "Example: where pipes go wrong\nThe effects of smoking on heart problems might be complex; lots of potential confounds to worry about\n\nResearcher might think they need to control for a study subject’s cholesterol because cholesterol affects heart health\n\n\n“We should compare people who smoke but have similar levels of cholesterol, because cholesterol affects heart health”"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-where-pipes-go-wrong-1",
+    "href": "slides/lec-10.html#example-where-pipes-go-wrong-1",
+    "title": "Causality II",
+    "section": "Example: where pipes go wrong",
+    "text": "Example: where pipes go wrong\nIf the DAG looks like this, cholesterol is a pipe and controlling is bad!"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-explosive-collider",
+    "href": "slides/lec-10.html#the-explosive-collider",
+    "title": "Causality II",
+    "section": "The explosive collider 💥",
+    "text": "The explosive collider 💥\n\\(X \\rightarrow Z \\leftarrow Y\\)\n\nX and Y have a common effect\n\n\nLeft alone, it’s no problem; but controlling for Z creates strange patterns"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-the-nba",
+    "href": "slides/lec-10.html#example-the-nba",
+    "title": "Causality II",
+    "section": "Example: the NBA",
+    "text": "Example: the NBA\n\n\nShould the NBA stop worrying about height when drafting players?"
+  },
+  {
+    "objectID": "slides/lec-10.html#no",
+    "href": "slides/lec-10.html#no",
+    "title": "Causality II",
+    "section": "No!",
+    "text": "No!\nObviously, height helps in basketball\n\nBut among NBA players there might be no relationship between height and scoring, because…\n\n\nThe shorter players who are drafted have other advantages\n\n\nAmong NBA players = adjusting, or controlling for, being in the NBA"
+  },
+  {
+    "objectID": "slides/lec-10.html#another-example-bad-findings",
+    "href": "slides/lec-10.html#another-example-bad-findings",
+    "title": "Causality II",
+    "section": "Another example: bad findings",
+    "text": "Another example: bad findings\n\n\nRichard McElreath asks: why are surprising findings so often untrustworthy?"
+  },
+  {
+    "objectID": "slides/lec-10.html#another-example-bad-findings-1",
+    "href": "slides/lec-10.html#another-example-bad-findings-1",
+    "title": "Causality II",
+    "section": "Another example: bad findings",
+    "text": "Another example: bad findings"
+  },
+  {
+    "objectID": "slides/lec-10.html#its-a-collider",
+    "href": "slides/lec-10.html#its-a-collider",
+    "title": "Causality II",
+    "section": "It’s a collider",
+    "text": "It’s a collider\nImagine that in reality there is no relationship between how surprising a finding is and how trustworthy it is"
+  },
+  {
+    "objectID": "slides/lec-10.html#its-a-collider-1",
+    "href": "slides/lec-10.html#its-a-collider-1",
+    "title": "Causality II",
+    "section": "It’s a collider",
+    "text": "It’s a collider\nBut now imagine that studies are only published either if they’re very trustworthy OR very surprising"
+  },
+  {
+    "objectID": "slides/lec-10.html#its-a-collider-2",
+    "href": "slides/lec-10.html#its-a-collider-2",
+    "title": "Causality II",
+    "section": "It’s a collider",
+    "text": "It’s a collider\nBy only looking at published papers (e.g., controlling for publication), we create a negative relationship that doesn’t exist"
+  },
+  {
+    "objectID": "slides/lec-10.html#exploding-colliders",
+    "href": "slides/lec-10.html#exploding-colliders",
+    "title": "Causality II",
+    "section": "Exploding colliders",
+    "text": "Exploding colliders\nLike pipes, colliders are a problem of controlling for the wrong thing\nThey are often the result of a sample selection problem\nThey can obscure actual relationships or fabricate non-existent ones\nWe need to avoid controlling for colliders; but they are everywhere!"
+  },
+  {
+    "objectID": "slides/lec-10.html#your-turn-colliders",
+    "href": "slides/lec-10.html#your-turn-colliders",
+    "title": "Causality II",
+    "section": "💥 Your turn: colliders 💥",
+    "text": "💥 Your turn: colliders 💥\nHow are the following examples of colliders?\n\nAmong employees at Google, there is a strong negative correlation between technical skills and social skills.\nA study of people who tested for COVID finds that people who smoke regularly are less likely to develop COVID-19. A real study!\n\n\nwe are conditioning on testing, these are the only people we observe anything that’s correlated with likelihood of testing here becomes a problem who gets tested? imagine that healthcare workers get tested a lot, and that people who actually have COVID 19 are tested a lot so smokers with no symptoms are very unlikely to be in the data so of those tested, non-smokers are more likely to have COVID19 than smokers"
+  },
+  {
+    "objectID": "project-tips-resources.html",
+    "href": "project-tips-resources.html",
+    "title": "Project Data Options",
+    "section": "",
+    "text": "Important\n\n\n\nProject data options are still being finalized, and will be completed by June 22, 2026.",
+    "crumbs": [
+      "Project",
+      "Data Options"
+    ]
+  },
+  {
+    "objectID": "project-tips-resources.html#data-options-for-the-project",
+    "href": "project-tips-resources.html#data-options-for-the-project",
+    "title": "Project Data Options",
+    "section": "Data Options for the Project",
+    "text": "Data Options for the Project\nFor your project you will need to find a data set that answers your question of interest! I have pre curated some data sets for you.\nBefore selecting a data set I recommend reading this: https://www.icpsr.umich.edu/sites/icpsr/teaching-learning/build-your-data-skills/how-to-find-a-dataset\n\nUN Data (2000-2025)\nUN Data (2000-2025) includes various measures by country per year such as population, education, women in government, CO2 admissions.\n\nDownload CSV\nDownload Codebook\n\nData collected from: UN Data (https://data.un.org)\n\n\nANES (1948 - 2024)\nAmerican National Election Survey includes responses from individuals in the US on various feeling thermamaters for parties and social groups and includes demographic questions.\n\nDownload CSV\nDownload Codebook\n\nData collected from: ANES (https://electionstudies.org)\n\n\nUS Migration Data\nThe US migration data includes data on migrants, deportations, and migrant deaths at the US-Mexican border.\n\nDownload CSV\nDownload Codebook\n\nData collected from: DHS Office of Immigration Statistics (removals/apprehensions), TRAC Immigration (deportation reasons by criminality), ICE Arrest Data (monthly, 2008–2018)\n\n\nViolence and Democracy Data\nThe Violence and Democracy Data includes data on different forms of violence such as conflicts and protests and democracy index scores.\nAfrica\n\nDownload CSV\nDownload Codebook\n\nAsia\n\nDownload CSV\nDownload Codebook\n\nEurope\n\nDownload CSV\nDownload Codebook\n\nLatin America\n\nDownload CSV\nDownload Codebook\n\nUS and Canada\n\nDownload CSV\nDownload Codebook\n\nData collected from: ACLED (https://acleddata.com), and VDEM (https://v-dem.net)",
+    "crumbs": [
+      "Project",
+      "Data Options"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "POL 051: The Scientific Study of Politics",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the summer session. Note that this schedule will be updated as the summer progresses, with all changes documented here.\n\n\n\n\n\n\n\n\nInstructor:\nLecture:\nDiscussion/Lab:\n\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nPrepare\nSlides\nAE\nLab\nCode Example\nProject\n\n\n\n\n1\nMon, June 22\nLecture 1 - Meet + greet, Welcome to POL 051\n📖\n🖥️\n📋\n\n🧮\nTeams created + list of project ideas 📂\n\n\n\nTue, June 23\nLecture 2 - Data Visualization I & II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, June 24\nLecture 3 - Data Wrangling I\n\n🖥️\n\n\n🧮\n\n\n\n\nThu, June 25\nLab 1\n\n\n\n💻\n\n\n\n\n2\nMon, June 29\nLecture 4 - Data Wrangling II\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, June 30\nLecture 5 - Relationships I\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 1\nLecture 6 - Relationships II\n\n🖥️\n📋\n\n\nChosen Topic is Due June 28 📂\n\n\n\nThu, July 2\nLab 2\n\n\n\n💻\n\n\n\n\n3\nMon, July 6\nLecture 7 - Modeling I\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, July 7\nLecture 8 - Modeling II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 8\nLecture 9 - Causality I\n\n🖥️\n📋\n\n\n\n\n\n\nThu, July 9\nLab 3\n\n\n\n💻\n\n\n\n\n4\nMon, July 13\nLecture 10 - Causality II\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 14\nLecture 11 - DAGs\n\n🖥️\n\n\n\n\n\n\n\nWed, July 15\nLecture 12 - Uncertainty\n\n\n\n\n\n\n\n\n\nThu, July 16\nLab 4\n\n🖥️\n\n💻\n\nProject Draft Due Fri. July 17 📂\n\n\n5\nMon, July 20\nLecture 13 - Hypothesis Testing I\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 21\nLecture 14 - Hypothesis Testing II\n\n🖥️\n\n\n\n\n\n\n\nWed, July 22\nLecture 15 - Prediction\n\n🖥️\n\n\n\nPeer Review is Due 📂\n\n\n\nThu, July 23\nLab 5\n\n\n\n💻\n\n\n\n\n6\nMon, July 27\nLecture 16 - Natural Experiments + Final Presentations\n📖\n🖥️\n\n\n\nFinal Project Presentation 📂",
+    "crumbs": [
+      "Course information",
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "course-overview.html",
+    "href": "course-overview.html",
+    "title": "POL 051: The Scientific Study of Politics",
+    "section": "",
+    "text": "Welcome to The Scientific Study of Politics!\nData is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.\nThis undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.\n\n\n\n\n\nInstructor:\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\n\n\n\nLecture:\n\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\n\n\n\nDiscussion/Lab:\n\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\nThese course materials have been inspired by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.",
+    "crumbs": [
+      "Course information",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "course-faq.html",
+    "href": "course-faq.html",
+    "title": "FAQ",
+    "section": "",
+    "text": "R is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network. Follow the instructions below to download R. If you are using an older computer or iPad, skip to 1.4 Using Posit Cloud for R.\n\n\n\nGo to The Comprehensive R Archive Network webpage:\n\nhttps://cran.r-project.org\n\nTo install R on Windows, click the “Download R for Windows” link.\nTo install R on a Mac, click the “Download R for Mac” link.\n\n\n\n\nOne way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents. RStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.\n\nGo to the Posit RStudio Desktop page.\nTo install for Mac:\n\nScroll to the button that says “Install R on a Mac,” and click the “Download R for Mac OS 13+” link.\nIf you’re using an older version, click the “Previous Versions” link to find a version that works with your computer.\n\nTo install for Windows:\n\nScroll to the button that says “Install R on Windows 10/11,” and click the link to download.\n\n\n\n\n\nPosit Cloud is the most common cloud service used when working with RStudio and is free up to a point.\nhttps://posit.cloud/\n\nFirst, choose the “Cloud Free” plan.\nSecond, follow the Posit Cloud instructions to log in.\nThird, go to the “Tutorial” tab in the upper right corner, scroll to the bottom, and select “Getting Started with Tutorials,” then press the “Start Tutorial” button.\nYou will work in a singular RProject space for the majority of the class.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#how-do-i-download-r-and-r-studio",
+    "href": "course-faq.html#how-do-i-download-r-and-r-studio",
+    "title": "FAQ",
+    "section": "",
+    "text": "R is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network. Follow the instructions below to download R. If you are using an older computer or iPad, skip to 1.4 Using Posit Cloud for R.\n\n\n\nGo to The Comprehensive R Archive Network webpage:\n\nhttps://cran.r-project.org\n\nTo install R on Windows, click the “Download R for Windows” link.\nTo install R on a Mac, click the “Download R for Mac” link.\n\n\n\n\nOne way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents. RStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.\n\nGo to the Posit RStudio Desktop page.\nTo install for Mac:\n\nScroll to the button that says “Install R on a Mac,” and click the “Download R for Mac OS 13+” link.\nIf you’re using an older version, click the “Previous Versions” link to find a version that works with your computer.\n\nTo install for Windows:\n\nScroll to the button that says “Install R on Windows 10/11,” and click the link to download.\n\n\n\n\n\nPosit Cloud is the most common cloud service used when working with RStudio and is free up to a point.\nhttps://posit.cloud/\n\nFirst, choose the “Cloud Free” plan.\nSecond, follow the Posit Cloud instructions to log in.\nThird, go to the “Tutorial” tab in the upper right corner, scroll to the bottom, and select “Getting Started with Tutorials,” then press the “Start Tutorial” button.\nYou will work in a singular RProject space for the majority of the class.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#what-is-a-quarto-file",
+    "href": "course-faq.html#what-is-a-quarto-file",
+    "title": "FAQ",
+    "section": "What is a quarto file?",
+    "text": "What is a quarto file?\nIf you have ever used an Rmarkdown file before, Quarto the next generation version of this! Quarto files allow you to make pdf, word documents, presentations, and even websites. In this course you will be making a word document using a provided quarto file for your lab submissions.",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#what-is-a-file-path",
+    "href": "course-faq.html#what-is-a-file-path",
+    "title": "FAQ",
+    "section": "What is a file path?",
+    "text": "What is a file path?\nA file path is a unique “address” that tells your computer where to find certain information. For example, if you are looking for a document called Homework1.qmd in a folder on you desktop labeled POL 051, then the file path to find this document would be:\n~/desktop/POL 051/Homework1.qmd\n\nMac File Path Setup\nMac Books and Windows computer have different starts to their file paths, here is a macbook’s setup:\n/Users/John/desktop/POL 051/Homework1.qmd\n\n\nWindows File Path Setup\nC:/Users/John/desktop/POL 051/Homework1.qmd",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-faq.html#what-is-a-working-directory",
+    "href": "course-faq.html#what-is-a-working-directory",
+    "title": "FAQ",
+    "section": "What is a working directory?",
+    "text": "What is a working directory?\nThe working directory is the folder in your computer that you have set to save files to during your working session on R. Essentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder.\nIt is important to keep all the files associated with a given project, such as data, scripts, analytical results, and figures, together. To do this we need to make a working directory.\nTo create a new working directory in RStudio:\n\nUse File → New Project or use the New Project button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).\nThis will open the “New Project Wizard” popup.\nClick “New Directory”.\n\nTo set the working directory, there are two possible ways, using code or using RStudio directly:\n\nOption 1: Using R Code\n\n# Set working directory (replace this with your own)\n\n# Mac Users\nsetwd(\"/Users/yourname/Desktop/filename/filename\")\n# Windows Users\nsetwd(\"C:/Users/YourName/Documents/MyFolder\")\n\n\n\nOption 2: Using RStudio Interface\n\nOn the top of the RStudio menu, click on Session.\nClick Set Working Directory.\nThen click To Source File Location.\n\nTo check if the working directory is set correctly, use the following code:\n\n# Returns the filepath of the current working directory\ngetwd()\n\nIf you feel like this still ⤸\n\nPLEASE PLEASE PLEASE come to office hours or email me!",
+    "crumbs": [
+      "Course information",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html",
+    "href": "course-syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Important\n\n\n\nThe syllabus is subject to changes and updates.\nPresentations moved to the Monday of Week 6 - 07/27",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#course-info",
+    "href": "course-syllabus.html#course-info",
+    "title": "Syllabus",
+    "section": "Course info",
+    "text": "Course info\n\n\n\n\n\n\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nMon, Tue & Wed.\n12:10 pm - 1:50 pm\nHoagland Hall 168\n\n\nDiscussion/Lab\nThu\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\nOffice Hours\nTue\n2:00 - 4:00 PM\nKerr Hall 569",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#learning-objectives",
+    "href": "course-syllabus.html#learning-objectives",
+    "title": "Syllabus",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of this course you will be able to…\n\nAnalyze real-world data to answer questions about different relationships.\nFeel comfortable manipulating data in R\nCraft effective visualizations of patterns in data\nDraw causal diagrams and identify obstacles to causal claims\nUnderstand the basics of regression and uncertainty",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#community-and-uc-davis-policies",
+    "href": "course-syllabus.html#community-and-uc-davis-policies",
+    "title": "Syllabus",
+    "section": "Community and UC Davis Policies",
+    "text": "Community and UC Davis Policies\n\nInclusive community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity. Your suggestions are encouraged and appreciated.\nPlease note that this is a political science course, and as such we will be discussing political issues. As each of us comes into the section with unique opinions about political issues, there may be disagreements. I insist we discuss our differences with respect, civility, and empathy. Please do your best to keep an open mind about your peers’ perspectives as your peers will expect the same of you.\nNote: This does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully)\n\nIf I believe any of the discussion is becoming disrespectful or includes hateful or inappropriate speech, I hold the right to end the discussion.\n\n\n\nAccessibility\nIf there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.\nIt is the Professor’s responsibility to help make this course accessible to all students. If you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at sdc.ucdavis.edu.\n\nStudents must contact me about any accommodations in advance.\nOutside Resources - The Student Academic Success Center is a campus wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics\n\n\n\nMandatory Reporter\nIn my role as faculty, I am required by policy to report concerns that come to my attention related to sexual harassment, sexual violence, discrimination, or harassment involving students.  Please know you are still free to discuss these concerns with me, but I will need to pass along any information shared with me to the Harassment and Discrimination Assistance and Prevention Program (HDAPP) so they can reach out to you and talk to you about resources and possible resolution options.  If you would prefer to speak to a confidential resource, who does not have the same responsibility to report, I can help you get connected. \nAlternatively, here is a link to information about available resources on campus (including confidential resources):  https://hdapp.ucdavis.edu/resources.  Also, here is a link to information about reporting directly to HDAPP:  https://hdapp.sf.ucdavis.edu/report-incident.\n\n\nCounseling & Psychiatry Services\nLife at Davis can be complicated and challenging. You might feel overwhelmed, experience anxiety or depression, or struggle with relationships or family responsibilities. UC Davis Counseling Services provide confidential support for students who are struggling with mental health and emotional challenges. Please do not hesitate to contact them for assistance—getting help is a smart and good thing to do.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#communication",
+    "href": "course-syllabus.html#communication",
+    "title": "Syllabus",
+    "section": "Communication",
+    "text": "Communication\n\nWhat are office hours for?\n\nOffice hours are when the the professor sets aside two hours each week making themselves available to students. Office hours are often underutilized by all students in college. Consider this your time.\nYou do not need an appointment to come by.\nMy job as a Professor is to help each of you succeed, however, I can only help you if you ask. (PLEASE COME ASK ME!)\nI strongly encourage students to come to my office hours and chat about topics from the readings or lectures, talk over potential study strategies, or to simply converse.\n\nWhat are Emails for?\n\nIf your question cannot wait until office hours, section, or class, then students should/may use email to contact their Professor. However, please note, email should not be used as an alternative to direct conversation or an in-depth discussion.\nAs a simple rule of thumb, emails should be used to address quick questions, not for requests to exhaustively review material from lecture or section.\nI will respond to emails within one business day, so between 9 am and 6 pm on weekdays. This means if you email me passed 6 pm on a weekday you will not receive any email till the next day in the morning around 9 am. If you email me on the weekends or passed Friday at 6 pm, I will respond promptly on Monday\nI will not respond to emails that are rude, unintelligible, or inquiring about information readily accessible on the syllabus.\n\nI will typically communicate announcements through Canvas. Please make sure your Canvas information is up to date and that you check it frequently over the quarter.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#course-materials",
+    "href": "course-syllabus.html#course-materials",
+    "title": "Syllabus",
+    "section": "Course Materials",
+    "text": "Course Materials\nAll materials for this course are free and online. You will do all of your analysis with the open source (and free) programming language R and RStudio.\nCunningham, S. (2021). Causal inference: The mixtape. Yale university press.\nWickham, H, Çetinkaya-Rundel,, M & Grolemund, G. R for Data Science(2e). O’Reilly.\n“Statistical Inference via Data Science: A ModernDive into R and the Tidyverse\n(Second Edition)” was written by Chester Ismay, Albert Y. Kim, and Arturo Valdivia\nForeword by Kelly S. McConville. It was last built on May 24, 2026.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#lectures-and-labs",
+    "href": "course-syllabus.html#lectures-and-labs",
+    "title": "Syllabus",
+    "section": "Lectures and labs",
+    "text": "Lectures and labs\nThe goal of both the lectures and the labs is for them to be as interactive as possible. My role as instructor is to introduce you to new tools and techniques, but it is up to you to take them and make use of them. A lot of what you do in this course will involve writing code, and coding is a skill that is best learned by doing. Therefore, as much as possible, you will be working on a variety of tasks and activities throughout each lecture and lab. You are expected to attend all lecture and lab sessions and meaningfully contribute to in-class exercises and discussion. Additionally, some lectures will feature application exercises that will be graded, this will be counted as your attendance for participation.\nYou are expected to bring a laptop to each class so that you can take part in the in-class exercises. Please make sure your laptop is fully charged before you come to class as the number of outlets in the classroom will not be sufficient to accommodate everyone.\nMore information on the UC Davis Financial Aid and Scholarships Computer Loan Program laptops can be found here.\nThe weekly discussion/lab will be the place where you will practice the content you learned during lectures. You will be required to submit a report at the end of each week, these will be 30 percent of your grade.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#teams",
+    "href": "course-syllabus.html#teams",
+    "title": "Syllabus",
+    "section": "Teams",
+    "text": "Teams\nYou will be assigned to a team during lecture 1, this will be your team for your final project. You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions. All team members are expected to contribute equally to the final project. Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team’s overall mark.\nYou will be asked to provide documentation of your contributions for the final project and will also need to complete an evualition of your team members in a survey at the end of the course.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#assessment",
+    "href": "course-syllabus.html#assessment",
+    "title": "Syllabus",
+    "section": "Assessment",
+    "text": "Assessment\nAssessment for the course is comprised of four components: application exercises, labs, and a final project.\n\nApplication exercises\nParts of some lectures will be dedicated to working on Application Exercises (AEs). These exercises which give you an opportunity to practice apply the statistical concepts and code introduced in the readings and lectures. These AEs are due by the end of the lecture period.\nBecause these AEs are for practice, they will be graded based on completion, i.e., a good-faith effort has been made in attempting all parts. Successful on-time completion of at least 80% of AEs will result in full credit for AEs in the final course grade.\nYou will submit these on canvas.\n\n\nLabs\nIn labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be completed individually during your discussion/lap. Lab assignments will be completed using a Quarto document and submitted for grading on canvas by the end of the day of the week.\nFor example, Lab Assignment #1 on Thursday June 25 will be due Sunday June 28 at 12:59 PM.\nYou will submit your lab using a quiz format, including one question where you will upload your quarto document for submission.\n\n\nFinal Project\nThe purpose of the final project is to apply what you’ve learned throughout the summer to analyze an interesting, data-driven research question. The project will be completed with your lab teams, and each team will present their work during the final lecture period. More information about the project will be provided during the first week of the summer session.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#grading",
+    "href": "course-syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading\nThe final course grade will be calculated as follows:\n\n\n\nCategory\nPercentage\n\n\n\n\nApplication Exercises (Particpation)\n15%\n\n\nLabs\n35% (7% x 5)\n\n\nFinal Project\n50%\n\n\n\nThe final letter grade will be determined based on the following thresholds:\n\n\n\nLetter Grade\nFinal Course Grade\n\n\n\n\nA\n&gt;= 93\n\n\nA-\n90 - 92.99\n\n\nB+\n87 - 89.99\n\n\nB\n83 - 86.99\n\n\nB-\n80 - 82.99\n\n\nC+\n77 - 79.99\n\n\nC\n73 - 76.99\n\n\nC-\n70 - 72.99\n\n\nD+\n67 - 69.99\n\n\nD\n63 - 66.99\n\n\nD-\n60 - 62.99\n\n\nF\n&lt; 60",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#course-policies",
+    "href": "course-syllabus.html#course-policies",
+    "title": "Syllabus",
+    "section": "Course policies",
+    "text": "Course policies\n\nAcademic integrity\nCheating and plagiarism will be evaluated and disciplined according to University policy. For information on academic integrity, please read: http://cai.ucdavis.edu/aip.html. You are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse. All suspected violations will be referred to Student Judicial Affairs for evaluation. You will be notified promptly by email if a referral is made.\n\n\nPolicy on sharing and reusing code\nI am well aware that a huge volume of code is available on the web to solve any number of problems. Unless I explicitly tell you not to use something, the course’s policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow) but you must explicitly note where you obtained any code you directly use (or use as inspiration).\n\n\nPolicy on AI\nAI is not allowed for usage in this classroom. You may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work being submitted for credit in the UC Davis Department of Political Science. The Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: https://ossja.ucdavis.edu/code-academic-conduct).\nTaking credit for any work not created by the student; work includes, but is not limited to, books, articles, experimental methodology or results, compositions, images, lectures, computer programs, internet postings, and content generated by software or artificial intelligence\n\n\nLate work policy\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline.\n\nLabs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late.\nThe late work policy for the project will be provided with the project instructions.\n\n\n\nWaiver for extenuating circumstances\nIf there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.\n\n\nRegrade request policy\nRegrade requests must be submitted within a week of when an assignment is returned. A Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the final project presentations.\n\n\nAttendance policy\nResponsibility for class attendance rests with individual students. Since regular and punctual class attendance is expected, students must accept the consequences of failure to attend.\nParticipation during lectures will be 15 percent of your grade, and will be graded using the application exercises. Successful completion of 80 percent of these will result in full credit for the course.\nIf you are absent due to illness, religious reasons, etc. please email me directly. Please note, that work conflicts are not considered an excused absence.\n\n\nPolicy on video recording course content\nIf you feel that you need record the lectures yourself, you must get permission from me ahead of time and these recordings should be used for personal study only, no for distribution. Unauthorized distribution is a cause for disciplinary action by the Judicial Board.\nNote: If you’ve read this far in the syllabus, email me a picture of your pet if you have one or your favourite meme for extra credit!\n\n\nCopyright\nMy lectures and course materials, including presentations, essay questions, outlines, exams, and similar materials, are protected by U.S. copyright law and by University policy. I am the exclusive owner of the copyright in those materials I create. You may take notes and make copies of course materials for your own use. You may also share those materials with another student who is enrolled in or auditing this course. You may not reproduce, distribute or display (post/upload) lecture notes or recordings or course materials in any other way (whether or not a fee is charged) without my express prior written consent. You also may not allow others to do so. Violations will be reported to the Office of Student Support and Judicial Affairs and may be subject to student conduct proceedings under the UC Davis Code of Academic Conduct.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#important-dates",
+    "href": "course-syllabus.html#important-dates",
+    "title": "Syllabus",
+    "section": "Important dates",
+    "text": "Important dates\n\nJune 22: Classes begin\nJune 28: Project Ideas Due\nJuly 17: Project Draft Due\nJuly 22: Project Peer Review Due\nJuly 29: Final Projects Due\nJuly 30: Final Project Presentation\n\nClick here for the full UC Davis academic calendar.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#credits",
+    "href": "course-syllabus.html#credits",
+    "title": "Syllabus",
+    "section": "Credits",
+    "text": "Credits\nThis course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "project-description.html",
+    "href": "project-description.html",
+    "title": "Project description",
+    "section": "",
+    "text": "Important\n\n\n\nProject Presentation date moved forward, now Mon. July 27",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "project-description.html#timeline",
+    "href": "project-description.html#timeline",
+    "title": "Project description",
+    "section": "Timeline",
+    "text": "Timeline\nProject Proposal due Sun, June 28 Wed. July 1\nDraft report due Fri, July 17\nPeer review due Wed, July 22\nFinal report due Wed, July 29\nPresentation on Thu, July 30 Mon. July 27",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "project-description.html#introduction",
+    "href": "project-description.html#introduction",
+    "title": "Project description",
+    "section": "Introduction",
+    "text": "Introduction\nMake a Research Question, Pick a data set, and do analysis. That is your final project.\nThe goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.\nThe data will come from a pre-curated list of data from various different sources including public research institutions and survey firms. As a group you will select a data set based on a research question that you have made. Remember the goal of this project is for you to demonstrate the skills we have covered in this class and apply them to the selected data set to analyze it in a meaningful way.\nYOU DO NOT NEED TO GO BEYOND THE SKILLS IN THIS CLASS. There should not be any reason to use AI in this course, because you will be provided all the code and information to do the analysis that you need to do. If anyone in your group is caught using AI you will receive a 0 on this project.\nAll analyses must be done in RStudio, and all components of the project must be reproducible. This means that when I run the code, I do not get any errors.\n\nLogistics\nYou will work on the project with your assigned team.\nThe pieces for the final project are the following:\n\nA submitted written, reproducible report detailing your analysis.\nThe presentation for the project.\nA summary of the edits made following the draft.\nA summary of each contribution, written by each member of the group\nThe original quarto file with the code",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "project-description.html#topic-ideas",
+    "href": "project-description.html#topic-ideas",
+    "title": "Project description",
+    "section": "Project Proposal",
+    "text": "Project Proposal\nI have curated a list of data sets on a range of topics including sports, tipping, exposure to violence, gender, environmental topics, global attitudes, and more.\nAs a group select a data set that you are interested in, and relates to your research question. You will be required to submit your groups research question and the selected data set.\nFind the data sets here.\n\nProject Proposal submission\nYour Project Proposal submission should be no more than half a page and will be graded on completion. This means that as long as you attempt, show that you tried, and included all requirements then you will receive full credit.\nDownload the template here. Render as a word docx and submit to canvas.\nThe proposal should include the following:\n\nIntroduction and data (1 paragraph)\n\nState the source of the data set: who made the data?\n\nRemember to provide a citation for the data set\n\nDescribe the observations and the general characteristics being measured in the data\n\nWhat questions is your team thinking they will be using?\nUse the code book to find what variables were collected and how they are measured.\n\n\n\n\nResearch question (1 paragraph)\n\nState the research question your team wants to answer\nTell me why your team is interested in answering using this data\n\nWhat motivated your team to ask this question\n\n\n\n\nGlimpse of data\n\nIn the template to show a glimpse of the selected variables that relate to your research question.\n\nUse the read.csv() to import the selected data set, make sure the selected data set is in your POL 051 folder.\nThen use the select() to select the specific variables you would like to use to answer your question\n\nDoesn’t need to be your final selection but should be related to your question.\n\n\nUse the head function to provide an overview of each data set\n\nhead()\n\n\n# install.packages(\"tidyverse\") if you have not installed tidyverse yet\nlibrary(tidyverse)\n\n# set your working directory - make sure the dataset is in this folder\n#stwd(filepath/pol51)\nsetwd()\n\n# upload the dataset using read.csv\n# read.csv(dataset_name.csv)\ndata &lt;- read.csv(data_set_name.csv)\n\ndata |&gt;\n  select(variable1, variable2, variable3, variable4 .... ) |&gt;\n  head()",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "project-description.html#project-proposal",
+    "href": "project-description.html#project-proposal",
+    "title": "Project description",
+    "section": "Project Report Draft #1",
+    "text": "Project Report Draft #1\n\nDraft report\nThe purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion as long as all parts are included then your group will receive full credit.\nClick here for the project report template.\nYou will render this as a word docx before submitting to canvas.\nInclude the following in the draft:\n\n\nSection 1 - Introduction\nThe introduction should include the following (1 page):\n\nYou should state the motivation of the research question\n\nFocus these two key elements:\n\nWhat is the observed problem\nWhat does this contribute to?\n\nDoes this contribute to more knoweldge? (Intellectual)\nDoes this contribute to policy? (Broader)\n\n\nIn your introduction section, you should be focused on discussing what the problem is that you are seeing and why this needs to be addressed. Is there a current problem in the world; did something happen?\nhttps://www.sjsu.edu/writingcenter/docs/handouts/Introduction%20of%20Research%20Papers.pdf\nExample:\n\n“The number of women running for political office has skyrocket since the introduction of gender quota laws and revisions were introduced to reduce the loopholes of the laws. The most recent election in Mexico during 2024 was the largest election in its history and saw the most women running for office. However, while the number of women entering political office is increasing, so is the level of criminal violence, especially against political leaders. The 2024 election was one of the most violent elections in recent history (Data Cívica, México Evalúa y Animal Político, 2024A). Yet, little research has examined the impact of criminal violence on the candidate selection process and how this impacts women, and as violence increases it is critical to analyze the relationship between criminal violence and candidate selection.” (Daarstad, N.D.)\n“While previously polarization was primarily seen only in issue-based terms, a new type of division has emerged in the mass public in recent years: Ordinary Americans increasingly dislike and distrust those from the other party. Democrats and Republicans both say that the other party’s members are hypocritical, selfish, and closed-minded, and they are unwilling to socialize across party lines. This phenomenon of animosity between the parties is known as affective polarization. We trace its origins to the power of partisanship as a social identity, and explain the factors that intensify partisan animus.” (Iyenger, et. al, 2019)\n\n\n\n\n\nSection 2 - Literature Review\n\nShould be a “comprehensive” review and analysis of the current academic research (1 - 2 pages)\nThe key piece is addressing what gap exists; the gap you are trying to address.\nTell me what your project adds!!\n\nSources on Lit Reviews:\n\nhttps://libguides.wustl.edu/our?p=302677#:~:text=From%20The%20Writing%20Center%20%2D%20The,emphasis%20is%20on%20the%20argument.\nhttps://www.tandfonline.com/doi/full/10.1080/02642069.2022.2047941\nhttps://owl.purdue.edu/owl/research_and_citation/conducting_research/writing_a_literature_review.html\nhttps://writingcenter.unc.edu/tips-and-tools/literature-reviews/\nhttps://www.sjsu.edu/writingcenter/docs/handouts/Literature%20Reviews.pdf\n\n\n\n\n\nSection 3 - Hypotheses (1/2 page)\nIn this section, you will tell me your hypotheses!\n\n\nSection 4 - Data Description (1/2 page)\nIn this section, you will describe the data. This includes\n\ndescription of the observations in the data set,\n\nWhat is your independent variable?\nWhat is your dependent variable?\nHow was it measured?\nHow was it collected?\n\n\n\n\nSection 5 - Data Summary + Regression Model (1-2 pages)\nIn this section, you will provide basic summary stats, visualizations, and a simple regression model of your data. This includes:\n\nVisualization and summary statistics for the response variable.\nSimple Regression model\n\n\n\nSection 6 - Conclusion (1 pages)\n\nTell me what you found, does it support your conclusions?\n\n\n\nSubmission\nSubmit as a word document on canvas.\n\n\nProject Draft grading\n\n\n\nTotal\n100 pts\n\n\n\n\nIntroduction\n20 pts\n\n\nLit Review\n20 pts\n\n\nHypotheses\n10 pts\n\n\nData Description\n10 pts\n\n\nData Summary + Regression\n20 pts\n\n\nConclusion\n20 pts",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "project-description.html#peer-review",
+    "href": "project-description.html#peer-review",
+    "title": "Project description",
+    "section": "Peer review",
+    "text": "Peer review\nCritically reviewing others’ work is a crucial part of the scientific process. Each team will be assigned two other teams’s projects to review. You will be randomly assigned two other team’s drafts and will need to provide detailed comments by Wed. July 22\nThe peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team’s report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.\n\nPairings\n\n\n\nTeam being reviewed\nReviewer 1\nReviewer 2\n\n\n\n\nTeam #1\n\n\n\n\nTeam #2\n\n\n\n\nTeam #3\n\n\n\n\nTeam #4\n\n\n\n\nTeam #5\n\n\n\n\nTeam #6\n\n\n\n\n\n\n\nProcess and questions\nSpend ~30 mins to review each team’s project.\n\nFind your team name on the Reviewer 1 and Reviewer 2 columns.\nFor each of the columns, find the name of the team to review in the Team being reviewed column. You will\nAs a team you will submit the following document (1-2 pages)\n\nPeer review by: [NAME OF TEAM DOING THE REVIEW]\nNames of team members that participated in this review: [FULL NAMES OF TEAM MEMBERS DOING THE REVIEW]\nState the research question and hypothesis.\nDescribe the data used.\nIs there anything that is unclear from the proposal?\nProvide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on data summary and regression section of the project.\nWhat aspect of this project are you most interested in and would like to see highlighted in the presentation.",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
+    "objectID": "project-description.html#written-report",
+    "href": "project-description.html#written-report",
+    "title": "Project description",
+    "section": "Final Project Report",
+    "text": "Final Project Report\nYour final project report must include the following files to be considered complete:\n\nfinal_report_team-name.docx\n\nclick here for the template.\n\nfinal_pres_team-name (in what ever format works for you!)\nteam_contributions_team-name.docx\nfinal_edits_team-name.docx\nfinal_project_team-name.qmd\n\nThe unrendered version of your project.\n\n\nYou will submit these files of your final report on canvas.\nEach piece is worth the following points, broken down as follows\n\n\n\nTotal\n200 pts\n\n\n\n\nFinal Report\n100 pts\n\n\nPresentation\n25 pts\n\n\nTeam Contributions\n25 pts\n\n\nFinal Edits\n25 pts\n\n\nFinal Report Code\n25 pts\n\n\n\n\nFinal Report\nThe final report will follow the same format as the draft report, but will be the final version.\n\nIntroduction (10 points) (1/2 - 1 page)\nThe introduction will be worth 10 points and needs to include the following:\n\nThe Motivation/Significance (5 points)\n\nWhat is the observed problem\nWhat does this contribute to?\n\nResearch Question (5 points)\n\n\n\nLit Review (10 points) (1-2 pages)\nThe lit review will be worth 10 points and needs to include the following:\n\nA comprehensive review of the lit based on your topic (5 points)\n\nYou need to cite a minimum of 5 academic articles\n\nYou will lose 1 points for every article below the minimum\n\n\nYou need to address the gap: where does your question settle in the literature? (5 points)\n\nYou do not need to provide a huge or original contribution, but what just think what does answering your question add that you think is missing?\n\n\n\n\nHypotheses (10 points) (1/2 page)\n\nYou need to include at least 1 hypothesis and it needs to be testable with the data you have selected\n\n\n\nData Description (10 points) (1/2 page)\n\ndescription of the observations in the data set,\n\nWhat is your independent variable? (3 points)\n\nHow was it measured? (1 points)\nHow was it collected? (1 points)\n\nWhat is your dependent variable? (3 points)\n\nHow was it measured? (1 points)\nHow was it collected? (1 points)\n\n\n\n\n\nData Summary + Regression (50 points)\n\nData Summarization (15 points)\n\nShow and describe two different data visualizations (10 points/5 points each)\n\nNeed to include titles, etc.\nMake it look nice\nNeeds to make sense with the data being used.\n\nDescription of averages, medians, etc. (5 points)\n\nRegression Model (20 points)\n\nOne simple regression model (10 points)\n\nOne outcome and one independent variable\nA table of these results\n\nOne mulitivariate regression model (10 points)\n\nOne outcome, one independent variable, and controls (at least two)\nA table of these results\n\n\nDiscussion of the results (10 points)\n\nProvides a detailed and accurate discussion of the results from the models\n\n\n\n\nConclusion (10 points) (1/2 page)\n\nSummary of everything (10 points)\n\nProvides a summary of the full report\nEssentially, put a nice bow and wrap up the paper\n\n\n\n\n\nTotal\n100 pts\n\n\n\n\nIntroduction\n10 pts\n\n\nLit Review\n10 pts\n\n\nHypotheses\n10 pts\n\n\nData Description\n10 pts\n\n\nData Summary + Regression\n50 pts\n\n\nConclusion\n10 pts\n\n\n\n\n\n\nSlides (25 points)\nThe final report will include a pdf version of the teams presentation of the project. For more information on the format for the presentation got to Presentation.\nThis will be graded for completion, so if submitted completed full points will be awarded.\n\n\nTeam Contributions (25 points)\nThe final report will include a summarization of all the team contributions to the project. Each member is required to submit a paragraph on their contributions to the overall project.\nIMPORTANT: NO TEAM MEMEBER CAN BE SOLEY RESPONSIBLE FOR THE CODING\nThis will be graded for completion, so if submitted completed full points will be awarded.\n\n\nEdit Report (25 points)\nThe final report will include a summarization of all the edits team made to the final project. this should be about a page no more.\nThis will be graded for completion, so if submitted completed full points will be awarded.\n\n\nFinal Report Code (25 points)\nThe final report will include a reproducible document of your code, submit the .qmd file with the code\nThis will be graded for completion and reproduceability, so if submitted completed and runs with no errors, full points will be awarded. If submitted completed and runs with errors are found, half points will be awarded.\n\n\nPresentation\n\n\nSlides\nIn addition to the written report, your team will required to create presentation and present in class to summarize and showcase your project. You will need to introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. The presentation should be around 10 - 12 minutes long. Every group member needs to speak at least once. If there is a complication with this, please come to me as soon as possible.\nFor submission, convert these slides to a .pdf document, and submit the PDF of the slides on canvas.\nThe slide deck should have no more than 6 content slides + 1 title slide. Here is a suggested outline as you think through the slides; you do not have to use this exact format for the 6 slides.\n\nTitle Slide\nSlide 1: Introduce the topic and motivation\nSlide 2: Introduce the data\nSlide 3: Summary of Data\nSlide 4: Final model\nSlide 5: Interesting findings from the model\nSlide 6: Conclusions\n\n\n\nLate work policy\nThere is no late work accepted on the final project report. Be sure to turn in your work early to avoid any technological mishaps.",
+    "crumbs": [
+      "Project",
+      "Description"
+    ]
+  },
+  {
     "objectID": "slides/lec-1.html#meet-the-professor",
     "href": "slides/lec-1.html#meet-the-professor",
     "title": "Welcome to POL 051!",
@@ -1705,325 +2402,6 @@
     "title": "Welcome to POL 051!",
     "section": "Using a Package",
     "text": "Using a Package\n\nAfter installing the packages we need to “attach” the package.\n\nThis means telling your computer that you want to use that package during this working session\n\nYou can do this by using the function library() and the name of the package.\n\n\nlibrary(\"tidyverse\")"
-  },
-  {
-    "objectID": "project-description.html",
-    "href": "project-description.html",
-    "title": "Project description",
-    "section": "",
-    "text": "Important\n\n\n\nProject Proposal due date extended, now due Wed. July 1.",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "project-description.html#timeline",
-    "href": "project-description.html#timeline",
-    "title": "Project description",
-    "section": "Timeline",
-    "text": "Timeline\nProject Proposal due Sun, June 28 Wed. July 1\nDraft report due Fri, July 17\nPeer review due Wed, July 22\nFinal report due Wed, July 29\nPresentation on Thu, July 30",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "project-description.html#introduction",
-    "href": "project-description.html#introduction",
-    "title": "Project description",
-    "section": "Introduction",
-    "text": "Introduction\nMake a Research Question, Pick a data set, and do analysis. That is your final project.\nThe goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.\nThe data will come from a pre-curated list of data from various different sources including public research institutions and survey firms. As a group you will select a data set based on a research question that you have made. Remember the goal of this project is for you to demonstrate the skills we have covered in this class and apply them to the selected data set to analyze it in a meaningful way.\nYOU DO NOT NEED TO GO BEYOND THE SKILLS IN THIS CLASS. There should not be any reason to use AI in this course, because you will be provided all the code and information to do the analysis that you need to do. If anyone in your group is caught using AI you will receive a 0 on this project.\nAll analyses must be done in RStudio, and all components of the project must be reproducible. This means that when I run the code, I do not get any errors.\n\nLogistics\nYou will work on the project with your assigned team.\nThe pieces for the final project are the following:\n\nA submitted written, reproducible report detailing your analysis.\nThe presentation for the project.\nA summary of the edits made following the draft.\nA summary of each contribution, written by each member of the group\nThe original quarto file with the code",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "project-description.html#topic-ideas",
-    "href": "project-description.html#topic-ideas",
-    "title": "Project description",
-    "section": "Project Proposal",
-    "text": "Project Proposal\nI have curated a list of data sets on a range of topics including sports, tipping, exposure to violence, gender, environmental topics, global attitudes, and more.\nAs a group select a data set that you are interested in, and relates to your research question. You will be required to submit your groups research question and the selected data set.\nFind the data sets here.\n\nProject Proposal submission\nYour Project Proposal submission should be no more than half a page and will be graded on completion. This means that as long as you attempt, show that you tried, and included all requirements then you will receive full credit.\nDownload the template here. Render as a word docx and submit to canvas.\nThe proposal should include the following:\n\nIntroduction and data (1 paragraph)\n\nState the source of the data set: who made the data?\n\nRemember to provide a citation for the data set\n\nDescribe the observations and the general characteristics being measured in the data\n\nWhat questions is your team thinking they will be using?\nUse the code book to find what variables were collected and how they are measured.\n\n\n\n\nResearch question (1 paragraph)\n\nState the research question your team wants to answer\nTell me why your team is interested in answering using this data\n\nWhat motivated your team to ask this question\n\n\n\n\nGlimpse of data\n\nIn the template to show a glimpse of the selected variables that relate to your research question.\n\nUse the read.csv() to import the selected data set, make sure the selected data set is in your POL 051 folder.\nThen use the select() to select the specific variables you would like to use to answer your question\n\nDoesn’t need to be your final selection but should be related to your question.\n\n\nUse the head function to provide an overview of each data set\n\nhead()\n\n\n# install.packages(\"tidyverse\") if you have not installed tidyverse yet\nlibrary(tidyverse)\n\n# set your working directory - make sure the dataset is in this folder\n#stwd(filepath/pol51)\nsetwd()\n\n# upload the dataset using read.csv\n# read.csv(dataset_name.csv)\ndata &lt;- read.csv(data_set_name.csv)\n\ndata |&gt;\n  select(variable1, variable2, variable3, variable4 .... ) |&gt;\n  head()",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "project-description.html#project-proposal",
-    "href": "project-description.html#project-proposal",
-    "title": "Project description",
-    "section": "Project Report Draft #1",
-    "text": "Project Report Draft #1\n\nDraft report\nThe purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion as long as all parts are included then your group will receive full credit.\nClick here for the project report template.\nYou will render this as a word docx before submitting to canvas.\nInclude the following in the draft:\n\n\nSection 1 - Introduction\nThe introduction should include the following (1 page):\n\nYou should state the motivation of the research question\n\nFocus these two key elements:\n\nWhat is the observed problem\nWhat does this contribute to?\n\nDoes this contribute to more knoweldge? (Intellectual)\nDoes this contribute to policy? (Broader)\n\n\nIn your introduction section, you should be focused on discussing what the problem is that you are seeing and why this needs to be addressed. Is there a current problem in the world; did something happen?\nhttps://www.sjsu.edu/writingcenter/docs/handouts/Introduction%20of%20Research%20Papers.pdf\nExample:\n\n“The number of women running for political office has skyrocket since the introduction of gender quota laws and revisions were introduced to reduce the loopholes of the laws. The most recent election in Mexico during 2024 was the largest election in its history and saw the most women running for office. However, while the number of women entering political office is increasing, so is the level of criminal violence, especially against political leaders. The 2024 election was one of the most violent elections in recent history (Data Cívica, México Evalúa y Animal Político, 2024A). Yet, little research has examined the impact of criminal violence on the candidate selection process and how this impacts women, and as violence increases it is critical to analyze the relationship between criminal violence and candidate selection.” (Daarstad, N.D.)\n“While previously polarization was primarily seen only in issue-based terms, a new type of division has emerged in the mass public in recent years: Ordinary Americans increasingly dislike and distrust those from the other party. Democrats and Republicans both say that the other party’s members are hypocritical, selfish, and closed-minded, and they are unwilling to socialize across party lines. This phenomenon of animosity between the parties is known as affective polarization. We trace its origins to the power of partisanship as a social identity, and explain the factors that intensify partisan animus.” (Iyenger, et. al, 2019)\n\n\n\n\n\nSection 2 - Literature Review\n\nShould be a “comprehensive” review and analysis of the current academic research (1 - 2 pages)\nThe key piece is addressing what gap exists; the gap you are trying to address.\nTell me what your project adds!!\n\nSources on Lit Reviews:\n\nhttps://libguides.wustl.edu/our?p=302677#:~:text=From%20The%20Writing%20Center%20%2D%20The,emphasis%20is%20on%20the%20argument.\nhttps://www.tandfonline.com/doi/full/10.1080/02642069.2022.2047941\nhttps://owl.purdue.edu/owl/research_and_citation/conducting_research/writing_a_literature_review.html\nhttps://writingcenter.unc.edu/tips-and-tools/literature-reviews/\nhttps://www.sjsu.edu/writingcenter/docs/handouts/Literature%20Reviews.pdf\n\n\n\n\n\nSection 3 - Hypotheses (1/2 page)\nIn this section, you will tell me your hypotheses!\n\n\nSection 4 - Data Description (1/2 page)\nIn this section, you will describe the data. This includes\n\ndescription of the observations in the data set,\n\nWhat is your independent variable?\nWhat is your dependent variable?\nHow was it measured?\nHow was it collected?\n\n\n\n\nSection 5 - Data Summary + Regression Model (1-2 pages)\nIn this section, you will provide basic summary stats, visualizations, and a simple regression model of your data. This includes:\n\nVisualization and summary statistics for the response variable.\nSimple Regression model\n\n\n\nSection 6 - Conclusion (1 pages)\n\nTell me what you found, does it support your conclusions?\n\n\n\nSubmission\nSubmit as a word document on canvas.\n\n\nProject Draft grading\n\n\n\nTotal\n100 pts\n\n\n\n\nIntroduction\n20 pts\n\n\nLit Review\n20 pts\n\n\nHypotheses\n10 pts\n\n\nData Description\n10 pts\n\n\nData Summary + Regression\n20 pts\n\n\nConclusion\n20 pts",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "project-description.html#peer-review",
-    "href": "project-description.html#peer-review",
-    "title": "Project description",
-    "section": "Peer review",
-    "text": "Peer review\nCritically reviewing others’ work is a crucial part of the scientific process. Each team will be assigned two other teams’s projects to review. You will be randomly assigned two other team’s drafts and will need to provide detailed comments by Wed. July 22\nThe peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team’s report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.\n\nPairings\n\n\n\nTeam being reviewed\nReviewer 1\nReviewer 2\n\n\n\n\nTeam #1\n\n\n\n\nTeam #2\n\n\n\n\nTeam #3\n\n\n\n\nTeam #4\n\n\n\n\nTeam #5\n\n\n\n\nTeam #6\n\n\n\n\n\n\n\nProcess and questions\nSpend ~30 mins to review each team’s project.\n\nFind your team name on the Reviewer 1 and Reviewer 2 columns.\nFor each of the columns, find the name of the team to review in the Team being reviewed column. You will\nAs a team you will submit the following document (1-2 pages)\n\nPeer review by: [NAME OF TEAM DOING THE REVIEW]\nNames of team members that participated in this review: [FULL NAMES OF TEAM MEMBERS DOING THE REVIEW]\nState the research question and hypothesis.\nDescribe the data used.\nIs there anything that is unclear from the proposal?\nProvide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on data summary and regression section of the project.\nWhat aspect of this project are you most interested in and would like to see highlighted in the presentation.",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "project-description.html#written-report",
-    "href": "project-description.html#written-report",
-    "title": "Project description",
-    "section": "Final Project Report",
-    "text": "Final Project Report\nYour final project report must include the following files to be considered complete:\n\nfinal_report_team-name.docx\n\nclick here for the template.\n\nfinal_pres_team-name (in what ever format works for you!)\nteam_contributions_team-name.docx\nfinal_edits_team-name.docx\nfinal_project_team-name.qmd\n\nThe unrendered version of your project.\n\n\nYou will submit these files of your final report on canvas.\nEach piece is worth the following points, broken down as follows\n\n\n\nTotal\n200 pts\n\n\n\n\nFinal Report\n100 pts\n\n\nPresentation\n25 pts\n\n\nTeam Contributions\n25 pts\n\n\nFinal Edits\n25 pts\n\n\nFinal Report Code\n25 pts\n\n\n\n\nFinal Report\nThe final report will follow the same format as the draft report, but will be the final version.\n\nIntroduction (10 points) (1/2 - 1 page)\nThe introduction will be worth 10 points and needs to include the following:\n\nThe Motivation/Significance (5 points)\n\nWhat is the observed problem\nWhat does this contribute to?\n\nResearch Question (5 points)\n\n\n\nLit Review (10 points) (1-2 pages)\nThe lit review will be worth 10 points and needs to include the following:\n\nA comprehensive review of the lit based on your topic (5 points)\n\nYou need to cite a minimum of 5 academic articles\n\nYou will lose 1 points for every article below the minimum\n\n\nYou need to address the gap: where does your question settle in the literature? (5 points)\n\nYou do not need to provide a huge or original contribution, but what just think what does answering your question add that you think is missing?\n\n\n\n\nHypotheses (10 points) (1/2 page)\n\nYou need to include at least 1 hypothesis and it needs to be testable with the data you have selected\n\n\n\nData Description (10 points) (1/2 page)\n\ndescription of the observations in the data set,\n\nWhat is your independent variable? (3 points)\n\nHow was it measured? (1 points)\nHow was it collected? (1 points)\n\nWhat is your dependent variable? (3 points)\n\nHow was it measured? (1 points)\nHow was it collected? (1 points)\n\n\n\n\n\nData Summary + Regression (50 points)\n\nData Summarization (15 points)\n\nShow and describe two different data visualizations (10 points/5 points each)\n\nNeed to include titles, etc.\nMake it look nice\nNeeds to make sense with the data being used.\n\nDescription of averages, medians, etc. (5 points)\n\nRegression Model (20 points)\n\nOne simple regression model (10 points)\n\nOne outcome and one independent variable\nA table of these results\n\nOne mulitivariate regression model (10 points)\n\nOne outcome, one independent variable, and controls (at least two)\nA table of these results\n\n\nDiscussion of the results (10 points)\n\nProvides a detailed and accurate discussion of the results from the models\n\n\n\n\nConclusion (10 points) (1/2 page)\n\nSummary of everything (10 points)\n\nProvides a summary of the full report\nEssentially, put a nice bow and wrap up the paper\n\n\n\n\n\nTotal\n100 pts\n\n\n\n\nIntroduction\n10 pts\n\n\nLit Review\n10 pts\n\n\nHypotheses\n10 pts\n\n\nData Description\n10 pts\n\n\nData Summary + Regression\n50 pts\n\n\nConclusion\n10 pts\n\n\n\n\n\n\nSlides (25 points)\nThe final report will include a pdf version of the teams presentation of the project. For more information on the format for the presentation got to Presentation.\nThis will be graded for completion, so if submitted completed full points will be awarded.\n\n\nTeam Contributions (25 points)\nThe final report will include a summarization of all the team contributions to the project. Each member is required to submit a paragraph on their contributions to the overall project.\nIMPORTANT: NO TEAM MEMEBER CAN BE SOLEY RESPONSIBLE FOR THE CODING\nThis will be graded for completion, so if submitted completed full points will be awarded.\n\n\nEdit Report (25 points)\nThe final report will include a summarization of all the edits team made to the final project. this should be about a page no more.\nThis will be graded for completion, so if submitted completed full points will be awarded.\n\n\nFinal Report Code (25 points)\nThe final report will include a reproducible document of your code, submit the .qmd file with the code\nThis will be graded for completion and reproduceability, so if submitted completed and runs with no errors, full points will be awarded. If submitted completed and runs with errors are found, half points will be awarded.\n\n\nPresentation\n\n\nSlides\nIn addition to the written report, your team will required to create presentation and present in class to summarize and showcase your project. You will need to introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. The presentation should be around 10 - 12 minutes long. Every group member needs to speak at least once. If there is a complication with this, please come to me as soon as possible.\nFor submission, convert these slides to a .pdf document, and submit the PDF of the slides on canvas.\nThe slide deck should have no more than 6 content slides + 1 title slide. Here is a suggested outline as you think through the slides; you do not have to use this exact format for the 6 slides.\n\nTitle Slide\nSlide 1: Introduce the topic and motivation\nSlide 2: Introduce the data\nSlide 3: Summary of Data\nSlide 4: Final model\nSlide 5: Interesting findings from the model\nSlide 6: Conclusions\n\n\n\nLate work policy\nThere is no late work accepted on the final project report. Be sure to turn in your work early to avoid any technological mishaps.",
-    "crumbs": [
-      "Project",
-      "Description"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html",
-    "href": "course-syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Important\n\n\n\nThe syllabus is subject to changes and updates.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#course-info",
-    "href": "course-syllabus.html#course-info",
-    "title": "Syllabus",
-    "section": "Course info",
-    "text": "Course info\n\n\n\n\n\n\n\n\n\n\nDay\nTime\nLocation\n\n\n\n\nLectures\nMon, Tue & Wed.\n12:10 pm - 1:50 pm\nHoagland Hall 168\n\n\nDiscussion/Lab\nThu\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\nOffice Hours\nTue\n2:00 - 4:00 PM\nKerr Hall 569",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#learning-objectives",
-    "href": "course-syllabus.html#learning-objectives",
-    "title": "Syllabus",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of this course you will be able to…\n\nAnalyze real-world data to answer questions about different relationships.\nFeel comfortable manipulating data in R\nCraft effective visualizations of patterns in data\nDraw causal diagrams and identify obstacles to causal claims\nUnderstand the basics of regression and uncertainty",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#community-and-uc-davis-policies",
-    "href": "course-syllabus.html#community-and-uc-davis-policies",
-    "title": "Syllabus",
-    "section": "Community and UC Davis Policies",
-    "text": "Community and UC Davis Policies\n\nInclusive community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity. Your suggestions are encouraged and appreciated.\nPlease note that this is a political science course, and as such we will be discussing political issues. As each of us comes into the section with unique opinions about political issues, there may be disagreements. I insist we discuss our differences with respect, civility, and empathy. Please do your best to keep an open mind about your peers’ perspectives as your peers will expect the same of you.\nNote: This does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully)\n\nIf I believe any of the discussion is becoming disrespectful or includes hateful or inappropriate speech, I hold the right to end the discussion.\n\n\n\nAccessibility\nIf there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.\nIt is the Professor’s responsibility to help make this course accessible to all students. If you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at sdc.ucdavis.edu.\n\nStudents must contact me about any accommodations in advance.\nOutside Resources - The Student Academic Success Center is a campus wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics\n\n\n\nMandatory Reporter\nIn my role as faculty, I am required by policy to report concerns that come to my attention related to sexual harassment, sexual violence, discrimination, or harassment involving students.  Please know you are still free to discuss these concerns with me, but I will need to pass along any information shared with me to the Harassment and Discrimination Assistance and Prevention Program (HDAPP) so they can reach out to you and talk to you about resources and possible resolution options.  If you would prefer to speak to a confidential resource, who does not have the same responsibility to report, I can help you get connected. \nAlternatively, here is a link to information about available resources on campus (including confidential resources):  https://hdapp.ucdavis.edu/resources.  Also, here is a link to information about reporting directly to HDAPP:  https://hdapp.sf.ucdavis.edu/report-incident.\n\n\nCounseling & Psychiatry Services\nLife at Davis can be complicated and challenging. You might feel overwhelmed, experience anxiety or depression, or struggle with relationships or family responsibilities. UC Davis Counseling Services provide confidential support for students who are struggling with mental health and emotional challenges. Please do not hesitate to contact them for assistance—getting help is a smart and good thing to do.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#communication",
-    "href": "course-syllabus.html#communication",
-    "title": "Syllabus",
-    "section": "Communication",
-    "text": "Communication\n\nWhat are office hours for?\n\nOffice hours are when the the professor sets aside two hours each week making themselves available to students. Office hours are often underutilized by all students in college. Consider this your time.\nYou do not need an appointment to come by.\nMy job as a Professor is to help each of you succeed, however, I can only help you if you ask. (PLEASE COME ASK ME!)\nI strongly encourage students to come to my office hours and chat about topics from the readings or lectures, talk over potential study strategies, or to simply converse.\n\nWhat are Emails for?\n\nIf your question cannot wait until office hours, section, or class, then students should/may use email to contact their Professor. However, please note, email should not be used as an alternative to direct conversation or an in-depth discussion.\nAs a simple rule of thumb, emails should be used to address quick questions, not for requests to exhaustively review material from lecture or section.\nI will respond to emails within one business day, so between 9 am and 6 pm on weekdays. This means if you email me passed 6 pm on a weekday you will not receive any email till the next day in the morning around 9 am. If you email me on the weekends or passed Friday at 6 pm, I will respond promptly on Monday\nI will not respond to emails that are rude, unintelligible, or inquiring about information readily accessible on the syllabus.\n\nI will typically communicate announcements through Canvas. Please make sure your Canvas information is up to date and that you check it frequently over the quarter.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#course-materials",
-    "href": "course-syllabus.html#course-materials",
-    "title": "Syllabus",
-    "section": "Course Materials",
-    "text": "Course Materials\nAll materials for this course are free and online. You will do all of your analysis with the open source (and free) programming language R and RStudio.\nCunningham, S. (2021). Causal inference: The mixtape. Yale university press.\nWickham, H, Çetinkaya-Rundel,, M & Grolemund, G. R for Data Science(2e). O’Reilly.\n“Statistical Inference via Data Science: A ModernDive into R and the Tidyverse\n(Second Edition)” was written by Chester Ismay, Albert Y. Kim, and Arturo Valdivia\nForeword by Kelly S. McConville. It was last built on May 24, 2026.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#lectures-and-labs",
-    "href": "course-syllabus.html#lectures-and-labs",
-    "title": "Syllabus",
-    "section": "Lectures and labs",
-    "text": "Lectures and labs\nThe goal of both the lectures and the labs is for them to be as interactive as possible. My role as instructor is to introduce you to new tools and techniques, but it is up to you to take them and make use of them. A lot of what you do in this course will involve writing code, and coding is a skill that is best learned by doing. Therefore, as much as possible, you will be working on a variety of tasks and activities throughout each lecture and lab. You are expected to attend all lecture and lab sessions and meaningfully contribute to in-class exercises and discussion. Additionally, some lectures will feature application exercises that will be graded, this will be counted as your attendance for participation.\nYou are expected to bring a laptop to each class so that you can take part in the in-class exercises. Please make sure your laptop is fully charged before you come to class as the number of outlets in the classroom will not be sufficient to accommodate everyone.\nMore information on the UC Davis Financial Aid and Scholarships Computer Loan Program laptops can be found here.\nThe weekly discussion/lab will be the place where you will practice the content you learned during lectures. You will be required to submit a report at the end of each week, these will be 30 percent of your grade.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#teams",
-    "href": "course-syllabus.html#teams",
-    "title": "Syllabus",
-    "section": "Teams",
-    "text": "Teams\nYou will be assigned to a team during lecture 1, this will be your team for your final project. You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions. All team members are expected to contribute equally to the final project. Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team’s overall mark.\nYou will be asked to provide documentation of your contributions for the final project and will also need to complete an evualition of your team members in a survey at the end of the course.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#assessment",
-    "href": "course-syllabus.html#assessment",
-    "title": "Syllabus",
-    "section": "Assessment",
-    "text": "Assessment\nAssessment for the course is comprised of four components: application exercises, labs, and a final project.\n\nApplication exercises\nParts of some lectures will be dedicated to working on Application Exercises (AEs). These exercises which give you an opportunity to practice apply the statistical concepts and code introduced in the readings and lectures. These AEs are due by the end of the lecture period.\nBecause these AEs are for practice, they will be graded based on completion, i.e., a good-faith effort has been made in attempting all parts. Successful on-time completion of at least 80% of AEs will result in full credit for AEs in the final course grade.\nYou will submit these on canvas.\n\n\nLabs\nIn labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be completed individually during your discussion/lap. Lab assignments will be completed using a Quarto document and submitted for grading on canvas by the end of the day of the week.\nFor example, Lab Assignment #1 on Thursday June 25 will be due Sunday June 28 at 12:59 PM.\nYou will submit your lab using a quiz format, including one question where you will upload your quarto document for submission.\n\n\nFinal Project\nThe purpose of the final project is to apply what you’ve learned throughout the summer to analyze an interesting, data-driven research question. The project will be completed with your lab teams, and each team will present their work during the final lecture period. More information about the project will be provided during the first week of the summer session.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#grading",
-    "href": "course-syllabus.html#grading",
-    "title": "Syllabus",
-    "section": "Grading",
-    "text": "Grading\nThe final course grade will be calculated as follows:\n\n\n\nCategory\nPercentage\n\n\n\n\nApplication Exercises (Particpation)\n15%\n\n\nLabs\n35% (7% x 5)\n\n\nFinal Project\n50%\n\n\n\nThe final letter grade will be determined based on the following thresholds:\n\n\n\nLetter Grade\nFinal Course Grade\n\n\n\n\nA\n&gt;= 93\n\n\nA-\n90 - 92.99\n\n\nB+\n87 - 89.99\n\n\nB\n83 - 86.99\n\n\nB-\n80 - 82.99\n\n\nC+\n77 - 79.99\n\n\nC\n73 - 76.99\n\n\nC-\n70 - 72.99\n\n\nD+\n67 - 69.99\n\n\nD\n63 - 66.99\n\n\nD-\n60 - 62.99\n\n\nF\n&lt; 60",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#course-policies",
-    "href": "course-syllabus.html#course-policies",
-    "title": "Syllabus",
-    "section": "Course policies",
-    "text": "Course policies\n\nAcademic integrity\nCheating and plagiarism will be evaluated and disciplined according to University policy. For information on academic integrity, please read: http://cai.ucdavis.edu/aip.html. You are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse. All suspected violations will be referred to Student Judicial Affairs for evaluation. You will be notified promptly by email if a referral is made.\n\n\nPolicy on sharing and reusing code\nI am well aware that a huge volume of code is available on the web to solve any number of problems. Unless I explicitly tell you not to use something, the course’s policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow) but you must explicitly note where you obtained any code you directly use (or use as inspiration).\n\n\nPolicy on AI\nAI is not allowed for usage in this classroom. You may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work being submitted for credit in the UC Davis Department of Political Science. The Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: https://ossja.ucdavis.edu/code-academic-conduct).\nTaking credit for any work not created by the student; work includes, but is not limited to, books, articles, experimental methodology or results, compositions, images, lectures, computer programs, internet postings, and content generated by software or artificial intelligence\n\n\nLate work policy\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline.\n\nLabs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late.\nThe late work policy for the project will be provided with the project instructions.\n\n\n\nWaiver for extenuating circumstances\nIf there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.\n\n\nRegrade request policy\nRegrade requests must be submitted within a week of when an assignment is returned. A Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.\nNo grades will be changed after the final project presentations.\n\n\nAttendance policy\nResponsibility for class attendance rests with individual students. Since regular and punctual class attendance is expected, students must accept the consequences of failure to attend.\nParticipation during lectures will be 15 percent of your grade, and will be graded using the application exercises. Successful completion of 80 percent of these will result in full credit for the course.\nIf you are absent due to illness, religious reasons, etc. please email me directly. Please note, that work conflicts are not considered an excused absence.\n\n\nPolicy on video recording course content\nIf you feel that you need record the lectures yourself, you must get permission from me ahead of time and these recordings should be used for personal study only, no for distribution. Unauthorized distribution is a cause for disciplinary action by the Judicial Board.\nNote: If you’ve read this far in the syllabus, email me a picture of your pet if you have one or your favourite meme for extra credit!\n\n\nCopyright\nMy lectures and course materials, including presentations, essay questions, outlines, exams, and similar materials, are protected by U.S. copyright law and by University policy. I am the exclusive owner of the copyright in those materials I create. You may take notes and make copies of course materials for your own use. You may also share those materials with another student who is enrolled in or auditing this course. You may not reproduce, distribute or display (post/upload) lecture notes or recordings or course materials in any other way (whether or not a fee is charged) without my express prior written consent. You also may not allow others to do so. Violations will be reported to the Office of Student Support and Judicial Affairs and may be subject to student conduct proceedings under the UC Davis Code of Academic Conduct.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#important-dates",
-    "href": "course-syllabus.html#important-dates",
-    "title": "Syllabus",
-    "section": "Important dates",
-    "text": "Important dates\n\nJune 22: Classes begin\nJune 28: Project Ideas Due\nJuly 17: Project Draft Due\nJuly 22: Project Peer Review Due\nJuly 29: Final Projects Due\nJuly 30: Final Project Presentation\n\nClick here for the full UC Davis academic calendar.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-syllabus.html#credits",
-    "href": "course-syllabus.html#credits",
-    "title": "Syllabus",
-    "section": "Credits",
-    "text": "Credits\nThis course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.",
-    "crumbs": [
-      "Course information",
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "course-faq.html",
-    "href": "course-faq.html",
-    "title": "FAQ",
-    "section": "",
-    "text": "R is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network. Follow the instructions below to download R. If you are using an older computer or iPad, skip to 1.4 Using Posit Cloud for R.\n\n\n\nGo to The Comprehensive R Archive Network webpage:\n\nhttps://cran.r-project.org\n\nTo install R on Windows, click the “Download R for Windows” link.\nTo install R on a Mac, click the “Download R for Mac” link.\n\n\n\n\nOne way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents. RStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.\n\nGo to the Posit RStudio Desktop page.\nTo install for Mac:\n\nScroll to the button that says “Install R on a Mac,” and click the “Download R for Mac OS 13+” link.\nIf you’re using an older version, click the “Previous Versions” link to find a version that works with your computer.\n\nTo install for Windows:\n\nScroll to the button that says “Install R on Windows 10/11,” and click the link to download.\n\n\n\n\n\nPosit Cloud is the most common cloud service used when working with RStudio and is free up to a point.\nhttps://posit.cloud/\n\nFirst, choose the “Cloud Free” plan.\nSecond, follow the Posit Cloud instructions to log in.\nThird, go to the “Tutorial” tab in the upper right corner, scroll to the bottom, and select “Getting Started with Tutorials,” then press the “Start Tutorial” button.\nYou will work in a singular RProject space for the majority of the class.",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#how-do-i-download-r-and-r-studio",
-    "href": "course-faq.html#how-do-i-download-r-and-r-studio",
-    "title": "FAQ",
-    "section": "",
-    "text": "R is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network. Follow the instructions below to download R. If you are using an older computer or iPad, skip to 1.4 Using Posit Cloud for R.\n\n\n\nGo to The Comprehensive R Archive Network webpage:\n\nhttps://cran.r-project.org\n\nTo install R on Windows, click the “Download R for Windows” link.\nTo install R on a Mac, click the “Download R for Mac” link.\n\n\n\n\nOne way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents. RStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.\n\nGo to the Posit RStudio Desktop page.\nTo install for Mac:\n\nScroll to the button that says “Install R on a Mac,” and click the “Download R for Mac OS 13+” link.\nIf you’re using an older version, click the “Previous Versions” link to find a version that works with your computer.\n\nTo install for Windows:\n\nScroll to the button that says “Install R on Windows 10/11,” and click the link to download.\n\n\n\n\n\nPosit Cloud is the most common cloud service used when working with RStudio and is free up to a point.\nhttps://posit.cloud/\n\nFirst, choose the “Cloud Free” plan.\nSecond, follow the Posit Cloud instructions to log in.\nThird, go to the “Tutorial” tab in the upper right corner, scroll to the bottom, and select “Getting Started with Tutorials,” then press the “Start Tutorial” button.\nYou will work in a singular RProject space for the majority of the class.",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#what-is-a-quarto-file",
-    "href": "course-faq.html#what-is-a-quarto-file",
-    "title": "FAQ",
-    "section": "What is a quarto file?",
-    "text": "What is a quarto file?\nIf you have ever used an Rmarkdown file before, Quarto the next generation version of this! Quarto files allow you to make pdf, word documents, presentations, and even websites. In this course you will be making a word document using a provided quarto file for your lab submissions.",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#what-is-a-file-path",
-    "href": "course-faq.html#what-is-a-file-path",
-    "title": "FAQ",
-    "section": "What is a file path?",
-    "text": "What is a file path?\nA file path is a unique “address” that tells your computer where to find certain information. For example, if you are looking for a document called Homework1.qmd in a folder on you desktop labeled POL 051, then the file path to find this document would be:\n~/desktop/POL 051/Homework1.qmd\n\nMac File Path Setup\nMac Books and Windows computer have different starts to their file paths, here is a macbook’s setup:\n/Users/John/desktop/POL 051/Homework1.qmd\n\n\nWindows File Path Setup\nC:/Users/John/desktop/POL 051/Homework1.qmd",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-faq.html#what-is-a-working-directory",
-    "href": "course-faq.html#what-is-a-working-directory",
-    "title": "FAQ",
-    "section": "What is a working directory?",
-    "text": "What is a working directory?\nThe working directory is the folder in your computer that you have set to save files to during your working session on R. Essentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder.\nIt is important to keep all the files associated with a given project, such as data, scripts, analytical results, and figures, together. To do this we need to make a working directory.\nTo create a new working directory in RStudio:\n\nUse File → New Project or use the New Project button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).\nThis will open the “New Project Wizard” popup.\nClick “New Directory”.\n\nTo set the working directory, there are two possible ways, using code or using RStudio directly:\n\nOption 1: Using R Code\n\n# Set working directory (replace this with your own)\n\n# Mac Users\nsetwd(\"/Users/yourname/Desktop/filename/filename\")\n# Windows Users\nsetwd(\"C:/Users/YourName/Documents/MyFolder\")\n\n\n\nOption 2: Using RStudio Interface\n\nOn the top of the RStudio menu, click on Session.\nClick Set Working Directory.\nThen click To Source File Location.\n\nTo check if the working directory is set correctly, use the following code:\n\n# Returns the filepath of the current working directory\ngetwd()\n\nIf you feel like this still ⤸\n\nPLEASE PLEASE PLEASE come to office hours or email me!",
-    "crumbs": [
-      "Course information",
-      "FAQ"
-    ]
-  },
-  {
-    "objectID": "course-overview.html",
-    "href": "course-overview.html",
-    "title": "POL 051: The Scientific Study of Politics",
-    "section": "",
-    "text": "Welcome to The Scientific Study of Politics!\nData is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.\nThis undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.\n\n\n\n\n\nInstructor:\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\n\n\n\nLecture:\n\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\n\n\n\nDiscussion/Lab:\n\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\nThese course materials have been inspired by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.",
-    "crumbs": [
-      "Course information",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "POL 051: The Scientific Study of Politics",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the summer session. Note that this schedule will be updated as the summer progresses, with all changes documented here.\n\n\n\n\n\n\n\n\nInstructor:\nLecture:\nDiscussion/Lab:\n\n\nMs. Haley Daarstad\n569 Kerr Hall\nhbdaarstad@ucdavis.edu\nOffice Hours: Tue 2:00 - 4:00 PM\nMonday - Wednesday\n12:10 pm - 1:50 pm\nHoagland Hall 168\nThursday\n12:10 pm - 1:50 pm\nTeaching and Learning Complex 2212\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nPrepare\nSlides\nAE\nLab\nCode Example\nProject\n\n\n\n\n1\nMon, June 22\nLecture 1 - Meet + greet, Welcome to POL 051\n📖\n🖥️\n📋\n\n🧮\nTeams created + list of project ideas 📂\n\n\n\nTue, June 23\nLecture 2 - Data Visualization I & II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, June 24\nLecture 3 - Data Wrangling I\n\n🖥️\n\n\n🧮\n\n\n\n\nThu, June 25\nLab 1\n\n\n\n💻\n\n\n\n\n2\nMon, June 29\nLecture 4 - Data Wrangling II\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, June 30\nLecture 5 - Relationships I\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 1\nLecture 6 - Relationships II\n\n🖥️\n📋\n\n\nChosen Topic is Due June 28 📂\n\n\n\nThu, July 2\nLab 2\n\n\n\n💻\n\n\n\n\n3\nMon, July 6\nLecture 7 - Modeling I\n📖\n🖥️\n\n\n🧮\n\n\n\n\nTue, July 7\nLecture 8 - Modeling II\n\n🖥️\n\n\n🧮\n\n\n\n\nWed, July 8\nLecture 9 - Causality I\n\n🖥️\n📋\n\n\n\n\n\n\nThu, July 9\nLab 3\n\n\n\n💻\n\n\n\n\n4\nMon, July 13\nLecture 10 - Causality II\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 14\nLecture 11 - DAGs\n\n🖥️\n\n\n\n\n\n\n\nWed, July 15\nLecture 12 - Uncertainty\n\n\n\n\n\n\n\n\n\nThu, July 16\nLab 4\n\n🖥️\n\n💻\n\nProject Draft Due Fri. July 17 📂\n\n\n5\nMon, July 20\nLecture 13 - Hypothesis Testing I\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 21\nLecture 14 - Hypothesis Testing II\n\n🖥️\n\n\n\n\n\n\n\nWed, July 22\nLecture 15 - Prediction\n\n🖥️\n\n\n\nPeer Review is Due 📂\n\n\n\nThu, July 23\nLab 5\n\n\n\n💻\n\n\n\n\n6\nMon, July 27\nLecture 16 - Experiments\n📖\n🖥️\n\n\n\n\n\n\n\nTue, July 28\nLecture 17 - Natural Experiments I\n\n🖥️\n\n\n\n\n\n\n\nWed, July 29\nLecture 18 - Natural Experiments II\n\n🖥️\n\n\n\nFinal Project Due\n\n\n\nThu, July 30\nFinal Project Presentation\n\n\n\n\n\nFinal Project Presentation 📂",
-    "crumbs": [
-      "Course information",
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "project-tips-resources.html",
-    "href": "project-tips-resources.html",
-    "title": "Project Data Options",
-    "section": "",
-    "text": "Important\n\n\n\nProject data options are still being finalized, and will be completed by June 22, 2026.",
-    "crumbs": [
-      "Project",
-      "Data Options"
-    ]
-  },
-  {
-    "objectID": "project-tips-resources.html#data-options-for-the-project",
-    "href": "project-tips-resources.html#data-options-for-the-project",
-    "title": "Project Data Options",
-    "section": "Data Options for the Project",
-    "text": "Data Options for the Project\nFor your project you will need to find a data set that answers your question of interest! I have pre curated some data sets for you.\nBefore selecting a data set I recommend reading this: https://www.icpsr.umich.edu/sites/icpsr/teaching-learning/build-your-data-skills/how-to-find-a-dataset\n\nUN Data (2000-2025)\nUN Data (2000-2025) includes various measures by country per year such as population, education, women in government, CO2 admissions.\n\nDownload CSV\nDownload Codebook\n\nData collected from: UN Data (https://data.un.org)\n\n\nANES (1948 - 2024)\nAmerican National Election Survey includes responses from individuals in the US on various feeling thermamaters for parties and social groups and includes demographic questions.\n\nDownload CSV\nDownload Codebook\n\nData collected from: ANES (https://electionstudies.org)\n\n\nUS Migration Data\nThe US migration data includes data on migrants, deportations, and migrant deaths at the US-Mexican border.\n\nDownload CSV\nDownload Codebook\n\nData collected from: DHS Office of Immigration Statistics (removals/apprehensions), TRAC Immigration (deportation reasons by criminality), ICE Arrest Data (monthly, 2008–2018)\n\n\nViolence and Democracy Data\nThe Violence and Democracy Data includes data on different forms of violence such as conflicts and protests and democracy index scores.\nAfrica\n\nDownload CSV\nDownload Codebook\n\nAsia\n\nDownload CSV\nDownload Codebook\n\nEurope\n\nDownload CSV\nDownload Codebook\n\nLatin America\n\nDownload CSV\nDownload Codebook\n\nUS and Canada\n\nDownload CSV\nDownload Codebook\n\nData collected from: ACLED (https://acleddata.com), and VDEM (https://v-dem.net)",
-    "crumbs": [
-      "Project",
-      "Data Options"
-    ]
   },
   {
     "objectID": "slides/lec-2.html#why-visualize-data",
