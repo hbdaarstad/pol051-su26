@@ -1434,382 +1434,711 @@
     "text": "🗳️ The (unusual) American voter 🗳️\nIn your teams, using bot:\n\nIdentify the most unusual subgroup of voters you can think of\nConstraint: need at least five voters in your subgroup\nStore your unusual subgroup as an object\nOne member tells the class what was your subgroup of voters.\n\n\n\n\n\n\n\nNote\n\n\nRemember you can use ?bot to look at the codebook"
   },
   {
-    "objectID": "slides/lec-10.html#causal-diagram",
-    "href": "slides/lec-10.html#causal-diagram",
-    "title": "Causality II",
-    "section": "Causal diagram",
-    "text": "Causal diagram\n\n\nWe need a causal model\nThe model is our idea of how the data came to be (the data-generating process)\nThe model tells us how to identify a causal effect (if it’s possible!)"
+    "objectID": "slides/lec-11.html#why-dag",
+    "href": "slides/lec-11.html#why-dag",
+    "title": "DAGs I + II",
+    "section": "Why DAG",
+    "text": "Why DAG\nWe want to identify the effect of X (waffles) on Y (divorce)\n\nWe can use our model to identify that effect, BUT:\n\n\nWe also know that lurking variables might make things go awry (the South)"
   },
   {
-    "objectID": "slides/lec-10.html#directed-acyclical-graphs-dags",
-    "href": "slides/lec-10.html#directed-acyclical-graphs-dags",
-    "title": "Causality II",
-    "section": "Directed Acyclical Graphs (DAGs)",
-    "text": "Directed Acyclical Graphs (DAGs)\nA popular modeling tool for thinking about causality is the DAG\nNodes (points) = variables; Edges (arrows) = direction of causality"
+    "objectID": "slides/lec-11.html#why-dag-1",
+    "href": "slides/lec-11.html#why-dag-1",
+    "title": "DAGs I + II",
+    "section": "Why DAG",
+    "text": "Why DAG\nWe know that the DAG on the left will produce the spurious correlation on the right\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRegardless of whether or not waffles cause divorce"
   },
   {
-    "objectID": "slides/lec-10.html#dags",
-    "href": "slides/lec-10.html#dags",
-    "title": "Causality II",
-    "section": "DAGs",
-    "text": "DAGs\nNodes = variables; Arrows = direction of causality\n\n\n\n\n\n\n\n\n\n\nRead: X1 has an effect on Y"
+    "objectID": "slides/lec-11.html#why-not-control-for-everything",
+    "href": "slides/lec-11.html#why-not-control-for-everything",
+    "title": "DAGs I + II",
+    "section": "Why not control for everything?",
+    "text": "Why not control for everything?\n\n\nControlling for the wrong thing can close a perplexing pipe – this erases part or all of the effect that X has on Y\n\n\n\n\n\n\n\n\n\n\nOr open up an exploding collider – creates weird correlation between X and Y"
   },
   {
-    "objectID": "slides/lec-10.html#dags-1",
-    "href": "slides/lec-10.html#dags-1",
-    "title": "Causality II",
-    "section": "DAGs",
-    "text": "DAGs\n\n\nX1 has an effect on Y; X2 has an effect on X1; X2 affects Y only through X1\nMissing arrows matter!\n\nExample of x2 - x1 - y?"
+    "objectID": "slides/lec-11.html#example-bias-in-police-use-of-force",
+    "href": "slides/lec-11.html#example-bias-in-police-use-of-force",
+    "title": "DAGs I + II",
+    "section": "Example: Bias in police use of force",
+    "text": "Example: Bias in police use of force\nAre the police more likely to use deadly force against people of color?\n\nBlack Americans are 3.23 times more likely than white Americans to be killed by police (Schwartz and Jahn, 2020)\n\n\nYet there are big debates about how exactly to estimate this bias (and the extent to which it exists)\n\n\nFryer (2019) finds that Blacks and Hispanics are 50% more likely to be stopped by police, but that conditional on being stopped by the police, there are no racial differences in officer-involved shootings"
   },
   {
-    "objectID": "slides/lec-10.html#dags-2",
-    "href": "slides/lec-10.html#dags-2",
-    "title": "Causality II",
-    "section": "DAGs",
-    "text": "DAGs\n\n\nX1 has an effect on Y; X2 has an effect on X1 and Y (via X1); X3 has an effect on X1 and Y"
+    "objectID": "slides/lec-11.html#bias-in-use-of-force",
+    "href": "slides/lec-11.html#bias-in-use-of-force",
+    "title": "DAGs I + II",
+    "section": "Bias in use of force",
+    "text": "Bias in use of force\nFryer used extensive controls about the nature of the interaction, time of day, and hundreds of factors that I’ve captured with Confounds"
   },
   {
-    "objectID": "slides/lec-10.html#example-ideology",
-    "href": "slides/lec-10.html#example-ideology",
-    "title": "Causality II",
-    "section": "Example: ideology",
-    "text": "Example: ideology\nWhere does (liberal) ideology come from?\n\nVariables in the literature: Income (I), Liberal (L), Age (A), Media (M), Parents (P)\n\n\n\n\n\n\n\n\n\n\n\n\nWhat are our assumptions? What’s this DAG saying?"
+    "objectID": "slides/lec-11.html#bias-in-use-of-force-1",
+    "href": "slides/lec-11.html#bias-in-use-of-force-1",
+    "title": "DAGs I + II",
+    "section": "Bias in use of force",
+    "text": "Bias in use of force\nFryer shows that once you account for the indirect effect, the direct effect is basically not there – once the police has stopped someone, they do not use deadly force more often against Minorities than Whites"
   },
   {
-    "objectID": "slides/lec-10.html#dags-3",
-    "href": "slides/lec-10.html#dags-3",
-    "title": "Causality II",
-    "section": "DAGs",
-    "text": "DAGs\nDAGs encode everything we know about some process\n\nWe can see all of our assumptions and how they fit together\n\n\nFor example: the effect of Parents on how Liberal someone is happens directly and indirectly (through Media)\n\n\nMissing arrows also matter: we are assuming that Age has no effect on Media diet"
+    "objectID": "slides/lec-11.html#bias-in-police-use-of-force",
+    "href": "slides/lec-11.html#bias-in-police-use-of-force",
+    "title": "DAGs I + II",
+    "section": "Bias in police use of force",
+    "text": "Bias in police use of force\nBut what if police are more likely to stop people they believe are “suspicious” AND use force against people they find “suspicious”? THEN conditioning on the stop is equivalent to conditioning on a collider"
   },
   {
-    "objectID": "slides/lec-10.html#identification",
-    "href": "slides/lec-10.html#identification",
-    "title": "Causality II",
-    "section": "Identification",
-    "text": "Identification\nWhy do this?\n\nLater: DAGs help us figure out how to estimate the effect of one variable on another\n\n\nWhile at the same time being mindful of all the other variables that we need to adjust, or control for\n\n\nFor instance, we might want to estimate the effect of Media consumption (M) on how Liberal (L) someone is\n\n\nThis process is called “identification” \\(\\rightarrow\\) to identify the effect of X on Y"
+    "objectID": "slides/lec-11.html#tough",
+    "href": "slides/lec-11.html#tough",
+    "title": "DAGs I + II",
+    "section": "Tough!",
+    "text": "Tough!\nWe’d like to know if Minorities are killed more than Whites in police interactions once they are stopped\nBut controlling for being stopped creates collider bias\nSuper tough to estimate the effect of race ➡️ police abuse with observational data!"
   },
   {
-    "objectID": "slides/lec-10.html#waffles-and-divorce",
-    "href": "slides/lec-10.html#waffles-and-divorce",
-    "title": "Causality II",
-    "section": "Waffles and Divorce",
-    "text": "Waffles and Divorce"
+    "objectID": "slides/lec-11.html#why-experiments-work",
+    "href": "slides/lec-11.html#why-experiments-work",
+    "title": "DAGs I + II",
+    "section": "Why experiments work",
+    "text": "Why experiments work\nDAGs can also help us see why experiments “work”:\n\n\n\n\n\nPerson\nShown an ad?\nDemocrats thermometer\n\n\n\n\n1\nYes\n65.5\n\n\n2\nNo\n37.57\n\n\n3\nYes\n34.99\n\n\n4\nNo\n53.92\n\n\n5\nNo\n88.69"
   },
   {
-    "objectID": "slides/lec-10.html#waffle-house-index",
-    "href": "slides/lec-10.html#waffle-house-index",
-    "title": "Causality II",
-    "section": "Waffle House Index",
-    "text": "Waffle House Index"
+    "objectID": "slides/lec-11.html#why-experiments-work-1",
+    "href": "slides/lec-11.html#why-experiments-work-1",
+    "title": "DAGs I + II",
+    "section": "Why experiments work",
+    "text": "Why experiments work\nExperiments seem simple…"
   },
   {
-    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce",
-    "href": "slides/lec-10.html#does-waffle-house-cause-divorce",
-    "title": "Causality II",
-    "section": "Does Waffle House cause divorce?",
-    "text": "Does Waffle House cause divorce?\nStates with more waffle houses tend to have more divorce\n\n\n\n\n\nLocation\nMarriage\nDivorce\nWaffles per Person\n\n\n\n\nWest Virginia\n22.2\n10.9\n2.16\n\n\nIowa\n21.5\n10.2\n0.00\n\n\nSouth Dakota\n20.1\n10.9\n0.00\n\n\nFlorida\n17.0\n8.5\n7.07\n\n\nMontana\n18.5\n9.1\n0.00\n\n\nIdaho\n25.8\n7.7\n0.00\n\n\nNebraska\n19.6\n8.8\n0.00"
+    "objectID": "slides/lec-11.html#why-experiments-work-2",
+    "href": "slides/lec-11.html#why-experiments-work-2",
+    "title": "DAGs I + II",
+    "section": "Why experiments work",
+    "text": "Why experiments work\nBut the outcome can be very complex …\nAnd yet we can still identify the effect because nothing causes you to receive the experimental treatment; it is random!"
   },
   {
-    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce-1",
-    "href": "slides/lec-10.html#does-waffle-house-cause-divorce-1",
-    "title": "Causality II",
-    "section": "Does Waffle House cause divorce?",
-    "text": "Does Waffle House cause divorce?\nDo cheap, delicious waffles put marriages at risk?\n\n\nSpeculate on underlying mechanism"
+    "objectID": "slides/lec-11.html#when-experiments-go-wrong",
+    "href": "slides/lec-11.html#when-experiments-go-wrong",
+    "title": "DAGs I + II",
+    "section": "When experiments go wrong",
+    "text": "When experiments go wrong\nSay the ad experiment was implemented on TikTok, and younger people are more likely to use TikTok than older people\n\nThis means Age is now a fork"
   },
   {
-    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce-2",
-    "href": "slides/lec-10.html#does-waffle-house-cause-divorce-2",
-    "title": "Causality II",
-    "section": "Does Waffle House cause divorce?",
-    "text": "Does Waffle House cause divorce?\n\nAlmost certainly not\n\n\nNo one thinks there is a plausible way in which Waffle House causes divorce\n\n\nWhen we see a correlation of this kind we wonder about other variables that are actually driving the relationship\n\n\nYou’ve likely thought about this before: a “lurking” variable, “other factors”, that “matter”\n\n\nBut what might that variable be? And how exactly does it lead us astray?"
+    "objectID": "slides/lec-11.html#identifying-effects",
+    "href": "slides/lec-11.html#identifying-effects",
+    "title": "DAGs I + II",
+    "section": "# Identifying effects",
+    "text": "# Identifying effects"
   },
   {
-    "objectID": "slides/lec-10.html#the-lurking-variable",
-    "href": "slides/lec-10.html#the-lurking-variable",
-    "title": "Causality II",
-    "section": "The lurking variable",
-    "text": "The lurking variable\nIt turns out that Waffle Houses originated in the South (Georgia), and most of them are still there\n\nThe South also happens to have some of the highest divorce rates in the country"
+    "objectID": "slides/lec-11.html#front-doors-and-back-doors",
+    "href": "slides/lec-11.html#front-doors-and-back-doors",
+    "title": "DAGs I + II",
+    "section": "Front-doors and back-doors",
+    "text": "Front-doors and back-doors\n\n\n\nJudea Pearl’s back-door criterion ties this all together\nConfounding caused by existence of an open “back door” path from X to Y\nA backdoor path is a non-causal path from X to Y\nNeed to close back-doors and keep front-doors open"
   },
   {
-    "objectID": "slides/lec-10.html#the-dag",
-    "href": "slides/lec-10.html#the-dag",
-    "title": "Causality II",
-    "section": "The DAG",
-    "text": "The DAG\nSo the DAG might look something like this: South has an effect on Waffle Houses and Divorce, but Waffles do not cause Divorce"
+    "objectID": "slides/lec-11.html#backdoor-paths",
+    "href": "slides/lec-11.html#backdoor-paths",
+    "title": "DAGs I + II",
+    "section": "Backdoor paths",
+    "text": "Backdoor paths\nA backdoor path can involve a chain of variables – like the fork, but with more steps\nHere we have a backdoor path between X and Y that runs through a, b, and m"
   },
   {
-    "objectID": "slides/lec-10.html#the-problem",
-    "href": "slides/lec-10.html#the-problem",
-    "title": "Causality II",
-    "section": "The problem",
-    "text": "The problem\n\n\nA DAG like this will produce a correlation between Waffles and Divorce, even when there is no causal relationship\n\n\nThis is called confounding: the South is confounding the relationship between Waffles and Divorce"
+    "objectID": "slides/lec-11.html#breaking-the-path",
+    "href": "slides/lec-11.html#breaking-the-path",
+    "title": "DAGs I + II",
+    "section": "Breaking the path",
+    "text": "Breaking the path\nWe can identify X \\(\\rightarrow\\) Y by controlling for any variable in the backdoor path to break the chain: m, a, or b"
   },
   {
-    "objectID": "slides/lec-10.html#how-does-this-happen",
-    "href": "slides/lec-10.html#how-does-this-happen",
-    "title": "Causality II",
-    "section": "How does this happen?",
-    "text": "How does this happen?\nLet’s make up data to convince ourselves this is true\n\nfifty states, about half of them are in the South\n\n\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE))\n\n# A tibble: 50 × 1\n   south\n   &lt;dbl&gt;\n 1     0\n 2     1\n 3     0\n 4     1\n 5     1\n 6     1\n 7     1\n 8     1\n 9     0\n10     1\n# ℹ 40 more rows\n\n\n\n\n\n\n\n\nNote\n\n\nsample() is choosing at random between 0 and 1, 50 times, with replacement"
+    "objectID": "slides/lec-11.html#solve-the-dag",
+    "href": "slides/lec-11.html#solve-the-dag",
+    "title": "DAGs I + II",
+    "section": "Solve the DAG",
+    "text": "Solve the DAG\n\n\nControl for A and I or A and S"
   },
   {
-    "objectID": "slides/lec-10.html#simulate-the-treatment",
-    "href": "slides/lec-10.html#simulate-the-treatment",
-    "title": "Causality II",
-    "section": "Simulate the treatment",
-    "text": "Simulate the treatment\nStep 2: make Waffle houses, let’s say about 20 per million residents, +/- 4\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n       waffle = rnorm(n = 50, mean = 20, sd = 4))\n\n# A tibble: 50 × 2\n   south waffle\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     0   18.8\n 2     1   16.8\n 3     0   19.4\n 4     0   16.0\n 5     0   25.8\n 6     1   21.8\n 7     1   24.3\n 8     0   18.7\n 9     0   21.5\n10     1   22.0\n# ℹ 40 more rows"
+    "objectID": "slides/lec-11.html#solve-the-dag-1",
+    "href": "slides/lec-11.html#solve-the-dag-1",
+    "title": "DAGs I + II",
+    "section": "Solve the DAG",
+    "text": "Solve the DAG\n\n\nU1 and U2"
   },
   {
-    "objectID": "slides/lec-10.html#make-waffles-more-common-in-the-south",
-    "href": "slides/lec-10.html#make-waffles-more-common-in-the-south",
-    "title": "Causality II",
-    "section": "Make Waffles more common in the South",
-    "text": "Make Waffles more common in the South\nStep 3: The arrow from South to Waffles, let’s say Southern states have about 10 more Waffles, on average\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n       waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south)\n\n# A tibble: 50 × 2\n   south waffle\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     1   33.3\n 2     1   34.2\n 3     0   14.0\n 4     1   24.8\n 5     0   23.6\n 6     1   32.8\n 7     0   25.7\n 8     0   18.4\n 9     1   28.1\n10     1   28.3\n# ℹ 40 more rows"
+    "objectID": "slides/lec-11.html#solve-the-dag-2",
+    "href": "slides/lec-11.html#solve-the-dag-2",
+    "title": "DAGs I + II",
+    "section": "Solve the DAG",
+    "text": "Solve the DAG\n\n\nA, C, or U What’s B here?"
   },
   {
-    "objectID": "slides/lec-10.html#simulate-the-outcome",
-    "href": "slides/lec-10.html#simulate-the-outcome",
-    "title": "Causality II",
-    "section": "Simulate the outcome",
-    "text": "Simulate the outcome\nStep 4: make a divorce rate, let’s say about 20 divorces per 1,000 adults\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2))"
+    "objectID": "slides/lec-11.html#solve-the-dag-3",
+    "href": "slides/lec-11.html#solve-the-dag-3",
+    "title": "DAGs I + II",
+    "section": "Solve the DAG",
+    "text": "Solve the DAG\n\n\nV, W1, W2 W1, W2, Z1 W1, W2, Z2"
   },
   {
-    "objectID": "slides/lec-10.html#make-the-south-have-more-divorce",
-    "href": "slides/lec-10.html#make-the-south-have-more-divorce",
-    "title": "Causality II",
-    "section": "Make the South have more divorce",
-    "text": "Make the South have more divorce\nStep 5: the arrow from South to divorce, let’s say southern states have about 8 more divorces per 1,000 residents\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8 * south)\n\nNOTICE! Waffles have no effect on divorce in our fake data"
+    "objectID": "slides/lec-11.html#solve-the-dag-4",
+    "href": "slides/lec-11.html#solve-the-dag-4",
+    "title": "DAGs I + II",
+    "section": "Solve the DAG",
+    "text": "Solve the DAG\n\n\nA,M or B,M What is M?"
   },
   {
-    "objectID": "slides/lec-10.html#a-totally-confounded-relationship",
-    "href": "slides/lec-10.html#a-totally-confounded-relationship",
-    "title": "Causality II",
-    "section": "A totally confounded relationship",
-    "text": "A totally confounded relationship\nThe South’s effect on Waffle House and on Divorce creates a confounded correlation between the two"
+    "objectID": "slides/lec-11.html#now-back-to---do-waffles-cause-divorce",
+    "href": "slides/lec-11.html#now-back-to---do-waffles-cause-divorce",
+    "title": "DAGs I + II",
+    "section": "Now back to -> Do waffles cause divorce?",
+    "text": "Now back to -&gt; Do waffles cause divorce?\nRemember, we have strong reason to believe the South is confounding the relationship between Waffle Houses and divorce rates:\n\n\nSpeak about true effects and null effects"
   },
   {
-    "objectID": "slides/lec-10.html#a-totally-confounded-relationship-1",
-    "href": "slides/lec-10.html#a-totally-confounded-relationship-1",
-    "title": "Causality II",
-    "section": "A totally confounded relationship",
-    "text": "A totally confounded relationship\nThe DAG on the left will produce an association like the one on the right\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEven if Waffles and Divorce are causally unrelated"
+    "objectID": "slides/lec-11.html#weve-already-done-it",
+    "href": "slides/lec-11.html#weve-already-done-it",
+    "title": "DAGs I + II",
+    "section": "We’ve already done it",
+    "text": "We’ve already done it\nOne way to adjust/control for backdoor paths is with multiple regression:\n\nIn general: \\(Y = \\alpha + \\beta_1X_1 + \\beta_2X_2 + \\dots\\)\n\n\nIn this case: \\(Y = \\alpha + \\beta_1Waffles + \\beta_2South\\)\n\n\nIn multiple regression, coefficients (\\(\\beta_i\\)) are different: they describe the relationship between X1 and Y, after adjusting for the X2, X3, X4, etc."
   },
   {
-    "objectID": "slides/lec-10.html#your-turn-confounded-waffles",
-    "href": "slides/lec-10.html#your-turn-confounded-waffles",
-    "title": "Causality II",
-    "section": "🧇 Your turn: confounded waffles 🧇",
-    "text": "🧇 Your turn: confounded waffles 🧇\nMake up data where a lurking variable creates a confounded relationship between two other variables that isn’t truly causal.\n\nChange the confound, treatment and outcome variables in the code to ones of your choosing\nMake a scatterplot with a trend line – use labs() to help us make sense of the plot axes and tell us what the confound is with the title = argument in labs()\n\n\nfake_data = tibble(confound = rnorm(n = , mean = , sd = ),\n                   treatment = rnorm(n = , mean = , sd = ) + or - #*confound,\n                   outcome = rnorm(n = , mean = , sd = ) + or - #*treament + or - #*confound\n  \n)\n\n\n\n\n\n\n\nNote\n\n\nIf you want to make a binary or categorical variable use sample()\nexample = sample(c(\"Woman\", \"Man\"), size = 50, replace = TRUE)"
+    "objectID": "slides/lec-11.html#what-does-it-mean-to-control",
+    "href": "slides/lec-11.html#what-does-it-mean-to-control",
+    "title": "DAGs I + II",
+    "section": "What does it mean to control?",
+    "text": "What does it mean to control?\n\n\n\\(Y = \\alpha + \\beta_1Waffles + \\beta_2South\\)\nThree ways of thinking about \\(\\color{red}{\\beta_1}\\) here:\n\nThe relationship between Waffles and Divorce, controlling for the South\nThe relationship between Waffles and Divorce that cannot be explained by the South\nThe relationship between Waffles and Divorce, comparing among similar states (South vs. South, North vs. North)"
   },
   {
-    "objectID": "slides/lec-10.html#whats-going-on-here",
-    "href": "slides/lec-10.html#whats-going-on-here",
-    "title": "Causality II",
-    "section": "What’s going on here?",
-    "text": "What’s going on here?\n\n\nThink of causality as water flowing in the direction of the arrows\nWe want look at water flowing directly from a treatment to an outcome\nBut account for the fact that there is often indirect flow that contaminates our estimates\n\n\nSource: the mighty Andrew Heiss"
+    "objectID": "slides/lec-11.html#comparing-models",
+    "href": "slides/lec-11.html#comparing-models",
+    "title": "DAGs I + II",
+    "section": "Comparing models",
+    "text": "Comparing models\nLet’s fit two models of the effect of GDP on life expectancy, one with controls and one without:\n\nno_controls = lm(lifeExp ~ gdpPercap, data = gap)\ncontrols = lm(lifeExp ~ gdpPercap + pop + year, data = gap)\n\n\nPopulation and year might be forks here: they affect both economic activity and life expectancy\n\n\n\n\n\n\n\n\nNote\n\n\nI’ve re-scaled gdp (10,000s) and population (millions)"
   },
   {
-    "objectID": "slides/lec-10.html#whats-going-on-here-1",
-    "href": "slides/lec-10.html#whats-going-on-here-1",
-    "title": "Causality II",
-    "section": "What’s going on here?",
-    "text": "What’s going on here?\nTo identify the effect of Waffles on Divorce we need to account, or control for, the influence of the South\nOtherwise we will be confounded"
+    "objectID": "slides/lec-11.html#the-regression-table",
+    "href": "slides/lec-11.html#the-regression-table",
+    "title": "DAGs I + II",
+    "section": "The regression table",
+    "text": "The regression table\nWe can compare models using a regression table;\nmany different functions, we’ll use huxreg() from the huxtable package\n\n\nhuxreg(\"No controls\" = no_controls, \"With controls\" = controls)\n\n\n\n\n\n\n\nNote\n\n\nFormat: huxreg(\"label for model 1\" = model_1, \"label for model 2\" = model_2, ...)"
   },
   {
-    "objectID": "slides/lec-10.html#the-formula",
-    "href": "slides/lec-10.html#the-formula",
-    "title": "Causality II",
-    "section": "The formula",
-    "text": "The formula\n\nMake a DAG of what we think is going on with our treatment and outcome\nFigure out where the indirect flows are (today)\nAccount for those in our analysis (later in class)"
+    "objectID": "slides/lec-11.html#the-regression-table-1",
+    "href": "slides/lec-11.html#the-regression-table-1",
+    "title": "DAGs I + II",
+    "section": "The regression table",
+    "text": "The regression table\n\nhuxreg(\"No controls\" = no_controls, \"With controls\" = controls)\n\n\n\n\nNo controlsWith controls\n\n\n\n(Intercept)53.956 ***-411.450 ***\n\n(0.315)   (27.666)   \n\ngdpPercap7.649 ***6.729 ***\n\n(0.258)   (0.244)   \n\npop        0.006 ** \n\n        (0.002)   \n\nyear        0.235 ***\n\n        (0.014)   \n\nN1704        1704        \n\nR20.341    0.440    \n\nlogLik-6422.205    -6282.869    \n\nAIC12850.409    12575.737    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-10.html#what-do-we-need-to-control",
-    "href": "slides/lec-10.html#what-do-we-need-to-control",
-    "title": "Causality II",
-    "section": "What do we need to control?",
-    "text": "What do we need to control?\n\n\nNothing"
+    "objectID": "slides/lec-11.html#comparison",
+    "href": "slides/lec-11.html#comparison",
+    "title": "DAGs I + II",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\nModel 1 has no controls: just the relationship between GDP and life expectancy\nModel 2 controls/adjusts for: population and year\nthe effect of GDP per capita on life expectancy changes with controls\nThe estimate is smaller\n\n\n\n\n\n\n\nNo controlsWith controls\n\n\n\n(Intercept)53.956 ***-411.450 ***\n\n(0.315)   (27.666)   \n\ngdpPercap7.649 ***6.729 ***\n\n(0.258)   (0.244)   \n\npop        0.006 ** \n\n        (0.002)   \n\nyear        0.235 ***\n\n        (0.014)   \n\nN1704        1704        \n\nR20.341    0.440    \n\nlogLik-6422.205    -6282.869    \n\nAIC12850.409    12575.737    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-10.html#what-do-we-need-to-control-1",
-    "href": "slides/lec-10.html#what-do-we-need-to-control-1",
-    "title": "Causality II",
-    "section": "What do we need to control?",
-    "text": "What do we need to control?\n\n\nNothing! No indirect flow to X"
+    "objectID": "slides/lec-11.html#interpretation",
+    "href": "slides/lec-11.html#interpretation",
+    "title": "DAGs I + II",
+    "section": "Interpretation",
+    "text": "Interpretation\n\n\nNo controls: every additional 10k of GDP = 7.6 years more life expectancy\nWith controls: after adjusting for population and year, every additional 10k of GDP = 6.7 years more of life expectancy\n\n\n\n\n\n\nNo controlsWith controls\n\n\n\n(Intercept)53.956 ***-411.450 ***\n\n(0.315)   (27.666)   \n\ngdpPercap7.649 ***6.729 ***\n\n(0.258)   (0.244)   \n\npop        0.006 ** \n\n        (0.002)   \n\nyear        0.235 ***\n\n        (0.014)   \n\nnobs1704        1704        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.\n\n\n\n\n\n\nIn other words: .shout[comparing countries with similar population levels and in the same year], every additional 10k of GDP = 6.7 years more of life expectancy"
   },
   {
-    "objectID": "slides/lec-10.html#what-do-we-need-to-control-2",
-    "href": "slides/lec-10.html#what-do-we-need-to-control-2",
-    "title": "Causality II",
-    "section": "What do we need to control?",
-    "text": "What do we need to control?\n\n\nNothing! No indirect flow to X!"
+    "objectID": "slides/lec-11.html#controlling-for-size",
+    "href": "slides/lec-11.html#controlling-for-size",
+    "title": "DAGs I + II",
+    "section": "Controlling for size",
+    "text": "Controlling for size\nWhat happens if we control for how large a house is?\n\n\n\nThe effect goes very close to zero (by house price standards), and is even negative\n\n\n\nno_controls = lm(price ~ bathrooms, data = house_prices)\ncontrols = lm(price ~ bathrooms + sqft_living, data = house_prices)\nhuxreg(\"No controls\" = no_controls, \"Controls\" = controls)\n\n\n\n\nNo controlsControls\n\n\n\n(Intercept)10708.309    -39456.614 ***\n\n(6210.669)   (5223.129)   \n\nbathrooms250326.516 ***-5164.600    \n\n(2759.528)   (3519.452)   \n\nsqft_living        283.892 ***\n\n        (2.951)   \n\nN21613        21613        \n\nR20.276    0.493    \n\nlogLik-304117.741    -300266.206    \n\nAIC608241.481    600540.413    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-10.html#what-do-we-need-to-control-to-identify",
-    "href": "slides/lec-10.html#what-do-we-need-to-control-to-identify",
-    "title": "Causality II",
-    "section": "What do we need to control to identify…",
-    "text": "What do we need to control to identify…\nMedia consumption (M) \\(\\rightarrow\\) Liberal (L)"
+    "objectID": "slides/lec-11.html#does-this-actually-work-back-to-the-waffles",
+    "href": "slides/lec-11.html#does-this-actually-work-back-to-the-waffles",
+    "title": "DAGs I + II",
+    "section": "Does this actually work? Back to the waffles",
+    "text": "Does this actually work? Back to the waffles\nThese are examples with real data, where we can’t know for sure if our controls are doing what we think\n\nOnly way to know for sure is with made-up data, where we know the effects ex ante:\n\n\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8 * south)"
   },
   {
-    "objectID": "slides/lec-10.html#the-elemental-confounds",
-    "href": "slides/lec-10.html#the-elemental-confounds",
-    "title": "Causality II",
-    "section": "The elemental confounds",
-    "text": "The elemental confounds"
+    "objectID": "slides/lec-11.html#controlling-for-the-south",
+    "href": "slides/lec-11.html#controlling-for-the-south",
+    "title": "DAGs I + II",
+    "section": "Controlling for the South",
+    "text": "Controlling for the South\nFit a naive model without controls, and the correct one controlling for the South:\n\nnaive_waffles = lm(divorce ~ waffle, data = fake)\ncontrol_waffles = lm(divorce ~ waffle + south, data = fake)"
   },
   {
-    "objectID": "slides/lec-10.html#the-confounding-fork",
-    "href": "slides/lec-10.html#the-confounding-fork",
-    "title": "Causality II",
-    "section": "The confounding fork 🍴",
-    "text": "The confounding fork 🍴\nY \\(\\leftarrow\\) Z \\(\\rightarrow\\) X\nThere is a third variable, Z, that is a common cause of X and Y"
+    "objectID": "slides/lec-11.html#the-results",
+    "href": "slides/lec-11.html#the-results",
+    "title": "DAGs I + II",
+    "section": "The results",
+    "text": "The results\nPerfect! Naive model is confounded; but controlling for the South, we get pretty close to the truth (0 effect)\n\n\n\n\n\nNaive modelControl South\n\n\n\n(Intercept)9.242 ***21.182 ***\n\n(2.248)   (2.011)   \n\nwaffle0.587 ***-0.085    \n\n(0.087)   (0.097)   \n\nsouth        9.443 ***\n\n        (1.118)   \n\nnobs50        50        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-10.html#the-confounding-fork-1",
-    "href": "slides/lec-10.html#the-confounding-fork-1",
-    "title": "Causality II",
-    "section": "The confounding fork",
-    "text": "The confounding fork\nWe’ve already seen this!\n\n\n\n\n\n\n\n\n\n\n\nCreates an association between X and Y that isn’t causal\n\n\n\n\n\n\n\n\n\n\nDistorts the true causal relation between X and Y\n\nNote that both of these fork scenarios will confound"
+    "objectID": "slides/lec-11.html#whats-going-on",
+    "href": "slides/lec-11.html#whats-going-on",
+    "title": "DAGs I + II",
+    "section": "What’s going on?",
+    "text": "What’s going on?\n\nIn our made-up world, if we control for the South we can get back the uncounfounded estimate of Divorce ~ Waffles\n\n\nBut what’s lm() doing under-the-hood that makes this possible?"
   },
   {
-    "objectID": "slides/lec-10.html#the-second-scenario",
-    "href": "slides/lec-10.html#the-second-scenario",
-    "title": "Causality II",
-    "section": "The second scenario",
-    "text": "The second scenario\nSay that Waffles do cause Divorce, but the effect is tiny\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10*south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8*south + .0001 * waffle)\n\nSame code as before, I’ve just added a tiny effect of waffle houses on divorce = .0001 more divorces per waffle house"
+    "objectID": "slides/lec-11.html#whats-going-on-1",
+    "href": "slides/lec-11.html#whats-going-on-1",
+    "title": "DAGs I + II",
+    "section": "What’s going on?",
+    "text": "What’s going on?\n\n\n\nlm() is estimating \\(South \\rightarrow Divorce\\) and \\(South \\rightarrow Waffles\\)\nit is then subtracting out or removing the effect of South on Divorce and Waffles\nwhat’s left is the relationship between Waffles and Divorce, adjusting for the influence of the South on each"
   },
   {
-    "objectID": "slides/lec-10.html#the-second-scenario-1",
-    "href": "slides/lec-10.html#the-second-scenario-1",
-    "title": "Causality II",
-    "section": "The second scenario",
-    "text": "The second scenario\nThe effect of Z (South) on X (Waffles) and Y (Divorce) will distort our estimates:\n\nmod = lm(divorce ~ waffle, data = fake) \ntidy(mod)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   10.9      1.45        7.52 1.17e- 9\n2 waffle         0.533    0.0558      9.55 1.10e-12\n\n\n\nEstimate is \\(\\frac{estimated}{true}\\) = 5334.2101551 times larger than the true effect!"
+    "objectID": "slides/lec-11.html#visualizing-controlling-for-the-south",
+    "href": "slides/lec-11.html#visualizing-controlling-for-the-south",
+    "title": "DAGs I + II",
+    "section": "Visualizing controlling for the South",
+    "text": "Visualizing controlling for the South\nThis is the confounded relationship between waffles and divorce (zoomed out)"
   },
   {
-    "objectID": "slides/lec-10.html#dealing-with-forks",
-    "href": "slides/lec-10.html#dealing-with-forks",
-    "title": "Causality II",
-    "section": "Dealing with forks",
-    "text": "Dealing with forks\nWe need to figure out what Z is, measure it, and adjust for it in our analysis"
+    "objectID": "slides/lec-11.html#add-the-south",
+    "href": "slides/lec-11.html#add-the-south",
+    "title": "DAGs I + II",
+    "section": "Add the south",
+    "text": "Add the south\nWe can see what we already know: states in the South tend to have more divorce, and more waffles"
   },
   {
-    "objectID": "slides/lec-10.html#the-perplexing-pipe",
-    "href": "slides/lec-10.html#the-perplexing-pipe",
-    "title": "Causality II",
-    "section": "The perplexing pipe 🚰",
-    "text": "The perplexing pipe 🚰\nX \\(\\rightarrow\\) Z \\(\\rightarrow\\) Y\nX causes Z, which causes Y (or: Z mediates the effect of X on Y)\n\n\n\n\n\n\n\n\n\n\nWhat happens if we adjust for Z? We block the effect of X on Y"
+    "objectID": "slides/lec-11.html#effect-of-south-on-divorce",
+    "href": "slides/lec-11.html#effect-of-south-on-divorce",
+    "title": "DAGs I + II",
+    "section": "Effect of south on divorce",
+    "text": "Effect of south on divorce\n\\(South \\rightarrow Divorce = 10\\) How much higher, on average, divorce is in the South than the North"
   },
   {
-    "objectID": "slides/lec-10.html#an-example-foreign-intervention",
-    "href": "slides/lec-10.html#an-example-foreign-intervention",
-    "title": "Causality II",
-    "section": "An example: foreign intervention",
-    "text": "An example: foreign intervention\nWhat effect does US foreign wars have on US support abroad?\n\nSay the DAG looks like this:\n\n\n\n\n\n\n\n\n\nIf we control for casualties we are blocking the effect of intervention on support"
+    "objectID": "slides/lec-11.html#remove-effect-of-south-on-divorce",
+    "href": "slides/lec-11.html#remove-effect-of-south-on-divorce",
+    "title": "DAGs I + II",
+    "section": "Remove effect of South on divorce",
+    "text": "Remove effect of South on divorce\nRegression subtracts out the effect of the South on divorce"
   },
   {
-    "objectID": "slides/lec-10.html#an-example-foreign-intervention-1",
-    "href": "slides/lec-10.html#an-example-foreign-intervention-1",
-    "title": "Causality II",
-    "section": "An example: foreign intervention",
-    "text": "An example: foreign intervention\nWhat if the DAG instead looked like this:\n\n\nWhat does it mean"
+    "objectID": "slides/lec-11.html#next-effect-of-south-on-waffles",
+    "href": "slides/lec-11.html#next-effect-of-south-on-waffles",
+    "title": "DAGs I + II",
+    "section": "Next: effect of South on waffles",
+    "text": "Next: effect of South on waffles\n\\(South \\rightarrow Waffles = 8\\) How many more, on average, Waffle Houses there are in the South than the North"
   },
   {
-    "objectID": "slides/lec-10.html#an-example-foreign-intervention-2",
-    "href": "slides/lec-10.html#an-example-foreign-intervention-2",
-    "title": "Causality II",
-    "section": "An example: foreign intervention",
-    "text": "An example: foreign intervention\nTwo ways that War affects US sentiment: directly and indirectly\nAdjusting for casualties blocks the indirect effect; if that’s what we want, fine – But if we want the full effect then we’ll be wrong!\n\n\nWhat does it mean"
+    "objectID": "slides/lec-11.html#subtract-out-the-effect-of-south-on-waffles",
+    "href": "slides/lec-11.html#subtract-out-the-effect-of-south-on-waffles",
+    "title": "DAGs I + II",
+    "section": "Subtract out the effect of south on waffles",
+    "text": "Subtract out the effect of south on waffles\nRegression subtracts out the effect of the South on waffles"
   },
   {
-    "objectID": "slides/lec-10.html#pipes-why-are-they-even-a-problem",
-    "href": "slides/lec-10.html#pipes-why-are-they-even-a-problem",
-    "title": "Causality II",
-    "section": "Pipes: why are they even a problem?",
-    "text": "Pipes: why are they even a problem?\nJust leave pipes alone! It’s a problem of “over-adjusting”\n\nBad social science: sometimes we are so afraid of forks that we control for everything we have data on\n\n\nEspecially when a process seems very complicated"
+    "objectID": "slides/lec-11.html#whats-left-over",
+    "href": "slides/lec-11.html#whats-left-over",
+    "title": "DAGs I + II",
+    "section": "What’s left over?",
+    "text": "What’s left over?\nThe true effect of waffles on divorce \\(\\approx\\) 0"
   },
   {
-    "objectID": "slides/lec-10.html#example-where-pipes-go-wrong",
-    "href": "slides/lec-10.html#example-where-pipes-go-wrong",
-    "title": "Causality II",
-    "section": "Example: where pipes go wrong",
-    "text": "Example: where pipes go wrong\nThe effects of smoking on heart problems might be complex; lots of potential confounds to worry about\n\nResearcher might think they need to control for a study subject’s cholesterol because cholesterol affects heart health\n\n\n“We should compare people who smoke but have similar levels of cholesterol, because cholesterol affects heart health”"
+    "objectID": "slides/lec-11.html#the-perplexing-pipe",
+    "href": "slides/lec-11.html#the-perplexing-pipe",
+    "title": "DAGs I + II",
+    "section": "The perplexing pipe",
+    "text": "The perplexing pipe\nRemember, with a perplexing pipe, controlling for Z blocks the effect of X on Y:"
   },
   {
-    "objectID": "slides/lec-10.html#example-where-pipes-go-wrong-1",
-    "href": "slides/lec-10.html#example-where-pipes-go-wrong-1",
-    "title": "Causality II",
-    "section": "Example: where pipes go wrong",
-    "text": "Example: where pipes go wrong\nIf the DAG looks like this, cholesterol is a pipe and controlling is bad!"
+    "objectID": "slides/lec-11.html#simulation",
+    "href": "slides/lec-11.html#simulation",
+    "title": "DAGs I + II",
+    "section": "Simulation",
+    "text": "Simulation\nLet’s make up some data to show this: every unit of foreign aid increases corruption by 8; every unit of corruption increases the number of protest by 4\n\n\nfake_pipe = tibble(aid = rnorm(n = 200, mean = 10), \n                   corruption = rnorm(n = 200, mean = 10) + 8 * aid, \n                   protest = rnorm(n = 200, mean = 10) + 4 * corruption)\n\n\n\nWhat is the true effect of aid on protest? Tricky since the effect runs through corruption\n\n\nFor every unit of aid, corruption increases by 8; and for every unit of corruption, protest increases by 4…\n\n\nThe effect of aid on protest is \\(4 \\times 8 = 32\\)"
   },
   {
-    "objectID": "slides/lec-10.html#the-explosive-collider",
-    "href": "slides/lec-10.html#the-explosive-collider",
-    "title": "Causality II",
-    "section": "The explosive collider 💥",
-    "text": "The explosive collider 💥\n\\(X \\rightarrow Z \\leftarrow Y\\)\n\nX and Y have a common effect\n\n\nLeft alone, it’s no problem; but controlling for Z creates strange patterns"
+    "objectID": "slides/lec-11.html#the-data",
+    "href": "slides/lec-11.html#the-data",
+    "title": "DAGs I + II",
+    "section": "The data",
+    "text": "The data\n\n\n\n\n\naid\ncorruption\nprotest\n\n\n\n\n11.02\n97.12\n397.48\n\n\n10.41\n92.95\n382.00\n\n\n9.13\n82.51\n339.76\n\n\n10.13\n92.60\n381.16\n\n\n10.88\n97.00\n398.86\n\n\n10.67\n92.67\n378.27"
   },
   {
-    "objectID": "slides/lec-10.html#example-the-nba",
-    "href": "slides/lec-10.html#example-the-nba",
-    "title": "Causality II",
-    "section": "Example: the NBA",
-    "text": "Example: the NBA\n\n\nShould the NBA stop worrying about height when drafting players?"
+    "objectID": "slides/lec-11.html#bad-controls",
+    "href": "slides/lec-11.html#bad-controls",
+    "title": "DAGs I + II",
+    "section": "Bad controls",
+    "text": "Bad controls\nRemember, with a pipe controlling for Z (corruption) is a bad idea\n\nLet’s fit two models, where one makes the mistake of controlling for corruption\n\n\n\nright_model = lm(protest ~ aid, data = fake_pipe)\nbad_control = lm(protest ~ aid + corruption, data = fake_pipe)"
   },
   {
-    "objectID": "slides/lec-10.html#no",
-    "href": "slides/lec-10.html#no",
-    "title": "Causality II",
-    "section": "No!",
-    "text": "No!\nObviously, height helps in basketball\n\nBut among NBA players there might be no relationship between height and scoring, because…\n\n\nThe shorter players who are drafted have other advantages\n\n\nAmong NBA players = adjusting, or controlling for, being in the NBA"
+    "objectID": "slides/lec-11.html#bad-controls-1",
+    "href": "slides/lec-11.html#bad-controls-1",
+    "title": "DAGs I + II",
+    "section": "Bad controls",
+    "text": "Bad controls\nNotice how the model that mistakenly controls for Z tells you that X basically has no effect on Y (wrong)\n\n\n\n\n\nCorrect modelBad control\n\n\n\n(Intercept)55.345 ***9.015 ***\n\n(3.030)   (1.074)   \n\naid31.461 ***-0.609    \n\n(0.304)   (0.559)   \n\ncorruption        4.079 ***\n\n        (0.071)   \n\nnobs200        200        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-10.html#another-example-bad-findings",
-    "href": "slides/lec-10.html#another-example-bad-findings",
-    "title": "Causality II",
-    "section": "Another example: bad findings",
-    "text": "Another example: bad findings\n\n\nRichard McElreath asks: why are surprising findings so often untrustworthy?"
+    "objectID": "slides/lec-11.html#the-exploding-collider",
+    "href": "slides/lec-11.html#the-exploding-collider",
+    "title": "DAGs I + II",
+    "section": "The exploding collider",
+    "text": "The exploding collider\nRemember, with an exploding collider, controlling for M creates strange correlations between X and Y:"
   },
   {
-    "objectID": "slides/lec-10.html#another-example-bad-findings-1",
-    "href": "slides/lec-10.html#another-example-bad-findings-1",
-    "title": "Causality II",
-    "section": "Another example: bad findings",
-    "text": "Another example: bad findings"
+    "objectID": "slides/lec-11.html#simulation-1",
+    "href": "slides/lec-11.html#simulation-1",
+    "title": "DAGs I + II",
+    "section": "Simulation",
+    "text": "Simulation\nLet’s make up some data to show this:\n\nfake_collider = tibble(x = rnorm(n = 100, mean = 10), \n                   y = rnorm(n = 100, mean = 10),\n                   m = rnorm(n = 100, mean = 10) + 8 * x + 4 * y)\n\n\nX has an effect of 8 on M\nY has an effect of 4 on M\nX has no effect on Y"
   },
   {
-    "objectID": "slides/lec-10.html#its-a-collider",
-    "href": "slides/lec-10.html#its-a-collider",
-    "title": "Causality II",
-    "section": "It’s a collider",
-    "text": "It’s a collider\nImagine that in reality there is no relationship between how surprising a finding is and how trustworthy it is"
+    "objectID": "slides/lec-11.html#the-data-1",
+    "href": "slides/lec-11.html#the-data-1",
+    "title": "DAGs I + II",
+    "section": "The data",
+    "text": "The data\n\n\n\n\n\nx\ny\nm\n\n\n\n\n8.599355\n9.685493\n118.0025\n\n\n8.154775\n9.549067\n114.8474\n\n\n10.468210\n10.598875\n136.5320\n\n\n9.668180\n11.408754\n131.3963\n\n\n12.168042\n11.236746\n153.0428\n\n\n10.997311\n9.620571\n136.6360"
   },
   {
-    "objectID": "slides/lec-10.html#its-a-collider-1",
-    "href": "slides/lec-10.html#its-a-collider-1",
-    "title": "Causality II",
-    "section": "It’s a collider",
-    "text": "It’s a collider\nBut now imagine that studies are only published either if they’re very trustworthy OR very surprising"
+    "objectID": "slides/lec-11.html#bad-controls-2",
+    "href": "slides/lec-11.html#bad-controls-2",
+    "title": "DAGs I + II",
+    "section": "Bad controls",
+    "text": "Bad controls\nWhat’s the true effect of X on Y? it’s zero\nRemember, with a collider controlling for M is a bad idea\nLet’s fit two models, where one makes the mistake of controlling for M\n\nright_model = lm(y ~ x, data = fake_collider)\ncollided_model = lm(y ~ x + m, data = fake_collider)"
   },
   {
-    "objectID": "slides/lec-10.html#its-a-collider-2",
-    "href": "slides/lec-10.html#its-a-collider-2",
-    "title": "Causality II",
-    "section": "It’s a collider",
-    "text": "It’s a collider\nBy only looking at published papers (e.g., controlling for publication), we create a negative relationship that doesn’t exist"
+    "objectID": "slides/lec-11.html#bad-controls-3",
+    "href": "slides/lec-11.html#bad-controls-3",
+    "title": "DAGs I + II",
+    "section": "Bad controls",
+    "text": "Bad controls\nNotice how the model that mistakenly controls for M tells you that X has a strong, negative effect on Y (wrong)\n\n\n\n\n\nCorrect modelCollided!\n\n\n\n(Intercept)9.525 ***-2.268 ***\n\n(1.009)   (0.382)   \n\nx0.050    -1.992 ***\n\n(0.100)   (0.056)   \n\nm        0.248 ***\n\n        (0.006)   \n\nnobs100        100        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-10.html#exploding-colliders",
-    "href": "slides/lec-10.html#exploding-colliders",
-    "title": "Causality II",
-    "section": "Exploding colliders",
-    "text": "Exploding colliders\nLike pipes, colliders are a problem of controlling for the wrong thing\nThey are often the result of a sample selection problem\nThey can obscure actual relationships or fabricate non-existent ones\nWe need to avoid controlling for colliders; but they are everywhere!"
+    "objectID": "slides/lec-11.html#colliding-as-sample-selection",
+    "href": "slides/lec-11.html#colliding-as-sample-selection",
+    "title": "DAGs I + II",
+    "section": "Colliding as sample selection",
+    "text": "Colliding as sample selection\nMost of the time when we see a collider, it’s because we’re looking at a weird sample of the population we’re interested in\n\nExamples: the non-relationship between height and scoring, among NBA players; the (alleged) negative correlation between how surprising and reliable findings are, among published research"
   },
   {
-    "objectID": "slides/lec-10.html#your-turn-colliders",
-    "href": "slides/lec-10.html#your-turn-colliders",
-    "title": "Causality II",
-    "section": "💥 Your turn: colliders 💥",
-    "text": "💥 Your turn: colliders 💥\nHow are the following examples of colliders?\n\nAmong employees at Google, there is a strong negative correlation between technical skills and social skills.\nA study of people who tested for COVID finds that people who smoke regularly are less likely to develop COVID-19. A real study!\n\n\nwe are conditioning on testing, these are the only people we observe anything that’s correlated with likelihood of testing here becomes a problem who gets tested? imagine that healthcare workers get tested a lot, and that people who actually have COVID 19 are tested a lot so smokers with no symptoms are very unlikely to be in the data so of those tested, non-smokers are more likely to have COVID19 than smokers"
+    "objectID": "slides/lec-11.html#hiring-at-google",
+    "href": "slides/lec-11.html#hiring-at-google",
+    "title": "DAGs I + II",
+    "section": "Hiring at Google",
+    "text": "Hiring at Google\nImagine Google wants to hire the best of the best, and they have two criteria: interpersonal skills, and technical skills\n\nSay Google can measure how socially and technically skilled someone is (0-100)\n\nfake_google = tibble(social_skills = rnorm(n = 200, mean = 50, sd = 10), \n                     tech_skills = rnorm(n = 200, mean = 50, sd = 10))\n\n\n\nThe two are causally unrelated: one does not affect the other; improving someone’s social skills would not hurt their technical skills"
+  },
+  {
+    "objectID": "slides/lec-11.html#the-data-2",
+    "href": "slides/lec-11.html#the-data-2",
+    "title": "DAGs I + II",
+    "section": "The data",
+    "text": "The data\n\n\n\n\n\nsocial_skills\ntech_skills\n\n\n\n\n54.75\n50.67\n\n\n30.33\n46.83\n\n\n45.68\n48.21\n\n\n62.76\n47.19\n\n\n51.07\n57.09\n\n\n50.85\n54.04\n\n\n64.30\n31.70\n\n\n45.92\n54.46"
+  },
+  {
+    "objectID": "slides/lec-11.html#simulate-the-hiring-process",
+    "href": "slides/lec-11.html#simulate-the-hiring-process",
+    "title": "DAGs I + II",
+    "section": "Simulate the hiring process",
+    "text": "Simulate the hiring process\nNow imagine that they add up the two skills to see a person’s overall quality:\n\nfake_google %&gt;% \n  mutate(total_score = social_skills + tech_skills)\n\n\n\n\nsocial_skillstech_skillstotal_score\n\n\n\n71.668.7140  \n\n49.441.490.8\n\n42.959.6103  \n\n41.139.880.9\n\n47.253.1100  \n\n30.346.877.2\n\n33.758.892.5\n\n66.364  130  \n\n58.333.792  \n\n54.347.8102  \n\n39.960.9101  \n\n58.444.9103  \n\n59.258.5118  \n\n54.959.8115  \n\n57.647.5105  \n\n65.136.4101  \n\n22.638.360.9\n\n53.454.8108  \n\n64.454.8119  \n\n60  45.4105  \n\n45.954.5100  \n\n57.760.3118  \n\n31.846  77.8\n\n54.544.999.4\n\n51.849.4101  \n\n52.435.587.8\n\n45.643.489  \n\n41.557  98.5\n\n64.244.5109  \n\n59.343.8103  \n\n72.336.5109  \n\n55.455.9111  \n\n49.847.897.6\n\n62.662.3125  \n\n58  51.7110  \n\n51.946.698.6\n\n49  68.9118  \n\n53.360.2113  \n\n48.944.293.1\n\n59.426.886.2\n\n62.672.4135  \n\n57  62.9120  \n\n58.947  106  \n\n72.453.2126  \n\n50.436.887.2\n\n65.248.1113  \n\n44.145.589.6\n\n50.841.692.5\n\n48.251  99.3\n\n46.948.795.6\n\n60.766.4127  \n\n40.936.777.6\n\n54.848  103  \n\n46.661.7108  \n\n40.546.487  \n\n63  54.1117  \n\n54.742.397  \n\n65.141.7107  \n\n53.529.282.6\n\n49.450.199.5\n\n46.338.484.7\n\n53.446.499.8\n\n54.372.9127  \n\n63.355.1118  \n\n66.339.2106  \n\n36.550  86.5\n\n51.243.895  \n\n53  41.194.1\n\n47.332.379.6\n\n46.950.497.3\n\n54.750.7105  \n\n53.642.696.2\n\n59.873.1133  \n\n42  43.485.4\n\n51.450.9102  \n\n41.737.178.8\n\n51.149.7101  \n\n62.847.2110  \n\n49  37.786.7\n\n66.264.5131  \n\n54.548  102  \n\n36.150  86  \n\n56.859.6116  \n\n58  57.7116  \n\n54.850.2105  \n\n33.661.495  \n\n46.745.692.3\n\n76.466.6143  \n\n57.163.5121  \n\n46.141.487.5\n\n47.135.682.8\n\n54.542  96.5\n\n63.156.6120  \n\n57.734.892.4\n\n60.152.1112  \n\n50.646.797.4\n\n46.848  94.7\n\n69.843.6113  \n\n51.825.677.4\n\n55.562.9118  \n\n45.648.393.9\n\n68.545.7114  \n\n56.757.7114  \n\n48.947.296.2\n\n58.769.4128  \n\n44.960.2105  \n\n70.954.5125  \n\n47.940.988.9\n\n75.956.8133  \n\n48.169.7118  \n\n64.968.1133  \n\n58.747.2106  \n\n55.663.2119  \n\n39.950.590.4\n\n49.345.795.1\n\n37.955.493.3\n\n67.867.9136  \n\n45.748.293.9\n\n65  50.9116  \n\n20.340.360.7\n\n43.442.786.1\n\n58.770.4129  \n\n57.661.6119  \n\n52.463  115  \n\n44.557.8102  \n\n69.258.2127  \n\n41.135.576.6\n\n54.856.2111  \n\n57.847.6105  \n\n42.448.190.5\n\n43.835.579.4\n\n44.154.898.9\n\n40.345.685.8\n\n49.352.7102  \n\n32  48.380.3\n\n50.552.7103  \n\n56.758  115  \n\n51.652.5104  \n\n56  58.3114  \n\n42.246.188.4\n\n52.548.3101  \n\n50.948.399.2\n\n64.331.796  \n\n47.337.985.3\n\n55.159.9115  \n\n37.942.380.2\n\n46.755.3102  \n\n58.855.2114  \n\n58.333.691.9\n\n44.454.298.7\n\n44  43.787.7\n\n42  52.294.2\n\n30.832.763.6\n\n30.851.782.5\n\n50.854  105  \n\n47.256.7104  \n\n52.151.8104  \n\n70.441.8112  \n\n56.663.8120  \n\n61  53.8115  \n\n49.559.2109  \n\n59  40.299.2\n\n41.554.395.8\n\n63.468.7132  \n\n52.440.793  \n\n62.157.7120  \n\n63.741.5105  \n\n46  52.298.1\n\n44.627.972.5\n\n55.938.394.1\n\n48.558.1107  \n\n30.654.284.8\n\n56.925.682.5\n\n46.356.9103  \n\n57.657.7115  \n\n63.148.5112  \n\n44.944.389.2\n\n53.762.6116  \n\n64.360.4125  \n\n53.635.388.9\n\n62.461.7124  \n\n48.363  111  \n\n60.234.594.6\n\n51.865.1117  \n\n39.962.8103  \n\n47.950.998.8\n\n50.836.687.4\n\n50  70.1120  \n\n51.157.1108  \n\n46.754.9102  \n\n38.345  83.3\n\n39.442.481.8\n\n52.161.7114  \n\n61.356.3118  \n\n57.955.6114  \n\n49.357.1106  \n\n44.760.5105  \n\n42.861  104  \n\n51.144.495.4\n\n55.737.993.6"
+  },
+  {
+    "objectID": "slides/lec-11.html#simulating-the-hiring-process",
+    "href": "slides/lec-11.html#simulating-the-hiring-process",
+    "title": "DAGs I + II",
+    "section": "Simulating the hiring process",
+    "text": "Simulating the hiring process\nNow imagine that Google only hires people who are in the top 15% of quality (in this case that’s 112.8 or higher)\n\nfake_google %&gt;% \n  mutate(total_score = social_skills + tech_skills) %&gt;% \n  mutate(hired = case_when(total_score &gt;= quantile(total_score, .85) ~ \"yes\", \n                           total_score &lt; quantile(total_score, .85) ~ \"no\"))\n\n\n\n\n\n\nsocial_skillstech_skillstotal_scorehired\n\n\n\n71.668.7140  yes\n\n49.441.490.8no\n\n42.959.6103  no\n\n41.139.880.9no\n\n47.253.1100  no\n\n30.346.877.2no\n\n33.758.892.5no\n\n66.364  130  yes\n\n58.333.792  no\n\n54.347.8102  no\n\n39.960.9101  no\n\n58.444.9103  no\n\n59.258.5118  no\n\n54.959.8115  no\n\n57.647.5105  no\n\n65.136.4101  no\n\n22.638.360.9no\n\n53.454.8108  no\n\n64.454.8119  yes\n\n60  45.4105  no\n\n45.954.5100  no\n\n57.760.3118  no\n\n31.846  77.8no\n\n54.544.999.4no\n\n51.849.4101  no\n\n52.435.587.8no\n\n45.643.489  no\n\n41.557  98.5no\n\n64.244.5109  no\n\n59.343.8103  no\n\n72.336.5109  no\n\n55.455.9111  no\n\n49.847.897.6no\n\n62.662.3125  yes\n\n58  51.7110  no\n\n51.946.698.6no\n\n49  68.9118  no\n\n53.360.2113  no\n\n48.944.293.1no\n\n59.426.886.2no\n\n62.672.4135  yes\n\n57  62.9120  yes\n\n58.947  106  no\n\n72.453.2126  yes\n\n50.436.887.2no\n\n65.248.1113  no\n\n44.145.589.6no\n\n50.841.692.5no\n\n48.251  99.3no\n\n46.948.795.6no\n\n60.766.4127  yes\n\n40.936.777.6no\n\n54.848  103  no\n\n46.661.7108  no\n\n40.546.487  no\n\n63  54.1117  no\n\n54.742.397  no\n\n65.141.7107  no\n\n53.529.282.6no\n\n49.450.199.5no\n\n46.338.484.7no\n\n53.446.499.8no\n\n54.372.9127  yes\n\n63.355.1118  yes\n\n66.339.2106  no\n\n36.550  86.5no\n\n51.243.895  no\n\n53  41.194.1no\n\n47.332.379.6no\n\n46.950.497.3no\n\n54.750.7105  no\n\n53.642.696.2no\n\n59.873.1133  yes\n\n42  43.485.4no\n\n51.450.9102  no\n\n41.737.178.8no\n\n51.149.7101  no\n\n62.847.2110  no\n\n49  37.786.7no\n\n66.264.5131  yes\n\n54.548  102  no\n\n36.150  86  no\n\n56.859.6116  no\n\n58  57.7116  no\n\n54.850.2105  no\n\n33.661.495  no\n\n46.745.692.3no\n\n76.466.6143  yes\n\n57.163.5121  yes\n\n46.141.487.5no\n\n47.135.682.8no\n\n54.542  96.5no\n\n63.156.6120  yes\n\n57.734.892.4no\n\n60.152.1112  no\n\n50.646.797.4no\n\n46.848  94.7no\n\n69.843.6113  no\n\n51.825.677.4no\n\n55.562.9118  no\n\n45.648.393.9no\n\n68.545.7114  no\n\n56.757.7114  no\n\n48.947.296.2no\n\n58.769.4128  yes\n\n44.960.2105  no\n\n70.954.5125  yes\n\n47.940.988.9no\n\n75.956.8133  yes\n\n48.169.7118  no\n\n64.968.1133  yes\n\n58.747.2106  no\n\n55.663.2119  yes\n\n39.950.590.4no\n\n49.345.795.1no\n\n37.955.493.3no\n\n67.867.9136  yes\n\n45.748.293.9no\n\n65  50.9116  no\n\n20.340.360.7no\n\n43.442.786.1no\n\n58.770.4129  yes\n\n57.661.6119  yes\n\n52.463  115  no\n\n44.557.8102  no\n\n69.258.2127  yes\n\n41.135.576.6no\n\n54.856.2111  no\n\n57.847.6105  no\n\n42.448.190.5no\n\n43.835.579.4no\n\n44.154.898.9no\n\n40.345.685.8no\n\n49.352.7102  no\n\n32  48.380.3no\n\n50.552.7103  no\n\n56.758  115  no\n\n51.652.5104  no\n\n56  58.3114  no\n\n42.246.188.4no\n\n52.548.3101  no\n\n50.948.399.2no\n\n64.331.796  no\n\n47.337.985.3no\n\n55.159.9115  no\n\n37.942.380.2no\n\n46.755.3102  no\n\n58.855.2114  no\n\n58.333.691.9no\n\n44.454.298.7no\n\n44  43.787.7no\n\n42  52.294.2no\n\n30.832.763.6no\n\n30.851.782.5no\n\n50.854  105  no\n\n47.256.7104  no\n\n52.151.8104  no\n\n70.441.8112  no\n\n56.663.8120  yes\n\n61  53.8115  no\n\n49.559.2109  no\n\n59  40.299.2no\n\n41.554.395.8no\n\n63.468.7132  yes\n\n52.440.793  no\n\n62.157.7120  yes\n\n63.741.5105  no\n\n46  52.298.1no\n\n44.627.972.5no\n\n55.938.394.1no\n\n48.558.1107  no\n\n30.654.284.8no\n\n56.925.682.5no\n\n46.356.9103  no\n\n57.657.7115  no\n\n63.148.5112  no\n\n44.944.389.2no\n\n53.762.6116  no\n\n64.360.4125  yes\n\n53.635.388.9no\n\n62.461.7124  yes\n\n48.363  111  no\n\n60.234.594.6no\n\n51.865.1117  no\n\n39.962.8103  no\n\n47.950.998.8no\n\n50.836.687.4no\n\n50  70.1120  yes\n\n51.157.1108  no\n\n46.754.9102  no\n\n38.345  83.3no\n\n39.442.481.8no\n\n52.161.7114  no\n\n61.356.3118  no\n\n57.955.6114  no\n\n49.357.1106  no\n\n44.760.5105  no\n\n42.861  104  no\n\n51.144.495.4no\n\n55.737.993.6no"
+  },
+  {
+    "objectID": "slides/lec-11.html#general-population",
+    "href": "slides/lec-11.html#general-population",
+    "title": "DAGs I + II",
+    "section": "General population",
+    "text": "General population\nNo relationship between social and technical skills among all job candidates"
+  },
+  {
+    "objectID": "slides/lec-11.html#collided",
+    "href": "slides/lec-11.html#collided",
+    "title": "DAGs I + II",
+    "section": "Collided!",
+    "text": "Collided!\nIf we only look at Google workers we see a trade-off between social and technical skills:"
+  },
+  {
+    "objectID": "slides/lec-11.html#limitations",
+    "href": "slides/lec-11.html#limitations",
+    "title": "DAGs I + II",
+    "section": "Limitations",
+    "text": "Limitations\nIt’s cool that we can control for a confound, or avoid colliders/pipes and get back the truth\n\nBut there are big limitations we must keep in mind when evaluating research:\n\nWe need to know what to control for (confident in our DAG)\n\n\n\n\nWe need to have data on the controls (e.g., data on Z)\n\n\n\n\nWe need our data to measure the variable well (e.g., # of homicides a good proxy for crime?)"
+  },
+  {
+    "objectID": "slides/lec-11.html#stuff-thats-hard-to-measure",
+    "href": "slides/lec-11.html#stuff-thats-hard-to-measure",
+    "title": "DAGs I + II",
+    "section": "Stuff that’s hard to measure",
+    "text": "Stuff that’s hard to measure\nAbility is a likely fork for the effect of Education on Earnings; but how do you measure ability?"
+  },
+  {
+    "objectID": "slides/lec-11.html#your-turn-make-a-dag",
+    "href": "slides/lec-11.html#your-turn-make-a-dag",
+    "title": "DAGs I + II",
+    "section": "💥 Your Turn: Make a DAG 💥",
+    "text": "💥 Your Turn: Make a DAG 💥\n\nOn one piece of paper, draw a DAG for your team’s project as a group\n\nIdentify the treatment and control\nidentify possible confounders\n\nAlso note which type: fork, collidier, and pipe.\n\n\nMake sure to put your names! This is your AE for the week."
+  },
+  {
+    "objectID": "slides/lec-1.html#meet-the-professor",
+    "href": "slides/lec-1.html#meet-the-professor",
+    "title": "Welcome to POL 051!",
+    "section": "Meet the professor",
+    "text": "Meet the professor\n\n\n\n\n\nHaley Daarstad (she/her)\n\n\n\n\nPolitical Science PhD Candidate\n\nComparative Politics and Methodology\nCrime, Violence, Behavior, and Gender\n\nMy Summer Ins:\n\nHockey, Hiking, Iced Tea\n\nMy Summer Outs:\n\nHumidity, Fires, Allergies"
+  },
+  {
+    "objectID": "slides/lec-1.html#tell-me-about-you",
+    "href": "slides/lec-1.html#tell-me-about-you",
+    "title": "Welcome to POL 051!",
+    "section": "Tell Me About you!",
+    "text": "Tell Me About you!\n\nWhat is your name?\nWhat is your major?\nWhat year are you?\nWhat is one summer in for you and what is one summer out?"
+  },
+  {
+    "objectID": "slides/lec-1.html#course-learning-objectives",
+    "href": "slides/lec-1.html#course-learning-objectives",
+    "title": "Welcome to POL 051!",
+    "section": "Course learning objectives",
+    "text": "Course learning objectives\n\nBy the end of this course you will be able to…\n\nAnalyze real-world data to answer questions about different relationships.\nFeel comfortable manipulating data in R\nCraft effective visualizations of patterns in data\nDraw causal diagrams and identify obstacles to causal claims\nUnderstand the basics of regression and uncertainty"
+  },
+  {
+    "objectID": "slides/lec-1.html#activities-prepare-participate-practice-perform",
+    "href": "slides/lec-1.html#activities-prepare-participate-practice-perform",
+    "title": "Welcome to POL 051!",
+    "section": "Activities: Prepare, Participate, Practice, Perform",
+    "text": "Activities: Prepare, Participate, Practice, Perform\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)\nParticipate: Attend and actively participate in lectures and labs, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\n\n\nCategory\nPercentage\n\n\n\n\nApplication Exercises (Participation)\n15%\n\n\nLabs\n35% (7% x 5)\n\n\nFinal Project\n50%"
+  },
+  {
+    "objectID": "slides/lec-1.html#final-project",
+    "href": "slides/lec-1.html#final-project",
+    "title": "Welcome to POL 051!",
+    "section": "Final Project",
+    "text": "Final Project\n\nMake a Research Question, pick a data set, and do analysis. That is your final project.\nThe goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.\nYou will be split into teams, I recommend sitting with these teams during lecture and labs.\nYou will have time during lab this Thursday (about 30 minutes) to discuss and write up your project proposal for your group.\n\nThe project proposal will be due Sunday June 28\n\nLearn More on the Project Description page on the course website."
+  },
+  {
+    "objectID": "slides/lec-1.html#teams",
+    "href": "slides/lec-1.html#teams",
+    "title": "Welcome to POL 051!",
+    "section": "Teams",
+    "text": "Teams\n\nTeam assignments\n\nApplication exercises, labs, and project\nAnonymous Peer evaluation after completion of Final Project\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
+  },
+  {
+    "objectID": "slides/lec-1.html#team-assignment",
+    "href": "slides/lec-1.html#team-assignment",
+    "title": "Welcome to POL 051!",
+    "section": "Team Assignment",
+    "text": "Team Assignment\n\nWhat’s the category?\n\nI have written down different words that fit under a category. Based on the word you have find the other members of your category.\n\nColors\nFood\nSports\nAnimals\nClassic Books\n\nIntroduce yourself to your team and choose a team name and a “team captain” (5 minutes)\n\nThe “team captain” will be in charge of submitting everything, they are not the leader!!"
+  },
+  {
+    "objectID": "slides/lec-1.html#support",
+    "href": "slides/lec-1.html#support",
+    "title": "Welcome to POL 051!",
+    "section": "Support",
+    "text": "Support\n\nAttend office hours\nReserve email for questions that can be answered quickly and timely"
+  },
+  {
+    "objectID": "slides/lec-1.html#diversity-inclusion",
+    "href": "slides/lec-1.html#diversity-inclusion",
+    "title": "Welcome to POL 051!",
+    "section": "Diversity + inclusion",
+    "text": "Diversity + inclusion\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\n\nThis is a political science course, and as such we will be discussing political issues. As each of us comes into the section with unique opinions about political issues, there may be disagreements. I insist we discuss our differences with respect, civility, and empathy. Please do your best to keep an open mind about your peers’ perspectives as your peers will expect the same of you.\nThis does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully)\n\nIf I believe any of the discussion is becoming disrespectful or includes hateful or inappropriate speech, I hold the right to end the discussion."
+  },
+  {
+    "objectID": "slides/lec-1.html#accessibility",
+    "href": "slides/lec-1.html#accessibility",
+    "title": "Welcome to POL 051!",
+    "section": "Accessibility",
+    "text": "Accessibility\n\nIf you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at sdc.ucdavis.edu.\nStudents must contact me about any accommodations.\nOutside Resources - The Student Academic Success Center is a campus wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics"
+  },
+  {
+    "objectID": "slides/lec-1.html#late-work-waivers-regrades-policy",
+    "href": "slides/lec-1.html#late-work-waivers-regrades-policy",
+    "title": "Welcome to POL 051!",
+    "section": "Late work, waivers, regrades policy",
+    "text": "Late work, waivers, regrades policy\n\nIf there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty\n\nFINAL PROJECT REPORT IS EXCLUDED FROM THIS\n\nLabs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late."
+  },
+  {
+    "objectID": "slides/lec-1.html#sharing-reusing-code-policy",
+    "href": "slides/lec-1.html#sharing-reusing-code-policy",
+    "title": "Welcome to POL 051!",
+    "section": "Sharing / reusing code policy",
+    "text": "Sharing / reusing code policy\n\nI am aware that there is a large amount of code is available online, and many tasks may have solutions posted\nUnless explicitly stated otherwise, this course’s policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow, etc.) but you must explicitly state where you obtained any code you directly use or use as inspiration in your solution(s).\nAny recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source."
+  },
+  {
+    "objectID": "slides/lec-1.html#policy-on-ai",
+    "href": "slides/lec-1.html#policy-on-ai",
+    "title": "Welcome to POL 051!",
+    "section": "Policy on AI",
+    "text": "Policy on AI\nAI is NOT allowed for usage in this classroom.\n\nYou may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work\n\nThe Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: https://ossja.ucdavis.edu/code-academic-conduct)."
+  },
+  {
+    "objectID": "slides/lec-1.html#academic-integrity",
+    "href": "slides/lec-1.html#academic-integrity",
+    "title": "Welcome to POL 051!",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\n\nCheating and plagiarism will be evaluated and disciplined according to University policy.\nFor information on academic integrity, please read: http://cai.ucdavis.edu/aip.html.\nYou are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse."
+  },
+  {
+    "objectID": "slides/lec-1.html#most-importantly",
+    "href": "slides/lec-1.html#most-importantly",
+    "title": "Welcome to POL 051!",
+    "section": "Most importantly!",
+    "text": "Most importantly!\nAsk if you’re not sure if something violates a policy!"
+  },
+  {
+    "objectID": "slides/lec-1.html#this-weeks-tasks",
+    "href": "slides/lec-1.html#this-weeks-tasks",
+    "title": "Welcome to POL 051!",
+    "section": "This week’s tasks",
+    "text": "This week’s tasks\n\nDownload R and Rstudio\nR Basics\nData Visualization I and II\nProject Topic Idea Submission Due Sunday\nLab 1 Due Sunday"
+  },
+  {
+    "objectID": "slides/lec-1.html#why-r",
+    "href": "slides/lec-1.html#why-r",
+    "title": "Welcome to POL 051!",
+    "section": "Why R?",
+    "text": "Why R?\n\n\nR is a coding language language and environment built for statistical computing and graphics that includes a large variety in statistical and graphical techniques.\nAs political scientists R is an effective way to store and handle data, and a large selection of data analysis tools including graphing tools in a coherent and effective language.\nThe majority of users will use Rstudio an IDE or integrated development environment to write the code and see outputs.\n\nRstudio is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location."
+  },
+  {
+    "objectID": "slides/lec-1.html#r",
+    "href": "slides/lec-1.html#r",
+    "title": "Welcome to POL 051!",
+    "section": "R",
+    "text": "R\n\nR is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network.\nFollow the instructions to download R.\nIf you are using an older computer or iPad, go to Using Posit Cloud for R in the FAQ page."
+  },
+  {
+    "objectID": "slides/lec-1.html#instructions-for-downloading-r",
+    "href": "slides/lec-1.html#instructions-for-downloading-r",
+    "title": "Welcome to POL 051!",
+    "section": "Instructions for Downloading R",
+    "text": "Instructions for Downloading R\n\nGo to The Comprehensive R Archive Network webpage:\n\nhttps://cran.r-project.org\n\nTo install R on Windows, click the “Download R for Windows” link.\nTo install R on a Mac, click the “Download R for Mac” link."
+  },
+  {
+    "objectID": "slides/lec-1.html#what-is-rstudio",
+    "href": "slides/lec-1.html#what-is-rstudio",
+    "title": "Welcome to POL 051!",
+    "section": "What is Rstudio?",
+    "text": "What is Rstudio?\n\nOne way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents.\nRStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.\n\nIn more complex terms Rstudio is an IDE for R"
+  },
+  {
+    "objectID": "slides/lec-1.html#instructions-for-downloading-rstudio",
+    "href": "slides/lec-1.html#instructions-for-downloading-rstudio",
+    "title": "Welcome to POL 051!",
+    "section": "Instructions for Downloading Rstudio",
+    "text": "Instructions for Downloading Rstudio\n\nGo to the Posit RStudio Desktop page.\nTo install for Mac:\nScroll to the button that says “Install R on a Mac,” and click the “Download R for Mac OS 13+” link.\n\nIf you’re using an older version, click the “Previous Versions” link to find a version that works with your computer.\n\nTo install for Windows:\n\nScroll to the button that says “Install R on Windows 10/11,” and click the link to download."
+  },
+  {
+    "objectID": "slides/lec-1.html#r-as-a-language",
+    "href": "slides/lec-1.html#r-as-a-language",
+    "title": "Welcome to POL 051!",
+    "section": "R as a language",
+    "text": "R as a language\n\n\nThink of R as a language it has: vocabulary, punctuation, grammar, and syntax\nR is a language you can use to speak to your computer to tell it how to manage and visual data"
+  },
+  {
+    "objectID": "slides/lec-1.html#r-layout",
+    "href": "slides/lec-1.html#r-layout",
+    "title": "Welcome to POL 051!",
+    "section": "R Layout",
+    "text": "R Layout\nThere are four primary quadrants in RStudio:\n\nSource pane\nConsole pane\nEnvironment pane\nOutput pane"
+  },
+  {
+    "objectID": "slides/lec-1.html#r-layout-1",
+    "href": "slides/lec-1.html#r-layout-1",
+    "title": "Welcome to POL 051!",
+    "section": "R Layout",
+    "text": "R Layout\n\nRStudio Layout"
+  },
+  {
+    "objectID": "slides/lec-1.html#what-is-a-working-directory",
+    "href": "slides/lec-1.html#what-is-a-working-directory",
+    "title": "Welcome to POL 051!",
+    "section": "What is a working directory?",
+    "text": "What is a working directory?\nThe working directory is the folder in your computer that you have set to save files to during your working session on R.\nEssentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder."
+  },
+  {
+    "objectID": "slides/lec-1.html#step-1-make-a-folder",
+    "href": "slides/lec-1.html#step-1-make-a-folder",
+    "title": "Welcome to POL 051!",
+    "section": "Step 1: Make a Folder",
+    "text": "Step 1: Make a Folder\n\nMac\n\nOpen Finder and click Desktop on the left side\n\nOn the top of your screen got to File and click New Folder\n\nName this folder POL 051 - SU26\n\n\n\nWindows\n\nOpen File Explorer and go to Desktop\n\nClick/tap on New on the command bar, and click/tap on Folder in the drop menu.\n\nName this folder POL 051 - SU26"
+  },
+  {
+    "objectID": "slides/lec-1.html#step-2-create-the-working-directory.",
+    "href": "slides/lec-1.html#step-2-create-the-working-directory.",
+    "title": "Welcome to POL 051!",
+    "section": "Step 2: Create the Working Directory.",
+    "text": "Step 2: Create the Working Directory.\nTo create a new working directory in RStudio:\n\nUse File → New Project or use the New Project button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).\nThis will open the “New Project Wizard” popup.\nClick “New Directory”."
+  },
+  {
+    "objectID": "slides/lec-1.html#step-3-set-the-working-directory.",
+    "href": "slides/lec-1.html#step-3-set-the-working-directory.",
+    "title": "Welcome to POL 051!",
+    "section": "Step 3: Set the Working Directory.",
+    "text": "Step 3: Set the Working Directory.\n\n# Set working directory (replace this with your own)\n\n# Mac Users\nsetwd(\"/Users/yourname/Desktop/filename/filename\")\n\n# Windows Users\nsetwd(\"C:/Users/YourName/Documents/MyFolder\")\n\n# To check if the working directory is set correctly, use the following code:\n\n# Returns the filepath of the current working directory\ngetwd()"
+  },
+  {
+    "objectID": "slides/lec-1.html#writing-text",
+    "href": "slides/lec-1.html#writing-text",
+    "title": "Welcome to POL 051!",
+    "section": "Writing “Text”",
+    "text": "Writing “Text”\n\nWriting text in R is called a script, a strong of letters connected by the use of ” ” or ’ ’.\n\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n'Hello World!' \n\n[1] \"Hello World!\""
+  },
+  {
+    "objectID": "slides/lec-1.html#writing-numbers",
+    "href": "slides/lec-1.html#writing-numbers",
+    "title": "Welcome to POL 051!",
+    "section": "Writing Numbers",
+    "text": "Writing Numbers\n\nTo output numbers you just type out the number. Also, note that I do not use a comma when writing out my four-digit number:\n\n\n5\n\n[1] 5\n\n75\n\n[1] 75\n\n1000\n\n[1] 1000"
+  },
+  {
+    "objectID": "slides/lec-1.html#basic-calculations",
+    "href": "slides/lec-1.html#basic-calculations",
+    "title": "Welcome to POL 051!",
+    "section": "Basic Calculations",
+    "text": "Basic Calculations\nR at its core is a gigantic calculator, so let’s practice doing basic calculations.\n\n# addition\n10 + 2\n\n# subtraction\n10 - 2\n\n# multipilication\n10 * 2\n\n# division\n10/2\n\n# exponent\n10^2"
+  },
+  {
+    "objectID": "slides/lec-1.html#basic-calculations-1",
+    "href": "slides/lec-1.html#basic-calculations-1",
+    "title": "Welcome to POL 051!",
+    "section": "Basic Calculations",
+    "text": "Basic Calculations\nR at its core is a gigantic calculator, so let’s practice doing basic calculations.\n\n# addition\n10 + 2\n\n[1] 12\n\n# subtraction\n10 - 2\n\n[1] 8\n\n# multipilication\n10 * 2\n\n[1] 20\n\n# division\n10/2\n\n[1] 5\n\n# exponent\n10^2\n\n[1] 100"
+  },
+  {
+    "objectID": "slides/lec-1.html#comments",
+    "href": "slides/lec-1.html#comments",
+    "title": "Welcome to POL 051!",
+    "section": "Comments",
+    "text": "Comments\nIt’s also important to annotate your code. It will help you write notes and explain what you are doing. To annotate your code, you will use the number sign #:\n\n# addition\n10 + 2\n\n[1] 12\n\n# the answer is 12"
+  },
+  {
+    "objectID": "slides/lec-1.html#creating-objects",
+    "href": "slides/lec-1.html#creating-objects",
+    "title": "Welcome to POL 051!",
+    "section": "Creating Objects",
+    "text": "Creating Objects\nIn R, we save our data in what we call objects! Objects store information about different types of elements. If you know any other coding languages, they typically call these variables.\n\nprint() is a function that ‘prints’ out an output from an object.\nR functions are like the verbs of the R coding language, they tell your computer what action to make with sets of information.\n\nA function is usually defined by a keyword and then parenthesis.\n\n\n\n# The &lt;- saves the caculation as math\nmath &lt;- 10 + 2\n#print()\nprint(math)\n\n[1] 12\n\n\n\n# The = saves the caculation as math\nmath = 10 + 2\n# print() will print out what is saved in the object math\nprint(math)\n\n[1] 12"
+  },
+  {
+    "objectID": "slides/lec-1.html#data-types",
+    "href": "slides/lec-1.html#data-types",
+    "title": "Welcome to POL 051!",
+    "section": "Data Types",
+    "text": "Data Types\nThere are 6 types of data in R that are important to know, but the essential ones are logical, numeric, and character.\nIn this class we are going to focus on only three: Logical, Numeric, and Characters.\n\nLogical Also known as boolean data, logical data is shown as TRUE or FALSE values:\n\n\nlogical1 &lt;- TRUE\nlogical2 &lt;- FALSE\n\n# The class() function outputs the data type of the object\nclass(logical1)\n\n[1] \"logical\"\n\nprint(logical2)\n\n[1] FALSE\n\nprint(class(logical2))\n\n[1] \"logical\""
+  },
+  {
+    "objectID": "slides/lec-1.html#data-types-1",
+    "href": "slides/lec-1.html#data-types-1",
+    "title": "Welcome to POL 051!",
+    "section": "Data Types",
+    "text": "Data Types\n\nNumeric represents all data types that are real numbers with or with out decimal points.\n\n\nheight &lt;- 5.5\nacres &lt;- 1000\n\nclass(height)\n\n[1] \"numeric\"\n\nprint(acres)\n\n[1] 1000\n\nprint(class(acres))\n\n[1] \"numeric\""
+  },
+  {
+    "objectID": "slides/lec-1.html#data-types-2",
+    "href": "slides/lec-1.html#data-types-2",
+    "title": "Welcome to POL 051!",
+    "section": "Data Types",
+    "text": "Data Types\n\nCharacter specifies character or string values in a variable such as a singular character ‘A’ or a string of characters in ‘Apple’.\n\n\n# Use '' or \"\" to show it's a string of characters\nmotorsports &lt;- \"formula1\"\n\nprint(motorsports)\n\n[1] \"formula1\"\n\nprint(class(motorsports))\n\n[1] \"character\""
+  },
+  {
+    "objectID": "slides/lec-1.html#what-is-a-package",
+    "href": "slides/lec-1.html#what-is-a-package",
+    "title": "Welcome to POL 051!",
+    "section": "What is a Package?",
+    "text": "What is a Package?\n\nPackages are collections of R functions, data, and code compiled in a well-defined format\nSome packages come pre-installed in R.\nHowever, the majority do not, so you need to install them first using the r function install.packages\n\n\ninstall.packages(\"tidyverse\") # install this package"
+  },
+  {
+    "objectID": "slides/lec-1.html#using-a-package",
+    "href": "slides/lec-1.html#using-a-package",
+    "title": "Welcome to POL 051!",
+    "section": "Using a Package",
+    "text": "Using a Package\n\nAfter installing the packages we need to “attach” the package.\n\nThis means telling your computer that you want to use that package during this working session\n\nYou can do this by using the function library() and the name of the package.\n\n\nlibrary(\"tidyverse\")"
   },
   {
     "objectID": "project-tips-resources.html",
@@ -2131,277 +2460,690 @@
     ]
   },
   {
-    "objectID": "slides/lec-1.html#meet-the-professor",
-    "href": "slides/lec-1.html#meet-the-professor",
-    "title": "Welcome to POL 051!",
-    "section": "Meet the professor",
-    "text": "Meet the professor\n\n\n\n\n\nHaley Daarstad (she/her)\n\n\n\n\nPolitical Science PhD Candidate\n\nComparative Politics and Methodology\nCrime, Violence, Behavior, and Gender\n\nMy Summer Ins:\n\nHockey, Hiking, Iced Tea\n\nMy Summer Outs:\n\nHumidity, Fires, Allergies"
+    "objectID": "slides/14-dags.html#do-waffles-cause-divorce",
+    "href": "slides/14-dags.html#do-waffles-cause-divorce",
+    "title": "DAGs II",
+    "section": "Do waffles cause divorce?",
+    "text": "Do waffles cause divorce?\nRemember, we have strong reason to believe the South is confounding the relationship between Waffle Houses and divorce rates:\n\n\nSpeak about true effects and null effects"
   },
   {
-    "objectID": "slides/lec-1.html#tell-me-about-you",
-    "href": "slides/lec-1.html#tell-me-about-you",
-    "title": "Welcome to POL 051!",
-    "section": "Tell Me About you!",
-    "text": "Tell Me About you!\n\nWhat is your name?\nWhat is your major?\nWhat year are you?\nWhat is one summer in for you and what is one summer out?"
+    "objectID": "slides/14-dags.html#weve-already-done-it",
+    "href": "slides/14-dags.html#weve-already-done-it",
+    "title": "DAGs II",
+    "section": "We’ve already done it",
+    "text": "We’ve already done it\nOne way to adjust/control for backdoor paths is with multiple regression:\n\nIn general: \\(Y = \\alpha + \\beta_1X_1 + \\beta_2X_2 + \\dots\\)\n\n\nIn this case: \\(Y = \\alpha + \\beta_1Waffles + \\beta_2South\\)\n\n\nIn multiple regression, coefficients (\\(\\beta_i\\)) are different: they describe the relationship between X1 and Y, after adjusting for the X2, X3, X4, etc."
   },
   {
-    "objectID": "slides/lec-1.html#course-learning-objectives",
-    "href": "slides/lec-1.html#course-learning-objectives",
-    "title": "Welcome to POL 051!",
-    "section": "Course learning objectives",
-    "text": "Course learning objectives\n\nBy the end of this course you will be able to…\n\nAnalyze real-world data to answer questions about different relationships.\nFeel comfortable manipulating data in R\nCraft effective visualizations of patterns in data\nDraw causal diagrams and identify obstacles to causal claims\nUnderstand the basics of regression and uncertainty"
+    "objectID": "slides/14-dags.html#what-does-it-mean-to-control",
+    "href": "slides/14-dags.html#what-does-it-mean-to-control",
+    "title": "DAGs II",
+    "section": "What does it mean to control?",
+    "text": "What does it mean to control?\n\n\n\\(Y = \\alpha + \\beta_1Waffles + \\beta_2South\\)\nThree ways of thinking about \\(\\color{red}{\\beta_1}\\) here:\n\nThe relationship between Waffles and Divorce, controlling for the South\nThe relationship between Waffles and Divorce that cannot be explained by the South\nThe relationship between Waffles and Divorce, comparing among similar states (South vs. South, North vs. North)"
   },
   {
-    "objectID": "slides/lec-1.html#activities-prepare-participate-practice-perform",
-    "href": "slides/lec-1.html#activities-prepare-participate-practice-perform",
-    "title": "Welcome to POL 051!",
-    "section": "Activities: Prepare, Participate, Practice, Perform",
-    "text": "Activities: Prepare, Participate, Practice, Perform\n\nPrepare: Introduce new content and prepare for lectures by completing the readings (and sometimes watching the videos)\nParticipate: Attend and actively participate in lectures and labs, office hours, team meetings\nPractice: Practice applying statistical concepts and computing with application exercises during lecture, graded for completion\nPerform: Put together what you’ve learned to analyze real-world data\n\n\n\nCategory\nPercentage\n\n\n\n\nApplication Exercises (Participation)\n15%\n\n\nLabs\n35% (7% x 5)\n\n\nFinal Project\n50%"
+    "objectID": "slides/14-dags.html#comparing-models",
+    "href": "slides/14-dags.html#comparing-models",
+    "title": "DAGs II",
+    "section": "Comparing models",
+    "text": "Comparing models\nLet’s fit two models of the effect of GDP on life expectancy, one with controls and one without:\n\nno_controls = lm(lifeExp ~ gdpPercap, data = gap)\ncontrols = lm(lifeExp ~ gdpPercap + pop + year, data = gap)\n\n\nPopulation and year might be forks here: they affect both economic activity and life expectancy\n\n\n\n\n\n\n\n\nNote\n\n\nI’ve re-scaled gdp (10,000s) and population (millions)"
   },
   {
-    "objectID": "slides/lec-1.html#final-project",
-    "href": "slides/lec-1.html#final-project",
-    "title": "Welcome to POL 051!",
-    "section": "Final Project",
-    "text": "Final Project\n\nMake a Research Question, pick a data set, and do analysis. That is your final project.\nThe goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.\nYou will be split into teams, I recommend sitting with these teams during lecture and labs.\nYou will have time during lab this Thursday (about 30 minutes) to discuss and write up your project proposal for your group.\n\nThe project proposal will be due Sunday June 28\n\nLearn More on the Project Description page on the course website."
+    "objectID": "slides/14-dags.html#the-regression-table",
+    "href": "slides/14-dags.html#the-regression-table",
+    "title": "DAGs II",
+    "section": "The regression table",
+    "text": "The regression table\nWe can compare models using a regression table;\nmany different functions, we’ll use huxreg() from the huxtable package\n\n\nhuxreg(\"No controls\" = no_controls, \"With controls\" = controls)\n\n\n\n\n\n\n\nNote\n\n\nFormat: huxreg(\"label for model 1\" = model_1, \"label for model 2\" = model_2, ...)"
   },
   {
-    "objectID": "slides/lec-1.html#teams",
-    "href": "slides/lec-1.html#teams",
-    "title": "Welcome to POL 051!",
-    "section": "Teams",
-    "text": "Teams\n\nTeam assignments\n\nApplication exercises, labs, and project\nAnonymous Peer evaluation after completion of Final Project\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
+    "objectID": "slides/14-dags.html#the-regression-table-1",
+    "href": "slides/14-dags.html#the-regression-table-1",
+    "title": "DAGs II",
+    "section": "The regression table",
+    "text": "The regression table\n\nhuxreg(\"No controls\" = no_controls, \"With controls\" = controls)\n\n\n\n\nNo controlsWith controls\n\n\n\n(Intercept)53.956 ***-411.450 ***\n\n(0.315)   (27.666)   \n\ngdpPercap7.649 ***6.729 ***\n\n(0.258)   (0.244)   \n\npop        0.006 ** \n\n        (0.002)   \n\nyear        0.235 ***\n\n        (0.014)   \n\nN1704        1704        \n\nR20.341    0.440    \n\nlogLik-6422.205    -6282.869    \n\nAIC12850.409    12575.737    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#team-assignment",
-    "href": "slides/lec-1.html#team-assignment",
-    "title": "Welcome to POL 051!",
-    "section": "Team Assignment",
-    "text": "Team Assignment\n\nWhat’s the category?\n\nI have written down different words that fit under a category. Based on the word you have find the other members of your category.\n\nColors\nFood\nSports\nAnimals\nClassic Books\n\nIntroduce yourself to your team and choose a team name and a “team captain” (5 minutes)\n\nThe “team captain” will be in charge of submitting everything, they are not the leader!!"
+    "objectID": "slides/14-dags.html#comparison",
+    "href": "slides/14-dags.html#comparison",
+    "title": "DAGs II",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\nModel 1 has no controls: just the relationship between GDP and life expectancy\nModel 2 controls/adjusts for: population and year\nthe effect of GDP per capita on life expectancy changes with controls\nThe estimate is smaller\n\n\n\n\n\n\n\nNo controlsWith controls\n\n\n\n(Intercept)53.956 ***-411.450 ***\n\n(0.315)   (27.666)   \n\ngdpPercap7.649 ***6.729 ***\n\n(0.258)   (0.244)   \n\npop        0.006 ** \n\n        (0.002)   \n\nyear        0.235 ***\n\n        (0.014)   \n\nN1704        1704        \n\nR20.341    0.440    \n\nlogLik-6422.205    -6282.869    \n\nAIC12850.409    12575.737    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#support",
-    "href": "slides/lec-1.html#support",
-    "title": "Welcome to POL 051!",
-    "section": "Support",
-    "text": "Support\n\nAttend office hours\nReserve email for questions that can be answered quickly and timely"
+    "objectID": "slides/14-dags.html#interpretation",
+    "href": "slides/14-dags.html#interpretation",
+    "title": "DAGs II",
+    "section": "Interpretation",
+    "text": "Interpretation\n\n\nNo controls: every additional 10k of GDP = 7.6 years more life expectancy\nWith controls: after adjusting for population and year, every additional 10k of GDP = 6.7 years more of life expectancy\n\n\n\n\n\n\nNo controlsWith controls\n\n\n\n(Intercept)53.956 ***-411.450 ***\n\n(0.315)   (27.666)   \n\ngdpPercap7.649 ***6.729 ***\n\n(0.258)   (0.244)   \n\npop        0.006 ** \n\n        (0.002)   \n\nyear        0.235 ***\n\n        (0.014)   \n\nnobs1704        1704        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05.\n\n\n\n\n\n\nIn other words: .shout[comparing countries with similar population levels and in the same year], every additional 10k of GDP = 6.7 years more of life expectancy"
   },
   {
-    "objectID": "slides/lec-1.html#diversity-inclusion",
-    "href": "slides/lec-1.html#diversity-inclusion",
-    "title": "Welcome to POL 051!",
-    "section": "Diversity + inclusion",
-    "text": "Diversity + inclusion\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\n\nThis is a political science course, and as such we will be discussing political issues. As each of us comes into the section with unique opinions about political issues, there may be disagreements. I insist we discuss our differences with respect, civility, and empathy. Please do your best to keep an open mind about your peers’ perspectives as your peers will expect the same of you.\nThis does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully)\n\nIf I believe any of the discussion is becoming disrespectful or includes hateful or inappropriate speech, I hold the right to end the discussion."
+    "objectID": "slides/14-dags.html#another-example-and",
+    "href": "slides/14-dags.html#another-example-and",
+    "title": "DAGs II",
+    "section": "Another example: 🚽 and 💰",
+    "text": "Another example: 🚽 and 💰\nHow much does having an additional bathroom boost a house’s value?\n\n\n\n\n\nprice\nbedrooms\nbathrooms\nsqft_living\nwaterfront\n\n\n\n\n335000\n3\n2\n1270\nFALSE\n\n\n445800\n3\n2\n1320\nFALSE\n\n\n295000\n4\n2\n980\nFALSE\n\n\n620000\n5\n3\n2540\nFALSE\n\n\n465000\n5\n3\n2010\nFALSE\n\n\n425000\n4\n2\n1600\nFALSE\n\n\n445500\n4\n2\n2210\nFALSE\n\n\n359000\n4\n4\n2770\nFALSE"
   },
   {
-    "objectID": "slides/lec-1.html#accessibility",
-    "href": "slides/lec-1.html#accessibility",
-    "title": "Welcome to POL 051!",
-    "section": "Accessibility",
-    "text": "Accessibility\n\nIf you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at sdc.ucdavis.edu.\nStudents must contact me about any accommodations.\nOutside Resources - The Student Academic Success Center is a campus wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics"
+    "objectID": "slides/14-dags.html#another-example-and-1",
+    "href": "slides/14-dags.html#another-example-and-1",
+    "title": "DAGs II",
+    "section": "Another example: 🚽 and 💰",
+    "text": "Another example: 🚽 and 💰\nA huge effect:\n\nno_controls = lm(price ~ bathrooms, data = house_prices)\nhuxreg(\"No controls\" = no_controls)\n\n\n\n\nNo controls\n\n\n\n(Intercept)10708.309    \n\n(6210.669)   \n\nbathrooms250326.516 ***\n\n(2759.528)   \n\nN21613        \n\nR20.276    \n\nlogLik-304117.741    \n\nAIC608241.481    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#late-work-waivers-regrades-policy",
-    "href": "slides/lec-1.html#late-work-waivers-regrades-policy",
-    "title": "Welcome to POL 051!",
-    "section": "Late work, waivers, regrades policy",
-    "text": "Late work, waivers, regrades policy\n\nIf there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty\n\nFINAL PROJECT REPORT IS EXCLUDED FROM THIS\n\nLabs may be submitted up to 3 days late. There will be a 5% deduction for each 24-hour period the assignment is late."
+    "objectID": "slides/14-dags.html#the-problem",
+    "href": "slides/14-dags.html#the-problem",
+    "title": "DAGs II",
+    "section": "The problem",
+    "text": "The problem\nWe are comparing houses with more and fewer bathrooms. But houses with more bathrooms tend to be larger! So house size is confounding the relationship between 🚽 and 💰"
   },
   {
-    "objectID": "slides/lec-1.html#sharing-reusing-code-policy",
-    "href": "slides/lec-1.html#sharing-reusing-code-policy",
-    "title": "Welcome to POL 051!",
-    "section": "Sharing / reusing code policy",
-    "text": "Sharing / reusing code policy\n\nI am aware that there is a large amount of code is available online, and many tasks may have solutions posted\nUnless explicitly stated otherwise, this course’s policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow, etc.) but you must explicitly state where you obtained any code you directly use or use as inspiration in your solution(s).\nAny recycled code that is discovered and is not explicitly cited will be treated as plagiarism, regardless of source."
+    "objectID": "slides/14-dags.html#controlling-for-size",
+    "href": "slides/14-dags.html#controlling-for-size",
+    "title": "DAGs II",
+    "section": "Controlling for size",
+    "text": "Controlling for size\nWhat happens if we control for how large a house is?\n\n\n\nThe effect goes very close to zero (by house price standards), and is even negative\n\n\n\ncontrols = lm(price ~ bathrooms + sqft_living, data = house_prices)\nhuxreg(\"No controls\" = no_controls, \"Controls\" = controls)\n\n\n\n\nNo controlsControls\n\n\n\n(Intercept)10708.309    -39456.614 ***\n\n(6210.669)   (5223.129)   \n\nbathrooms250326.516 ***-5164.600    \n\n(2759.528)   (3519.452)   \n\nsqft_living        283.892 ***\n\n        (2.951)   \n\nN21613        21613        \n\nR20.276    0.493    \n\nlogLik-304117.741    -300266.206    \n\nAIC608241.481    600540.413    \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#policy-on-ai",
-    "href": "slides/lec-1.html#policy-on-ai",
-    "title": "Welcome to POL 051!",
-    "section": "Policy on AI",
-    "text": "Policy on AI\nAI is NOT allowed for usage in this classroom.\n\nYou may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work\n\nThe Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: https://ossja.ucdavis.edu/code-academic-conduct)."
+    "objectID": "slides/14-dags.html#does-this-actually-work-back-to-the-waffles",
+    "href": "slides/14-dags.html#does-this-actually-work-back-to-the-waffles",
+    "title": "DAGs II",
+    "section": "Does this actually work? Back to the waffles",
+    "text": "Does this actually work? Back to the waffles\nThese are examples with real data, where we can’t know for sure if our controls are doing what we think\n\nOnly way to know for sure is with made-up data, where we know the effects ex ante:\n\n\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8 * south)"
   },
   {
-    "objectID": "slides/lec-1.html#academic-integrity",
-    "href": "slides/lec-1.html#academic-integrity",
-    "title": "Welcome to POL 051!",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\n\nCheating and plagiarism will be evaluated and disciplined according to University policy.\nFor information on academic integrity, please read: http://cai.ucdavis.edu/aip.html.\nYou are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse."
+    "objectID": "slides/14-dags.html#controlling-for-the-south",
+    "href": "slides/14-dags.html#controlling-for-the-south",
+    "title": "DAGs II",
+    "section": "Controlling for the South",
+    "text": "Controlling for the South\nFit a naive model without controls, and the correct one controlling for the South:\n\nnaive_waffles = lm(divorce ~ waffle, data = fake)\ncontrol_waffles = lm(divorce ~ waffle + south, data = fake)"
   },
   {
-    "objectID": "slides/lec-1.html#most-importantly",
-    "href": "slides/lec-1.html#most-importantly",
-    "title": "Welcome to POL 051!",
-    "section": "Most importantly!",
-    "text": "Most importantly!\nAsk if you’re not sure if something violates a policy!"
+    "objectID": "slides/14-dags.html#the-results",
+    "href": "slides/14-dags.html#the-results",
+    "title": "DAGs II",
+    "section": "The results",
+    "text": "The results\nPerfect! Naive model is confounded; but controlling for the South, we get pretty close to the truth (0 effect)\n\n\n\n\n\nNaive modelControl South\n\n\n\n(Intercept)12.586 ***20.012 ***\n\n(2.065)   (1.651)   \n\nwaffle0.450 ***0.014    \n\n(0.083)   (0.078)   \n\nsouth        7.329 ***\n\n        (0.921)   \n\nnobs50        50        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#this-weeks-tasks",
-    "href": "slides/lec-1.html#this-weeks-tasks",
-    "title": "Welcome to POL 051!",
-    "section": "This week’s tasks",
-    "text": "This week’s tasks\n\nDownload R and Rstudio\nR Basics\nData Visualization I and II\nProject Topic Idea Submission Due Sunday\nLab 1 Due Sunday"
+    "objectID": "slides/14-dags.html#whats-going-on",
+    "href": "slides/14-dags.html#whats-going-on",
+    "title": "DAGs II",
+    "section": "What’s going on?",
+    "text": "What’s going on?\n\nIn our made-up world, if we control for the South we can get back the uncounfounded estimate of Divorce ~ Waffles\n\n\nBut what’s lm() doing under-the-hood that makes this possible?"
   },
   {
-    "objectID": "slides/lec-1.html#why-r",
-    "href": "slides/lec-1.html#why-r",
-    "title": "Welcome to POL 051!",
-    "section": "Why R?",
-    "text": "Why R?\n\n\nR is a coding language language and environment built for statistical computing and graphics that includes a large variety in statistical and graphical techniques.\nAs political scientists R is an effective way to store and handle data, and a large selection of data analysis tools including graphing tools in a coherent and effective language.\nThe majority of users will use Rstudio an IDE or integrated development environment to write the code and see outputs.\n\nRstudio is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location."
+    "objectID": "slides/14-dags.html#whats-going-on-1",
+    "href": "slides/14-dags.html#whats-going-on-1",
+    "title": "DAGs II",
+    "section": "What’s going on?",
+    "text": "What’s going on?\n\n\n\nlm() is estimating \\(South \\rightarrow Divorce\\) and \\(South \\rightarrow Waffles\\)\nit is then subtracting out or removing the effect of South on Divorce and Waffles\nwhat’s left is the relationship between Waffles and Divorce, adjusting for the influence of the South on each"
   },
   {
-    "objectID": "slides/lec-1.html#r",
-    "href": "slides/lec-1.html#r",
-    "title": "Welcome to POL 051!",
-    "section": "R",
-    "text": "R\n\nR is freely maintained by an international team of developers and is available through The Comprehensive R Archive Network.\nFollow the instructions to download R.\nIf you are using an older computer or iPad, go to Using Posit Cloud for R in the FAQ page."
+    "objectID": "slides/14-dags.html#visualizing-controlling-for-the-south",
+    "href": "slides/14-dags.html#visualizing-controlling-for-the-south",
+    "title": "DAGs II",
+    "section": "Visualizing controlling for the South",
+    "text": "Visualizing controlling for the South\nThis is the confounded relationship between waffles and divorce (zoomed out)"
   },
   {
-    "objectID": "slides/lec-1.html#instructions-for-downloading-r",
-    "href": "slides/lec-1.html#instructions-for-downloading-r",
-    "title": "Welcome to POL 051!",
-    "section": "Instructions for Downloading R",
-    "text": "Instructions for Downloading R\n\nGo to The Comprehensive R Archive Network webpage:\n\nhttps://cran.r-project.org\n\nTo install R on Windows, click the “Download R for Windows” link.\nTo install R on a Mac, click the “Download R for Mac” link."
+    "objectID": "slides/14-dags.html#add-the-south",
+    "href": "slides/14-dags.html#add-the-south",
+    "title": "DAGs II",
+    "section": "Add the south",
+    "text": "Add the south\nWe can see what we already know: states in the South tend to have more divorce, and more waffles"
   },
   {
-    "objectID": "slides/lec-1.html#what-is-rstudio",
-    "href": "slides/lec-1.html#what-is-rstudio",
-    "title": "Welcome to POL 051!",
-    "section": "What is Rstudio?",
-    "text": "What is Rstudio?\n\nOne way to picture what RStudio does is to compare it to Microsoft Word, a software application that allows us to write documents.\nRStudio, instead of being a platform to write text, helps us write in the coding language R. Follow the instructions below to download RStudio.\n\nIn more complex terms Rstudio is an IDE for R"
+    "objectID": "slides/14-dags.html#effect-of-south-on-divorce",
+    "href": "slides/14-dags.html#effect-of-south-on-divorce",
+    "title": "DAGs II",
+    "section": "Effect of south on divorce",
+    "text": "Effect of south on divorce\n\\(South \\rightarrow Divorce = 10\\) How much higher, on average, divorce is in the South than the North"
   },
   {
-    "objectID": "slides/lec-1.html#instructions-for-downloading-rstudio",
-    "href": "slides/lec-1.html#instructions-for-downloading-rstudio",
-    "title": "Welcome to POL 051!",
-    "section": "Instructions for Downloading Rstudio",
-    "text": "Instructions for Downloading Rstudio\n\nGo to the Posit RStudio Desktop page.\nTo install for Mac:\nScroll to the button that says “Install R on a Mac,” and click the “Download R for Mac OS 13+” link.\n\nIf you’re using an older version, click the “Previous Versions” link to find a version that works with your computer.\n\nTo install for Windows:\n\nScroll to the button that says “Install R on Windows 10/11,” and click the link to download."
+    "objectID": "slides/14-dags.html#remove-effect-of-south-on-divorce",
+    "href": "slides/14-dags.html#remove-effect-of-south-on-divorce",
+    "title": "DAGs II",
+    "section": "Remove effect of South on divorce",
+    "text": "Remove effect of South on divorce\nRegression subtracts out the effect of the South on divorce"
   },
   {
-    "objectID": "slides/lec-1.html#r-as-a-language",
-    "href": "slides/lec-1.html#r-as-a-language",
-    "title": "Welcome to POL 051!",
-    "section": "R as a language",
-    "text": "R as a language\n\n\nThink of R as a language it has: vocabulary, punctuation, grammar, and syntax\nR is a language you can use to speak to your computer to tell it how to manage and visual data"
+    "objectID": "slides/14-dags.html#next-effect-of-south-on-waffles",
+    "href": "slides/14-dags.html#next-effect-of-south-on-waffles",
+    "title": "DAGs II",
+    "section": "Next: effect of South on waffles",
+    "text": "Next: effect of South on waffles\n\\(South \\rightarrow Waffles = 8\\) How many more, on average, Waffle Houses there are in the South than the North"
   },
   {
-    "objectID": "slides/lec-1.html#r-layout",
-    "href": "slides/lec-1.html#r-layout",
-    "title": "Welcome to POL 051!",
-    "section": "R Layout",
-    "text": "R Layout\nThere are four primary quadrants in RStudio:\n\nSource pane\nConsole pane\nEnvironment pane\nOutput pane"
+    "objectID": "slides/14-dags.html#subtract-out-the-effect-of-south-on-waffles",
+    "href": "slides/14-dags.html#subtract-out-the-effect-of-south-on-waffles",
+    "title": "DAGs II",
+    "section": "Subtract out the effect of south on waffles",
+    "text": "Subtract out the effect of south on waffles\nRegression subtracts out the effect of the South on waffles"
   },
   {
-    "objectID": "slides/lec-1.html#r-layout-1",
-    "href": "slides/lec-1.html#r-layout-1",
-    "title": "Welcome to POL 051!",
-    "section": "R Layout",
-    "text": "R Layout\n\nRStudio Layout"
+    "objectID": "slides/14-dags.html#whats-left-over",
+    "href": "slides/14-dags.html#whats-left-over",
+    "title": "DAGs II",
+    "section": "What’s left over?",
+    "text": "What’s left over?\nThe true effect of waffles on divorce \\(\\approx\\) 0"
   },
   {
-    "objectID": "slides/lec-1.html#what-is-a-working-directory",
-    "href": "slides/lec-1.html#what-is-a-working-directory",
-    "title": "Welcome to POL 051!",
-    "section": "What is a working directory?",
-    "text": "What is a working directory?\nThe working directory is the folder in your computer that you have set to save files to during your working session on R.\nEssentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder."
+    "objectID": "slides/14-dags.html#the-perplexing-pipe",
+    "href": "slides/14-dags.html#the-perplexing-pipe",
+    "title": "DAGs II",
+    "section": "The perplexing pipe",
+    "text": "The perplexing pipe\nRemember, with a perplexing pipe, controlling for Z blocks the effect of X on Y:"
   },
   {
-    "objectID": "slides/lec-1.html#step-1-make-a-folder",
-    "href": "slides/lec-1.html#step-1-make-a-folder",
-    "title": "Welcome to POL 051!",
-    "section": "Step 1: Make a Folder",
-    "text": "Step 1: Make a Folder\n\nMac\n\nOpen Finder and click Desktop on the left side\n\nOn the top of your screen got to File and click New Folder\n\nName this folder POL 051 - SU26\n\n\n\nWindows\n\nOpen File Explorer and go to Desktop\n\nClick/tap on New on the command bar, and click/tap on Folder in the drop menu.\n\nName this folder POL 051 - SU26"
+    "objectID": "slides/14-dags.html#simulation",
+    "href": "slides/14-dags.html#simulation",
+    "title": "DAGs II",
+    "section": "Simulation",
+    "text": "Simulation\nLet’s make up some data to show this: every unit of foreign aid increases corruption by 8; every unit of corruption increases the number of protest by 4\n\n\nfake_pipe = tibble(aid = rnorm(n = 200, mean = 10), \n                   corruption = rnorm(n = 200, mean = 10) + 8 * aid, \n                   protest = rnorm(n = 200, mean = 10) + 4 * corruption)\n\n\n\nWhat is the true effect of aid on protest? Tricky since the effect runs through corruption\n\n\nFor every unit of aid, corruption increases by 8; and for every unit of corruption, protest increases by 4…\n\n\nThe effect of aid on protest is \\(4 \\times 8 = 32\\)"
   },
   {
-    "objectID": "slides/lec-1.html#step-2-create-the-working-directory.",
-    "href": "slides/lec-1.html#step-2-create-the-working-directory.",
-    "title": "Welcome to POL 051!",
-    "section": "Step 2: Create the Working Directory.",
-    "text": "Step 2: Create the Working Directory.\nTo create a new working directory in RStudio:\n\nUse File → New Project or use the New Project button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).\nThis will open the “New Project Wizard” popup.\nClick “New Directory”."
+    "objectID": "slides/14-dags.html#the-data",
+    "href": "slides/14-dags.html#the-data",
+    "title": "DAGs II",
+    "section": "The data",
+    "text": "The data\n\n\n\n\n\naid\ncorruption\nprotest\n\n\n\n\n9.72\n85.35\n350.74\n\n\n10.00\n89.95\n370.69\n\n\n9.35\n83.80\n344.68\n\n\n11.51\n102.29\n418.37\n\n\n9.99\n89.51\n367.82\n\n\n9.93\n89.49\n368.00"
   },
   {
-    "objectID": "slides/lec-1.html#step-3-set-the-working-directory.",
-    "href": "slides/lec-1.html#step-3-set-the-working-directory.",
-    "title": "Welcome to POL 051!",
-    "section": "Step 3: Set the Working Directory.",
-    "text": "Step 3: Set the Working Directory.\n\n# Set working directory (replace this with your own)\n\n# Mac Users\nsetwd(\"/Users/yourname/Desktop/filename/filename\")\n\n# Windows Users\nsetwd(\"C:/Users/YourName/Documents/MyFolder\")\n\n# To check if the working directory is set correctly, use the following code:\n\n# Returns the filepath of the current working directory\ngetwd()"
+    "objectID": "slides/14-dags.html#bad-controls",
+    "href": "slides/14-dags.html#bad-controls",
+    "title": "DAGs II",
+    "section": "Bad controls",
+    "text": "Bad controls\nRemember, with a pipe controlling for Z (corruption) is a bad idea\n\nLet’s fit two models, where one makes the mistake of controlling for corruption\n\n\n\nright_model = lm(protest ~ aid, data = fake_pipe)\nbad_control = lm(protest ~ aid + corruption, data = fake_pipe)"
   },
   {
-    "objectID": "slides/lec-1.html#writing-text",
-    "href": "slides/lec-1.html#writing-text",
-    "title": "Welcome to POL 051!",
-    "section": "Writing “Text”",
-    "text": "Writing “Text”\n\nWriting text in R is called a script, a strong of letters connected by the use of ” ” or ’ ’.\n\n\n\"Hello World!\"\n\n[1] \"Hello World!\"\n\n'Hello World!' \n\n[1] \"Hello World!\""
+    "objectID": "slides/14-dags.html#bad-controls-1",
+    "href": "slides/14-dags.html#bad-controls-1",
+    "title": "DAGs II",
+    "section": "Bad controls",
+    "text": "Bad controls\nNotice how the model that mistakenly controls for Z tells you that X basically has no effect on Y (wrong)\n\n\n\n\n\nCorrect modelBad control\n\n\n\n(Intercept)48.127 ***9.685 ***\n\n(3.241)   (0.887)   \n\naid32.167 ***-0.120    \n\n(0.321)   (0.491)   \n\ncorruption        4.017 ***\n\n        (0.061)   \n\nnobs200        200        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#writing-numbers",
-    "href": "slides/lec-1.html#writing-numbers",
-    "title": "Welcome to POL 051!",
-    "section": "Writing Numbers",
-    "text": "Writing Numbers\n\nTo output numbers you just type out the number. Also, note that I do not use a comma when writing out my four-digit number:\n\n\n5\n\n[1] 5\n\n75\n\n[1] 75\n\n1000\n\n[1] 1000"
+    "objectID": "slides/14-dags.html#the-exploding-collider",
+    "href": "slides/14-dags.html#the-exploding-collider",
+    "title": "DAGs II",
+    "section": "The exploding collider",
+    "text": "The exploding collider\nRemember, with an exploding collider, controlling for M creates strange correlations between X and Y:"
   },
   {
-    "objectID": "slides/lec-1.html#basic-calculations",
-    "href": "slides/lec-1.html#basic-calculations",
-    "title": "Welcome to POL 051!",
-    "section": "Basic Calculations",
-    "text": "Basic Calculations\nR at its core is a gigantic calculator, so let’s practice doing basic calculations.\n\n# addition\n10 + 2\n\n# subtraction\n10 - 2\n\n# multipilication\n10 * 2\n\n# division\n10/2\n\n# exponent\n10^2"
+    "objectID": "slides/14-dags.html#simulation-1",
+    "href": "slides/14-dags.html#simulation-1",
+    "title": "DAGs II",
+    "section": "Simulation",
+    "text": "Simulation\nLet’s make up some data to show this:\n\nfake_collider = tibble(x = rnorm(n = 100, mean = 10), \n                   y = rnorm(n = 100, mean = 10),\n                   m = rnorm(n = 100, mean = 10) + 8 * x + 4 * y)\n\n\nX has an effect of 8 on M\nY has an effect of 4 on M\nX has no effect on Y"
   },
   {
-    "objectID": "slides/lec-1.html#basic-calculations-1",
-    "href": "slides/lec-1.html#basic-calculations-1",
-    "title": "Welcome to POL 051!",
-    "section": "Basic Calculations",
-    "text": "Basic Calculations\nR at its core is a gigantic calculator, so let’s practice doing basic calculations.\n\n# addition\n10 + 2\n\n[1] 12\n\n# subtraction\n10 - 2\n\n[1] 8\n\n# multipilication\n10 * 2\n\n[1] 20\n\n# division\n10/2\n\n[1] 5\n\n# exponent\n10^2\n\n[1] 100"
+    "objectID": "slides/14-dags.html#the-data-1",
+    "href": "slides/14-dags.html#the-data-1",
+    "title": "DAGs II",
+    "section": "The data",
+    "text": "The data\n\n\n\n\n\nx\ny\nm\n\n\n\n\n9.972584\n12.208321\n139.0415\n\n\n10.294208\n10.958590\n136.5327\n\n\n9.715819\n9.400894\n125.1396\n\n\n10.680276\n11.844909\n142.3984\n\n\n12.035113\n11.343354\n152.0356\n\n\n9.080420\n10.709459\n125.6194"
   },
   {
-    "objectID": "slides/lec-1.html#comments",
-    "href": "slides/lec-1.html#comments",
-    "title": "Welcome to POL 051!",
-    "section": "Comments",
-    "text": "Comments\nIt’s also important to annotate your code. It will help you write notes and explain what you are doing. To annotate your code, you will use the number sign #:\n\n# addition\n10 + 2\n\n[1] 12\n\n# the answer is 12"
+    "objectID": "slides/14-dags.html#bad-controls-2",
+    "href": "slides/14-dags.html#bad-controls-2",
+    "title": "DAGs II",
+    "section": "Bad controls",
+    "text": "Bad controls\nWhat’s the true effect of X on Y? it’s zero\nRemember, with a collider controlling for M is a bad idea\nLet’s fit two models, where one makes the mistake of controlling for M\n\nright_model = lm(y ~ x, data = fake_collider)\ncollided_model = lm(y ~ x + m, data = fake_collider)"
   },
   {
-    "objectID": "slides/lec-1.html#creating-objects",
-    "href": "slides/lec-1.html#creating-objects",
-    "title": "Welcome to POL 051!",
-    "section": "Creating Objects",
-    "text": "Creating Objects\nIn R, we save our data in what we call objects! Objects store information about different types of elements. If you know any other coding languages, they typically call these variables.\n\nprint() is a function that ‘prints’ out an output from an object.\nR functions are like the verbs of the R coding language, they tell your computer what action to make with sets of information.\n\nA function is usually defined by a keyword and then parenthesis.\n\n\n\n# The &lt;- saves the caculation as math\nmath &lt;- 10 + 2\n#print()\nprint(math)\n\n[1] 12\n\n\n\n# The = saves the caculation as math\nmath = 10 + 2\n# print() will print out what is saved in the object math\nprint(math)\n\n[1] 12"
+    "objectID": "slides/14-dags.html#bad-controls-3",
+    "href": "slides/14-dags.html#bad-controls-3",
+    "title": "DAGs II",
+    "section": "Bad controls",
+    "text": "Bad controls\nNotice how the model that mistakenly controls for M tells you that X has a strong, negative effect on Y (wrong)\n\n\n\n\n\nCorrect modelCollided!\n\n\n\n(Intercept)9.153 ***-1.803 ***\n\n(1.031)   (0.308)   \n\nx0.085    -1.938 ***\n\n(0.103)   (0.047)   \n\nm        0.240 ***\n\n        (0.005)   \n\nnobs100        100        \n\n*** p &lt; 0.001; ** p &lt; 0.01; * p &lt; 0.05."
   },
   {
-    "objectID": "slides/lec-1.html#data-types",
-    "href": "slides/lec-1.html#data-types",
-    "title": "Welcome to POL 051!",
-    "section": "Data Types",
-    "text": "Data Types\nThere are 6 types of data in R that are important to know, but the essential ones are logical, numeric, and character.\nIn this class we are going to focus on only three: Logical, Numeric, and Characters.\n\nLogical Also known as boolean data, logical data is shown as TRUE or FALSE values:\n\n\nlogical1 &lt;- TRUE\nlogical2 &lt;- FALSE\n\n# The class() function outputs the data type of the object\nclass(logical1)\n\n[1] \"logical\"\n\nprint(logical2)\n\n[1] FALSE\n\nprint(class(logical2))\n\n[1] \"logical\""
+    "objectID": "slides/14-dags.html#colliding-as-sample-selection",
+    "href": "slides/14-dags.html#colliding-as-sample-selection",
+    "title": "DAGs II",
+    "section": "Colliding as sample selection",
+    "text": "Colliding as sample selection\nMost of the time when we see a collider, it’s because we’re looking at a weird sample of the population we’re interested in\n\nExamples: the non-relationship between height and scoring, among NBA players; the (alleged) negative correlation between how surprising and reliable findings are, among published research"
   },
   {
-    "objectID": "slides/lec-1.html#data-types-1",
-    "href": "slides/lec-1.html#data-types-1",
-    "title": "Welcome to POL 051!",
-    "section": "Data Types",
-    "text": "Data Types\n\nNumeric represents all data types that are real numbers with or with out decimal points.\n\n\nheight &lt;- 5.5\nacres &lt;- 1000\n\nclass(height)\n\n[1] \"numeric\"\n\nprint(acres)\n\n[1] 1000\n\nprint(class(acres))\n\n[1] \"numeric\""
+    "objectID": "slides/14-dags.html#hiring-at-google",
+    "href": "slides/14-dags.html#hiring-at-google",
+    "title": "DAGs II",
+    "section": "Hiring at Google",
+    "text": "Hiring at Google\nImagine Google wants to hire the best of the best, and they have two criteria: interpersonal skills, and technical skills\n\nSay Google can measure how socially and technically skilled someone is (0-100)\n\nfake_google = tibble(social_skills = rnorm(n = 200, mean = 50, sd = 10), \n                     tech_skills = rnorm(n = 200, mean = 50, sd = 10))\n\n\n\nThe two are causally unrelated: one does not affect the other; improving someone’s social skills would not hurt their technical skills"
   },
   {
-    "objectID": "slides/lec-1.html#data-types-2",
-    "href": "slides/lec-1.html#data-types-2",
-    "title": "Welcome to POL 051!",
-    "section": "Data Types",
-    "text": "Data Types\n\nCharacter specifies character or string values in a variable such as a singular character ‘A’ or a string of characters in ‘Apple’.\n\n\n# Use '' or \"\" to show it's a string of characters\nmotorsports &lt;- \"formula1\"\n\nprint(motorsports)\n\n[1] \"formula1\"\n\nprint(class(motorsports))\n\n[1] \"character\""
+    "objectID": "slides/14-dags.html#the-data-2",
+    "href": "slides/14-dags.html#the-data-2",
+    "title": "DAGs II",
+    "section": "The data",
+    "text": "The data\n\n\n\n\n\nsocial_skills\ntech_skills\n\n\n\n\n50.23\n41.04\n\n\n32.11\n33.72\n\n\n61.63\n71.29\n\n\n47.74\n47.30\n\n\n57.99\n32.59\n\n\n42.05\n56.88\n\n\n38.87\n41.43\n\n\n32.54\n52.51"
   },
   {
-    "objectID": "slides/lec-1.html#what-is-a-package",
-    "href": "slides/lec-1.html#what-is-a-package",
-    "title": "Welcome to POL 051!",
-    "section": "What is a Package?",
-    "text": "What is a Package?\n\nPackages are collections of R functions, data, and code compiled in a well-defined format\nSome packages come pre-installed in R.\nHowever, the majority do not, so you need to install them first using the r function install.packages\n\n\ninstall.packages(\"tidyverse\") # install this package"
+    "objectID": "slides/14-dags.html#simulate-the-hiring-process",
+    "href": "slides/14-dags.html#simulate-the-hiring-process",
+    "title": "DAGs II",
+    "section": "Simulate the hiring process",
+    "text": "Simulate the hiring process\nNow imagine that they add up the two skills to see a person’s overall quality:\n\nfake_google %&gt;% \n  mutate(total_score = social_skills + tech_skills)\n\n\n\n\nsocial_skillstech_skillstotal_score\n\n\n\n48.336.3 84.6\n\n60  51.5 112  \n\n50.868.7 120  \n\n53.866.6 120  \n\n51.749.1 101  \n\n47.753   101  \n\n49  26.5 75.5\n\n54.767.8 122  \n\n43.245.1 88.3\n\n38.732.3 71  \n\n43.251   94.2\n\n48.549.3 97.8\n\n54.861.5 116  \n\n49.848.8 98.6\n\n58.251.7 110  \n\n37.244.6 81.8\n\n49.854.4 104  \n\n37.166.9 104  \n\n58.752.1 111  \n\n46.935.2 82.1\n\n46.645.9 92.5\n\n48.355.8 104  \n\n35.547.7 83.2\n\n50.852.6 103  \n\n49.826.3 76  \n\n42  56.9 98.9\n\n47.748.4 96.1\n\n78  46   124  \n\n40.358   98.2\n\n62.445   107  \n\n52.952.7 106  \n\n54.252.7 107  \n\n46  45   91  \n\n50.751.7 102  \n\n39.949.1 88.9\n\n56.546.1 103  \n\n44.262.7 107  \n\n66.235.7 102  \n\n49.238.3 87.6\n\n41.250.6 91.9\n\n59.227.1 86.2\n\n40.650.4 91  \n\n46.544.2 90.7\n\n50.661   112  \n\n48.572.2 121  \n\n65  49.7 115  \n\n49  56.9 106  \n\n25.953.4 79.3\n\n50.259.4 110  \n\n41.455.5 96.9\n\n38.768.2 107  \n\n34.139.1 73.2\n\n53.136.6 89.7\n\n45.347.6 93  \n\n56.151   107  \n\n27.748.1 75.8\n\n39.156.5 95.6\n\n59.542.8 102  \n\n58.448   106  \n\n69.556.7 126  \n\n38.555.2 93.7\n\n42.647.5 90.1\n\n47.444.4 91.8\n\n46.549.7 96.2\n\n42.430.5 72.9\n\n54.651.3 106  \n\n42.649.6 92.2\n\n55.939.2 95.1\n\n48.565.5 114  \n\n67.653.3 121  \n\n46.549   95.4\n\n59.457.4 117  \n\n48.247.8 96  \n\n31.549.2 80.7\n\n47.465.2 113  \n\n60.643.7 104  \n\n70.858.5 129  \n\n66.353.4 120  \n\n32  57.9 89.9\n\n56.545.9 102  \n\n54.866.5 121  \n\n46.655   102  \n\n46  29.5 75.5\n\n40.127.5 67.6\n\n51.841   92.8\n\n39.844.3 84.1\n\n47.141   88  \n\n43.944.3 88.2\n\n52.946.2 99.1\n\n61.639.2 101  \n\n27.250.4 77.6\n\n45.730.5 76.2\n\n64.264.7 129  \n\n40.152.6 92.7\n\n56.156.1 112  \n\n49.569.9 119  \n\n52.438.1 90.6\n\n41.648.9 90.5\n\n53.847.1 101  \n\n60.967.7 129  \n\n60  44.4 104  \n\n35.257.6 92.8\n\n66.950.9 118  \n\n63.736.1 99.8\n\n59.248.2 107  \n\n46.350.4 96.7\n\n35  48.1 83  \n\n60.849   110  \n\n28.853.2 81.9\n\n57.96.0363.9\n\n52.946.5 99.4\n\n50.748.3 99  \n\n43.441.3 84.7\n\n61.671.3 133  \n\n38.263.3 102  \n\n61.945.6 108  \n\n49.347   96.3\n\n46.357.1 103  \n\n41.937.3 79.2\n\n67.639.1 107  \n\n61.148.7 110  \n\n38.941.4 80.3\n\n60.547.4 108  \n\n62.246.4 109  \n\n49.547.3 96.8\n\n63.348.3 112  \n\n56.854.5 111  \n\n59.670.2 130  \n\n42  44.1 86.1\n\n50.241   91.3\n\n50.558.4 109  \n\n51.454   105  \n\n52.855.8 109  \n\n56.255.2 111  \n\n63.123.1 86.2\n\n37.554.4 91.9\n\n42.744.3 87  \n\n39.748.2 88  \n\n53  49.8 103  \n\n61.540.1 102  \n\n53  44.6 97.7\n\n56.660.9 118  \n\n35.756.4 92.1\n\n44.961.7 107  \n\n54.948.7 104  \n\n61.133.5 94.6\n\n58.232.2 90.3\n\n52.337.3 89.5\n\n47.239.1 86.3\n\n48.654.2 103  \n\n52.762.3 115  \n\n47.747.3 95  \n\n49.459.8 109  \n\n49.559.5 109  \n\n35.252.6 87.8\n\n57.947.6 105  \n\n60.462.4 123  \n\n48.167.3 115  \n\n45.639   84.6\n\n36.856.5 93.3\n\n32.133.7 65.8\n\n29.572.8 102  \n\n43.351.1 94.3\n\n52.347   99.3\n\n35.438.2 73.5\n\n49.645.4 95.1\n\n62.947.9 111  \n\n52.344.8 97  \n\n39.162.7 102  \n\n50.563.7 114  \n\n48.933.2 82.1\n\n61.142.7 104  \n\n40.547.3 87.8\n\n58  32.6 90.6\n\n44.543   87.5\n\n60.261.4 122  \n\n51.342.9 94.2\n\n50.945.5 96.4\n\n37.555.2 92.8\n\n36.747.2 83.9\n\n45.236.2 81.4\n\n52.543.3 95.8\n\n62.853   116  \n\n50.640.6 91.2\n\n33.947.8 81.7\n\n45.954.7 101  \n\n52.149.1 101  \n\n40  38.1 78.1\n\n32.552.5 85.1\n\n74.659.6 134  \n\n55  36.2 91.2\n\n40.259.5 99.8\n\n61.637   98.6\n\n38.364.8 103  \n\n50.955.6 106  \n\n55.157.7 113  \n\n57.657.1 115  \n\n38.346.6 84.8\n\n31  43.8 74.8\n\n51  56.9 108"
   },
   {
-    "objectID": "slides/lec-1.html#using-a-package",
-    "href": "slides/lec-1.html#using-a-package",
-    "title": "Welcome to POL 051!",
-    "section": "Using a Package",
-    "text": "Using a Package\n\nAfter installing the packages we need to “attach” the package.\n\nThis means telling your computer that you want to use that package during this working session\n\nYou can do this by using the function library() and the name of the package.\n\n\nlibrary(\"tidyverse\")"
+    "objectID": "slides/14-dags.html#simulating-the-hiring-process",
+    "href": "slides/14-dags.html#simulating-the-hiring-process",
+    "title": "DAGs II",
+    "section": "Simulating the hiring process",
+    "text": "Simulating the hiring process\nNow imagine that Google only hires people who are in the top 15% of quality (in this case that’s 112.8 or higher)\n\nfake_google %&gt;% \n  mutate(total_score = social_skills + tech_skills) %&gt;% \n  mutate(hired = case_when(total_score &gt;= quantile(total_score, .85) ~ \"yes\", \n                           total_score &lt; quantile(total_score, .85) ~ \"no\"))\n\n\n\n\n\n\nsocial_skillstech_skillstotal_scorehired\n\n\n\n48.336.3 84.6no\n\n60  51.5 112  no\n\n50.868.7 120  yes\n\n53.866.6 120  yes\n\n51.749.1 101  no\n\n47.753   101  no\n\n49  26.5 75.5no\n\n54.767.8 122  yes\n\n43.245.1 88.3no\n\n38.732.3 71  no\n\n43.251   94.2no\n\n48.549.3 97.8no\n\n54.861.5 116  yes\n\n49.848.8 98.6no\n\n58.251.7 110  no\n\n37.244.6 81.8no\n\n49.854.4 104  no\n\n37.166.9 104  no\n\n58.752.1 111  no\n\n46.935.2 82.1no\n\n46.645.9 92.5no\n\n48.355.8 104  no\n\n35.547.7 83.2no\n\n50.852.6 103  no\n\n49.826.3 76  no\n\n42  56.9 98.9no\n\n47.748.4 96.1no\n\n78  46   124  yes\n\n40.358   98.2no\n\n62.445   107  no\n\n52.952.7 106  no\n\n54.252.7 107  no\n\n46  45   91  no\n\n50.751.7 102  no\n\n39.949.1 88.9no\n\n56.546.1 103  no\n\n44.262.7 107  no\n\n66.235.7 102  no\n\n49.238.3 87.6no\n\n41.250.6 91.9no\n\n59.227.1 86.2no\n\n40.650.4 91  no\n\n46.544.2 90.7no\n\n50.661   112  no\n\n48.572.2 121  yes\n\n65  49.7 115  yes\n\n49  56.9 106  no\n\n25.953.4 79.3no\n\n50.259.4 110  no\n\n41.455.5 96.9no\n\n38.768.2 107  no\n\n34.139.1 73.2no\n\n53.136.6 89.7no\n\n45.347.6 93  no\n\n56.151   107  no\n\n27.748.1 75.8no\n\n39.156.5 95.6no\n\n59.542.8 102  no\n\n58.448   106  no\n\n69.556.7 126  yes\n\n38.555.2 93.7no\n\n42.647.5 90.1no\n\n47.444.4 91.8no\n\n46.549.7 96.2no\n\n42.430.5 72.9no\n\n54.651.3 106  no\n\n42.649.6 92.2no\n\n55.939.2 95.1no\n\n48.565.5 114  yes\n\n67.653.3 121  yes\n\n46.549   95.4no\n\n59.457.4 117  yes\n\n48.247.8 96  no\n\n31.549.2 80.7no\n\n47.465.2 113  no\n\n60.643.7 104  no\n\n70.858.5 129  yes\n\n66.353.4 120  yes\n\n32  57.9 89.9no\n\n56.545.9 102  no\n\n54.866.5 121  yes\n\n46.655   102  no\n\n46  29.5 75.5no\n\n40.127.5 67.6no\n\n51.841   92.8no\n\n39.844.3 84.1no\n\n47.141   88  no\n\n43.944.3 88.2no\n\n52.946.2 99.1no\n\n61.639.2 101  no\n\n27.250.4 77.6no\n\n45.730.5 76.2no\n\n64.264.7 129  yes\n\n40.152.6 92.7no\n\n56.156.1 112  no\n\n49.569.9 119  yes\n\n52.438.1 90.6no\n\n41.648.9 90.5no\n\n53.847.1 101  no\n\n60.967.7 129  yes\n\n60  44.4 104  no\n\n35.257.6 92.8no\n\n66.950.9 118  yes\n\n63.736.1 99.8no\n\n59.248.2 107  no\n\n46.350.4 96.7no\n\n35  48.1 83  no\n\n60.849   110  no\n\n28.853.2 81.9no\n\n57.96.0363.9no\n\n52.946.5 99.4no\n\n50.748.3 99  no\n\n43.441.3 84.7no\n\n61.671.3 133  yes\n\n38.263.3 102  no\n\n61.945.6 108  no\n\n49.347   96.3no\n\n46.357.1 103  no\n\n41.937.3 79.2no\n\n67.639.1 107  no\n\n61.148.7 110  no\n\n38.941.4 80.3no\n\n60.547.4 108  no\n\n62.246.4 109  no\n\n49.547.3 96.8no\n\n63.348.3 112  no\n\n56.854.5 111  no\n\n59.670.2 130  yes\n\n42  44.1 86.1no\n\n50.241   91.3no\n\n50.558.4 109  no\n\n51.454   105  no\n\n52.855.8 109  no\n\n56.255.2 111  no\n\n63.123.1 86.2no\n\n37.554.4 91.9no\n\n42.744.3 87  no\n\n39.748.2 88  no\n\n53  49.8 103  no\n\n61.540.1 102  no\n\n53  44.6 97.7no\n\n56.660.9 118  yes\n\n35.756.4 92.1no\n\n44.961.7 107  no\n\n54.948.7 104  no\n\n61.133.5 94.6no\n\n58.232.2 90.3no\n\n52.337.3 89.5no\n\n47.239.1 86.3no\n\n48.654.2 103  no\n\n52.762.3 115  yes\n\n47.747.3 95  no\n\n49.459.8 109  no\n\n49.559.5 109  no\n\n35.252.6 87.8no\n\n57.947.6 105  no\n\n60.462.4 123  yes\n\n48.167.3 115  yes\n\n45.639   84.6no\n\n36.856.5 93.3no\n\n32.133.7 65.8no\n\n29.572.8 102  no\n\n43.351.1 94.3no\n\n52.347   99.3no\n\n35.438.2 73.5no\n\n49.645.4 95.1no\n\n62.947.9 111  no\n\n52.344.8 97  no\n\n39.162.7 102  no\n\n50.563.7 114  yes\n\n48.933.2 82.1no\n\n61.142.7 104  no\n\n40.547.3 87.8no\n\n58  32.6 90.6no\n\n44.543   87.5no\n\n60.261.4 122  yes\n\n51.342.9 94.2no\n\n50.945.5 96.4no\n\n37.555.2 92.8no\n\n36.747.2 83.9no\n\n45.236.2 81.4no\n\n52.543.3 95.8no\n\n62.853   116  yes\n\n50.640.6 91.2no\n\n33.947.8 81.7no\n\n45.954.7 101  no\n\n52.149.1 101  no\n\n40  38.1 78.1no\n\n32.552.5 85.1no\n\n74.659.6 134  yes\n\n55  36.2 91.2no\n\n40.259.5 99.8no\n\n61.637   98.6no\n\n38.364.8 103  no\n\n50.955.6 106  no\n\n55.157.7 113  yes\n\n57.657.1 115  yes\n\n38.346.6 84.8no\n\n31  43.8 74.8no\n\n51  56.9 108  no"
+  },
+  {
+    "objectID": "slides/14-dags.html#general-population",
+    "href": "slides/14-dags.html#general-population",
+    "title": "DAGs II",
+    "section": "General population",
+    "text": "General population\nNo relationship between social and technical skills among all job candidates"
+  },
+  {
+    "objectID": "slides/14-dags.html#collided",
+    "href": "slides/14-dags.html#collided",
+    "title": "DAGs II",
+    "section": "Collided!",
+    "text": "Collided!\nIf we only look at Google workers we see a trade-off between social and technical skills:"
+  },
+  {
+    "objectID": "slides/14-dags.html#limitations",
+    "href": "slides/14-dags.html#limitations",
+    "title": "DAGs II",
+    "section": "Limitations",
+    "text": "Limitations\nIt’s cool that we can control for a confound, or avoid colliders/pipes and get back the truth\n\nBut there are big limitations we must keep in mind when evaluating research:\n\nWe need to know what to control for (confident in our DAG)\n\n\n\n\nWe need to have data on the controls (e.g., data on Z)\n\n\n\n\nWe need our data to measure the variable well (e.g., # of homicides a good proxy for crime?)"
+  },
+  {
+    "objectID": "slides/14-dags.html#stuff-thats-hard-to-measure",
+    "href": "slides/14-dags.html#stuff-thats-hard-to-measure",
+    "title": "DAGs II",
+    "section": "Stuff that’s hard to measure",
+    "text": "Stuff that’s hard to measure\nAbility is a likely fork for the effect of Education on Earnings; but how do you measure ability?"
+  },
+  {
+    "objectID": "slides/14-dags.html#your-turn-pipes-colliders",
+    "href": "slides/14-dags.html#your-turn-pipes-colliders",
+    "title": "DAGs II",
+    "section": "🚨 Your turn: pipes, colliders 🚨",
+    "text": "🚨 Your turn: pipes, colliders 🚨\nUsing the templates in the class script:\n\nMake a realistic pipe scenario\nUse models to show that everything goes wrong when you mistakenly control for the pipe\nMake a realistic fork scenario\nUse models to show that everything goes wrong when you fail to control for the fork"
+  },
+  {
+    "objectID": "slides/lec-10.html#causal-diagram",
+    "href": "slides/lec-10.html#causal-diagram",
+    "title": "Causality II",
+    "section": "Causal diagram",
+    "text": "Causal diagram\n\n\nWe need a causal model\nThe model is our idea of how the data came to be (the data-generating process)\nThe model tells us how to identify a causal effect (if it’s possible!)"
+  },
+  {
+    "objectID": "slides/lec-10.html#directed-acyclical-graphs-dags",
+    "href": "slides/lec-10.html#directed-acyclical-graphs-dags",
+    "title": "Causality II",
+    "section": "Directed Acyclical Graphs (DAGs)",
+    "text": "Directed Acyclical Graphs (DAGs)\nA popular modeling tool for thinking about causality is the DAG\nNodes (points) = variables; Edges (arrows) = direction of causality"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags",
+    "href": "slides/lec-10.html#dags",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\nNodes = variables; Arrows = direction of causality\n\n\n\n\n\n\n\n\n\n\nRead: X1 has an effect on Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags-1",
+    "href": "slides/lec-10.html#dags-1",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\n\n\nX1 has an effect on Y; X2 has an effect on X1; X2 affects Y only through X1\nMissing arrows matter!\n\nExample of x2 - x1 - y?"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags-2",
+    "href": "slides/lec-10.html#dags-2",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\n\n\nX1 has an effect on Y; X2 has an effect on X1 and Y (via X1); X3 has an effect on X1 and Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-ideology",
+    "href": "slides/lec-10.html#example-ideology",
+    "title": "Causality II",
+    "section": "Example: ideology",
+    "text": "Example: ideology\nWhere does (liberal) ideology come from?\n\nVariables in the literature: Income (I), Liberal (L), Age (A), Media (M), Parents (P)\n\n\n\n\n\n\n\n\n\n\n\n\nWhat are our assumptions? What’s this DAG saying?"
+  },
+  {
+    "objectID": "slides/lec-10.html#dags-3",
+    "href": "slides/lec-10.html#dags-3",
+    "title": "Causality II",
+    "section": "DAGs",
+    "text": "DAGs\nDAGs encode everything we know about some process\n\nWe can see all of our assumptions and how they fit together\n\n\nFor example: the effect of Parents on how Liberal someone is happens directly and indirectly (through Media)\n\n\nMissing arrows also matter: we are assuming that Age has no effect on Media diet"
+  },
+  {
+    "objectID": "slides/lec-10.html#identification",
+    "href": "slides/lec-10.html#identification",
+    "title": "Causality II",
+    "section": "Identification",
+    "text": "Identification\nWhy do this?\n\nLater: DAGs help us figure out how to estimate the effect of one variable on another\n\n\nWhile at the same time being mindful of all the other variables that we need to adjust, or control for\n\n\nFor instance, we might want to estimate the effect of Media consumption (M) on how Liberal (L) someone is\n\n\nThis process is called “identification” \\(\\rightarrow\\) to identify the effect of X on Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#waffles-and-divorce",
+    "href": "slides/lec-10.html#waffles-and-divorce",
+    "title": "Causality II",
+    "section": "Waffles and Divorce",
+    "text": "Waffles and Divorce"
+  },
+  {
+    "objectID": "slides/lec-10.html#waffle-house-index",
+    "href": "slides/lec-10.html#waffle-house-index",
+    "title": "Causality II",
+    "section": "Waffle House Index",
+    "text": "Waffle House Index"
+  },
+  {
+    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce",
+    "href": "slides/lec-10.html#does-waffle-house-cause-divorce",
+    "title": "Causality II",
+    "section": "Does Waffle House cause divorce?",
+    "text": "Does Waffle House cause divorce?\nStates with more waffle houses tend to have more divorce\n\n\n\n\n\nLocation\nMarriage\nDivorce\nWaffles per Person\n\n\n\n\nSouth Dakota\n20.1\n10.9\n0.00\n\n\nGeorgia\n22.1\n11.5\n39.32\n\n\nAlabama\n20.2\n12.7\n26.78\n\n\nUtah\n29.6\n10.2\n0.00\n\n\nWisconsin\n17.2\n8.3\n0.00\n\n\nCalifornia\n19.1\n8.0\n0.00\n\n\nRhode Island\n15.0\n9.4\n0.00"
+  },
+  {
+    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce-1",
+    "href": "slides/lec-10.html#does-waffle-house-cause-divorce-1",
+    "title": "Causality II",
+    "section": "Does Waffle House cause divorce?",
+    "text": "Does Waffle House cause divorce?\nDo cheap, delicious waffles put marriages at risk?\n\n\nSpeculate on underlying mechanism"
+  },
+  {
+    "objectID": "slides/lec-10.html#does-waffle-house-cause-divorce-2",
+    "href": "slides/lec-10.html#does-waffle-house-cause-divorce-2",
+    "title": "Causality II",
+    "section": "Does Waffle House cause divorce?",
+    "text": "Does Waffle House cause divorce?\n\nAlmost certainly not\n\n\nNo one thinks there is a plausible way in which Waffle House causes divorce\n\n\nWhen we see a correlation of this kind we wonder about other variables that are actually driving the relationship\n\n\nYou’ve likely thought about this before: a “lurking” variable, “other factors”, that “matter”\n\n\nBut what might that variable be? And how exactly does it lead us astray?"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-lurking-variable",
+    "href": "slides/lec-10.html#the-lurking-variable",
+    "title": "Causality II",
+    "section": "The lurking variable",
+    "text": "The lurking variable\nIt turns out that Waffle Houses originated in the South (Georgia), and most of them are still there\n\nThe South also happens to have some of the highest divorce rates in the country"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-dag",
+    "href": "slides/lec-10.html#the-dag",
+    "title": "Causality II",
+    "section": "The DAG",
+    "text": "The DAG\nSo the DAG might look something like this: South has an effect on Waffle Houses and Divorce, but Waffles do not cause Divorce"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-problem",
+    "href": "slides/lec-10.html#the-problem",
+    "title": "Causality II",
+    "section": "The problem",
+    "text": "The problem\n\n\nA DAG like this will produce a correlation between Waffles and Divorce, even when there is no causal relationship\n\n\nThis is called confounding: the South is confounding the relationship between Waffles and Divorce"
+  },
+  {
+    "objectID": "slides/lec-10.html#how-does-this-happen",
+    "href": "slides/lec-10.html#how-does-this-happen",
+    "title": "Causality II",
+    "section": "How does this happen?",
+    "text": "How does this happen?\nLet’s make up data to convince ourselves this is true\n\nfifty states, about half of them are in the South\n\n\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE))\n\n# A tibble: 50 × 1\n   south\n   &lt;dbl&gt;\n 1     1\n 2     1\n 3     0\n 4     0\n 5     1\n 6     0\n 7     0\n 8     0\n 9     1\n10     0\n# ℹ 40 more rows\n\n\n\n\n\n\n\n\nNote\n\n\nsample() is choosing at random between 0 and 1, 50 times, with replacement"
+  },
+  {
+    "objectID": "slides/lec-10.html#simulate-the-treatment",
+    "href": "slides/lec-10.html#simulate-the-treatment",
+    "title": "Causality II",
+    "section": "Simulate the treatment",
+    "text": "Simulate the treatment\nStep 2: make Waffle houses, let’s say about 20 per million residents, +/- 4\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n       waffle = rnorm(n = 50, mean = 20, sd = 4))\n\n# A tibble: 50 × 2\n   south waffle\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     0   25.9\n 2     1   25.1\n 3     1   22.2\n 4     0   21.7\n 5     1   16.6\n 6     1   18.9\n 7     1   22.5\n 8     0   15.1\n 9     1   27.4\n10     1   19.3\n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/lec-10.html#make-waffles-more-common-in-the-south",
+    "href": "slides/lec-10.html#make-waffles-more-common-in-the-south",
+    "title": "Causality II",
+    "section": "Make Waffles more common in the South",
+    "text": "Make Waffles more common in the South\nStep 3: The arrow from South to Waffles, let’s say Southern states have about 10 more Waffles, on average\n\ntibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n       waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south)\n\n# A tibble: 50 × 2\n   south waffle\n   &lt;dbl&gt;  &lt;dbl&gt;\n 1     1   31.7\n 2     1   25.8\n 3     1   24.6\n 4     1   33.1\n 5     0   20.4\n 6     0   22.4\n 7     0   21.2\n 8     0   15.3\n 9     1   29.8\n10     0   19.9\n# ℹ 40 more rows"
+  },
+  {
+    "objectID": "slides/lec-10.html#simulate-the-outcome",
+    "href": "slides/lec-10.html#simulate-the-outcome",
+    "title": "Causality II",
+    "section": "Simulate the outcome",
+    "text": "Simulate the outcome\nStep 4: make a divorce rate, let’s say about 20 divorces per 1,000 adults\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2))"
+  },
+  {
+    "objectID": "slides/lec-10.html#make-the-south-have-more-divorce",
+    "href": "slides/lec-10.html#make-the-south-have-more-divorce",
+    "title": "Causality II",
+    "section": "Make the South have more divorce",
+    "text": "Make the South have more divorce\nStep 5: the arrow from South to divorce, let’s say southern states have about 8 more divorces per 1,000 residents\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10 * south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8 * south)\n\nNOTICE! Waffles have no effect on divorce in our fake data"
+  },
+  {
+    "objectID": "slides/lec-10.html#a-totally-confounded-relationship",
+    "href": "slides/lec-10.html#a-totally-confounded-relationship",
+    "title": "Causality II",
+    "section": "A totally confounded relationship",
+    "text": "A totally confounded relationship\nThe South’s effect on Waffle House and on Divorce creates a confounded correlation between the two"
+  },
+  {
+    "objectID": "slides/lec-10.html#a-totally-confounded-relationship-1",
+    "href": "slides/lec-10.html#a-totally-confounded-relationship-1",
+    "title": "Causality II",
+    "section": "A totally confounded relationship",
+    "text": "A totally confounded relationship\nThe DAG on the left will produce an association like the one on the right\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEven if Waffles and Divorce are causally unrelated"
+  },
+  {
+    "objectID": "slides/lec-10.html#your-turn-confounded-waffles",
+    "href": "slides/lec-10.html#your-turn-confounded-waffles",
+    "title": "Causality II",
+    "section": "🧇 Your turn: confounded waffles 🧇",
+    "text": "🧇 Your turn: confounded waffles 🧇\nMake up data where a lurking variable creates a confounded relationship between two other variables that isn’t truly causal.\n\nChange the confound, treatment and outcome variables in the code to ones of your choosing\nMake a scatterplot with a trend line – use labs() to help us make sense of the plot axes and tell us what the confound is with the title = argument in labs()\n\n\nfake_data = tibble(confound = rnorm(n = , mean = , sd = ),\n                   treatment = rnorm(n = , mean = , sd = ) + or - #*confound,\n                   outcome = rnorm(n = , mean = , sd = ) + or - #*treament + or - #*confound\n  \n)\n\n\n\n\n\n\n\nNote\n\n\nIf you want to make a binary or categorical variable use sample()\nexample = sample(c(\"Woman\", \"Man\"), size = 50, replace = TRUE)"
+  },
+  {
+    "objectID": "slides/lec-10.html#whats-going-on-here",
+    "href": "slides/lec-10.html#whats-going-on-here",
+    "title": "Causality II",
+    "section": "What’s going on here?",
+    "text": "What’s going on here?\n\n\nThink of causality as water flowing in the direction of the arrows\nWe want look at water flowing directly from a treatment to an outcome\nBut account for the fact that there is often indirect flow that contaminates our estimates\n\n\nSource: the mighty Andrew Heiss"
+  },
+  {
+    "objectID": "slides/lec-10.html#whats-going-on-here-1",
+    "href": "slides/lec-10.html#whats-going-on-here-1",
+    "title": "Causality II",
+    "section": "What’s going on here?",
+    "text": "What’s going on here?\nTo identify the effect of Waffles on Divorce we need to account, or control for, the influence of the South\nOtherwise we will be confounded"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-formula",
+    "href": "slides/lec-10.html#the-formula",
+    "title": "Causality II",
+    "section": "The formula",
+    "text": "The formula\n\nMake a DAG of what we think is going on with our treatment and outcome\nFigure out where the indirect flows are (today)\nAccount for those in our analysis (later in class)"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control",
+    "href": "slides/lec-10.html#what-do-we-need-to-control",
+    "title": "Causality II",
+    "section": "What do we need to control?",
+    "text": "What do we need to control?\n\n\nNothing"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control-1",
+    "href": "slides/lec-10.html#what-do-we-need-to-control-1",
+    "title": "Causality II",
+    "section": "What do we need to control?",
+    "text": "What do we need to control?\n\n\nNothing! No indirect flow to X"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control-2",
+    "href": "slides/lec-10.html#what-do-we-need-to-control-2",
+    "title": "Causality II",
+    "section": "What do we need to control?",
+    "text": "What do we need to control?\n\n\nNothing! No indirect flow to X!"
+  },
+  {
+    "objectID": "slides/lec-10.html#what-do-we-need-to-control-to-identify",
+    "href": "slides/lec-10.html#what-do-we-need-to-control-to-identify",
+    "title": "Causality II",
+    "section": "What do we need to control to identify…",
+    "text": "What do we need to control to identify…\nMedia consumption (M) \\(\\rightarrow\\) Liberal (L)"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-elemental-confounds",
+    "href": "slides/lec-10.html#the-elemental-confounds",
+    "title": "Causality II",
+    "section": "The elemental confounds",
+    "text": "The elemental confounds"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-confounding-fork",
+    "href": "slides/lec-10.html#the-confounding-fork",
+    "title": "Causality II",
+    "section": "The confounding fork 🍴",
+    "text": "The confounding fork 🍴\nY \\(\\leftarrow\\) Z \\(\\rightarrow\\) X\nThere is a third variable, Z, that is a common cause of X and Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-confounding-fork-1",
+    "href": "slides/lec-10.html#the-confounding-fork-1",
+    "title": "Causality II",
+    "section": "The confounding fork",
+    "text": "The confounding fork\nWe’ve already seen this!\n\n\n\n\n\n\n\n\n\n\n\nCreates an association between X and Y that isn’t causal\n\n\n\n\n\n\n\n\n\n\nDistorts the true causal relation between X and Y\n\nNote that both of these fork scenarios will confound"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-second-scenario",
+    "href": "slides/lec-10.html#the-second-scenario",
+    "title": "Causality II",
+    "section": "The second scenario",
+    "text": "The second scenario\nSay that Waffles do cause Divorce, but the effect is tiny\n\nfake = tibble(south = sample(c(0, 1), size = 50, replace = TRUE), \n              waffle = rnorm(n = 50, mean = 20, sd = 4) + 10*south,\n              divorce = rnorm(n = 50, mean = 20, sd = 2) + 8*south + .0001 * waffle)\n\nSame code as before, I’ve just added a tiny effect of waffle houses on divorce = .0001 more divorces per waffle house"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-second-scenario-1",
+    "href": "slides/lec-10.html#the-second-scenario-1",
+    "title": "Causality II",
+    "section": "The second scenario",
+    "text": "The second scenario\nThe effect of Z (South) on X (Waffles) and Y (Divorce) will distort our estimates:\n\nmod = lm(divorce ~ waffle, data = fake) \ntidy(mod)\n\n# A tibble: 2 × 5\n  term        estimate std.error statistic  p.value\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 (Intercept)   11.4      1.53        7.47 1.39e- 9\n2 waffle         0.512    0.0598      8.57 3.11e-11\n\n\n\nEstimate is \\(\\frac{estimated}{true}\\) = 5119.0037885 times larger than the true effect!"
+  },
+  {
+    "objectID": "slides/lec-10.html#dealing-with-forks",
+    "href": "slides/lec-10.html#dealing-with-forks",
+    "title": "Causality II",
+    "section": "Dealing with forks",
+    "text": "Dealing with forks\nWe need to figure out what Z is, measure it, and adjust for it in our analysis"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-perplexing-pipe",
+    "href": "slides/lec-10.html#the-perplexing-pipe",
+    "title": "Causality II",
+    "section": "The perplexing pipe 🚰",
+    "text": "The perplexing pipe 🚰\nX \\(\\rightarrow\\) Z \\(\\rightarrow\\) Y\nX causes Z, which causes Y (or: Z mediates the effect of X on Y)\n\n\n\n\n\n\n\n\n\n\nWhat happens if we adjust for Z? We block the effect of X on Y"
+  },
+  {
+    "objectID": "slides/lec-10.html#an-example-foreign-intervention",
+    "href": "slides/lec-10.html#an-example-foreign-intervention",
+    "title": "Causality II",
+    "section": "An example: foreign intervention",
+    "text": "An example: foreign intervention\nWhat effect does US foreign wars have on US support abroad?\n\nSay the DAG looks like this:\n\n\n\n\n\n\n\n\n\nIf we control for casualties we are blocking the effect of intervention on support"
+  },
+  {
+    "objectID": "slides/lec-10.html#an-example-foreign-intervention-1",
+    "href": "slides/lec-10.html#an-example-foreign-intervention-1",
+    "title": "Causality II",
+    "section": "An example: foreign intervention",
+    "text": "An example: foreign intervention\nWhat if the DAG instead looked like this:\n\n\nWhat does it mean"
+  },
+  {
+    "objectID": "slides/lec-10.html#an-example-foreign-intervention-2",
+    "href": "slides/lec-10.html#an-example-foreign-intervention-2",
+    "title": "Causality II",
+    "section": "An example: foreign intervention",
+    "text": "An example: foreign intervention\nTwo ways that War affects US sentiment: directly and indirectly\nAdjusting for casualties blocks the indirect effect; if that’s what we want, fine – But if we want the full effect then we’ll be wrong!\n\n\nWhat does it mean"
+  },
+  {
+    "objectID": "slides/lec-10.html#pipes-why-are-they-even-a-problem",
+    "href": "slides/lec-10.html#pipes-why-are-they-even-a-problem",
+    "title": "Causality II",
+    "section": "Pipes: why are they even a problem?",
+    "text": "Pipes: why are they even a problem?\nJust leave pipes alone! It’s a problem of “over-adjusting”\n\nBad social science: sometimes we are so afraid of forks that we control for everything we have data on\n\n\nEspecially when a process seems very complicated"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-where-pipes-go-wrong",
+    "href": "slides/lec-10.html#example-where-pipes-go-wrong",
+    "title": "Causality II",
+    "section": "Example: where pipes go wrong",
+    "text": "Example: where pipes go wrong\nThe effects of smoking on heart problems might be complex; lots of potential confounds to worry about\n\nResearcher might think they need to control for a study subject’s cholesterol because cholesterol affects heart health\n\n\n“We should compare people who smoke but have similar levels of cholesterol, because cholesterol affects heart health”"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-where-pipes-go-wrong-1",
+    "href": "slides/lec-10.html#example-where-pipes-go-wrong-1",
+    "title": "Causality II",
+    "section": "Example: where pipes go wrong",
+    "text": "Example: where pipes go wrong\nIf the DAG looks like this, cholesterol is a pipe and controlling is bad!"
+  },
+  {
+    "objectID": "slides/lec-10.html#the-explosive-collider",
+    "href": "slides/lec-10.html#the-explosive-collider",
+    "title": "Causality II",
+    "section": "The explosive collider 💥",
+    "text": "The explosive collider 💥\n\\(X \\rightarrow Z \\leftarrow Y\\)\n\nX and Y have a common effect\n\n\nLeft alone, it’s no problem; but controlling for Z creates strange patterns"
+  },
+  {
+    "objectID": "slides/lec-10.html#example-the-nba",
+    "href": "slides/lec-10.html#example-the-nba",
+    "title": "Causality II",
+    "section": "Example: the NBA",
+    "text": "Example: the NBA\n\n\nShould the NBA stop worrying about height when drafting players?"
+  },
+  {
+    "objectID": "slides/lec-10.html#no",
+    "href": "slides/lec-10.html#no",
+    "title": "Causality II",
+    "section": "No!",
+    "text": "No!\nObviously, height helps in basketball\n\nBut among NBA players there might be no relationship between height and scoring, because…\n\n\nThe shorter players who are drafted have other advantages\n\n\nAmong NBA players = adjusting, or controlling for, being in the NBA"
+  },
+  {
+    "objectID": "slides/lec-10.html#another-example-bad-findings",
+    "href": "slides/lec-10.html#another-example-bad-findings",
+    "title": "Causality II",
+    "section": "Another example: bad findings",
+    "text": "Another example: bad findings\n\n\nRichard McElreath asks: why are surprising findings so often untrustworthy?"
+  },
+  {
+    "objectID": "slides/lec-10.html#another-example-bad-findings-1",
+    "href": "slides/lec-10.html#another-example-bad-findings-1",
+    "title": "Causality II",
+    "section": "Another example: bad findings",
+    "text": "Another example: bad findings"
+  },
+  {
+    "objectID": "slides/lec-10.html#its-a-collider",
+    "href": "slides/lec-10.html#its-a-collider",
+    "title": "Causality II",
+    "section": "It’s a collider",
+    "text": "It’s a collider\nImagine that in reality there is no relationship between how surprising a finding is and how trustworthy it is"
+  },
+  {
+    "objectID": "slides/lec-10.html#its-a-collider-1",
+    "href": "slides/lec-10.html#its-a-collider-1",
+    "title": "Causality II",
+    "section": "It’s a collider",
+    "text": "It’s a collider\nBut now imagine that studies are only published either if they’re very trustworthy OR very surprising"
+  },
+  {
+    "objectID": "slides/lec-10.html#its-a-collider-2",
+    "href": "slides/lec-10.html#its-a-collider-2",
+    "title": "Causality II",
+    "section": "It’s a collider",
+    "text": "It’s a collider\nBy only looking at published papers (e.g., controlling for publication), we create a negative relationship that doesn’t exist"
+  },
+  {
+    "objectID": "slides/lec-10.html#exploding-colliders",
+    "href": "slides/lec-10.html#exploding-colliders",
+    "title": "Causality II",
+    "section": "Exploding colliders",
+    "text": "Exploding colliders\nLike pipes, colliders are a problem of controlling for the wrong thing\nThey are often the result of a sample selection problem\nThey can obscure actual relationships or fabricate non-existent ones\nWe need to avoid controlling for colliders; but they are everywhere!"
+  },
+  {
+    "objectID": "slides/lec-10.html#your-turn-colliders",
+    "href": "slides/lec-10.html#your-turn-colliders",
+    "title": "Causality II",
+    "section": "💥 Your turn: colliders 💥",
+    "text": "💥 Your turn: colliders 💥\nHow are the following examples of colliders?\n\nAmong employees at Google, there is a strong negative correlation between technical skills and social skills.\nA study of people who tested for COVID finds that people who smoke regularly are less likely to develop COVID-19. A real study!\n\n\nwe are conditioning on testing, these are the only people we observe anything that’s correlated with likelihood of testing here becomes a problem who gets tested? imagine that healthcare workers get tested a lot, and that people who actually have COVID 19 are tested a lot so smokers with no symptoms are very unlikely to be in the data so of those tested, non-smokers are more likely to have COVID19 than smokers"
   },
   {
     "objectID": "slides/lec-2.html#why-visualize-data",

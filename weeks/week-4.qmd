@@ -18,7 +18,7 @@ editor: visual
 
 🖥️ [Lecture 10 -Causality II](/slides/lec-10.html)
 
-🖥️ [Lecture 11 - DAGs](not-avaliable-lec.html)
+🖥️ [Lecture 11 - DAGs](/slides/lec-10.html)
 
 🖥️ [Lecture 12 - Uncertainty](not-avaliable-lec.html)
 
