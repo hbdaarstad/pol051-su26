@@ -33,7 +33,7 @@ This page contains an outline of the topics, content, and assignments for the su
 |  | Tue, July 14 | Lecture 11 - DAGs | 📋 | [🖥️](slides/lec-11.html) |  |  |  |  |
 |  | Wed, July 15 | Lecture 12 - Uncertainty |  |  [🖥️](slides/lec-12.html) |  |  |  |  |
 |  | Thu, July 16 | Lab 4 |  |  |  | [💻](/labs/lab-4.qmd){download="lab-4.qmd"} |  | Project Draft Due Fri. July 17 📂 |
-| [5](/weeks/week-5.html) | Mon, July 20 | Lecture 13 - Hypothesis Testing I | [📖](/weeks/week-5.html#prepare) | [🖥️](not-available-lec.html) |  |  |  |  |
+| [5](/weeks/week-5.html) | Mon, July 20 | Lecture 13 - Hypothesis Testing I | [📖](/weeks/week-5.html#prepare) | [🖥️](slides/lec-13.html) |  |  |  |  |
 |  | Tue, July 21 | Lecture 14 - Hypothesis Testing II |  | [🖥️](not-available-lec.html) |  |  |  |  |
 |  | Wed, July 22 | Lecture 15 - Prediction |  | [🖥️](not-available-lec.html) |  |  |  | Peer Review is Due 📂 |
 |  | Thu, July 23 | Lab 5 |  |  |  | [💻](not-available.html) |  |  |

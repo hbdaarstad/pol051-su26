@@ -16,7 +16,7 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 13 - Hypothesis testing I](not-available-lec.html)
+🖥️ [Lecture 13 - Hypothesis testing I](slides/lec-13.html)
 
 🖥️ [Lecture 14 - Hypothesis Testing II](not-avaliable-lec.html)
 

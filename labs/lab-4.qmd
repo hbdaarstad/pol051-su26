@@ -14,7 +14,6 @@ title: "LAB 4"
 ```{r load-libraries, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(broom)
-library(ggdag)
 library(AER)
 library(juanr)
 library(moderndive)
@@ -22,7 +21,7 @@ library(moderndive)
 set.seed(1990)
 ```
 
-# Task 1: GDP 
+# Task 1: GDP
 
 Simulate data that shows corruption hurts a country's economic development, with the following characteristics:
 
@@ -35,8 +34,8 @@ Simulate data that shows corruption hurts a country's economic development, with
 set.seed(1990)
 
 gdp_data = tibble(
- corruption = rnorm(n = , mean =, sd = ),
- gdp = rnorm(n = , mean =, sd = ),
+ corruption = rnorm(n = 200, mean =50, sd = 10),
+ gdp = rnorm(n = 200, mean = 50000, sd = 8000) - 1000*corruption,
 )
 
 
@@ -46,6 +45,8 @@ Fit a model that estimates the effect of corruption on GDP per capita:
 
 ```{r}
 
+lm(gdp ~ corruption, data =  gdp_data) |>
+  tidy()
 
 ```
 
@@ -64,9 +65,9 @@ Simulate data that shows that: terrorist attacks increase the public's sense of 
 set.seed(1990)
 
 terrorism_data = tibble(
- terrorist_attack = rnorm(n = , mean = , sd = ,),
- anxiety = rnorm(n = , mean = , sd = ,),
- ext_cand = rnorm(n = , mean = , sd = ,)
+ terrorist_attack = rnorm(n = 800, mean = 8, sd = 1),
+ anxiety = rnorm(n = 800, mean = 20, sd = 2) + 2*terrorist_attack,
+ ext_cand = rnorm(n = 800, mean = 15, sd = 3) + 0.5*anxiety
 )
 
 ```
@@ -74,6 +75,10 @@ terrorism_data = tibble(
 Now, make a scatterplot of the relationship between the number of terror attacks a city has and the level of support for extreme candidates in that city. Color the points by `anxiety` level. Include an OLS line.
 
 ```{r}
+
+ggplot(terrorism_data, aes(x=terrorist_attack, y=ext_cand, color = anxiety)) + 
+  geom_point() +
+  geom_smooth(method= "lm")
 
 ```
 
@@ -83,6 +88,8 @@ Now, using a model, what is the effect of terrorism on support for extreme polit
 
 ```{r}
 
+lm(ext_cand ~ terrorist_attack, data = terrorism_data) |>
+  tidy()
 
 ```
 
@@ -103,10 +110,10 @@ Simulate data that shows that the relationship between education and ideology is
 ```{r}
 set.seed(1990)
 
-terrorism_data = tibble(
- education = rnorm(n = , mean = , sd = ,),
- income = sample(c(), size = , replace = TRUE),
- ideology = rnorm(n = , mean = , sd = ,)
+income_data = tibble(
+ income = sample(c(0, 1), size = 500, replace = TRUE),
+ education = rnorm(n = 500, mean = 18, sd = 2) + 5 * income,
+ ideology = rnorm(n = 500, mean = 50, sd = 5) + 1*education + 10*income
 )
 
 
@@ -117,9 +124,16 @@ Fit a model that estimates the effect of education on ideology.
 
 ```{r}
 
+lm(ideology ~ education, data = income_data)
+
+
 ```
 
 **Q5: about how much larger is your estimated effect than the true effect? To answer, calculate = (estimated effect / true effect) X 100**
+
+2 / 1 \* 100
+
+200 times more
 
 # Task 2: Affairs
 
@@ -137,6 +151,14 @@ First, a blast from the past: find the percent of respondents who had no affairs
 
 ```{r}
 
+affairs_update = Affairs |> 
+  group_by(affairs) |>
+  tally() |>
+  mutate(percent = n/sum(n) * 100) 
+  
+affairs_update
+
+
 ```
 
 **Q6: Roughly what percent of respondents have had at least one affair?**
@@ -147,6 +169,8 @@ Estimate the naive model, where you control for nothing:
 
 ```{r}
 
+lm(affairs ~ children, data = Affairs) |>
+  tidy()
 
 ```
 
@@ -156,6 +180,8 @@ There's good reason to think how long a couple has been married is a **fork** he
 
 ```{r}
 
+lm(affairs ~ children + yearsmarried, data = Affairs) |>
+  tidy()
 
 ```
 
@@ -183,6 +209,9 @@ What is the average feeling thermometer for the police in the whole dataset (`th
 ```{r}
 
 
+therm_police <- therm |>
+  summarize(avg_police = mean(ft_police, na.rm = TRUE))
+therm_police
 ```
 
 **Q12: what is the average level of support for the police?**
@@ -192,8 +221,11 @@ Now, let's look at how much our estimates might vary across samples. Take 1,000 
 ```{r}
 set.seed(1990)
 
-sample_police = therm |> rep_sample_n(size = , reps = , replace = TRUE) |>
-  summarize( = mean(, na.rm = TRUE))
+sample_police = therm |> 
+  rep_sample_n(size = 30, reps = 1000, replace = TRUE) |>
+  summarize(avg_police = mean(ft_police, na.rm = TRUE))
+
+min(sample_police$avg_police)
 
 ```
 
@@ -203,6 +235,12 @@ Now, bias the samples in a form of your choosing so that the sample estimates do
 
 ```{r}
 
+sample_police = therm |> 
+  filter(race != "White") |>
+  rep_sample_n(size = 30, reps = 1000, replace = TRUE) |>
+  summarize(avg_police = mean(ft_police, na.rm = TRUE))
+
+ggplot(sample_police, aes(x = avg_police)) + geom_histogram()
 
 ```
 
@@ -216,11 +254,11 @@ Now, let's go back to treating `therm` as what it is: a sample. How much uncerta
 set.seed(1990)
 
 therm |>
-  rep_sample_n(size = nrow(), reps = , replace = TRUE) |>
-   summarise(avg_ = mean(, na.rm = TRUE)) |>
-   summarise(low = quantile(, .025), # middle 95% means lower bound is .025
-            mean = mean(, na.rm = TRUE), 
-            high = quantile(, .975)) # middle 95% means upper bound is .975
+  rep_sample_n(size = nrow(therm), reps = 1000, replace = TRUE) |>
+   summarise(avg_police = mean(ft_police, na.rm = TRUE)) |>
+   summarise(low = quantile(avg_police, .025), # middle 95% means lower bound is .025
+            mean = mean(avg_police, na.rm = TRUE), 
+            high = quantile(avg_police, .975)) # middle 95% means upper bound is .975
 
 
 ```
@@ -231,6 +269,14 @@ Repeat the same procedure above, except this time only for respondents who ident
 
 ```{r}
 set.seed(1990)
+
+therm |>
+  filter(race == "Middle Eastern") |>
+  rep_sample_n(size = nrow(therm), reps = 1000, replace = TRUE) |>
+   summarise(avg_police = mean(ft_police, na.rm = TRUE)) |>
+   summarise(low = quantile(avg_police, .025), # middle 95% means lower bound is .025
+            mean = mean(avg_police, na.rm = TRUE), 
+            high = quantile(avg_police, .975)) # middle 95% means upper bound is .975
 
 
 ```
