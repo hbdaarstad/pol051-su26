@@ -31,10 +31,10 @@ This page contains an outline of the topics, content, and assignments for the su
 |  | Thu, July 9 | Lab 3 |  |  |  | [💻](/labs/lab-3.qmd){download="lab-3.qmd"} |  |  |
 | [4](/weeks/week-4.html) | Mon, July 13 | Lecture 10 - Causality II | [📖](/weeks/week-4.html#prepare) | [🖥️](slides/lec-10.html) |  |  |  |  |
 |  | Tue, July 14 | Lecture 11 - DAGs | 📋 | [🖥️](slides/lec-11.html) |  |  |  |  |
-|  | Wed, July 15 | Lecture 12 - Uncertainty |  |  [🖥️](slides/lec-12.html) |  |  |  |  |
+|  | Wed, July 15 | Lecture 12 - Uncertainty |  |  [🖥️](slides/lec-12.html) |  |  | [🧮](/supplemental/hypothesis-tests.html) |  |
 |  | Thu, July 16 | Lab 4 |  |  |  | [💻](/labs/lab-4.qmd){download="lab-4.qmd"} |  | Project Draft Due Fri. July 17 📂 |
-| [5](/weeks/week-5.html) | Mon, July 20 | Lecture 13 - Hypothesis Testing I | [📖](/weeks/week-5.html#prepare) | [🖥️](slides/lec-13.html) |  |  |  |  |
-|  | Tue, July 21 | Lecture 14 - Prediction |  | [🖥️](slides/lec-14.html) |  |  |  |  |
+| [5](/weeks/week-5.html) | Mon, July 20 | Lecture 13 - Hypothesis Testing | [📖](/weeks/week-5.html#prepare) | [🖥️](slides/lec-13.html) |  |  | [🧮](/supplemental/hypothesis-tests.html) |  |
+|  | Tue, July 21 | Lecture 14 - Prediction |  | [🖥️](slides/lec-14.html) |  |  | [🧮](/supplemental/hypothesis-tests.html) |  |
 |  | Wed, July 22 | Lecture 15 - Natural Experiments |  | [🖥️](not-available-lec.html) |  |  |  | Peer Review is Due 📂 |
 |  | Thu, July 23 | Lab 5 |  |  |  | [💻](not-available.html) |  |  |
 | [6](/weeks/week-6.html) | Mon, July 27 | Lecture 16 - Final Presentations | [📖](/weeks/week-6.html#prepare) |  |  |  |  |Final Project Presentation 📂  |
