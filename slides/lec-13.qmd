@@ -52,19 +52,25 @@ library(huxtable)
 source(here::here("slides/R", "funcs.R"))
 ```
 
+# Reminder {.center background-color="#dc354a"}
+
+. . .
+
+TURN IN YOUR DRAFTS!! WE HAVE A PEER REVIEW DUE WED.
+
 # Plan for today {.center background-color="#dc354a"}
 
 . . .
 
-The confidence interval
+More on the confidence interval
 
 . . .
 
-Are we sure it's not zero?
+Statistical Significance
 
 . . .
 
-Making inferences from data
+Pulling it all together
 
 ## Bootstrap works for regression, too
 

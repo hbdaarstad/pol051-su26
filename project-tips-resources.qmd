@@ -38,7 +38,7 @@ The US migration data includes data on migrants, deportations, and migrant death
 
 -   Download [CSV](data/01_data/immigration.csv){download="immigration.csv"}
 
--   Download [Codebook](data/02_codebooks/immigration_codebook.docx){download="immigration_codebook.docx"}
+-   Download [Codebook](data/02_codebooks/Immigration_Codebook.docx){download="Immigration_Codebook.docx"}
 
 Data collected from: DHS Office of Immigration Statistics (removals/apprehensions), TRAC Immigration (deportation reasons by criminality), ICE Arrest Data (monthly, 2008–2018)
 
@@ -72,8 +72,8 @@ Latin America
 
 US and Canada
 
--   Download [CSV](data/01_data/acled_us_and_canada.csv){download="acled_us_and_canada.csv"}
+-   Download [CSV](data/01_data/acled_us_canada.csv){download="acled_us_canada.csv"}
 
--   Download [Codebook](data/02_codebooks/acled_us_and_canada_codebook.pdf){download="acled_us_and_canada_codebook.pdf"}
+-   Download [Codebook](data/02_codebooks/acled_us_canada_codebook.pdf){download="acled_us_canada_codebook.pdf"}
 
 Data collected from: ACLED (https://acleddata.com), and VDEM (https://v-dem.net)

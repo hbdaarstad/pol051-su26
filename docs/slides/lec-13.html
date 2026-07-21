@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Haley Daarstad">
-  <meta name="dcterms.date" content="2026-07-20">
+  <meta name="dcterms.date" content="2026-07-21">
   <title>POL 051 - Summer 2026 – Hypothesis Testing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -210,19 +210,26 @@ Haley Daarstad
     </div>
 </div>
 
-  <p class="date">July 20, 2026</p>
+  <p class="date">July 21, 2026</p>
 </section>
+<section id="reminder" class="title-slide slide level1 center" data-background-color="#dc354a">
+<h1>Reminder</h1>
+<div class="fragment">
+<p>TURN IN YOUR DRAFTS!! WE HAVE A PEER REVIEW DUE WED.</p>
+</div>
+</section>
+
 <section>
 <section id="plan-for-today" class="title-slide slide level1 center" data-background-color="#dc354a">
 <h1>Plan for today</h1>
 <div class="fragment">
-<p>The confidence interval</p>
+<p>More on the confidence interval</p>
 </div>
 <div class="fragment">
-<p>Are we sure it’s not zero?</p>
+<p>Statistical Significance</p>
 </div>
 <div class="fragment">
-<p>Making inferences from data</p>
+<p>Pulling it all together</p>
 </div>
 </section>
 <section id="bootstrap-works-for-regression-too" class="slide level2">
@@ -272,17 +279,17 @@ Haley Daarstad
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0372</td>
+<td style="text-align: right;">0.0367</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0366</td>
+<td style="text-align: right;">0.0327</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0384</td>
+<td style="text-align: right;">0.0316</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
@@ -292,32 +299,32 @@ Haley Daarstad
 <tr class="odd">
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0354</td>
+<td style="text-align: right;">0.0360</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0349</td>
+<td style="text-align: right;">0.0365</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0343</td>
+<td style="text-align: right;">0.0337</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0365</td>
+<td style="text-align: right;">0.0350</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0346</td>
+<td style="text-align: right;">0.0354</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">age</td>
-<td style="text-align: right;">0.0362</td>
+<td style="text-align: right;">0.0301</td>
 </tr>
 </tbody>
 </table>
@@ -337,7 +344,7 @@ Haley Daarstad
 </thead>
 <tbody>
 <tr>
-<td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;     background-color: rgb(242, 242, 242);">0.0345</td><td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;     background-color: rgb(242, 242, 242);">0.00164</td></tr>
+<td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;     background-color: rgb(242, 242, 242);">0.0346</td><td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;     background-color: rgb(242, 242, 242);">0.00172</td></tr>
 </tbody>
 </table>
 
@@ -363,7 +370,7 @@ Haley Daarstad
 </thead>
 <tbody>
 <tr>
-<td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;     background-color: rgb(242, 242, 242);">0.0345</td><td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;     background-color: rgb(242, 242, 242);">0.00164</td></tr>
+<td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0pt 0.4pt 0.4pt;     background-color: rgb(242, 242, 242);">0.0346</td><td class="huxtable-cell" style="text-align: right;  border-style: solid solid solid solid; border-width: 0.4pt 0.4pt 0.4pt 0pt;     background-color: rgb(242, 242, 242);">0.00172</td></tr>
 </tbody>
 </table>
 

@@ -146,8 +146,6 @@ var(dat$fastestLapSpeed)
 
 ```
 
-
-
 ## Creating New Variables
 
 We can also add to our data sets! If we want to make a new variable, we can use the `mutate()`, which uses existing data to create new variables. The correct format of the function is the following, first is the new variable name and then an equal sign `=`, followed by how the new variable will be formed and what existing variables are used to make it.

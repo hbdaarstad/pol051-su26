@@ -95,7 +95,7 @@ website:
           - href: supplemental/models.qmd
             text: Linear Regression Models
           - href: supplemental/hypothesis-tests.qmd
-            text: t-tests and Correlations
+            text: Extra Materials
           - href: supplemental/data-gen.qmd
             text: Correlations
 

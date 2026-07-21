@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>http://haleydaarstad.com/pol051-su26/supplemental/hypothesis-tests.html</loc>
-    <lastmod>2026-07-02T18:07:58.000Z</lastmod>
+    <lastmod>2026-07-21T21:27:19.706Z</lastmod>
   </url>
   <url>
     <loc>http://haleydaarstad.com/pol051-su26/supplemental/data-vis.html</loc>
@@ -45,23 +45,35 @@
     <lastmod>2026-07-02T18:07:58.000Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-13.html</loc>
-    <lastmod>2026-07-20T18:00:55.491Z</lastmod>
+    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-14.html</loc>
+    <lastmod>2026-07-21T20:15:09.936Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-11.html</loc>
-    <lastmod>2026-07-14T20:03:35.877Z</lastmod>
+    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-12.html</loc>
+    <lastmod>2026-07-15T19:53:30.471Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-1.html</loc>
+    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-10.html</loc>
+    <lastmod>2026-07-13T18:31:44.040Z</lastmod>
+  </url>
+  <url>
+    <loc>http://haleydaarstad.com/pol051-su26/project-tips-resources.html</loc>
+    <lastmod>2026-07-21T20:46:56.717Z</lastmod>
+  </url>
+  <url>
+    <loc>http://haleydaarstad.com/pol051-su26/not-available.html</loc>
     <lastmod>2026-07-02T18:07:58.000Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/project-description.html</loc>
-    <lastmod>2026-07-13T18:24:22.741Z</lastmod>
+    <loc>http://haleydaarstad.com/pol051-su26/index.html</loc>
+    <lastmod>2026-07-21T20:33:51.585Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/not-available-lec.html</loc>
+    <loc>http://haleydaarstad.com/pol051-su26/course-overview.html</loc>
+    <lastmod>2026-07-07T19:09:35.232Z</lastmod>
+  </url>
+  <url>
+    <loc>http://haleydaarstad.com/pol051-su26/course-faq.html</loc>
     <lastmod>2026-07-02T18:07:58.000Z</lastmod>
   </url>
   <url>
@@ -69,32 +81,24 @@
     <lastmod>2026-07-13T18:24:59.486Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/course-faq.html</loc>
+    <loc>http://haleydaarstad.com/pol051-su26/not-available-lec.html</loc>
     <lastmod>2026-07-02T18:07:58.000Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/course-overview.html</loc>
-    <lastmod>2026-07-07T19:09:35.232Z</lastmod>
+    <loc>http://haleydaarstad.com/pol051-su26/project-description.html</loc>
+    <lastmod>2026-07-13T18:24:22.741Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/index.html</loc>
-    <lastmod>2026-07-20T17:58:56.365Z</lastmod>
-  </url>
-  <url>
-    <loc>http://haleydaarstad.com/pol051-su26/not-available.html</loc>
+    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-1.html</loc>
     <lastmod>2026-07-02T18:07:58.000Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/project-tips-resources.html</loc>
-    <lastmod>2026-07-02T18:07:58.000Z</lastmod>
+    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-11.html</loc>
+    <lastmod>2026-07-14T20:03:35.877Z</lastmod>
   </url>
   <url>
-    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-10.html</loc>
-    <lastmod>2026-07-13T18:31:44.040Z</lastmod>
-  </url>
-  <url>
-    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-12.html</loc>
-    <lastmod>2026-07-15T19:53:30.471Z</lastmod>
+    <loc>http://haleydaarstad.com/pol051-su26/slides/lec-13.html</loc>
+    <lastmod>2026-07-21T21:19:03.830Z</lastmod>
   </url>
   <url>
     <loc>http://haleydaarstad.com/pol051-su26/slides/lec-2.html</loc>
@@ -118,7 +122,7 @@
   </url>
   <url>
     <loc>http://haleydaarstad.com/pol051-su26/supplemental/data-wrangling.html</loc>
-    <lastmod>2026-07-02T18:07:58.000Z</lastmod>
+    <lastmod>2026-07-21T21:07:55.319Z</lastmod>
   </url>
   <url>
     <loc>http://haleydaarstad.com/pol051-su26/supplemental/models.html</loc>
@@ -138,6 +142,6 @@
   </url>
   <url>
     <loc>http://haleydaarstad.com/pol051-su26/weeks/week-5.html</loc>
-    <lastmod>2026-07-20T17:57:33.230Z</lastmod>
+    <lastmod>2026-07-21T20:34:48.533Z</lastmod>
   </url>
 </urlset>

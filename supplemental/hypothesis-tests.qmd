@@ -1,7 +1,304 @@
 ---
-title: "t-tests and correlations"
+title: "Extra Materials: Sampling, Bootstraping, and Prediction"
 ---
 
-Sadly, we have not gotten to this code yet.
+```{r, echo = TRUE}
 
-![](/supplemental/images/IMG_6760.JPG){width="363"}
+
+# load libraries
+library(socviz)
+library(juanr)
+library(gapminder)
+library(patchwork)
+library(broom)
+library(paletteer)
+library(moderndive)
+
+```
+
+
+
+```{r setup, include=FALSE}
+# set knit options
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=5, 
+  fig.retina=3,
+  fig.align="center",
+  out.width = "100%",
+  cache = FALSE,
+  echo = FALSE,
+  message = FALSE, 
+  warning = FALSE
+)
+
+
+# source
+source(here::here("slides/R", "funcs.R"))
+```
+
+
+## Sampling in R
+
+Now imagine that instead of having data on every American, we only have a **sample** of 10 Americans. Why do we have a sample? Because interviewing every American is prohibitively costly. Same way a poll works: a **sample** to *estimate* American public opinion
+
+We can pick one sample of 10 people from `gss_sm` using the `rep_sample_n()` function from `moderndive`:
+
+```{r, echo = TRUE}
+gss_sm %>% rep_sample_n(size = 10, reps = 1)
+```
+
+::: callout-note
+`size` = size of the sample; `reps` = number of samples
+:::
+
+We can then calculate the average number of kids *among that sample of 10 people*
+
+```{r, echo = TRUE}
+gss_sm %>% rep_sample_n(size = 10, reps = 1) %>% 
+  summarise(avg_kids = mean(childs, na.rm = TRUE))
+```
+
+This is our **sample estimate** of the **population parameter**.
+
+## How to simulate
+
+If we take lots of samples of size 20 $\rightarrow$ uncertainty in a sample of 20.
+
+```{r, echo = TRUE, eval = FALSE}
+gss_sm %>%
+  rep_sample_n(size = 20, reps = 1000)
+```
+
+If we take lots of samples of size 100 $\rightarrow$ uncertainty in a sample of 100:
+
+```{r, echo = TRUE, eval = FALSE}
+gss_sm %>%
+  rep_sample_n(size = 100, reps = 1000)
+```
+
+So to see how uncertain we should feel about `gss_sm`, we should take many samples that are **the same size** as `gss_sm`:
+
+```{r, echo = TRUE, eval = FALSE}
+gss_sm %>% 
+  rep_sample_n(size = 2867, reps = 1000)
+```
+
+::: callout-note
+`nrow(DATA)` tells you how many observations in data object
+:::
+
+If we have a dataset of 2,867 observations and ask R to randomly pick 2,867 observations, we'll just get a bunch of copies of the original dataset:
+
+```{r, echo = TRUE, eval = FALSE}
+gss_sm %>% 
+  rep_sample_n(size = nrow(gss_sm), reps = 1000)
+```
+
+Solution: sample **with replacement** $\rightarrow$ once we draw an observation it goes back into the dataset, and can be sampled again!
+
+```{r, echo = TRUE, eval = FALSE}
+gss_sm %>% 
+  rep_sample_n(size = nrow(gss_sm), reps = 1000, replace = TRUE)
+```
+
+## Sampling with and without replacement
+
+If we were sampling **4** of these delicious fruits:
+```{r, echo = TRUE}
+fruits = c("Mango", "Pineapple", "Banana", "Blackberry")
+fruits
+```
+
+It would look like this, with and without replacement:
+
+```{r}
+set.seed(1990)
+tibble(`Sample, no replace` = sample(fruits, size = 4),
+       `Sample, replace` = sample(fruits, size = 4, replace = TRUE)) %>% 
+  t() %>% 
+  knitr::kable()
+  
+```
+
+Example: Polling Crime Victimization
+
+```{r, echo = TRUE}
+library(juanr)
+
+data <- crime |>
+  filter(pais == "Mexico")
+
+boot_data = data |> 
+  rep_sample_n(size = nrow(data), reps = 1000, replace = TRUE) |> 
+  summarise(avg = mean(vic1ext, na.rm = TRUE),
+            standard_error = sd(vic1ext, na.rm = TRUE)) |>
+  mutate(low = avg - 1.96 * standard_error, 
+         high = avg + 1.96 * standard_error) 
+
+ggplot(boot_data, aes(x = avg)) + 
+  geom_histogram(fill = red, color = "white") + 
+  theme_nice() + 
+  labs(x = "Average number of Individuals who are Victims of a Crime in Mexico") +
+  annotate(geom = "rect", 
+           xmin = quantile(boot_data$avg, probs = c(.025)), 
+           xmax = quantile(boot_data$avg, probs = c(.975)), 
+           ymin = 0, ymax = Inf, 
+           alpha = .5, fill = yellow)
+```
+
+
+## Bootstraping Regression
+
+We can simulate uncertainty in our estimate by bootstrapping
+
+```{r, echo = TRUE}
+boot_lm_kids = gss_sm %>% 
+  rep_sample_n(size = nrow(gss_sm), reps = 1000, replace = TRUE) %>% 
+  nest(data = -replicate) %>% 
+  mutate(model = data %>% map(.x = ., .f = ~lm(childs ~ age, data = .x))) %>% 
+  mutate(results = map(model, tidy)) %>% 
+  unnest(results) %>% 
+  ungroup() %>% 
+  filter(term == "age") 
+
+boot_lm_kids %>% 
+  select(`Bootstrap` = replicate, `Coefficient` = term, Estimate = estimate) %>%
+  slice(1:10) %>% 
+  knitr::kable(digits = 4)
+```
+
+How much might our estimate of `lm(childs ~ age)` vary? Look at the standard error
+
+```{r, echo = FALSE}
+boot_lm_kids %>% 
+  summarise(mean = mean(estimate), 
+            standard_error = sd(estimate))
+```
+
+You might report it is .0345, +/- 2 standard errors
+
+We can also look at the 95% confidence interval -- we are 95% "confident" the effect of age on the number of children a person has is `lm()` will estimate the standard error of regression estimates for us using the **statistical theory** approach, but the results are similar to **boostrapping**
+
+```{r, echo = TRUE}
+mod = lm(obama ~ sex, data = gss_sm)
+tidy(mod)
+```
+
+We can also ask `tidy` for the 95% CI:
+
+```{r, echo = TRUE}
+tidy(mod, conf.int = TRUE)
+```
+
+`conf.low` and `conf.high` are the lower and upper bound of the 95% CI
+
+
+
+## Prediction (by hand)
+
+```{r, echo = TRUE}
+weight_model = lm(mpg ~ wt, data = mtcars)
+```
+
+The equation for model is:
+
+$\widehat{mpg} = 37.29 - 5.34(wt)$
+
+We only have one explanatory variable to work with (`wt`), so our scenario can only rely on weight
+
+**Scenario**: a car that weights 3.25 tons $\rightarrow$ what fuel efficiency should we expect?
+
+To get an estimate of `mpg`, we simply plug in the value of "weight" we are interested in:
+
+Estimate for weight = [3.25]{.red}
+
+$\widehat{mpg} = 37.29 - 5.34 \times \color{red}{3.25} = 19.935$
+
+## Prediction (in R)
+
+First **define the scenario** we want a prediction for, using `crossing()`
+
+```{r, echo = TRUE}
+weight_scenario = crossing(wt = 3.25) 
+weight_scenario
+```
+
+::: callout-note
+the variables in `crossing` have to have the same name as the variables in the model
+:::
+
+We can then combine our scenario with our model using `augment()`
+
+```{r, echo = TRUE}
+augment(weight_model, newdata = weight_scenario)
+```
+
+`augment` takes the values for our scenario and plugs them in to our model equation to get an estimate
+
+::: callout-note
+We tell `augment` what our new scenario is using the `newdata =` argument
+:::
+
+We can also look at multiple scenarios, maybe a light, medium, and heavy car:
+
+```{r, echo = TRUE}
+weight_scenario = crossing(wt = c(1.5, 3, 5)) 
+weight_scenario
+```
+
+And then use `augment` to get the estimates:
+
+```{r, echo = TRUE}
+augment(weight_model, newdata = weight_scenario)
+```
+
+## Sequence of scenarios
+
+Or we can look at a *sequence* of scenarios using the `seq()` function
+
+Example: estimates for every weight between 2 and 6 tons, in .1 ton increments
+
+```{r, echo = TRUE}
+seq_weights = crossing(wt = seq(from = 2, to = 6, by = .1)) 
+seq_weights
+```
+
+::: callout-note
+`seq` needs a starting point (`from`), an end point (`to`), and an interval (`by`)
+:::
+
+And then get predictions for all these scenarios:
+
+```{r, echo = TRUE}
+augment(weight_model, newdata = seq_weights)
+```
+
+
+## Muiltiple Regression
+
+```{r, echo = TRUE}
+
+big_model = lm(mpg ~ wt + cyl + hp + am, data = mtcars)
+
+big_scenario = crossing(wt = 3, cyl = 4, hp = 120, am = 1)
+
+augment(big_model, newdata = big_scenario)
+```
+
+We can use `seq()` to see what happens when horsepower changes while everything else is left at a fixed value
+
+```{r, echo = TRUE}
+varying_hp = crossing(wt = 3, cyl = 4, am = 1, hp = seq(from = 50, to = 340, by = 5))
+
+augment(big_model, newdata = varying_hp)
+```
+
+## Visualizing predictions
+
+We could then store our estimate, and use it for plotting
+
+```{r, echo = TRUE, out.width="70%"}
+hp_pred = augment(big_model, newdata = varying_hp)
+ggplot(hp_pred, aes(x = hp, y = .fitted)) + geom_point()
+```

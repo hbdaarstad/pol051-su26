@@ -16,11 +16,11 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 13 - Hypothesis testing I](slides/lec-13.html)
+🖥️ [Lecture 13 - Hypothesis testing](slides/lec-13.html)
 
-🖥️ [Lecture 14 - Hypothesis Testing II](not-avaliable-lec.html)
+🖥️ [Lecture 14 - Prediction](/slides/lec-14.html)
 
-🖥️ [Lecture 15 - Prediction](not-avaliable-lec.html)
+🖥️ [Lecture 15 - Natural Experiments](not-avaliable-lec.html)
 
 ## Participation
 
