@@ -92,12 +92,12 @@ website:
             text: Data Visualization (ggplot2)
           - href: supplemental/data-wrangling.qmd
             text: Data Wrangling (ggplot2)
+          - href: supplemental/data-gen.qmd
+            text: Correlation
           - href: supplemental/models.qmd
             text: Linear Regression Models
           - href: supplemental/hypothesis-tests.qmd
             text: Extra Materials
-          - href: supplemental/data-gen.qmd
-            text: Correlations
 
 format:
   html:
