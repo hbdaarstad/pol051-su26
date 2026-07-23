@@ -1,0 +1,107 @@
+---
+title: "Lab 5"
+---
+
+```{r load-libraries, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(socviz)
+library(juanr)
+library(broom)
+library(moderndive)
+```
+
+# Instructions
+
+-   You will do your work in this `Quarto` document but will submit all your answers on Canvas
+-   *very important*: As you move through the document, make sure to run all code chunks (grey bits) that already have code in them
+-   Write your own code in the empty code chunks
+-   Useful shortcuts:
+    -   to run all the code in a specific code chunk, press the green right-facing triangle at the top right of the code chunk
+    -   to run all *prior* code chunks, press the downward-facing gray triangle at the top right of the code chunk
+
+## Task 1: Prediction
+
+Let's look at Zillow data on housing prices from `moderndive`:
+
+```{r}
+house_prices
+?house_prices
+```
+
+A seller wants to know: how much should I expect to sell my house for? Fit a model that predicts a house's price based on its: number of bedrooms, number of bathrooms, the square footage of the living area, square footage of the lot, number of floors, whether it is on the waterfront, and the year it was built.
+
+```{r}
+model = lm()
+
+tidy(model)
+```
+
+Now, using the model, answer the following questions.
+
+What is the estimated price for the seller's house, which has 1 beds, 1 baths, 1,100 sq ft, a 2,500 sq ft lot, 1 floor, no waterfront view, and which was built in 1980?
+
+```{r}
+
+# waterfront is logical 
+
+scen = crossing(bedrooms = , bathrooms = , sqft_living = , sqft_lot = , floors = , waterfront = , yr_built = )
+
+augment(model, newdata = scen)
+```
+
+**Q1: What is the estimated price?**
+
+How good of a job is this model doing at predicting house prices? Let's compare what our model says the house with ID number = 7202290240 *should* cost, and what it *actually* costs. Plug in the house's characteristics into your scenario object, and generate the estimated price.
+
+```{r}
+one_house = house_prices |> filter(id == 7202290240)
+augment(model, newdata = one_house)
+```
+
+**Q2: how much more is the house actually worth than our estimate ("real price" - "estimated price")?**
+
+That's an in-sample prediction. How well does the model do *out of sample* (a house that wasn't included in our data)? Look at this house: <https://www.zillow.com/homedetails/2770-Westlake-Ave-N-APT-1-Seattle-WA-98109/58387135_zpid/>. Using the house characteristics, generate an estimated price from our model. From the pictures, it's a 2 story house with a waterfront view. The sold price (1.375 million) is its listing price.
+
+```{r}
+scen = data.frame(bedrooms = , bathrooms = , sqft_living = , 
+                  sqft_lot = 1600, floors = 2, waterfront = TRUE, 
+                  yr_built = )
+
+augment(model, newdata = scen)
+```
+
+**Q3: how much more is the house actually worth than our estimate ("real price" - "estimated price")?**
+
+## Task 2: The draft
+
+Imagine the following: In the 1960s all men of military age (18+ years) became draft eligible to fight in the Vietnam War. A lottery is used where the social security numbers of draft eligible men were randomly drawn. Those chosen would have to serve in the military.
+
+**Q4: for which of the following could the random lottery draft be used as a natural experiment?**
+
+-   To study the effects of military service on long-term mental health
+-   To study why people choose to join the military
+-   To study whether drafts are effective tools of recruitment or ultimately counterproductive
+
+Now imagine that, contrary to official policy, people could pay unscrupulous doctors to produce reports of illnesses and disabilities that would *disqualify* them from the draft.
+
+**Q5: In which of the following ways would this mess up the natural experiment? Choose one**
+
+-   ability to pay a doctor to falsify report becomes a fork
+-   ability to pay a doctor to falsify report becomes a pipe
+-   ability to pay a doctor to falsify report becomes a collider
+
+Say your data for the draft study looked like this:
+
+```{r}
+df = read_rds("https://www.dropbox.com/scl/fi/hxx1i769gvzyogwdj64pb/draft-study.rds?rlkey=uz6g2ffz70c02hmtmwhlo4no8&dl=1")
+df
+```
+
+Look at whether the people who were and weren't drafted are *balanced* on background characteristics (high school completion (0/1), criminal conviction (0/1), high school GPA and marital status (0/1)):
+
+```{r}
+
+
+```
+
+**Q6: On which characteristic are draftees the most unbalanced?**

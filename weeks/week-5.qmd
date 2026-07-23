@@ -28,7 +28,7 @@ editor: visual
 
 ## Lab
 
-⌨️ [Lab 5 - Hypothesis Testing and Prediction](not-available.html)
+⌨️ [Lab 5 - Hypothesis Testing and Prediction](/labs/lab-5.qmd){download="lab-5.qmd"}
 
 <br><br>
 

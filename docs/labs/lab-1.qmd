@@ -5,7 +5,7 @@ output: html_document
 
 # Instructions
 
--   You will do your work in this `Rmarkdown` document but will submit all your answers on Canvas
+-   You will do your work in this `Quarto` document but will submit all your answers on Canvas
 -   *very important*: As you move through the document, make sure to run all code chunks (grey bits) that already have code in them
 -   Write your own code in the empty code chunks
 -   Useful shortcuts:
