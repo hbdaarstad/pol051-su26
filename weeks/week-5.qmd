@@ -20,11 +20,11 @@ editor: visual
 
 🖥️ [Lecture 14 - Prediction](/slides/lec-14.html)
 
-🖥️ [Lecture 15 - Natural Experiments](not-avaliable-lec.html)
+🖥️ [Lecture 15 - Natural Experiments](/slides/lec-15.html)
 
 ## Participation
 
-📋
+📋 Thinking about Natural Experiments + Cutoffs
 
 ## Lab
 

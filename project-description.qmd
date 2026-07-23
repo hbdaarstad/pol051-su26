@@ -4,6 +4,8 @@ title: "Project description"
 
 ::: callout-important
 Project Presentation date moved forward, now Mon. July 27
+
+Note: The project is subject to changes through the course, so please refer to the instructors comments for any changes made as the course continues.
 :::
 
 ## Timeline
