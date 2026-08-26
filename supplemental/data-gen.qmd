@@ -69,7 +69,7 @@ Lots of big, positive **products** $\rightarrow$ strong **positive correlation**
 Lots of big, negative **products** $\rightarrow$ strong **negative correlation**
 
 ::: callout-important
-It is important to understand that correlations **DO NOT** say anything about how much Y changes when X changes. Rather it only describes the ‘relationship’ between two variables.
+It is important to understand that correlations **DO NOT** say anything about how much Y changes when X changes. Rather, it only describes the ‘relationship’ between two variables.
 :::
 
 Correlations can describe two things: direction and strength of a relationship.
@@ -104,7 +104,7 @@ Furthermore, to describe correlations we look at the direction (positive or nega
 
 ### Example 1:
 
-In the first example, we are looking a randomly generated data to see how we can identify correlations visually based on scatter plots. I have provided 5 examples.
+In the first example, we are looking at randomly generated data to see how we can identify correlations visually based on scatter plots. I have provided 5 examples.
 
 ```{r}
 library(tidyverse)
@@ -139,7 +139,7 @@ geom_point()  +
 # strong positive correlation
 ggplot(d3, aes(x, y)) +
 geom_point()  +
- labs(title="Strong PositiveCorrelation Between X and Y")
+ labs(title="Strong Positive Correlation Between X and Y")
 
 # strong negative correlation
 ggplot(d4, aes(x, y)) +
@@ -155,7 +155,7 @@ geom_point() +
 
 ### Example 2:
 
-Now in example 2, I have randomly generated data on a fake data set to understand how to use the the `cor()` function and how to visually plot correlations to illustrate it.
+Now in example 2, I have randomly generated data on a fake data set to understand how to use the `cor()` function and how to visually plot correlations to illustrate it.
 
 ```{r}
 
@@ -176,7 +176,7 @@ data <- data.frame(
 head(data)
 ```
 
-The `cor()` function allows us to clalculate the correlation between two or more variables. My first example is looking at only variables and then visualizing it through a scatter plot.
+The `cor()` function allows us to calculate the correlation between two or more variables. My first example looks at only two variables and then visualizes it through a scatter plot.
 
 ```{r}
 
@@ -189,9 +189,9 @@ geom_point()
 
 ```
 
-Since the correlation score is 0.89, we can determine there is strong positive relationship between age and income, stating that as age increases so does income. Which is seen in our scatter plot as well.
+Since the correlation score is 0.89, we can determine there is a strong positive relationship between age and income, stating that as age increases, so does income, which is seen in our scatter plot as well.
 
-Next, we will examine our full data set. Doing this only works if you have only numerical values, it does not work for non numerical values.
+Next, we will examine our full data set. Doing this only works if you have only numerical values; it does not work for non-numerical values.
 
 ```{r}
 

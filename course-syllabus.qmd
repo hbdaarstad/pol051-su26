@@ -34,7 +34,7 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 Please note that this is a political science course, and as such we will be discussing political issues. As each of us comes into the section with unique opinions about political issues, there may be disagreements. I insist we discuss our differences with respect, civility, and empathy. Please do your best to keep an open mind about your peers’ perspectives as your peers will expect the same of you.
 
-*Note*: This does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully)
+*Note*: This does not mean you should avoid participating if/when you have an alternative point of view just because you may not wish to provoke an argument. Be bold, and share what you think (respectfully).
 
 -   *If I believe any of the discussion is becoming disrespectful or includes hateful or inappropriate speech, I hold the right to end the discussion.*
 
@@ -42,11 +42,11 @@ Please note that this is a political science course, and as such we will be disc
 
 If there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.
 
-It is the Professor’s responsibility to help make this course accessible to all students. If you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at [sdc.ucdavis.edu](sdc.ucdavis.edu).
+It is the Professor’s responsibility to help make this course accessible to all students. If you believe you have a disability requiring an accommodation or would like additional information about the resources available for students with disabilities, please visit the UC Davis Student Disability Center website at [sdc.ucdavis.edu](https://sdc.ucdavis.edu).
 
 -   Students must contact me about any accommodations in advance.
 
--   Outside Resources - The Student Academic Success Center is a campus wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics
+-   Outside Resources - The Student Academic Success Center is a campus-wide resource assisting students by helping them improve in study skills, academic writing, and other specific topics.
 
 ### Mandatory Reporter
 
@@ -61,14 +61,14 @@ Life at Davis can be complicated and challenging. You might feel overwhelmed, ex
 ## Communication
 
 -   What are office hours for?
-    -   Office hours are when the the professor sets aside two hours each week making themselves available to students. Office hours are often underutilized by all students in college. Consider this your time.
+    -   Office hours are when the professor sets aside two hours each week making themselves available to students. Office hours are often underutilized by all students in college. Consider this your time.
     -   You do not need an appointment to come by.
     -   My job as a Professor is to help each of you succeed, however, I can only help you if you ask. (PLEASE COME ASK ME!)
     -   I strongly encourage students to come to my office hours and chat about topics from the readings or lectures, talk over potential study strategies, or to simply converse.
 -   What are Emails for?
     -   If your question cannot wait until office hours, section, or class, then students should/may use email to contact their Professor. However, please note, email should not be used as an alternative to direct conversation or an in-depth discussion.
     -   As a simple rule of thumb, emails should be used to address quick questions, not for requests to exhaustively review material from lecture or section.
-    -   I will respond to emails within one business day, so between 9 am and 6 pm on weekdays. This means if you email me passed 6 pm on a weekday you will not receive any email till the next day in the morning around 9 am. If you email me on the weekends or passed Friday at 6 pm, I will respond promptly on Monday
+    -   I will respond to emails within one business day, so between 9 am and 6 pm on weekdays. This means if you email me past 6 pm on a weekday you will not receive any email till the next day in the morning around 9 am. If you email me on the weekends or past Friday at 6 pm, I will respond promptly on Monday
     -   I will not respond to emails that are rude, unintelligible, or inquiring about information readily accessible on the syllabus.
 -   I will typically communicate announcements through Canvas. Please make sure your Canvas information is up to date and that you check it frequently over the quarter.
 
@@ -78,10 +78,10 @@ All materials for this course are **free and online.** You will do all of your 
 
 [Cunningham, S. (2021). *Causal inference: The mixtape*. Yale university press.](https://mixtape.scunning.com/)
 
-[Wickham, H, Çetinkaya-Rundel,, M & Grolemund, G. *R for Data Science*(2e). O'Reilly.](https://r4ds.hadley.nz/)
+[Wickham, H, Çetinkaya-Rundel, M & Grolemund, G. *R for Data Science* (2e). O'Reilly.](https://r4ds.hadley.nz/)
 
 ["**Statistical Inference via Data Science**: A ModernDive into R and the Tidyverse\
-(Second Edition)" was written by Chester Ismay, Albert Y. Kim, and Arturo Valdivia\
+(Second Edition)" was written by Chester Ismay, Albert Y. Kim, and Arturo Valdivia.\
 Foreword by Kelly S. McConville. It was last built on May 24, 2026.](https://moderndive.com/v2/index.html)
 
 ## Lectures and labs
@@ -92,29 +92,29 @@ You are expected to bring a laptop to each class so that you can take part in th
 
 More information on the **UC Davis Financial Aid and Scholarships Computer Loan Program** laptops can be found [here](UC%20Davis%20Financial%20Aid%20and%20Scholarships%20Computer%20Loan%20Program).
 
-The weekly discussion/lab will be the place where you will practice the content you learned during lectures. You will be required to submit a report at the end of each week, these will be 30 percent of your grade.
+The weekly discussion/lab will be the place where you will practice the content you learned during lectures. You will be required to submit a report at the end of each week, these will be 35 percent of your grade.
 
 ## Teams
 
-You will be assigned to a team during lecture 1, this will be your team for your final project. You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions. All team members are expected to contribute equally to the final project. Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
+You will be assigned to a team during lecture 1; this will be your team for your final project. You are encouraged to sit with your teammates in lecture and you will also work with them in the lab sessions. All team members are expected to contribute equally to the final project. Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team's overall mark.
 
-You will be asked to provide documentation of your contributions for the final project and will also need to complete an evualition of your team members in a survey at the end of the course.
+You will be asked to provide documentation of your contributions for the final project and will also need to complete an evaluation of your team members in a survey at the end of the course.
 
 ## Assessment
 
-Assessment for the course is comprised of four components: application exercises, labs, and a final project.
+Assessment for the course is comprised of three components: application exercises, labs, and a final project.
 
 ### Application exercises
 
-Parts of some lectures will be dedicated to working on Application Exercises (AEs). These exercises which give you an opportunity to practice apply the statistical concepts and code introduced in the readings and lectures. These AEs are due by the end of the lecture period.
+Parts of some lectures will be dedicated to working on Application Exercises (AEs). These exercises which give you an opportunity to practice applying the statistical concepts and code introduced in the readings and lectures. These AEs are due by the end of the lecture period.
 
 Because these AEs are for practice, they will be graded based on completion, i.e., a good-faith effort has been made in attempting all parts. Successful on-time completion of at least 80% of AEs will result in full credit for AEs in the final course grade.
 
-You will submit these on canvas.
+You will submit these on Canvas.
 
 ### Labs
 
-In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be completed individually during your discussion/lap. Lab assignments will be completed using a Quarto document and submitted for grading on canvas by the end of the day of the week.
+In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation. Most lab assignments will be completed individually during your discussion/lab. Lab assignments will be completed using a Quarto document and submitted for grading on Canvas by the end of the day of the week.
 
 For example, Lab Assignment #1 on Thursday June 25 will be due Sunday June 28 at 12:59 PM.
 
@@ -130,7 +130,7 @@ The final course grade will be calculated as follows:
 
 | Category                             | Percentage   |
 |--------------------------------------|--------------|
-| Application Exercises (Particpation) | 15%          |
+| Application Exercises (Participation) | 15%          |
 | Labs                                 | 35% (7% x 5) |
 | Final Project                        | 50%          |
 
@@ -155,7 +155,7 @@ The final letter grade will be determined based on the following thresholds:
 
 ### Academic integrity
 
-Cheating and plagiarism will be evaluated and disciplined according to University policy. For information on academic integrity, please read: <http://cai.ucdavis.edu/aip.html.> You are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse. All suspected violations will be referred to Student Judicial Affairs for evaluation. You will be notified promptly by email if a referral is made.
+Cheating and plagiarism will be evaluated and disciplined according to University policy. For information on academic integrity, please read: <http://cai.ucdavis.edu/aip.html> You are responsible for understanding and following all aspects of University policy on academic integrity; ignorance is not an excuse. All suspected violations will be referred to Student Judicial Affairs for evaluation. You will be notified promptly by email if a referral is made.
 
 ### Policy on sharing and reusing code
 
@@ -163,7 +163,7 @@ I am well aware that a huge volume of code is available on the web to solve any 
 
 ### Policy on AI
 
-AI is not allowed for usage in this classroom. You may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work being submitted for credit in the UC Davis Department of Political Science. The Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: <https://ossja.ucdavis.edu/code-academic-conduct).>
+AI is not allowed for usage in this classroom. You may not use artificial intelligence tools such as ChatGPT, Gemini, Claude, Grok, etc. to complete academic work being submitted for credit in the UC Davis Department of Political Science. The Office of Student Support and Judicial Affairs (OSSJA) considers the unauthorized use of content generated by artificial intelligence (AI) to be academic misconduct and/or plagiarism (see: <https://ossja.ucdavis.edu/code-academic-conduct>).
 
 Taking credit for any work not created by the student; work includes, but is not limited to, books, articles, experimental methodology or results, compositions, images, lectures, computer programs, internet postings, and content generated by software or artificial intelligence
 
@@ -177,11 +177,11 @@ The due dates for assignments are there to help you keep up with the course mate
 
 ### Waiver for extenuating circumstances
 
-If there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.
+If there are circumstances that prevent you from completing a lab or project assignment by the stated due date, you may email me before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide an explanation. This waiver may only be used once in the quarter, so only use it for a truly extenuating circumstance.
 
 ### Regrade request policy
 
-Regrade requests must be submitted within a week of when an assignment is returned. A Regrade requests will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.
+Regrade requests must be submitted within a week of when an assignment is returned. A regrade request will be considered if there was an error in the grade calculation or if you feel a correct answer was mistakenly marked as incorrect. Requests to dispute the number of points deducted for an incorrect response will not be considered. Note that by submitting a regrade request, the entire question will be graded which could potentially result in losing points.
 
 *No grades will be changed after the final project presentations.*
 
@@ -189,15 +189,15 @@ Regrade requests must be submitted within a week of when an assignment is return
 
 Responsibility for class attendance rests with individual students. Since regular and punctual class attendance is expected, students must accept the consequences of failure to attend.
 
-Participation during lectures will be 15 percent of your grade, and will be graded using the application exercises. Successful completion of 80 percent of these will result in full credit for the course.
+Participation during lectures will be 15 percent of your grade, and will be graded using the application exercises. Successful completion of 80 percent of these will result in full credit for participation.
 
-If you are absent due to illness, religious reasons, etc. please email me directly. Please note, that work conflicts are not considered an excused absence.
+If you are absent due to illness, religious reasons, etc., please email me directly. Please note that work conflicts are not considered an excused absence.
 
 ### Policy on video recording course content
 
-If you feel that you need record the lectures yourself, you must get permission from me ahead of time and these recordings should be used for personal study only, no for distribution. Unauthorized distribution is a cause for disciplinary action by the Judicial Board.
+If you feel that you need to record the lectures yourself, you must get permission from me ahead of time and these recordings should be used for personal study only, not for distribution. Unauthorized distribution is a cause for disciplinary action by the Judicial Board.
 
-*Note:* If you've read this far in the syllabus, email me a picture of your pet if you have one or your favourite meme for extra credit!
+*Note:* If you've read this far in the syllabus, email me a picture of your pet if you have one or your favorite meme for extra credit!
 
 ### Copyright
 
@@ -206,14 +206,14 @@ My lectures and course materials, including presentations, essay questions, outl
 ## Important dates
 
 -   **June 22:** Classes begin
--   **June 28:** Project Ideas Due
+-   **July 1:** Project Ideas Due
 -   **July 17:** Project Draft Due
 -   **July 22:** Project Peer Review Due
+-   **July 27:** Final Project Presentation
 -   **July 29:** Final Projects Due
--   **July 30:** Final Project Presentation
 
 Click [here](https://registrar.ucdavis.edu/calendar/academic-calendar) for the full UC Davis academic calendar.
 
 ## **Credits**
 
-This course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel**,** Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.
+This course draws on code, content, ideas, inspirations and much more from work by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.

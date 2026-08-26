@@ -176,7 +176,7 @@ window.Quarto = {
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://r4ds.hadley.nz/">
-            R for Data Sceince
+            R for Data Science
             </a>
           </li>
           <li>
@@ -401,7 +401,7 @@ window.Quarto = {
 <p>Linear regression is the most commonly used approach for modeling</p>
 <ul>
 <li><p>It involves a numerical outcome variable, y, and explanatory variables, x, that are either numerical or categorical.</p></li>
-<li><p>We assume the relationship between X and Y is linear (a line) Useful for prediction and explanation.</p></li>
+<li><p>We assume the relationship between X and Y is linear (a line). Useful for prediction and explanation.</p></li>
 </ul>
 <p><span class="math display">\[
 Y_i = \alpha + \beta X + u_i
@@ -410,27 +410,27 @@ Y_i = \alpha + \beta X + u_i
 <p><span class="math display">\[
 \hat Y_i = \hat\alpha + \hat\beta X + \hat u_i
 \]</span></p>
-<p>The hat (^) are indicators of a sample data not the true population estimate.</p>
+<p>The hat (^) is an indicator of sample data, not the true population estimate.</p>
 <ul>
 <li><p>Y: dependent, outcome variable</p></li>
 <li><p>X: independent, explanatory variable</p></li>
-<li><p>𝜶&nbsp; and β: are the parameter estimates</p>
+<li><p>α and β: are the parameter estimates</p>
 <ul>
-<li><p>𝜶 : The predicted value of Y when X= 0 (intercept)</p></li>
+<li><p>α : The predicted value of Y when X= 0 (intercept)</p></li>
 <li><p>β: how much Y changes for a one-unit increase in X (slope)</p></li>
 </ul></li>
 </ul>
-<p>We use linear regressions to estimate how x changes are y! Therefore, how we interpret the estimate, β, is determined by whether our x value is a categorical or continuous variable.</p>
-<p>Here is the formula to Interpreting Regressions:</p>
+<p>We use linear regressions to estimate how x changes y! Therefore, how we interpret the estimate, β, is determined by whether our x value is a categorical or continuous variable.</p>
+<p>Here is the formula for interpreting regressions:</p>
 <ul>
 <li><p>Continuous Variable -&gt; Look at the slope!</p>
 <ul>
-<li><p>When X increases 1 unit, Y increases by 𝛽</p></li>
-<li><p>Usually, you can ignore the intercept The intercept is the average value of Y when X =0.</p></li>
+<li><p>When X increases 1 unit, Y increases by β</p></li>
+<li><p>Usually, you can ignore the intercept. The intercept is the average value of Y when X = 0.</p></li>
 </ul></li>
 <li><p>Dummy/Categorical Variable -&gt; Compare it with the baseline category (aka intercept)</p>
 <ul>
-<li><p>When X is in the given category, average Y value is higher by 𝛽 compared to the average Y value for baseline X.</p></li>
+<li><p>When X is in the given category, average Y value is higher by β compared to the average Y value for baseline X.</p></li>
 <li><p>The intercept is the average Y value for the baseline category.</p></li>
 </ul></li>
 </ul>
@@ -444,18 +444,18 @@ Y_i = \alpha + \beta X + u_i
 <tr class="header">
 <th>Type</th>
 <th>Approach</th>
-<th>Interpetation</th>
+<th>Interpretation</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Continious</td>
+<td>Continuous</td>
 <td>A one unit increase in X, SLOPE unit change in Y.</td>
 <td>For every ___ (replace with unit value) increase in ___ (replace with X value) results in ___ (replace with estimate/slope) unit change in ___ (replace with Y, or outcome value)</td>
 </tr>
 <tr class="even">
 <td>Categorical</td>
-<td>The category is SLOPE unites higher/lower than the intercept.</td>
+<td>The category is SLOPE units higher/lower than the intercept.</td>
 <td>The ___ (replace with categorical value) is ___ (replace with estimate/slope) higher/lower than ___ (replace with baseline/intercept)</td>
 </tr>
 </tbody>
@@ -504,10 +504,10 @@ Y_i = \alpha + \beta X + u_i
 6  59      0 5.041626    4  92209.84        81</code></pre>
 </div>
 </div>
-<p>First, we will doing a simple linear regression with only one X value. Y is our outcome variable and X is our explantory variable. it will look like the following:</p>
+<p>First, we will do a simple linear regression with only one X value. Y is our outcome variable and X is our explanatory variable. It will look like the following:</p>
 <p><code>lm(y ~ x, data)</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical interpetation</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># categorical interpretation</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(height <span class="sc">~</span> gender, data)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -533,10 +533,10 @@ F-statistic: 1.474 on 1 and 98 DF,  p-value: 0.2276</code></pre>
 </div>
 </div>
 <p>Our estimate, how much x changes y, is <strong>-0.17</strong>, and our baseline, Male’s height, is <strong>5.51</strong> feet, which we can interpret as the following:</p>
-<p>Men are on average <strong>5.51</strong> feet high, and women are on average <strong>0.17 feet shorter</strong> than Men.</p>
+<p>Men are on average <strong>5.51</strong> feet tall, and women are on average <strong>0.17 feet shorter</strong> than men.</p>
 <p>However, we can not say according to our data that gender is correlated with height, since according to our P-value column, our <strong>p-value is 0.228</strong>, which is more than 0.05.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continious interpetation</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuous interpretation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(income <span class="sc">~</span> age, data)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -563,26 +563,26 @@ F-statistic: 386.5 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>We want to look at the column with the estimate first, this tells us our intercept and estimate.</p>
 <p>Our estimate, how much x changes y, is <strong>1045.02</strong>, and our intercept is <strong>34,967.79</strong>, which we can interpret as the following:</p>
-<p>At 18 years old (which is the lowest age we have), income is <strong>34,967.79</strong>, and for every year older, an individuals income increases by <strong>1045.02</strong> dollars.</p>
-<p>In additon, we can say according to our data that age is correlated with income, since according to our P-value column, our <strong>p-value is &lt;2e-16</strong>, which is less than 0.05.</p>
-<p>In addition you can see *** after our p-value, this tells us the level of significance, the more stars the stronger the significance.</p>
+<p>At 18 years old (which is the lowest age we have), income is <strong>34,967.79</strong>, and for every year older, an individual’s income increases by <strong>1045.02</strong> dollars.</p>
+<p>In addition, we can say according to our data that age is correlated with income, since according to our P-value column, our <strong>p-value is &lt;2e-16</strong>, which is less than 0.05.</p>
+<p>In addition, you can see *** after our p-value; this tells us the level of significance — the more stars, the stronger the significance.</p>
 </section>
 <section id="multivariate-linear-regressions" class="level3">
 <h3 class="anchored" data-anchor-id="multivariate-linear-regressions">Multivariate Linear Regressions</h3>
-<p>Now, we have just been looking at one explanatory variable, however, you may want to look are more than one and also consider that there maybe outside influence that you need to control for.</p>
+<p>Now, we have just been looking at one explanatory variable, however, you may want to look at more than one and also consider that there may be outside influence that you need to control for.</p>
 <p>Furthermore, you may want to add more x variables. To do this, you can do the following:</p>
 <p><code>lm(y ~ x1 + x2 + x3 + ... + xn , data)</code></p>
-<p>Now, lets look at an example, but first, lets make some random generated data real quick!</p>
+<p>Now, let’s look at an example, but first, let’s make some randomly generated data real quick!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What if we have a confounding variable?</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This will be our confounding variable</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>weekly_exercise <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># lets make our new dataframe</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># let's make our new dataframe</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>df_confound <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">income_scale =</span> (<span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">30000</span>,<span class="dv">10000</span>) <span class="sc">+</span> <span class="dv">10000</span><span class="sc">*</span>weekly_exercise)<span class="sc">/</span><span class="dv">1000</span>,</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">age =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">35</span>,<span class="dv">10</span>),</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># this is another function that creats a binary variable based on probability </span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                      <span class="co"># this is another function that creates a binary variable based on probability </span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">female =</span> <span class="fu">rbinom</span>(<span class="dv">100</span>,<span class="dv">1</span>,.<span class="dv">5</span>),</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">heart_health =</span> <span class="dv">60</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>weekly_exercise <span class="sc">-</span> <span class="dv">1</span><span class="sc">*</span>age <span class="sc">+</span> <span class="dv">8</span><span class="sc">*</span>female <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="dv">10</span>))</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -623,7 +623,7 @@ F-statistic: 67.99 on 3 and 96 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>Okay! There is something wrong with this model yes? We know income scale doesn’t actually impact heart health, rather this is done through weekly exercise! To take this into account we can do the following:</p>
+<p>Okay! There is something wrong with this model, yes? We know income scale doesn’t actually impact heart health; rather, this is done through weekly exercise! To take this into account we can do the following:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model.fix <span class="ot">&lt;-</span> <span class="fu">lm</span>(heart_health <span class="sc">~</span> weekly_exercise <span class="sc">+</span> income_scale <span class="sc">+</span> age <span class="sc">+</span> female, df_confound)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model.fix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -654,7 +654,7 @@ F-statistic: 90.32 on 4 and 95 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_confound <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>weekly_exercise,<span class="at">y =</span> heart_health)) <span class="sc">+</span> </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># lets add a line based on using a linear regression</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># let's add a line based on using a linear regression</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>

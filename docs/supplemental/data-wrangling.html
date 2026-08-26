@@ -176,7 +176,7 @@ window.Quarto = {
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://r4ds.hadley.nz/">
-            R for Data Sceince
+            R for Data Science
             </a>
           </li>
           <li>
@@ -405,10 +405,8 @@ window.Quarto = {
 <p>In the following coding examples, you will see three important functions, a <code>pipe</code>, <code>select()</code>, and <code>filter()</code>.</p>
 <section id="pipes-or" class="level2">
 <h2 class="anchored" data-anchor-id="pipes-or">Pipes (%&gt;% or |&gt;)</h2>
-<p>First, a pipe is written as a <code>%&gt;%</code> or <code>|&gt;</code>. Pipes are a powerful tool that help us clearly expressing a sequence of functions. Pipes tell R that you want to use a designated set for a chain of functions that build off of each other. A way to think about is in math terms.</p>
-<p>$$</p>
+<p>First, a pipe is written as a <code>%&gt;%</code> or <code>|&gt;</code>. Pipes are a powerful tool that help us clearly express a sequence of functions. Pipes tell R that you want to use a designated set for a chain of functions that build off of each other. A way to think about this is in math terms.</p>
 <p><span class="math display">\[ F(G(H(X))), X=Data\]</span></p>
-<p>$$</p>
 <p>In this series of functions, the first step is you solve <span class="math inline">\(H(X)\)</span>, then using that solution you solve <span class="math inline">\(G()\)</span>, then after you solve <span class="math inline">\(F()\)</span>. The final output is the solution of those chain of events with the information of <span class="math inline">\(X\)</span>. This is how pipes work! Pipes use a set of information, typically a data frame, and then apply it to a series of functions that build off each other.</p>
 </section>
 <section id="filter-and-select" class="level2">
@@ -453,29 +451,29 @@ window.Quarto = {
 # ℹ 30 more rows</code></pre>
 </div>
 </div>
-<p>What if we wanted two different constructors? Then we want to use the logical operator for <code>|</code> and also differentiate it from the next instruction for filter by using a <code>,</code> or <code>()</code>. In the example bellow, I filter for the race information for the constructor <code>Mercades</code> and <code>Red Bull</code> during the <code>2021</code> season.</p>
+<p>What if we wanted two different constructors? Then we want to use the logical operator for <code>|</code> and also differentiate it from the next instruction for filter by using a <code>,</code> or <code>()</code>. In the example below, I filter for the race information for the constructor <code>Mercedes</code> and <code>Red Bull</code> during the <code>2021</code> season.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>race_stats <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercades"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercedes"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 40 × 5
-   circuit                             year constructor surname    points
-   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
- 1 Losail International Circuit        2021 Red Bull    Pérez          12
- 2 Losail International Circuit        2021 Red Bull    Verstappen     19
- 3 Bahrain International Circuit       2021 Red Bull    Pérez          10
- 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18
- 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0
- 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25
- 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12
- 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18
- 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10
-10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19
-# ℹ 30 more rows</code></pre>
+<pre><code># A tibble: 80 × 5
+   circuit                             year constructor surname  points
+   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;
+ 1 Losail International Circuit        2021 Mercedes    Hamilton     25
+ 2 Losail International Circuit        2021 Mercedes    Bottas        0
+ 3 Bahrain International Circuit       2021 Mercedes    Hamilton     25
+ 4 Bahrain International Circuit       2021 Mercedes    Bottas       16
+ 5 Autodromo Enzo e Dino Ferrari       2021 Mercedes    Hamilton     19
+ 6 Autodromo Enzo e Dino Ferrari       2021 Mercedes    Bottas        0
+ 7 Autódromo Internacional do Algarve  2021 Mercedes    Hamilton     25
+ 8 Autódromo Internacional do Algarve  2021 Mercedes    Bottas       16
+ 9 Circuit de Barcelona-Catalunya      2021 Mercedes    Hamilton     25
+10 Circuit de Barcelona-Catalunya      2021 Mercedes    Bottas       15
+# ℹ 70 more rows</code></pre>
 </div>
 </div>
 <p>However, if we wanted to use the modified data, we could not because it is not saved. If we want to use this data we need to save it as a new object!</p>
@@ -484,23 +482,23 @@ window.Quarto = {
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(circuit, year, constructor, surname, points) <span class="sc">|&gt;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># remove duplicates</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>() <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercades"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(constructor <span class="sc">==</span> <span class="st">"Mercedes"</span> <span class="sc">|</span>  constructor <span class="sc">==</span> <span class="st">"Red Bull"</span>, year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 40 × 5
-   circuit                             year constructor surname    points
-   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;
- 1 Losail International Circuit        2021 Red Bull    Pérez          12
- 2 Losail International Circuit        2021 Red Bull    Verstappen     19
- 3 Bahrain International Circuit       2021 Red Bull    Pérez          10
- 4 Bahrain International Circuit       2021 Red Bull    Verstappen     18
- 5 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Pérez           0
- 6 Autodromo Enzo e Dino Ferrari       2021 Red Bull    Verstappen     25
- 7 Autódromo Internacional do Algarve  2021 Red Bull    Pérez          12
- 8 Autódromo Internacional do Algarve  2021 Red Bull    Verstappen     18
- 9 Circuit de Barcelona-Catalunya      2021 Red Bull    Pérez          10
-10 Circuit de Barcelona-Catalunya      2021 Red Bull    Verstappen     19
-# ℹ 30 more rows</code></pre>
+<pre><code># A tibble: 80 × 5
+   circuit                             year constructor surname  points
+   &lt;chr&gt;                              &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;
+ 1 Losail International Circuit        2021 Mercedes    Hamilton     25
+ 2 Losail International Circuit        2021 Mercedes    Bottas        0
+ 3 Bahrain International Circuit       2021 Mercedes    Hamilton     25
+ 4 Bahrain International Circuit       2021 Mercedes    Bottas       16
+ 5 Autodromo Enzo e Dino Ferrari       2021 Mercedes    Hamilton     19
+ 6 Autodromo Enzo e Dino Ferrari       2021 Mercedes    Bottas        0
+ 7 Autódromo Internacional do Algarve  2021 Mercedes    Hamilton     25
+ 8 Autódromo Internacional do Algarve  2021 Mercedes    Bottas       16
+ 9 Circuit de Barcelona-Catalunya      2021 Mercedes    Hamilton     25
+10 Circuit de Barcelona-Catalunya      2021 Mercedes    Bottas       15
+# ℹ 70 more rows</code></pre>
 </div>
 </div>
 <p>Now, we can use this information!</p>
@@ -511,7 +509,7 @@ window.Quarto = {
 </section>
 <section id="base-r-descriptive-stats" class="level2">
 <h2 class="anchored" data-anchor-id="base-r-descriptive-stats">Base R Descriptive Stats</h2>
-<p>First, let’s find the minimum speed recorded and the maximum speed recorded during the fastest laps for each race. Since fastest lap time is a character we need to change it from a character to a numeric value and lets remove any NAs.</p>
+<p>First, let’s find the minimum speed recorded and the maximum speed recorded during the fastest laps for each race. Since fastest lap time is a character we need to change it from a character to a numeric value, and let’s remove any NAs.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RandomData)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> race_stats</span>
@@ -539,7 +537,7 @@ window.Quarto = {
 </div></li>
 <li><p>Mean</p>
 <ul>
-<li>The <strong>mean</strong> is average value of all the numbers in a set.</li>
+<li>The <strong>mean</strong> is the average value of all the numbers in a set.</li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -593,7 +591,7 @@ window.Quarto = {
 <ul>
 <li><p>Standard Deviation and Variance</p>
 <ul>
-<li><strong>Variance</strong> is the average squared difference between data points in a set, which measures how much the values in a set vary from each other. While <strong>Standard Deviation</strong> is the measure of how far the values in a set are from the mean</li>
+<li><strong>Variance</strong> is the average squared difference between data points in a set, which measures how much the values in a set vary from each other, while <strong>Standard Deviation</strong> is the measure of how far the values in a set are from the mean</li>
 </ul></li>
 </ul>
 <div class="cell">
@@ -720,7 +718,7 @@ window.Quarto = {
 </section>
 <section id="descriptive-statistics-using-tidyverse" class="level2">
 <h2 class="anchored" data-anchor-id="descriptive-statistics-using-tidyverse">Descriptive Statistics Using Tidyverse</h2>
-<p>Now that we know some basic ways to manipulate the data frame, lets look at different way to do basic descriptive statistics! In this section we will be using the function, <code>summarize()</code>. This function is similar to the mutate function, except instead of adding a variable, it makes a new data frame based on existing variables. You will also see the function <code>group_by()</code>. This function allows us to organize the data by telling it to group things by a variable(s). Essentially, the functions splits things into groups.</p>
+<p>Now that we know some basic ways to manipulate the data frame, let’s look at different ways to do basic descriptive statistics! In this section we will be using the function, <code>summarize()</code>. This function is similar to the mutate function, except instead of adding a variable, it makes a new data frame based on existing variables. You will also see the function <code>group_by()</code>. This function allows us to organize the data by telling it to group things by a variable(s). Essentially, the functions splits things into groups.</p>
 <p>For this example we are going to find the total points for each team in the 2023 season!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>TeamStandings_2023 <span class="ot">&lt;-</span> race_stats <span class="sc">|&gt;</span></span>

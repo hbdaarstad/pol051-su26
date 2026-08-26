@@ -12,7 +12,7 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 4 -Data Wrangling II](/slides/lec-4.html)
+🖥️ [Lecture 4 - Data Wrangling II](/slides/lec-4.html)
 
 🖥️ [Lecture 5 - Relationships I](/slides/lec-5.html)
 

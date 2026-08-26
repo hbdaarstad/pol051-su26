@@ -20,7 +20,7 @@ editor: visual
 
 ## Participation
 
-📋 [AE 3: Causality](/ae/files/ae-3-causality.qmd){download="ae-3-causality.qmd"}
+📋 [AE 3 - Causality](/ae/files/ae-3-causality.qmd){download="ae-3-causality.qmd"}
 
 ## Lab
 

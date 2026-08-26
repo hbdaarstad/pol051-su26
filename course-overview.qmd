@@ -4,9 +4,9 @@ title: "POL 051: The Scientific Study of Politics"
 
 ### Welcome to The Scientific Study of Politics!
 
-Data is everywhere in our world, especially in politics. Policymakers to journalists to NGOs, and so many others use data to inform our world and make decisions. We use data to make arguments to support claims such as policies that can improve or worsen our lives.
+Data is everywhere in our world, especially in politics. From policymakers to journalists to NGOs, and so many others, we use data to inform our world and make decisions. We use data to argue for or against policies that can improve or worsen our lives.
 
-This undergraduate course is focused on building the skills and knowledge on how to conduct data analysis and how to think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.
+This undergraduate course is focused on building the skills and knowledge needed to conduct data analysis and think causally about the political world. We will cover topics in political data science, causal inference, and uncertainty.
 
 :::::::: columns
 ::: {.column width="50%"}
@@ -45,4 +45,4 @@ This undergraduate course is focused on building the skills and knowledge on how
 
 {{< video https://youtu.be/ogeGJS0GEF4?si=9goHMz6Bf03nPhWO >}}
 
-These course materials have been inspired by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel**,** Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.
+These course materials have been inspired by Juan Tellez, Chris Hare, Mine Çetinkaya-Rundel, Andrew Heiss, Nick C. Huntington-Klein, Kieran Healy, Scott Cunningham, Richard McElreath and others who have made their courses publicly available. The lecture slides were developed by Juan Tellez and edited by me to fit the course.

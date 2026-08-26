@@ -5,7 +5,7 @@ title: "Project description"
 ::: callout-important
 Project Presentation date moved forward, now Mon. July 27
 
-Note: The project is subject to changes through the course, so please refer to the instructors comments for any changes made as the course continues.
+Note: The project is subject to changes throughout the course, so please refer to the instructor's comments for any changes made as the course continues.
 :::
 
 ## Timeline
@@ -24,7 +24,7 @@ Note: The project is subject to changes through the course, so please refer to t
 
 *Make a Research Question, Pick a data set, and do analysis. That is your final project.*
 
-The goal of the final project is for you to apply the skills you have been learning through out the quarter and apply to real life data to answer a question YOU HAVE MADE.
+The goal of the final project is for you to apply the skills you have been learning throughout the quarter and apply them to real-life data to answer a question YOU HAVE MADE.
 
 The data will come from a pre-curated list of data from various different sources including public research institutions and survey firms. As a group you will select a data set based on a research question that you have made. Remember the goal of this project is for you to demonstrate the skills we have covered in this class and apply them to the selected data set to analyze it in a meaningful way.
 
@@ -48,7 +48,7 @@ The pieces for the final project are the following:
 
 I have curated a list of data sets on a range of topics including sports, tipping, exposure to violence, gender, environmental topics, global attitudes, and more.
 
-As a group select a data set that you are interested in, and relates to your research question. You will be required to submit your groups research question and the selected data set.
+As a group, select a data set that you are interested in and that relates to your research question. You will be required to submit your group's research question and the selected data set.
 
 Find the data sets [here](project-tips-resources.qmd).
 
@@ -56,7 +56,7 @@ Find the data sets [here](project-tips-resources.qmd).
 
 Your Project Proposal submission should be no more than half a page and will be graded on completion. This means that as long as you attempt, show that you tried, and included all requirements then you will receive full credit.
 
-Download the template [here](files/project-proposal-template.qmd){download="project-proposal-template.qmd"}. Render as a word docx and submit to canvas.
+Download the template [here](files/project-proposal-template.qmd){download="project-proposal-template.qmd"}. Render as a Word document (.docx) and submit to Canvas.
 
 The proposal should include the following:
 
@@ -66,7 +66,7 @@ The proposal should include the following:
     -   Remember to provide a citation for the data set
 -   Describe the observations and the general characteristics being measured in the data
     -   What questions is your team thinking they will be using?
-    -   Use the code book to find what variables were collected and how they are measured.
+    -   Use the codebook to find what variables were collected and how they are measured.
 
 #### Research question (1 paragraph)
 
@@ -76,7 +76,7 @@ The proposal should include the following:
 
 #### Glimpse of data
 
--   In the template to show a glimpse of the selected variables that relate to your research question.
+-   In the template, show a glimpse of the selected variables that relate to your research question.
 
     -   Use the `read.csv()` to import the selected data set, make sure the selected data set is in your POL 051 folder.
     -   Then use the `select()` to select the specific variables you would like to use to answer your question
@@ -98,8 +98,8 @@ The proposal should include the following:
     setwd()
 
     # upload the dataset using read.csv
-    # read.csv(dataset_name.csv)
-    data <- read.csv(data_set_name.csv)
+    # read.csv("dataset_name.csv")
+    data <- read.csv("data_set_name.csv")
 
     data |>
       select(variable1, variable2, variable3, variable4 .... ) |>
@@ -110,11 +110,11 @@ The proposal should include the following:
 
 ### Draft report {#draft-report}
 
-The purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion as long as all parts are included then your group will receive full credit.
+The purpose of the project report draft #1 is to get your team started on this project earlier, so you are not doing this last minute. This is graded on completion; as long as all parts are included, your group will receive full credit.
 
 Click here for the [project report template](files/project-template.qmd){download="project-template.qmd"}.
 
-You will render this as a word docx before submitting to canvas.
+You will render this as a Word document (.docx) before submitting to Canvas.
 
 Include the following in the draft:
 
@@ -126,13 +126,13 @@ The introduction should include the following (1 page):
     -   Focus these two key elements:
         -   What is the observed problem
         -   What does this contribute to?
-            -   Does this contribute to more knoweldge? (Intellectual)
+            -   Does this contribute to more knowledge? (Intellectual)
             -   Does this contribute to policy? (Broader)
     -   In your introduction section, you should be focused on discussing what the problem is that you are seeing and why this needs to be addressed. Is there a current problem in the world; did something happen?
     -   <https://www.sjsu.edu/writingcenter/docs/handouts/Introduction%20of%20Research%20Papers.pdf>
     -   Example:
-        -   “The number of women running for political office has skyrocket since the introduction of gender quota laws and revisions were introduced to reduce the loopholes of the laws. The most recent election in Mexico during 2024 was the largest election in its history and saw the most women running for office. However, while the number of women entering political office is increasing, so is the level of criminal violence, especially against political leaders. The 2024 election was one of the most violent elections in recent history (Data Cívica, México Evalúa y Animal Político, 2024A). Yet, little research has examined the impact of criminal violence on the candidate selection process and how this impacts women, and as violence increases it is critical to analyze the relationship between criminal violence and candidate selection.” (Daarstad, N.D.)
-        -   “While previously polarization was primarily seen only in issue-based terms, a new type of division has emerged in the mass public in recent years: Ordinary Americans increasingly dislike and distrust those from the other party. Democrats and Republicans both say that the other party's members are hypocritical, selfish, and closed-minded, and they are unwilling to socialize across party lines. This phenomenon of animosity between the parties is known as affective polarization. We trace its origins to the power of partisanship as a social identity, and explain the factors that intensify partisan animus.” (Iyenger, et. al, 2019)
+        -   “The number of women running for political office has skyrocketed since the introduction of gender quota laws and revisions were introduced to reduce the loopholes of the laws. The most recent election in Mexico during 2024 was the largest election in its history and saw the most women running for office. However, while the number of women entering political office is increasing, so is the level of criminal violence, especially against political leaders. The 2024 election was one of the most violent elections in recent history (Data Cívica, México Evalúa y Animal Político, 2024A). Yet, little research has examined the impact of criminal violence on the candidate selection process and how this impacts women, and as violence increases it is critical to analyze the relationship between criminal violence and candidate selection.” (Daarstad, N.D.)
+        -   “While previously polarization was primarily seen only in issue-based terms, a new type of division has emerged in the mass public in recent years: Ordinary Americans increasingly dislike and distrust those from the other party. Democrats and Republicans both say that the other party's members are hypocritical, selfish, and closed-minded, and they are unwilling to socialize across party lines. This phenomenon of animosity between the parties is known as affective polarization. We trace its origins to the power of partisanship as a social identity, and explain the factors that intensify partisan animus.” (Iyengar et al., 2019)
 
 ### Section 2 - Literature Review
 
@@ -175,13 +175,13 @@ In this section, you will provide basic summary stats, visualizations, and a sim
 -   Visualization and summary statistics for the response variable.
 -   Simple Regression model
 
-### Section 6 - Conclusion (1 pages)
+### Section 6 - Conclusion (1 page)
 
 -   Tell me what you found, does it support your conclusions?
 
 ### Submission
 
-Submit as a word document on canvas.
+Submit as a Word document on Canvas.
 
 ### Project Draft grading
 
@@ -196,7 +196,7 @@ Submit as a word document on canvas.
 
 ## Peer review {#peer-review}
 
-Critically reviewing others' work is a crucial part of the scientific process. Each team will be assigned two other teams's projects to review. You will be randomly assigned two other team's drafts and will need to provide detailed comments by Wed. July 22
+Critically reviewing others' work is a crucial part of the scientific process. Each team will be assigned two other teams' projects to review. You will be randomly assigned two other teams' drafts and will need to provide detailed comments by Wed. July 22
 
 The peer review will be graded on the extent to which it comprehensively and constructively addresses the components of the partner team's report: the research context and motivation, exploratory data analysis, modeling, interpretations, and conclusions.
 
@@ -216,7 +216,7 @@ The peer review will be graded on the extent to which it comprehensively and con
 Spend \~30 mins to review each team's project.
 
 -   Find your team name on the **Reviewer 1** and **Reviewer 2** columns.
--   For each of the columns, find the name of the team to review in the **Team being reviewed** column. You will
+-   For each of the columns, find the name of the team to review in the **Team being reviewed** column.
 -   As a team you will submit the following document (1-2 pages)
     -   Peer review by: \[NAME OF TEAM DOING THE REVIEW\]
 
@@ -230,7 +230,7 @@ Spend \~30 mins to review each team's project.
 
     -   Provide constructive feedback on how the team might be able to improve their project. Make sure your feedback includes at least one comment on data summary and regression section of the project.
 
-    -   What aspect of this project are you most interested in and would like to see highlighted in the presentation.
+    -   What aspect of this project are you most interested in and would like to see highlighted in the presentation?
 
 ## Final Project Report {#written-report}
 
@@ -240,7 +240,7 @@ Your final project report must include the following files to be considered comp
 
     -   click here for the [template](files/project-template.qmd){download="project-template.qmd"}.
 
--   final_pres_team-name (in what ever format works for you!)
+-   final_pres_team-name (in whatever format works for you!)
 
 -   team_contributions_team-name.docx
 
@@ -250,7 +250,7 @@ Your final project report must include the following files to be considered comp
 
     -   The unrendered version of your project.
 
-**You will submit these files of your final report on canvas.**
+**You will submit these files of your final report on Canvas.**
 
 Each piece is worth the following points, broken down as follows
 
@@ -286,11 +286,11 @@ The lit review will be worth 10 points and needs to include the following:
 
     -   You need to cite a minimum of 5 academic articles
 
-        -   You will lose 1 points for every article below the minimum
+        -   You will lose 1 point for every article below the minimum
 
 -   You need to address the gap: where does your question settle in the literature? (5 points)
 
-    -   You do not need to provide a huge or original contribution, but what just think what does answering your question add that you think is missing?
+    -   You do not need to provide a huge or original contribution, but just think about what answering your question adds that you think is missing.
 
 #### Hypotheses (10 points) (1/2 page)
 
@@ -301,12 +301,12 @@ The lit review will be worth 10 points and needs to include the following:
 -   description of the observations in the data set,
 
     -   What is your independent variable? (3 points)
-        -   How was it measured? (1 points)
-        -   How was it collected? (1 points)
+        -   How was it measured? (1 point)
+        -   How was it collected? (1 point)
     -   What is your dependent variable? (3 points)
-        -   How was it measured? (1 points)
+        -   How was it measured? (1 point)
 
-        -   How was it collected? (1 points)
+        -   How was it collected? (1 point)
 
 #### Data Summary + Regression (50 points)
 
@@ -330,7 +330,7 @@ The lit review will be worth 10 points and needs to include the following:
 
         -   A table of these results
 
-    -   One mulitivariate regression model (10 points)
+    -   One multivariate regression model (10 points)
 
         -   One outcome, one independent variable, and controls (at least two)
 
@@ -359,7 +359,7 @@ The lit review will be worth 10 points and needs to include the following:
 
 ### Slides (25 points)
 
-The final report will include a pdf version of the teams presentation of the project. For more information on the format for the presentation got to [Presentation].
+The final report will include a pdf version of the team's presentation of the project. For more information on the format for the presentation go to [Presentation].
 
 This will be graded for completion, so if submitted completed full points will be awarded.
 
@@ -367,13 +367,13 @@ This will be graded for completion, so if submitted completed full points will b
 
 The final report will include a summarization of all the team contributions to the project. Each member is required to submit a paragraph on their contributions to the overall project.
 
-IMPORTANT: NO TEAM MEMEBER CAN BE SOLEY RESPONSIBLE FOR THE CODING
+IMPORTANT: NO TEAM MEMBER CAN BE SOLELY RESPONSIBLE FOR THE CODING
 
 This will be graded for completion, so if submitted completed full points will be awarded.
 
 ### Edit Report (25 points)
 
-The final report will include a summarization of all the edits team made to the final project. this should be about a page no more.
+The final report will include a summarization of all the edits team made to the final project. this should be about a page, no more.
 
 This will be graded for completion, so if submitted completed full points will be awarded.
 
@@ -381,15 +381,15 @@ This will be graded for completion, so if submitted completed full points will b
 
 The final report will include a reproducible document of your code, submit the `.qmd` file with the code
 
-This will be graded for completion and reproduceability, so if submitted completed and runs with no errors, full points will be awarded. If submitted completed and runs with errors are found, half points will be awarded.
+This will be graded for completion and reproducibility, so if submitted completed and runs with no errors, full points will be awarded. If submitted completed and runs with errors are found, half points will be awarded.
 
 ### Presentation
 
 ### Slides
 
-In addition to the written report, your team will required to create presentation and present in class to summarize and showcase your project. You will need to introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. The presentation should be around 10 - 12 minutes long. Every group member needs to speak at least once. If there is a complication with this, please come to me as soon as possible.
+In addition to the written report, your team will be required to create a presentation and present in class to summarize and showcase your project. You will need to introduce your research question and data set, showcase visualizations, and discuss the primary conclusions. The presentation should be around 10 - 12 minutes long. Every group member needs to speak at least once. If there is a complication with this, please come to me as soon as possible.
 
-**For submission, convert these slides to a .pdf document, and submit the `PDF` of the slides on canvas.**
+**For submission, convert these slides to a .pdf document, and submit the `PDF` of the slides on Canvas.**
 
 The slide deck should have no more than 6 content slides + 1 title slide. Here is a *suggested* outline as you think through the slides; you [**do not**]{.underline} have to use this exact format for the 6 slides.
 

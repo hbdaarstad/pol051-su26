@@ -1,6 +1,6 @@
 ---
 title: "Week 5"
-subtitle: "TBA"
+subtitle: "Hypothesis Testing, Prediction, and Natural Experiments"
 editor: visual
 ---
 
@@ -16,7 +16,7 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 13 - Hypothesis testing](slides/lec-13.html)
+🖥️ [Lecture 13 - Hypothesis testing](/slides/lec-13.html)
 
 🖥️ [Lecture 14 - Prediction](/slides/lec-14.html)
 

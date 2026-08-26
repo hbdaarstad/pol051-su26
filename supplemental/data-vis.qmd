@@ -4,7 +4,7 @@ execute:
   echo: false
 ---
 
-`ggplot2` is a package in r that is used for creating graphics. This package is found in the package `tidyverse.` To build a graph, you first need to tell r what information or data you want it to use in the function `ggplot()`.
+`ggplot2` is a package in R that is used for creating graphics. This package is found in the package `tidyverse.` To build a graph, you first need to tell r what information or data you want it to use in the function `ggplot()`.
 
 `ggplot(data)`
 
@@ -83,7 +83,7 @@ ggplot(data = vegas_gp, aes(x = quali_position, y = points, color = constructor)
         )
 ```
 
-Let's change the colors for the teams now. We can assign our own colors or we can make our own pallet.
+Let's change the colors for the teams now. We can assign our own colors or we can make our own palette.
 
 ```{r}
 f1_colors <- c(
@@ -234,7 +234,7 @@ McLarenStandings_2023 <- race_stats |>
 
 ## Histograms
 
-In `ggplot2` to build a histogram we put `geom_histogram()` and we only one numeric variable is needed in the input. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
+In `ggplot2`, to build a histogram we use `geom_histogram()`, and only one numeric variable is needed as input. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
 
 ```{r}
 #| echo: true
@@ -270,7 +270,7 @@ In a histogram, **bins** represent the intervals (or ranges) into which data poi
 
 ## Bar Plot
 
-Now, lets say we wanted to compare this across different categories, therefore instead we can use bar plots instead of histograms. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
+Now, let's say we wanted to compare this across different categories, therefore instead we can use bar plots instead of histograms. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, `final_position`, and save it as a new object called `McLarenStandings_2023.`
 
 ```{r}
 #| echo: true
@@ -335,7 +335,7 @@ ggplot(McLarenStandings_2023, aes(x = surname, y = final_position_numeric, fill 
 
 -   **`geom_boxplot()`**: Creates a boxplot to show the distribution of race positions.
 
-The **box and whiskey plot** represents the middle 50% of race finishes for each driver, while the **horizontal line inside the box** is the **median race position**, the **whiskers** show the range of most race finishes (excluding outliers), and any **dots outside the whiskers** indicate o**utliers**.
+The **box and whisker plot** represents the middle 50% of race finishes for each driver, while the **horizontal line inside the box** is the **median race position**, the **whiskers** show the range of most race finishes (excluding outliers), and any **dots outside the whiskers** indicate **outliers**.
 
 ## Class Examples
 

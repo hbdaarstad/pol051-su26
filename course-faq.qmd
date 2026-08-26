@@ -2,9 +2,9 @@
 title: "FAQ"
 ---
 
-## How do I download R and R Studio?
+## How do I download R and RStudio?
 
-R is freely maintained by an international team of developers and is available through *The Comprehensive R Archive Network*. Follow the instructions below to download R. If you are using an older computer or iPad, skip to **1.4 Using Posit Cloud for R**.
+R is freely maintained by an international team of developers and is available through *The Comprehensive R Archive Network*. Follow the instructions below to download R. If you are using an older computer or iPad, skip to **Using Posit Cloud for R** below.
 
 ### Downloading R
 
@@ -19,10 +19,10 @@ One way to picture what RStudio does is to compare it to Microsoft Word, a softw
 
 -   Go to the [Posit RStudio Desktop page](https://posit.co/download/rstudio-desktop/).
 -   To install for Mac:
-    -   Scroll to the button that says "Install R on a Mac," and click the “Download R for Mac OS 13+” link.
+    -   Scroll to the button that says "Install RStudio on a Mac," and click the “Download RStudio for Mac OS 13+” link.
     -   If you're using an older version, click the "Previous Versions" link to find a version that works with your computer.
 -   To install for Windows:
-    -   Scroll to the button that says "Install R on Windows 10/11," and click the link to download.
+    -   Scroll to the button that says "Install RStudio on Windows 10/11," and click the link to download.
 
 ### Using Posit Cloud for R
 
@@ -33,23 +33,23 @@ Posit Cloud is the most common cloud service used when working with RStudio and 
 -   First, choose the “Cloud Free” plan.
 -   Second, follow the Posit Cloud instructions to log in.
 -   Third, go to the "Tutorial" tab in the upper right corner, scroll to the bottom, and select “Getting Started with Tutorials,” then press the “Start Tutorial” button.
--   You will work in a singular RProject space for the majority of the class.
+-   You will work in a single RProject space for the majority of the class.
 
-## What is a quarto file?
+## What is a Quarto file?
 
-If you have ever used an Rmarkdown file before, Quarto the next generation version of this! Quarto files allow you to make pdf, word documents, presentations, and even websites. In this course you will be making a word document using a provided quarto file for your lab submissions.
+If you have ever used an Rmarkdown file before, Quarto is the next generation version of this! Quarto files allow you to make PDF, Word documents, presentations, and even websites. In this course you will be making a Word document using a provided Quarto file for your lab submissions.
 
 {{< video https://youtu.be/tDw3pTtLnp4?si=sUlkeADjr5aKTNyi >}}
 
 ## What is a file path?
 
-A file path is a unique "address" that tells your computer where to find certain information. For example, if you are looking for a document called Homework1.qmd in a folder on you desktop labeled POL 051, then the file path to find this document would be:
+A file path is a unique "address" that tells your computer where to find certain information. For example, if you are looking for a document called Homework1.qmd in a folder on your desktop labeled POL 051, then the file path to find this document would be:
 
 *\~/desktop/POL 051/Homework1.qmd*
 
 ### Mac File Path Setup
 
-Mac Books and Windows computer have different starts to their file paths, here is a macbook's setup:
+MacBooks and Windows computers have different starts to their file paths; here is a MacBook's setup:
 
 /Users/John/*desktop/POL 051/Homework1.qmd*
 
@@ -59,53 +59,13 @@ C:/Users/John/*desktop/POL 051/Homework1.qmd*
 
 ## What is a working directory?
 
-The working directory is the folder in your computer that you have set to save files to during your working session on R. Essentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder.
+The working directory is the folder on your computer that you have set to save files to during your working session in R. Essentially, you are telling your computer to save any new documents or updates to this specific folder, rather than maybe your downloads folder.
 
 It is important to keep all the files associated with a given project, such as data, scripts, analytical results, and figures, together. To do this we need to make a working directory.
 
-To create a new working directory in RStudio:
+For full step-by-step instructions on creating and setting a working directory (with code for both Mac and Windows), see the [Setting up a Working Directory](/supplemental/r-basics.html#setting-up-a-working-directory) section on the R Basics page.
 
-1.  Use **File → New Project** or use the **New Project** button (available on the Projects toolbar in the top right corner or on the global toolbar at the top left corner).
-2.  This will open the “New Project Wizard” popup.
-3.  Click "New Directory".
-
-To set the working directory, there are two possible ways, using code or using RStudio directly:
-
-#### Option 1: Using R Code
-
-```{r}
-#| eval: false
-#| include: true
-
-# Set working directory (replace this with your own)
-
-# Mac Users
-setwd("/Users/yourname/Desktop/filename/filename")
-# Windows Users
-setwd("C:/Users/YourName/Documents/MyFolder")
-
-```
-
-#### Option 2: Using RStudio Interface
-
-1.  On the top of the RStudio menu, click on **Session**.
-
-2.  Click **Set Working Directory**.
-
-3.  Then click **To Source File Location**.
-
-To check if the working directory is set correctly, use the following code:
-
-```{r}
-#| eval: false
-#| include: true
-
-# Returns the filepath of the current working directory
-getwd()
-
-```
-
-If you feel like this still ⤸
+If you still feel like this ⤸
 
 ![](/images/sergio%20perez.jpg){width="368"}
 

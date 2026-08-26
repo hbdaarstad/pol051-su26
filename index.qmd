@@ -1,6 +1,6 @@
 ---
 title: "POL 051: The Scientific Study of Politics"
-tbl-colwidths: [5,10,30,5,5,5,5,5,5,5]
+tbl-colwidths: [5,10,30,5,5,5,5,5,5]
 editor: source
 ---
 
@@ -17,13 +17,13 @@ This page contains an outline of the topics, content, and assignments for the su
 
 | Week | Date | Topic | Prepare | Slides | AE | Lab | Code Example | Project |
 |:--:|:--:|:---|:--:|:--:|:--:|:--:|:--:|:--:|
-| [1](/weeks/week-1.html) | Mon, June 22 | Lecture 1 - Meet + greet, Welcome to POL 051 | [📖](/weeks/week-1.html#prepare) | [🖥️](slides/lec-1.html) | [📋](/ae/files/ae-1-rbasics.qmd){download="ae-1-rbasics.qmd"} |  | [🧮](/supplemental/r-basics.html) | Teams created + list of project ideas 📂 |
+| [1](/weeks/week-1.html) | Mon, June 22 | Lecture 1 - Meet + greet; Welcome to POL 051 | [📖](/weeks/week-1.html#prepare) | [🖥️](slides/lec-1.html) | [📋](/ae/files/ae-1-rbasics.qmd){download="ae-1-rbasics.qmd"} |  | [🧮](/supplemental/r-basics.html) | Teams created + list of project ideas 📂 |
 |  | Tue, June 23 | Lecture 2 - Data Visualization I & II |  | [🖥️](slides/lec-2.html) |  |  | [🧮](/supplemental/data-vis.html) |  |
 |  | Wed, June 24 | Lecture 3 - Data Wrangling I |  | [🖥️](slides/lec-3.html) |  | |[🧮](/supplemental/data-wrangling.html)   |  |
 |  | Thu, June 25 | Lab 1 |  | |  | [💻](/labs/lab-1.qmd){download="lab-1.qmd"} | | |
 | [2](/weeks/week-2.html) | Mon, June 29 | Lecture 4 - Data Wrangling II | [📖](/weeks/week-2.html#prepare) | [🖥️](slides/lec-4.html) |  | |[🧮](/supplemental/data-wrangling.html) |  |
 |  | Tue, June 30 | Lecture 5 - Relationships I |  | [🖥️](slides/lec-5.html) |  |  |  [🧮](/supplemental/data-wrangling.html) |  |
-|  | Wed, July 1 | Lecture 6 - Relationships II |  | [🖥️](slides/lec-6.html) |[📋](/ae/files/ae-2-relationships.qmd){download="ae-2-relationships.qmd"} |  |  |Chosen Topic is Due June 28 📂  |
+|  | Wed, July 1 | Lecture 6 - Relationships II |  | [🖥️](slides/lec-6.html) |[📋](/ae/files/ae-2-relationships.qmd){download="ae-2-relationships.qmd"} |  |  |Chosen Topic is Due July 1 📂  |
 |  | Thu, July 2 | Lab 2 |  |  |  | [💻](/labs/lab-2.qmd){download="lab-2.qmd"} |  |  |
 | [3](/weeks/week-3.html) | Mon, July 6 | Lecture 7 - Modeling I | [📖](/weeks/week-3.html#prepare) | [🖥️](slides/lec-7.html) |  |  | [🧮](/supplemental/data-gen.html)  |  |
 |  | Tue, July 7 | Lecture 8 - Modeling II |  | [🖥️](slides/lec-8.html) |  |  |  [🧮](/supplemental/models.html)  |  |

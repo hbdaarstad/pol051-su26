@@ -14,7 +14,7 @@ Before selecting a data set I recommend reading this: <https://www.icpsr.umich.e
 
 ### UN Data (2000-2025)
 
-UN Data (2000-2025) includes various measures by country per year such as population, education, women in government, CO2 admissions.
+UN Data (2000-2025) includes various measures by country per year such as population, education, women in government, CO2 emissions.
 
 -   Download [CSV](data/01_data/un_data.csv){download="un_data.csv"}
 
@@ -24,7 +24,7 @@ Data collected from: UN Data (https://data.un.org)
 
 ### ANES (1948 - 2024)
 
-American National Election Survey includes responses from individuals in the US on various feeling thermamaters for parties and social groups and includes demographic questions.
+American National Election Studies includes responses from individuals in the US on various feeling thermometers for parties and social groups and includes demographic questions.
 
 -   Download [CSV](data/01_data/anes.csv){download="anes.csv"}
 

@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://r4ds.hadley.nz/">
-            R for Data Sceince
+            R for Data Science
             </a>
           </li>
           <li>
@@ -372,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><code>ggplot2</code> is a package in r that is used for creating graphics. This package is found in the package <code>tidyverse.</code> To build a graph, you first need to tell r what information or data you want it to use in the function <code>ggplot()</code>.</p>
+<p><code>ggplot2</code> is a package in R that is used for creating graphics. This package is found in the package <code>tidyverse.</code> To build a graph, you first need to tell r what information or data you want it to use in the function <code>ggplot()</code>.</p>
 <p><code>ggplot(data)</code></p>
 <p>Next, you need to tell it what aesthetics you want it to use, which includes what x and y variables.</p>
 <p><code>ggplot(data, aes(x, y)</code></p>
@@ -387,10 +387,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.1     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.2
-✔ ggplot2   4.0.3     ✔ tibble    3.3.0
-✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
 ✔ purrr     1.2.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -466,7 +466,7 @@ Note
 </div>
 </div>
 </div>
-<p>Let’s change the colors for the teams now. We can assign our own colors or we can make our own pallet.</p>
+<p>Let’s change the colors for the teams now. We can assign our own colors or we can make our own palette.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -555,7 +555,7 @@ Caution
 </section>
 <section id="histograms" class="level2">
 <h2 class="anchored" data-anchor-id="histograms">Histograms</h2>
-<p>In <code>ggplot2</code> to build a histogram we put <code>geom_histogram()</code> and we only one numeric variable is needed in the input. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, <code>final_position</code>, and save it as a new object called <code>McLarenStandings_2023.</code></p>
+<p>In <code>ggplot2</code>, to build a histogram we use <code>geom_histogram()</code>, and only one numeric variable is needed as input. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, <code>final_position</code>, and save it as a new object called <code>McLarenStandings_2023.</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>McLarenStandings_2023 <span class="ot">&lt;-</span> McLarenStandings_2023 <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">final_position_numeric =</span> <span class="fu">ifelse</span>(final_position <span class="sc">==</span> <span class="st">"DNF"</span>, <span class="dv">0</span>, <span class="fu">as.numeric</span>(final_position)))</span>
@@ -588,7 +588,7 @@ Caution
 </section>
 <section id="bar-plot" class="level2">
 <h2 class="anchored" data-anchor-id="bar-plot">Bar Plot</h2>
-<p>Now, lets say we wanted to compare this across different categories, therefore instead we can use bar plots instead of histograms. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, <code>final_position</code>, and save it as a new object called <code>McLarenStandings_2023.</code></p>
+<p>Now, let’s say we wanted to compare this across different categories, therefore instead we can use bar plots instead of histograms. In the following example, we will look at the distribution of the final positions of the McLaren 2023 season for both of their drivers. To set up this histogram, I construct a new variable called, <code>final_position</code>, and save it as a new object called <code>McLarenStandings_2023.</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize mean race positions by driver</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>barplot <span class="ot">&lt;-</span> McLarenStandings_2023 <span class="sc">|&gt;</span></span>
@@ -657,7 +657,7 @@ Caution
 </ul></li>
 <li><p><strong><code>geom_boxplot()</code></strong>: Creates a boxplot to show the distribution of race positions.</p></li>
 </ul>
-<p>The <strong>box and whiskey plot</strong> represents the middle 50% of race finishes for each driver, while the <strong>horizontal line inside the box</strong> is the <strong>median race position</strong>, the <strong>whiskers</strong> show the range of most race finishes (excluding outliers), and any <strong>dots outside the whiskers</strong> indicate o<strong>utliers</strong>.</p>
+<p>The <strong>box and whisker plot</strong> represents the middle 50% of race finishes for each driver, while the <strong>horizontal line inside the box</strong> is the <strong>median race position</strong>, the <strong>whiskers</strong> show the range of most race finishes (excluding outliers), and any <strong>dots outside the whiskers</strong> indicate <strong>outliers</strong>.</p>
 </section>
 <section id="class-examples" class="level2">
 <h2 class="anchored" data-anchor-id="class-examples">Class Examples</h2>

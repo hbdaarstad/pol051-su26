@@ -43,7 +43,7 @@ website:
       - icon: book
         text: "Course books"
         menu:
-          - text: R for Data Sceince
+          - text: R for Data Science
             url: https://r4ds.hadley.nz/
           - text: ModernDive
             url: https://moderndive.com/v2/index.html

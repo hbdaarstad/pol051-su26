@@ -2,13 +2,13 @@
 title: "R Basics"
 ---
 
-R is a coding language language and environment built for statistical computing and graphics that includes a large variety in statistical and graphical techniques.
+R is a coding language and environment built for statistical computing and graphics that includes a large variety of statistical and graphical techniques.
 
 Essentially, R gives us as political scientists an effective way to store and handle data, and a large selection of data analysis tools including graphing tools in a coherent and effective language.
 
-R has its own "enviornment," an area for us to write the code and see outputs, but the majority of users will use Rstudio and IDE or integrated development environment.
+R has its own "environment," an area for us to write the code and see outputs, but the majority of users will use RStudio, an IDE, or integrated development environment.
 
-Rstudio is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location. Furthermore, in order to use R and Rstudio you will need to download both.
+RStudio is a software application with a code editor, compiler, debugger, and project manager in a single interface that allows us to write, edit, compile, and debug code in a singular location. Furthermore, in order to use R and RStudio you will need to download both.
 
 There are four primary quadrants in RStudio:
 
@@ -95,7 +95,7 @@ R at its core is a gigantic calculator, so let's practice doing basic calculatio
 # subtraction
 10 - 2
 
-# multipilication
+# multiplication
 10 * 2
 
 # division
@@ -133,7 +133,7 @@ In R, we save our data in what we call objects! Objects store information about 
 
 ```{r}
 
-# The <- saves the caculation as math
+# The <- saves the calculation as math
 math <- 10 + 2
 #print()
 print(math)
@@ -142,7 +142,7 @@ print(math)
 
 ```{r}
 
-# The = saves the caculation as math
+# The = saves the calculation as math
 math = 10 + 2
 # print() will print out what is saved in the object math
 print(math)
@@ -168,7 +168,7 @@ print(class(logical2))
 
 ```
 
-**Numeric** represents all data types that are real numbers with or with out decimal points.
+**Numeric** represents all data types that are real numbers with or without decimal points.
 
 ```{r}
 

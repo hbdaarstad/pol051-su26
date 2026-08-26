@@ -1,5 +1,5 @@
 ---
-title: "Extra Materials: Sampling, Bootstraping, and Prediction"
+title: "Extra Materials: Sampling, Bootstrapping, and Prediction"
 ---
 
 ```{r, echo = TRUE}
@@ -40,7 +40,7 @@ source(here::here("slides/R", "funcs.R"))
 
 ## Sampling in R
 
-Now imagine that instead of having data on every American, we only have a **sample** of 10 Americans. Why do we have a sample? Because interviewing every American is prohibitively costly. Same way a poll works: a **sample** to *estimate* American public opinion
+Now imagine that instead of having data on every American, we only have a **sample** of 10 Americans. Why do we have a sample? Because interviewing every American is prohibitively costly. The same way a poll works: a **sample** is used to *estimate* American public opinion.
 
 We can pick one sample of 10 people from `gss_sm` using the `rep_sample_n()` function from `moderndive`:
 
@@ -52,7 +52,7 @@ gss_sm %>% rep_sample_n(size = 10, reps = 1)
 `size` = size of the sample; `reps` = number of samples
 :::
 
-We can then calculate the average number of kids *among that sample of 10 people*
+We can then calculate the average number of kids *among that sample of 10 people*.
 
 ```{r, echo = TRUE}
 gss_sm %>% rep_sample_n(size = 10, reps = 1) %>% 
@@ -148,7 +148,7 @@ ggplot(boot_data, aes(x = avg)) +
 ```
 
 
-## Bootstraping Regression
+## Bootstrapping Regression
 
 We can simulate uncertainty in our estimate by bootstrapping
 
@@ -176,9 +176,9 @@ boot_lm_kids %>%
             standard_error = sd(estimate))
 ```
 
-You might report it is .0345, +/- 2 standard errors
+You might report it as .0345, +/- 2 standard errors.
 
-We can also look at the 95% confidence interval -- we are 95% "confident" the effect of age on the number of children a person has is `lm()` will estimate the standard error of regression estimates for us using the **statistical theory** approach, but the results are similar to **boostrapping**
+We can also look at the 95% confidence interval -- we are 95% "confident" that the true effect of age on the number of children a person has falls within this range. `lm()` will estimate the standard error of regression estimates for us using the **statistical theory** approach, but the results are similar to **bootstrapping**.
 
 ```{r, echo = TRUE}
 mod = lm(obama ~ sex, data = gss_sm)
@@ -201,13 +201,13 @@ tidy(mod, conf.int = TRUE)
 weight_model = lm(mpg ~ wt, data = mtcars)
 ```
 
-The equation for model is:
+The equation for the model is:
 
 $\widehat{mpg} = 37.29 - 5.34(wt)$
 
 We only have one explanatory variable to work with (`wt`), so our scenario can only rely on weight
 
-**Scenario**: a car that weights 3.25 tons $\rightarrow$ what fuel efficiency should we expect?
+**Scenario**: a car that weighs 3.25 tons $\rightarrow$ what fuel efficiency should we expect?
 
 To get an estimate of `mpg`, we simply plug in the value of "weight" we are interested in:
 
@@ -234,7 +234,7 @@ We can then combine our scenario with our model using `augment()`
 augment(weight_model, newdata = weight_scenario)
 ```
 
-`augment` takes the values for our scenario and plugs them in to our model equation to get an estimate
+`augment` takes the values for our scenario and plugs them into our model equation to get an estimate
 
 ::: callout-note
 We tell `augment` what our new scenario is using the `newdata =` argument
@@ -275,7 +275,7 @@ augment(weight_model, newdata = seq_weights)
 ```
 
 
-## Muiltiple Regression
+## Multiple Regression
 
 ```{r, echo = TRUE}
 

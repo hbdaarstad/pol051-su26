@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Extra Materials: Sampling, Bootstraping, and Prediction – POL 051 - Summer 2026</title>
+<title>Extra Materials: Sampling, Bootstrapping, and Prediction – POL 051 - Summer 2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="Extra Materials: Sampling, Bootstraping, and Prediction – POL 051 - Summer 2026">
+<meta property="og:title" content="Extra Materials: Sampling, Bootstrapping, and Prediction – POL 051 - Summer 2026">
 <meta property="og:description" content="Homepage for POL 051 - The Scientific Study of Politics at UC Davis, Summer 2026.">
 <meta property="og:image" content="http://haleydaarstad.com/pol051-su26/supplemental/hypothesis-tests_files/figure-html/unnamed-chunk-11-1.png">
 <meta property="og:site_name" content="POL 051 - Summer 2026">
@@ -175,7 +175,7 @@ window.Quarto = {
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://r4ds.hadley.nz/">
-            R for Data Sceince
+            R for Data Science
             </a>
           </li>
           <li>
@@ -365,11 +365,11 @@ window.Quarto = {
   <li><a href="#sampling-in-r" id="toc-sampling-in-r" class="nav-link active" data-scroll-target="#sampling-in-r">Sampling in R</a></li>
   <li><a href="#how-to-simulate" id="toc-how-to-simulate" class="nav-link" data-scroll-target="#how-to-simulate">How to simulate</a></li>
   <li><a href="#sampling-with-and-without-replacement" id="toc-sampling-with-and-without-replacement" class="nav-link" data-scroll-target="#sampling-with-and-without-replacement">Sampling with and without replacement</a></li>
-  <li><a href="#bootstraping-regression" id="toc-bootstraping-regression" class="nav-link" data-scroll-target="#bootstraping-regression">Bootstraping Regression</a></li>
+  <li><a href="#bootstrapping-regression" id="toc-bootstrapping-regression" class="nav-link" data-scroll-target="#bootstrapping-regression">Bootstrapping Regression</a></li>
   <li><a href="#prediction-by-hand" id="toc-prediction-by-hand" class="nav-link" data-scroll-target="#prediction-by-hand">Prediction (by hand)</a></li>
   <li><a href="#prediction-in-r" id="toc-prediction-in-r" class="nav-link" data-scroll-target="#prediction-in-r">Prediction (in R)</a></li>
   <li><a href="#sequence-of-scenarios" id="toc-sequence-of-scenarios" class="nav-link" data-scroll-target="#sequence-of-scenarios">Sequence of scenarios</a></li>
-  <li><a href="#muiltiple-regression" id="toc-muiltiple-regression" class="nav-link" data-scroll-target="#muiltiple-regression">Muiltiple Regression</a></li>
+  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link" data-scroll-target="#multiple-regression">Multiple Regression</a></li>
   <li><a href="#visualizing-predictions" id="toc-visualizing-predictions" class="nav-link" data-scroll-target="#visualizing-predictions">Visualizing predictions</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="http://haleydaarstad.com/pol051-su26/edit/main/supplemental/hypothesis-tests.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="http://haleydaarstad.com/pol051-su26/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -379,7 +379,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../supplemental/r-basics.html">Code Examples</a></li><li class="breadcrumb-item"><a href="../supplemental/hypothesis-tests.html">Extra Materials</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Extra Materials: Sampling, Bootstraping, and Prediction</h1>
+<h1 class="title">Extra Materials: Sampling, Bootstrapping, and Prediction</h1>
 </div>
 
 
@@ -408,7 +408,7 @@ window.Quarto = {
 </div>
 <section id="sampling-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="sampling-in-r">Sampling in R</h2>
-<p>Now imagine that instead of having data on every American, we only have a <strong>sample</strong> of 10 Americans. Why do we have a sample? Because interviewing every American is prohibitively costly. Same way a poll works: a <strong>sample</strong> to <em>estimate</em> American public opinion</p>
+<p>Now imagine that instead of having data on every American, we only have a <strong>sample</strong> of 10 Americans. Why do we have a sample? Because interviewing every American is prohibitively costly. The same way a poll works: a <strong>sample</strong> is used to <em>estimate</em> American public opinion.</p>
 <p>We can pick one sample of 10 people from <code>gss_sm</code> using the <code>rep_sample_n()</code> function from <code>moderndive</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gss_sm <span class="sc">%&gt;%</span> <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">reps =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -417,16 +417,16 @@ window.Quarto = {
 # Groups:   replicate [1]
    replicate  year    id ballot       age childs sibs  degree race  sex   region
        &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;labelled&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;lab&gt; &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt; &lt;fct&gt; 
- 1         1  2016   846 2             23      0 6     Junio… Black Fema… E. No…
- 2         1  2016  2601 3             30      2 3     Junio… White Fema… W. So…
- 3         1  2016  2156 1             29      2 6     High … White Fema… E. No…
- 4         1  2016   199 1             22      0 3     Junio… White Male  Pacif…
- 5         1  2016   591 1             76      3 2     Bache… White Male  W. So…
- 6         1  2016   775 3             57      3 4     High … Black Male  South…
- 7         1  2016    31 2             32      0 2     High … White Male  Middl…
- 8         1  2016  2589 3             33      2 2     High … White Fema… W. So…
- 9         1  2016  1221 3             55      1 5     Junio… Other Fema… Middl…
-10         1  2016   301 1             23      1 7     High … Black Fema… E. No…
+ 1         1  2016  2409 2             66      7 11    High … Black Fema… Pacif…
+ 2         1  2016  2610 2             47      4  1    High … White Fema… W. So…
+ 3         1  2016   512 1             68      2  2    Bache… White Fema… New E…
+ 4         1  2016  1097 3             39      0  1    High … White Male  W. No…
+ 5         1  2016  1917 1             47      0  2    Gradu… Black Fema… E. So…
+ 6         1  2016   241 2             37      5  2    High … Other Male  Pacif…
+ 7         1  2016  1458 3             30      0  2    High … White Fema… Mount…
+ 8         1  2016  1085 1             39      1  3    Lt Hi… White Male  W. No…
+ 9         1  2016  1557 3             64      0  1    High … White Fema… Middl…
+10         1  2016   316 2             66      4  2    High … White Male  E. No…
 # ℹ 22 more variables: income16 &lt;fct&gt;, relig &lt;fct&gt;, marital &lt;fct&gt;, padeg &lt;fct&gt;,
 #   madeg &lt;fct&gt;, partyid &lt;fct&gt;, polviews &lt;fct&gt;, happy &lt;fct&gt;, partners &lt;fct&gt;,
 #   grass &lt;fct&gt;, zodiac &lt;fct&gt;, pres12 &lt;labelled&gt;, wtssall &lt;dbl&gt;,
@@ -447,7 +447,7 @@ Note
 <p><code>size</code> = size of the sample; <code>reps</code> = number of samples</p>
 </div>
 </div>
-<p>We can then calculate the average number of kids <em>among that sample of 10 people</em></p>
+<p>We can then calculate the average number of kids <em>among that sample of 10 people</em>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gss_sm <span class="sc">%&gt;%</span> <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">reps =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_kids =</span> <span class="fu">mean</span>(childs, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -455,7 +455,7 @@ Note
 <pre><code># A tibble: 1 × 2
   replicate avg_kids
       &lt;int&gt;    &lt;dbl&gt;
-1         1      1.4</code></pre>
+1         1      1.8</code></pre>
 </div>
 </div>
 <p>This is our <strong>sample estimate</strong> of the <strong>population parameter</strong>.</p>
@@ -566,8 +566,8 @@ Note
 </div>
 </div>
 </section>
-<section id="bootstraping-regression" class="level2">
-<h2 class="anchored" data-anchor-id="bootstraping-regression">Bootstraping Regression</h2>
+<section id="bootstrapping-regression" class="level2">
+<h2 class="anchored" data-anchor-id="bootstrapping-regression">Bootstrapping Regression</h2>
 <p>We can simulate uncertainty in our estimate by bootstrapping</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>boot_lm_kids <span class="ot">=</span> gss_sm <span class="sc">%&gt;%</span> </span>
@@ -656,8 +656,8 @@ Note
 1 0.0346        0.00165</code></pre>
 </div>
 </div>
-<p>You might report it is .0345, +/- 2 standard errors</p>
-<p>We can also look at the 95% confidence interval – we are 95% “confident” the effect of age on the number of children a person has is <code>lm()</code> will estimate the standard error of regression estimates for us using the <strong>statistical theory</strong> approach, but the results are similar to <strong>boostrapping</strong></p>
+<p>You might report it as .0345, +/- 2 standard errors.</p>
+<p>We can also look at the 95% confidence interval – we are 95% “confident” that the true effect of age on the number of children a person has falls within this range. <code>lm()</code> will estimate the standard error of regression estimates for us using the <strong>statistical theory</strong> approach, but the results are similar to <strong>bootstrapping</strong>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">=</span> <span class="fu">lm</span>(obama <span class="sc">~</span> sex, <span class="at">data =</span> gss_sm)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -687,10 +687,10 @@ Note
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>weight_model <span class="ot">=</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt, <span class="at">data =</span> mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The equation for model is:</p>
+<p>The equation for the model is:</p>
 <p><span class="math inline">\(\widehat{mpg} = 37.29 - 5.34(wt)\)</span></p>
 <p>We only have one explanatory variable to work with (<code>wt</code>), so our scenario can only rely on weight</p>
-<p><strong>Scenario</strong>: a car that weights 3.25 tons <span class="math inline">\(\rightarrow\)</span> what fuel efficiency should we expect?</p>
+<p><strong>Scenario</strong>: a car that weighs 3.25 tons <span class="math inline">\(\rightarrow\)</span> what fuel efficiency should we expect?</p>
 <p>To get an estimate of <code>mpg</code>, we simply plug in the value of “weight” we are interested in:</p>
 <p>Estimate for weight = <span class="red">3.25</span></p>
 <p><span class="math inline">\(\widehat{mpg} = 37.29 - 5.34 \times \color{red}{3.25} = 19.935\)</span></p>
@@ -731,7 +731,7 @@ Note
 1  3.25    19.9</code></pre>
 </div>
 </div>
-<p><code>augment</code> takes the values for our scenario and plugs them in to our model equation to get an estimate</p>
+<p><code>augment</code> takes the values for our scenario and plugs them into our model equation to get an estimate</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -829,8 +829,8 @@ Note
 </div>
 </div>
 </section>
-<section id="muiltiple-regression" class="level2">
-<h2 class="anchored" data-anchor-id="muiltiple-regression">Muiltiple Regression</h2>
+<section id="multiple-regression" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-regression">Multiple Regression</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>big_model <span class="ot">=</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> cyl <span class="sc">+</span> hp <span class="sc">+</span> am, <span class="at">data =</span> mtcars)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>

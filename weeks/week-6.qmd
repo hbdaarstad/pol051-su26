@@ -1,6 +1,6 @@
 ---
 title: "Week 6"
-subtitle: "Experiments v Natural Experiments"
+subtitle: "Final Presentations"
 editor: visual
 ---
 

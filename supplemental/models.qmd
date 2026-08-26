@@ -10,7 +10,7 @@ Linear regression is the most commonly used approach for modeling
 
 -   It involves a numerical outcome variable, y, and explanatory variables, x, that are either numerical or categorical.
 
--   We assume the relationship between X and Y is linear (a line) Useful for prediction and explanation.
+-   We assume the relationship between X and Y is linear (a line). Useful for prediction and explanation.
 
 $$
 Y_i = \alpha + \beta X + u_i
@@ -22,38 +22,38 @@ $$
 \hat Y_i = \hat\alpha + \hat\beta X + \hat u_i
 $$
 
-The hat (\^) are indicators of a sample data not the true population estimate.
+The hat (\^) is an indicator of sample data, not the true population estimate.
 
 -   Y: dependent, outcome variable
 
 -   X: independent, explanatory variable
 
--   𝜶  and β: are the parameter estimates
+-   α and β: are the parameter estimates
 
-    -   𝜶 : The predicted value of Y when X= 0 (intercept)
+    -   α : The predicted value of Y when X= 0 (intercept)
 
     -   β: how much Y changes for a one-unit increase in X (slope)
 
-We use linear regressions to estimate how x changes are y! Therefore, how we interpret the estimate, β, is determined by whether our x value is a categorical or continuous variable.
+We use linear regressions to estimate how x changes y! Therefore, how we interpret the estimate, β, is determined by whether our x value is a categorical or continuous variable.
 
-Here is the formula to Interpreting Regressions:
+Here is the formula for interpreting regressions:
 
 -   Continuous Variable -\> Look at the slope!
 
-    -   When X increases 1 unit, Y increases by 𝛽
+    -   When X increases 1 unit, Y increases by β
 
-    -   Usually, you can ignore the intercept The intercept is the average value of Y when X =0.
+    -   Usually, you can ignore the intercept. The intercept is the average value of Y when X = 0.
 
 -   Dummy/Categorical Variable -\> Compare it with the baseline category (aka intercept)
 
-    -   When X is in the given category, average Y value is higher by 𝛽 compared to the average Y value for baseline X.
+    -   When X is in the given category, average Y value is higher by β compared to the average Y value for baseline X.
 
     -   The intercept is the average Y value for the baseline category.
 
-| Type | Approach | Interpetation |
+| Type | Approach | Interpretation |
 |------------------------|------------------------|------------------------|
-| Continious | A one unit increase in X, SLOPE unit change in Y. | For every \_\_\_ (replace with unit value) increase in \_\_\_ (replace with X value) results in \_\_\_ (replace with estimate/slope) unit change in \_\_\_ (replace with Y, or outcome value) |
-| Categorical | The category is SLOPE unites higher/lower than the intercept. | The \_\_\_ (replace with categorical value) is \_\_\_ (replace with estimate/slope) higher/lower than \_\_\_ (replace with baseline/intercept) |
+| Continuous | A one unit increase in X, SLOPE unit change in Y. | For every \_\_\_ (replace with unit value) increase in \_\_\_ (replace with X value) results in \_\_\_ (replace with estimate/slope) unit change in \_\_\_ (replace with Y, or outcome value) |
+| Categorical | The category is SLOPE units higher/lower than the intercept. | The \_\_\_ (replace with categorical value) is \_\_\_ (replace with estimate/slope) higher/lower than \_\_\_ (replace with baseline/intercept) |
 
 The function to calculate this in R is: `lm()`
 
@@ -83,13 +83,13 @@ data <- data.frame(
 head(data)
 ```
 
-First, we will doing a simple linear regression with only one X value. Y is our outcome variable and X is our explantory variable. it will look like the following:
+First, we will do a simple linear regression with only one X value. Y is our outcome variable and X is our explanatory variable. It will look like the following:
 
 `lm(y ~ x, data)`
 
 ```{r}
 
-# categorical interpetation
+# categorical interpretation
 model1 <- lm(height ~ gender, data)
 
 summary(model1)
@@ -98,13 +98,13 @@ summary(model1)
 
 Our estimate, how much x changes y, is **-0.17**, and our baseline, Male's height, is **5.51** feet, which we can interpret as the following:
 
-Men are on average **5.51** feet high, and women are on average **0.17 feet shorter** than Men.
+Men are on average **5.51** feet tall, and women are on average **0.17 feet shorter** than men.
 
 However, we can not say according to our data that gender is correlated with height, since according to our P-value column, our **p-value is 0.228**, which is more than 0.05.
 
 ```{r}
 
-# continious interpetation
+# continuous interpretation
 model2 <- lm(income ~ age, data)
 
 summary(model2)
@@ -115,21 +115,21 @@ We want to look at the column with the estimate first, this tells us our interce
 
 Our estimate, how much x changes y, is **1045.02**, and our intercept is **34,967.79**, which we can interpret as the following:
 
-At 18 years old (which is the lowest age we have), income is **34,967.79**, and for every year older, an individuals income increases by **1045.02** dollars.
+At 18 years old (which is the lowest age we have), income is **34,967.79**, and for every year older, an individual's income increases by **1045.02** dollars.
 
-In additon, we can say according to our data that age is correlated with income, since according to our P-value column, our **p-value is \<2e-16**, which is less than 0.05.
+In addition, we can say according to our data that age is correlated with income, since according to our P-value column, our **p-value is \<2e-16**, which is less than 0.05.
 
-In addition you can see \*\*\* after our p-value, this tells us the level of significance, the more stars the stronger the significance.
+In addition, you can see \*\*\* after our p-value; this tells us the level of significance — the more stars, the stronger the significance.
 
 ### Multivariate Linear Regressions
 
-Now, we have just been looking at one explanatory variable, however, you may want to look are more than one and also consider that there maybe outside influence that you need to control for.
+Now, we have just been looking at one explanatory variable, however, you may want to look at more than one and also consider that there may be outside influence that you need to control for.
 
 Furthermore, you may want to add more x variables. To do this, you can do the following:
 
 `lm(y ~ x1 + x2 + x3 + ... + xn , data)`
 
-Now, lets look at an example, but first, lets make some random generated data real quick!
+Now, let's look at an example, but first, let's make some randomly generated data real quick!
 
 ```{r}
 
@@ -138,10 +138,10 @@ Now, lets look at an example, but first, lets make some random generated data re
 # This will be our confounding variable
 weekly_exercise <- rnorm(100,5,2)
 
-# lets make our new dataframe
+# let's make our new dataframe
 df_confound <- tibble(income_scale = (rnorm(100,30000,10000) + 10000*weekly_exercise)/1000,
                       age = rnorm(100,35,10),
-                      # this is another function that creats a binary variable based on probability 
+                      # this is another function that creates a binary variable based on probability 
                       female = rbinom(100,1,.5),
                       heart_health = 60 + 10*weekly_exercise - 1*age + 8*female + rnorm(100,0,10))
 
@@ -156,7 +156,7 @@ df_confound |>
 
 ```
 
-Okay! There is something wrong with this model yes? We know income scale doesn't actually impact heart health, rather this is done through weekly exercise! To take this into account we can do the following:
+Okay! There is something wrong with this model, yes? We know income scale doesn't actually impact heart health; rather, this is done through weekly exercise! To take this into account we can do the following:
 
 ```{r}
 
@@ -166,7 +166,7 @@ summary(model.fix)
 df_confound |>
   ggplot(aes(x=weekly_exercise,y = heart_health)) + 
   geom_point()+
-  # lets add a line based on using a linear regression
+  # let's add a line based on using a linear regression
   geom_smooth(method ="lm")
 
 ```

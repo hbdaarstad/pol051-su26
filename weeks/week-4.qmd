@@ -16,7 +16,7 @@ editor: visual
 
 ## Lectures
 
-🖥️ [Lecture 10 -Causality II](/slides/lec-10.html)
+🖥️ [Lecture 10 - Causality II](/slides/lec-10.html)
 
 🖥️ [Lecture 11 - DAGs](/slides/lec-11.html)
 
